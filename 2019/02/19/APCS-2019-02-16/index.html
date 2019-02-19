@@ -131,7 +131,7 @@
 <meta property="og:locale" content="en">
 <meta property="og:image" content="http://samuel21119.github.io/2019/02/19/APCS-2019-02-16/1.png">
 <meta property="og:image" content="http://samuel21119.github.io/2019/02/19/APCS-2019-02-16/2.png">
-<meta property="og:updated_time" content="2019-02-19T04:43:21.534Z">
+<meta property="og:updated_time" content="2019-02-19T04:44:18.805Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="APCS. 2019&#x2F;02&#x2F;16">
 <meta name="twitter:description" content="pA~pC詳解之後會補上">
@@ -427,7 +427,7 @@
 <a id="more"></a></p>
 <h1 id="pD"><a href="#pD" class="headerlink" title="pD"></a>pD</h1><h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>給定$n(1&lt;n&lt;2*10^5)$，及長度為$n$的陣列<code>a</code>和<code>b</code>$(0 \le a[i], b[i] \le 10^7)$。<br>$S(i)=i-max(j)-1 使得 a[i]+b[i]&lt;a[j] 且 j&lt;i (若j不存在，則j=0)$。<br>求$\sum_{i=1}^n S(i)$為何。</p>
 <h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><p>從前面做到後面，假設當前index為$i$，則可以刪掉一些在$i$之前「不可能為答案」的數字。<br>這樣講解有點抽象，從下面的圖片比較容易懂：<br><img src="1.png" alt="">
-考慮$a[1]~a[5]$，可以發現$a[2]和a[4]$不可能為答案，因為$a[5]$比這兩個數字都還大。<br>所以可以把灰色部分砍掉，維護一個「遞減陣列」。<br><img src="2.png" alt="">
+考慮$a[1]\text{~}a[5]$，可以發現$a[2]和a[4]$不可能為答案，因為$a[5]$比這兩個數字都還大。<br>所以可以把灰色部分砍掉，維護一個「遞減陣列」。<br><img src="2.png" alt="">
 而有了這個遞減陣列，就可以利用$a[6]+b[6]$去二分搜，找出最大的j滿足條件。  </p>
 <p>不過到這裡還沒完，假設$S(i)$算完了，那應該要想辦法把$a[i]$加入該陣列。對於一個現成的遞減陣列，要怎麼加入新的元素？<br>一直檢查該陣列的後面，如果小於$a[i]$，則pop掉，否則就把$a[i]$加到最後面即可。  </p>
 <p>時間複雜度：$O(nlogn)$</p>
