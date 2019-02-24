@@ -132,7 +132,7 @@
 <meta property="og:image" content="http://samuel21119.github.io/2019/02/24/Convert-Physical-OS-to-Virtual-Machine/1.png">
 <meta property="og:image" content="http://samuel21119.github.io/2019/02/24/Convert-Physical-OS-to-Virtual-Machine/2.png">
 <meta property="og:image" content="http://samuel21119.github.io/2019/02/24/Convert-Physical-OS-to-Virtual-Machine/3.png">
-<meta property="og:updated_time" content="2019-02-24T15:15:50.252Z">
+<meta property="og:updated_time" content="2019-02-24T15:16:16.471Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Convert Physical OS to Virtual Machine">
 <meta name="twitter:description" content="以下將以Arch Linux做示範。 如果以「migrate physical machine to virtualbox」之類的詞當作關鍵字去Google，會發現網路上的做法都是請你使用Virtual Box的指令來達成目的：   # VBoxManage internalcommands createrawvmdk -filename &amp;lt;path-to-file&amp;gt;.vmdk -ra">
@@ -453,7 +453,7 @@
 <p>可是在我的電腦上，當我執行此指令時會發生悲劇：</p>
 <pre><code>VBoxManage: error: Cannot open the raw disk &apos;/dev/disk0&apos;: VERR_ACCESS_DENIED
 VBoxManage: error: The raw disk vmdk file was not created
-</code></pre><p>詳細原因我不太清楚，網路上有人說是因為System Integrity Protection(macOS的系統保護機制)是啟動的關係，但是我就算關掉了還是沒有用。<br>後來我就到網路上查查看有沒有辦法把磁碟映像檔轉成VirtualBox的虛擬碟格式，發現可以用<code>VBoxManage convertfromraw</code>這個指令達成，所以我就想到了一個比較神奇的方法。  </p>
+</code></pre><p>詳細原因我不太清楚，網路上有人說是因為System Integrity Protection(macOS的系統保護機制)是啟動的關係，但是我就算關掉了還是沒有用。<br>後來我就到網路上查查看有沒有辦法把磁碟映像檔轉成VirtualBox的虛擬碟格式，發現可以用<code>VBoxManage convertfromraw</code>這個指令達成，所以我就想到了一個比較神奇的方法：  </p>
 <p>首先，先把我要的磁碟分割區dd出來(root和efi分割區)：</p>
 <pre><code># dd if=&lt;root-partition&gt; of=~/root.iso bs=2M
 # dd if=&lt;efi-partition&gt; of=~/efi.iso bs=2M
