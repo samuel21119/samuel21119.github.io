@@ -132,7 +132,8 @@
 <meta property="og:image" content="http://samuel21119.github.io/2019/02/24/Convert-Physical-OS-to-Virtual-Machine/1.png">
 <meta property="og:image" content="http://samuel21119.github.io/2019/02/24/Convert-Physical-OS-to-Virtual-Machine/2.png">
 <meta property="og:image" content="http://samuel21119.github.io/2019/02/24/Convert-Physical-OS-to-Virtual-Machine/3.png">
-<meta property="og:updated_time" content="2019-02-24T15:17:24.497Z">
+<meta property="og:image" content="http://samuel21119.github.io/2019/02/24/Convert-Physical-OS-to-Virtual-Machine/4.png">
+<meta property="og:updated_time" content="2019-02-24T15:26:41.811Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Convert Physical OS to Virtual Machine">
 <meta name="twitter:description" content="以下將以Arch Linux做示範。 如果以「migrate physical machine to virtualbox」之類的詞當作關鍵字去Google，會發現網路上的做法都是請你使用Virtual Box的指令來達成目的：   # VBoxManage internalcommands createrawvmdk -filename &amp;lt;path-to-file&amp;gt;.vmdk -ra">
@@ -469,8 +470,7 @@ $ VBoxManage convertfromraw efi.iso efi.vdi
 <img src="2.png" alt=""> </p>
 <p>然後開啟虛擬機，(這裡會使用BIOS Legacy方法開機，因為Virtual Box用UEFI開Arch Linux會黑屏)
 輸入<code>fdisk -l</code>查看裝載的磁碟編號，可以根據磁碟大小來判斷。
-以我的狀況來看，/dev/sda是剛建立的虛擬碟 /dev/sdb是原先的root.vdi /dev/sdc是efi.vdi
-利用<code>fdisk /dev/sda</code>來分割磁碟，產生一個空間為200MiB和剩下所有空間的分割區(類型為預設的Linux就好，不需要像UEFI那樣設定ef00)。  </p>
+以我的狀況來看，/dev/sda是剛建立的虛擬碟 /dev/sdb是原先的root.vdi /dev/sdc是efi.vdi。<br>利用<code>fdisk /dev/sda</code>來分割磁碟，產生一個空間為200MiB和剩下所有空間的分割區(類型為預設的Linux就好，不需要像UEFI那樣設定ef00)。  </p>
 <p>格式化開機分割區：</p>
 <pre><code># mkfs.ext2 /dev/sda1          #boot分割區
 </code></pre><p>把原先的root.vdi檔案複製到/dev/sda2。</p>
@@ -497,6 +497,8 @@ $ VBoxManage convertfromraw efi.iso efi.vdi
 <h1 id="Export-VM-to-VMware-Optional"><a href="#Export-VM-to-VMware-Optional" class="headerlink" title="Export VM to VMware (Optional)"></a>Export VM to VMware (Optional)</h1><p>因為我習慣用VMware Fusion作為虛擬機軟體，而且Virtual Box效能上較不佳，所以我要把Virtual Box上的虛擬機匯出。<br>點擊Tab bar上面的File，選取Export Appliance以匯出。這裡要特別注意的是Open Virtualization Format一定要選1.0，2.0我測試過在後面的匯入會出錯。
 <img src="3.png" alt=""></p>
 <p>匯出結束之後，開啟VMware Fusion，選Import an existing virtual machine，然後找到剛剛匯出的.ova檔案，接著按照指示完成匯入就大功告成了！</p>
+<p>有圖有真相：
+<img src="4.png" alt=""></p>
 
       
     </div>
