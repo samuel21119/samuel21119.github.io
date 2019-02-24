@@ -132,7 +132,7 @@
 <meta property="og:image" content="http://samuel21119.github.io/2019/02/24/Convert-Physical-OS-to-Virtual-Machine/1.png">
 <meta property="og:image" content="http://samuel21119.github.io/2019/02/24/Convert-Physical-OS-to-Virtual-Machine/2.png">
 <meta property="og:image" content="http://samuel21119.github.io/2019/02/24/Convert-Physical-OS-to-Virtual-Machine/3.png">
-<meta property="og:updated_time" content="2019-02-24T15:16:16.471Z">
+<meta property="og:updated_time" content="2019-02-24T15:17:24.497Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Convert Physical OS to Virtual Machine">
 <meta name="twitter:description" content="以下將以Arch Linux做示範。 如果以「migrate physical machine to virtualbox」之類的詞當作關鍵字去Google，會發現網路上的做法都是請你使用Virtual Box的指令來達成目的：   # VBoxManage internalcommands createrawvmdk -filename &amp;lt;path-to-file&amp;gt;.vmdk -ra">
@@ -464,7 +464,7 @@ $ VBoxManage convertfromraw efi.iso efi.vdi
 </code></pre><p>前置作業到此為止</p>
 <hr>
 <h1 id="Import-root-partition"><a href="#Import-root-partition" class="headerlink" title="Import root partition"></a>Import root partition</h1><p>接下來進入了重頭戲。</p>
-<p>開啟Virtual Box後建立一個虛擬機，作業系統選擇Linux，然後磁碟大小設定要比原本的那兩個分割區還大。<br>建立完虛擬機之後到設定裡面新增開機映像檔和剛剛建立的映像檔：</p>
+<p>開啟Virtual Box後建立一個虛擬機，作業系統選擇Linux，然後磁碟大小設定要比原本的那兩個分割區還大。<br>建立完虛擬機之後到設定裡面新增開機映像檔和剛剛建立的虛擬碟：</p>
 <p><img src="1.png" alt="">
 <img src="2.png" alt=""> </p>
 <p>然後開啟虛擬機，(這裡會使用BIOS Legacy方法開機，因為Virtual Box用UEFI開Arch Linux會黑屏)
