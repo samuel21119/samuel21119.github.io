@@ -2,9 +2,16 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://samuel21119.github.io/2019/02/24/Convert-Physical-OS-to-Virtual-Machine/</loc>
+    
+    <lastmod>2019-02-24T15:13:07.382Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://samuel21119.github.io/2019/02/19/APCS-2019-02-16/</loc>
     
-    <lastmod>2019-02-19T13:26:36.005Z</lastmod>
+    <lastmod>2019-02-24T14:23:03.280Z</lastmod>
     
   </url>
   
@@ -58,6 +65,13 @@
   </url>
   
   <url>
+    <loc>http://samuel21119.github.io/categories/index.html</loc>
+    
+    <lastmod>2019-01-31T08:25:13.861Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://samuel21119.github.io/archives/index.html</loc>
     
     <lastmod>2019-01-31T08:25:13.861Z</lastmod>
@@ -66,13 +80,6 @@
   
   <url>
     <loc>http://samuel21119.github.io/tags/index.html</loc>
-    
-    <lastmod>2019-01-31T08:25:13.861Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://samuel21119.github.io/categories/index.html</loc>
     
     <lastmod>2019-01-31T08:25:13.861Z</lastmod>
     
@@ -93,14 +100,14 @@
   </url>
   
   <url>
-    <loc>http://samuel21119.github.io/2018/10/09/UVa-838-Worm-World/</loc>
+    <loc>http://samuel21119.github.io/2018/10/25/107%E5%AD%B8%E5%B9%B4%E5%BA%A6-%E6%A0%A1%E5%85%A7%E5%88%9D%E9%81%B8%E9%A1%8C%E7%9B%AE/</loc>
     
     <lastmod>2019-01-31T08:25:13.858Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://samuel21119.github.io/2018/10/25/107%E5%AD%B8%E5%B9%B4%E5%BA%A6-%E6%A0%A1%E5%85%A7%E5%88%9D%E9%81%B8%E9%A1%8C%E7%9B%AE/</loc>
+    <loc>http://samuel21119.github.io/2018/10/09/UVa-838-Worm-World/</loc>
     
     <lastmod>2019-01-31T08:25:13.858Z</lastmod>
     
@@ -121,6 +128,13 @@
   </url>
   
   <url>
+    <loc>http://samuel21119.github.io/2018/08/26/UVa-12538-Version-Controlled-IDE/</loc>
+    
+    <lastmod>2019-01-31T08:25:13.856Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://samuel21119.github.io/2018/08/21/UVa-11456-Trainsorting/</loc>
     
     <lastmod>2019-01-31T08:25:13.856Z</lastmod>
@@ -128,9 +142,9 @@
   </url>
   
   <url>
-    <loc>http://samuel21119.github.io/2018/08/26/UVa-12538-Version-Controlled-IDE/</loc>
+    <loc>http://samuel21119.github.io/2018/08/15/Template-Strongly-Connect-Component/</loc>
     
-    <lastmod>2019-01-31T08:25:13.856Z</lastmod>
+    <lastmod>2019-01-31T08:25:13.855Z</lastmod>
     
   </url>
   
@@ -143,13 +157,6 @@
   
   <url>
     <loc>http://samuel21119.github.io/2018/08/20/Template-Persistent-Segment-Tree/</loc>
-    
-    <lastmod>2019-01-31T08:25:13.855Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://samuel21119.github.io/2018/08/15/Template-Strongly-Connect-Component/</loc>
     
     <lastmod>2019-01-31T08:25:13.855Z</lastmod>
     
@@ -212,14 +219,14 @@
   </url>
   
   <url>
-    <loc>http://samuel21119.github.io/2018/08/06/UVa-307-Sticks/</loc>
+    <loc>http://samuel21119.github.io/2018/08/06/UVa-571-Jugs/</loc>
     
     <lastmod>2019-01-31T08:25:13.849Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://samuel21119.github.io/2018/08/06/UVa-571-Jugs/</loc>
+    <loc>http://samuel21119.github.io/2018/08/06/UVa-307-Sticks/</loc>
     
     <lastmod>2019-01-31T08:25:13.849Z</lastmod>
     
