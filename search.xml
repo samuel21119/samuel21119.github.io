@@ -1,6 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[UVa 11516. WiFi]]></title>
+    <url>%2F2019%2F02%2F26%2FUVa-11516-WiFi%2F</url>
+    <content type="text"><![CDATA[Description大街上的居民開會決定要在他們居住的街上安裝無線網路，讓無線網路環境涵蓋所有住戶，請你幫忙選擇無線網路基地台(AP)的地點，他們希望訊號愈強愈好，但他們購買AP的預算有限，在有限的AP數量之下，使得在「所有房子與其最近的AP之間的距離」中最大值，愈小愈好。 大街是直線的，每間房子的門牌號碼剛好等於與端點的距離，例如123號的住戶，距離大街的起點為123公尺 Input Format輸入的第一列有一個整數表示測試資料的組數。接下來每組測試資料的第一列有兩個正整數$n,m$，$n$ 表示居民所購買的AP總數，$m$ 表示住戶總數。接下來的 $m$ 列，每列表示一個住戶的門牌號碼。大街上不超過$10^5$個住戶，且門牌號碼不超過一百萬。 Output Format請每組資料輸出一個數值，表示「所有住戶與其最近的AP間的距離」之最大值，請四捨五入到小數點下第一位。 Sample Input1 23 13 10 Sample Output1.0 UVa - 11516翻譯來源：Luckycat Solution這題的解法可以分成兩部分： 假設已決定所有住戶到最近基地台的最大距離，要如何檢查是否存在至少一種擺法？ 要如何決定所有住戶到最近基地台的最大遠距? 假設已決定所有住戶到最近基地台的最大距離，要如何檢查是否存在至少一種擺法?首先先解決第一個問題。假設我從左邊一路擺AP擺到右邊，且已知最大距離為$t$，那利用貪心可推論出上第一個AP一定要擺在$第一個住戶位置+t$的地方，接著到下一個沒有被涵蓋在範圍內的住戶($位置&gt;第一個住戶位置+2t$，再用剛剛的想法一路擺下去。由貪心法可知道上述的擺法一定是最佳解，所以也可以知道總共需要擺多少個AP，若AP數量超過題目給的大小，則可以知道「最大距離為$t$」不可行。 時間複雜度：$O(n)$ 要如何決定所有住戶到最近基地台的最大遠距?題目會給住戶的門牌號碼，所以在最差的情況下答案就是$(最大門牌號碼-最小門牌號碼)/2$，而最佳的擺法則是$0$。所以可以從$0\text{~}(最大門牌號碼-最小門牌號碼)/2$一路搜索下去。可是這樣的會時間複雜度會變成$O(n*檢查的複雜度) = O(n^2)$，很明顯地會TLE，所以需要一個比較好的方法。 假設最大距離為$t$成立，則可以用反證法證明$t+1$時仍成立，接著用數學歸納法可得$t\text{~}(最大門牌號碼-最小門牌號碼)/2$接成立。 若$t$不成立，則也可以用上述的想法推得$t-1$時也是不成立。所以t從小到大，一定是類似這樣排列： X: 不成立O: 成立X X X ... X O O O ... O 如果有這樣類似的特點，我們可以利用「單調性」來做二分搜。下界跟上界分別為$0$和$(最大門牌號碼-最小門牌號碼)/2$，每次去找中間點並用$O(n)$的方法來檢查是否成立。若不成立，則令 下界=mid+1，否則令上界=mid。 時間複雜度：$O(nlogn)$ Code1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253545556/************************************************************************* &gt; File Name: 11516 - WiFi.cpp &gt; Author: Samuel &gt; Mail: enminghuang21119@gmail.com &gt; Created Time: Sat Dec 30 19:33:04 2017*************************************************************************/#include &lt;cstdio&gt;#include &lt;algorithm&gt;using namespace std;int house[100005];int ap, n, mx;bool check(int mid) &#123; int count = 0; int i, j; int mid2 = mid * 2; i = j = 0; while (1) &#123; while (house[j] &lt;= house[i] + mid2 &amp;&amp; j &lt; n) j++; count++; i = j; if (count &gt; ap) return false; if (j &gt;= n) return true; &#125;&#125;int main() &#123; int count; scanf("%d", &amp;count); while (count--) &#123; scanf("%d%d", &amp;ap, &amp;n); for (int i = 0; i &lt; n; i++) scanf("%d", house + i), house[i] *= 2; if (ap &gt;= n) &#123; printf("0.0\n"); continue; &#125; sort(house, house + n); mx = house[n - 1]; int down, up; int mid; down = 0; up = house[n - 1]; while (up - down &gt; 1) &#123; mid = (down + up)/2; if (check(mid)) up = mid; else down = mid; &#125; printf("%.1f\n", up / 2.0); &#125; return 0;&#125;]]></content>
+      <categories>
+        <category>題解</category>
+      </categories>
+      <tags>
+        <tag>UVa</tag>
+        <tag>Binary Search</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[Convert Physical OS to Virtual Machine]]></title>
     <url>%2F2019%2F02%2F24%2FConvert-Physical-OS-to-Virtual-Machine%2F</url>
     <content type="text"><![CDATA[以下將以Arch Linux做示範。 如果以「migrate physical machine to virtualbox」之類的詞當作關鍵字去Google，會發現網路上的做法都是請你使用Virtual Box的指令來達成目的： # VBoxManage internalcommands createrawvmdk -filename &lt;path-to-file&gt;.vmdk -rawdisk &lt;disk-location&gt; -partitions &lt;partitions-to-migrate&gt; 可是在我的電腦上，當我執行此指令時會發生悲劇： VBoxManage: error: Cannot open the raw disk &apos;/dev/disk0&apos;: VERR_ACCESS_DENIED VBoxManage: error: The raw disk vmdk file was not created 詳細原因我不太清楚，網路上有人說是因為System Integrity Protection(macOS的系統保護機制)是啟動的關係，但是我就算關掉了還是沒有用。後來我就到網路上查查看有沒有辦法把磁碟映像檔轉成VirtualBox的虛擬碟格式，發現可以用VBoxManage convertfromraw這個指令達成，所以我就想到了一個比較神奇的方法： 首先，先把我要的磁碟分割區dd出來(root和efi分割區)： # dd if=&lt;root-partition&gt; of=~/root.iso bs=2M # dd if=&lt;efi-partition&gt; of=~/efi.iso bs=2M 這裡要注意的是dd出來的映像檔大小=分割區大小，所以如果本機磁碟空間不夠可以把這兩個映像檔塞到其他地方。 接著我們要把磁碟映像檔轉成虛擬碟格式： $ VBoxManage convertfromraw root.iso root.vdi $ VBoxManage convertfromraw efi.iso efi.vdi 前置作業到此為止 Import root partition接下來進入了重頭戲。 開啟Virtual Box後建立一個虛擬機，作業系統選擇Linux，然後磁碟大小設定要比原本的那兩個分割區還大。建立完虛擬機之後到設定裡面新增開機映像檔和剛剛建立的虛擬碟： 然後開啟虛擬機，(這裡會使用BIOS Legacy方法開機，因為Virtual Box用UEFI開Arch Linux會黑屏) 輸入fdisk -l查看裝載的磁碟編號，可以根據磁碟大小來判斷。 以我的狀況來看，/dev/sda是剛建立的虛擬碟 /dev/sdb是原先的root.vdi /dev/sdc是efi.vdi。利用fdisk /dev/sda來分割磁碟，產生一個空間為200MiB和剩下所有空間的分割區(類型為預設的Linux就好，不需要像UEFI那樣設定ef00)。 格式化開機分割區： # mkfs.ext2 /dev/sda1 #boot分割區 把原先的root.vdi檔案複製到/dev/sda2。 # dd if=/dev/sdb of=/dev/sda2 bs=2M 裝載磁碟： # mount /dev/sda2 /mnt # mount /dev/sda1 /mnt/boot #若無boot資料夾請建立一個 重新產生fstab： # genfstab /mnt -U &gt; /mnt/etc/fstab root分割區移植到這裡結束。 Import boot partition先建立/mnt2資料夾，以便於裝載之前產生的efi.vdi # mkdir /mnt2 # mount /dev/sdc /mn2 把efi裡面系統kernel檔案複製出來 # cd /mnt2 # cp *linux* /mnt/boot 重新安裝BIOS Legacy版本grub # arch-chroot /mnt # grub install /dev/sda # grub-mkconfig -o /boot/grub/grub.cfg 到這裡若系統都沒噴錯誤，就算移植整個系統完成了。 Export VM to VMware (Optional)因為我習慣用VMware Fusion作為虛擬機軟體，而且Virtual Box效能上較不佳，所以我要把Virtual Box上的虛擬機匯出。點擊Tab bar上面的File，選取Export Appliance以匯出。這裡要特別注意的是Open Virtualization Format一定要選1.0，2.0我測試過在後面的匯入會出錯。 匯出結束之後，開啟VMware Fusion，選Import an existing virtual machine，然後找到剛剛匯出的.ova檔案，接著按照指示完成匯入就大功告成了！ 有圖有真相：]]></content>
@@ -28,7 +40,7 @@
   <entry>
     <title><![CDATA[UVa 1427. Parade]]></title>
     <url>%2F2018%2F12%2F11%2FUVa-1427-Parade%2F</url>
-    <content type="text"><![CDATA[Description一個城市有n+1個橫向路和m+1個縱向路，一個國王從最北邊的進入，然後沿某種路線從最南邊出去，每小段橫向路都有一個高興值，但國王不會在某條橫向路待超過k分鐘，問國王可以得到的最大的高興值是多少？ Input Format輸入包含多筆測資，第一行為$n\ m\ k$三整數，若$n=m=k=0$則程式結束。接下來有$n+1$行，代表從北到南的東西向道路。 每行有$m$個數字，代表此道路m個區域從西到東的高興值。 再來有$n+1$行，也代表從北到南的東西向道路。 每行有$m$個數字，代表此道路m個區域從西到東的長度。 Output Format每筆測資輸出一行，輸出最大的高興值，答案保證小於$2^{32}$。 Sample Input2 3 27 8 14 5 61 2 31 1 11 1 11 1 10 0 0 Sample Output27 本側資示意圖如下： UVa - 1427 Solution這題很明顯的是DP。但是如果用一般的DP寫，時間複雜度是$O(nm^2)$，會導致TLE，所以需要用優化將其複雜度壓下一個維度。由於這是我第一次寫有關單調隊列的題解，所以在推導過程中可能不會寫得很好。 令$dp[i][j]$為第i行時j點的最大幸福度。則可以轉移式可以寫成如下：$dp[i][j] = max(dp[i][j], dp[i-1][k]+\text{happy_sum}[k\text{~}j]) 且 \text{length_sum}[k\text{~}j] \le K$為了方便計算，令$happy[i]=從0\text{~}i的高興值總和$$len[i]=從0\text{~}i道路長度總和$則可以寫成：$dp[i][j] = max(dp[i][j],\text{ }dp[i-1][k] + happy[j] - happy[k]) 且 len[j] - len[k] \le K$移項得：$(dp[i - 1][k] - happy[k]) + happy[j]$很明顯可以看出可以利用deque，維護$(dp[i - 1][k] - happy[k])$的遞減佇列，並在當最前項$len[j] - len[k] &gt; K$時pop掉，以確保最前項在滿足條件下為最大值。 以上推倒過程只有討論到「左到右」的，實際上還要考慮「右到左」的移動。時間複雜度：$O(nm)$ Code123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960/************************************************************************* &gt; File Name: 01427 - Parade.cpp &gt; Author: Samuel &gt; Mail: enminghuang21119@gmail.com &gt; Created Time: Tue Dec 11 09:21:54 2018*************************************************************************/#include &lt;bits/stdc++.h&gt;using namespace std;typedef long long ll;int n, m;ll dp[2][10010];ll happy[110][10010];ll len[110][10010], k;int dq[10010], l, r;int main() &#123; ios::sync_with_stdio(0); cin.tie(0); while (cin &gt;&gt; n &gt;&gt; m &gt;&gt; k &amp;&amp; (n || m || k)) &#123; n++; for (int i = n; i; i--) for (int j = 1; j &lt;= m; j++) &#123; cin &gt;&gt; happy[i][j]; happy[i][j] += happy[i][j - 1]; &#125; for (int i = n; i; i--) for (int j = 1; j &lt;= m; j++) &#123; cin &gt;&gt; len[i][j]; len[i][j] += len[i][j - 1]; &#125; memset(dp, 0, sizeof(dp)); for (int i = 1; i &lt;= n; i++) &#123; int now = i &amp; 1; int prev = !now; l = r = 0; for (int j = 0; j &lt;= m; j++) &#123; while (l != r &amp;&amp; len[i][j] - len[i][dq[l]] &gt; k) l++; while (l != r &amp;&amp; dp[prev][j] - happy[i][j] &gt;= dp[prev][dq[r - 1]] - happy[i][dq[r - 1]]) r--; dq[r++] = j; dp[now][j] = dp[prev][dq[l]] - happy[i][dq[l]] + happy[i][j]; &#125; l = r = 0; for (int j = m; j &gt;= 0; j--) &#123; while (l != r &amp;&amp; len[i][dq[l]] - len[i][j] &gt; k) l++; while (l != r &amp;&amp; dp[prev][j] + happy[i][j] &gt;= dp[prev][dq[r - 1]] + happy[i][dq[r - 1]]) r--; dq[r++] = j; dp[now][j] = max(dp[now][j], dp[prev][dq[l]] + happy[i][dq[l]] - happy[i][j]); &#125; &#125; ll ans = 0; for (int i = 0; i &lt;= m; i++) ans = max(ans, dp[n &amp; 1][i]); cout &lt;&lt; ans &lt;&lt; '\n'; &#125; return 0;&#125;]]></content>
+    <content type="text"><![CDATA[Description一個城市有n+1個橫向路和m+1個縱向路，一個國王從最北邊的進入，然後沿某種路線從最南邊出去，每小段橫向路都有一個高興值，但國王不會在某條橫向路待超過k分鐘，問國王可以得到的最大的高興值是多少？ Input Format輸入包含多筆測資，第一行為$n\ m\ k$三整數，若$n=m=k=0$則程式結束。接下來有$n+1$行，代表從北到南的東西向道路。 每行有$m$個數字，代表此道路m個區域從西到東的高興值。 再來有$n+1$行，也代表從北到南的東西向道路。 每行有$m$個數字，代表此道路m個區域從西到東的長度。 Output Format每筆測資輸出一行，輸出最大的高興值，答案保證小於$2^{32}$。 Sample Input2 3 27 8 14 5 61 2 31 1 11 1 11 1 10 0 0 Sample Output27 本測資示意圖如下： UVa - 1427 Solution這題很明顯的是DP。但是如果用一般的DP寫，時間複雜度是$O(nm^2)$，會導致TLE，所以需要用優化將其複雜度壓下一個維度。由於這是我第一次寫有關單調隊列的題解，所以在推導過程中可能不會寫得很好。 令$dp[i][j]$為第i行時j點的最大幸福度。則可以轉移式可以寫成如下：$dp[i][j] = max(dp[i][j], dp[i-1][k]+\text{happy_sum}[k\text{~}j]) 且 \text{length_sum}[k\text{~}j] \le K$為了方便計算，令$happy[i]=從0\text{~}i的高興值總和$$len[i]=從0\text{~}i道路長度總和$則可以寫成：$dp[i][j] = max(dp[i][j],\text{ }dp[i-1][k] + happy[j] - happy[k]) 且 len[j] - len[k] \le K$移項得：$(dp[i - 1][k] - happy[k]) + happy[j]$很明顯可以看出可以利用deque，維護$(dp[i - 1][k] - happy[k])$的遞減佇列，並在當最前項$len[j] - len[k] &gt; K$時pop掉，以確保最前項在滿足條件下為最大值。 以上推倒過程只有討論到「左到右」的，實際上還要考慮「右到左」的移動。時間複雜度：$O(nm)$ Code123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960/************************************************************************* &gt; File Name: 01427 - Parade.cpp &gt; Author: Samuel &gt; Mail: enminghuang21119@gmail.com &gt; Created Time: Tue Dec 11 09:21:54 2018*************************************************************************/#include &lt;bits/stdc++.h&gt;using namespace std;typedef long long ll;int n, m;ll dp[2][10010];ll happy[110][10010];ll len[110][10010], k;int dq[10010], l, r;int main() &#123; ios::sync_with_stdio(0); cin.tie(0); while (cin &gt;&gt; n &gt;&gt; m &gt;&gt; k &amp;&amp; (n || m || k)) &#123; n++; for (int i = n; i; i--) for (int j = 1; j &lt;= m; j++) &#123; cin &gt;&gt; happy[i][j]; happy[i][j] += happy[i][j - 1]; &#125; for (int i = n; i; i--) for (int j = 1; j &lt;= m; j++) &#123; cin &gt;&gt; len[i][j]; len[i][j] += len[i][j - 1]; &#125; memset(dp, 0, sizeof(dp)); for (int i = 1; i &lt;= n; i++) &#123; int now = i &amp; 1; int prev = !now; l = r = 0; for (int j = 0; j &lt;= m; j++) &#123; while (l != r &amp;&amp; len[i][j] - len[i][dq[l]] &gt; k) l++; while (l != r &amp;&amp; dp[prev][j] - happy[i][j] &gt;= dp[prev][dq[r - 1]] - happy[i][dq[r - 1]]) r--; dq[r++] = j; dp[now][j] = dp[prev][dq[l]] - happy[i][dq[l]] + happy[i][j]; &#125; l = r = 0; for (int j = m; j &gt;= 0; j--) &#123; while (l != r &amp;&amp; len[i][dq[l]] - len[i][j] &gt; k) l++; while (l != r &amp;&amp; dp[prev][j] + happy[i][j] &gt;= dp[prev][dq[r - 1]] + happy[i][dq[r - 1]]) r--; dq[r++] = j; dp[now][j] = max(dp[now][j], dp[prev][dq[l]] + happy[i][dq[l]] - happy[i][j]); &#125; &#125; ll ans = 0; for (int i = 0; i &lt;= m; i++) ans = max(ans, dp[n &amp; 1][i]); cout &lt;&lt; ans &lt;&lt; '\n'; &#125; return 0;&#125;]]></content>
       <categories>
         <category>題解</category>
       </categories>
@@ -45,10 +57,10 @@
         <category>題目</category>
       </categories>
       <tags>
-        <tag>Dynamic Programming</tag>
         <tag>DFS</tag>
-        <tag>Greedy</tag>
+        <tag>Dynamic Programming</tag>
         <tag>Math</tag>
+        <tag>Greedy</tag>
       </tags>
   </entry>
   <entry>
@@ -86,8 +98,8 @@
       </categories>
       <tags>
         <tag>UVa</tag>
-        <tag>Dynamic Programming</tag>
         <tag>DFS</tag>
+        <tag>Dynamic Programming</tag>
       </tags>
   </entry>
   <entry>
@@ -99,8 +111,8 @@
       </categories>
       <tags>
         <tag>UVa</tag>
-        <tag>Dynamic Programming</tag>
         <tag>DFS</tag>
+        <tag>Dynamic Programming</tag>
         <tag>Dijkstra</tag>
       </tags>
   </entry>
@@ -238,8 +250,8 @@
       </categories>
       <tags>
         <tag>UVa</tag>
-        <tag>Dynamic Programming</tag>
         <tag>Bitwise</tag>
+        <tag>Dynamic Programming</tag>
       </tags>
   </entry>
   <entry>
@@ -290,8 +302,8 @@
         <category>題解</category>
       </categories>
       <tags>
-        <tag>Dynamic Programming</tag>
         <tag>Bitwise</tag>
+        <tag>Dynamic Programming</tag>
         <tag>CodeForces</tag>
         <tag>Sort</tag>
         <tag>Math</tag>

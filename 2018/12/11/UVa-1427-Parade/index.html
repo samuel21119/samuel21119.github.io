@@ -130,7 +130,7 @@
 <meta property="og:description" content="Description一個城市有n+1個橫向路和m+1個縱向路，一個國王從最北邊的進入，然後沿某種路線從最南邊出去，每小段橫向路都有一個高興值，但國王不會在某條橫向路待超過k分鐘，問國王可以得到的最大的高興值是多少？">
 <meta property="og:locale" content="en">
 <meta property="og:image" content="http://samuel21119.github.io/2018/12/11/UVa-1427-Parade/1.png">
-<meta property="og:updated_time" content="2019-01-31T08:25:13.860Z">
+<meta property="og:updated_time" content="2019-02-26T04:01:37.580Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="UVa 1427. Parade">
 <meta name="twitter:description" content="Description一個城市有n+1個橫向路和m+1個縱向路，一個國王從最北邊的進入，然後沿某種路線從最南邊出去，每小段橫向路都有一個高興值，但國王不會在某條橫向路待超過k分鐘，問國王可以得到的最大的高興值是多少？">
@@ -452,7 +452,7 @@
 <h1 id="Output-Format"><a href="#Output-Format" class="headerlink" title="Output Format"></a>Output Format</h1><p>每筆測資輸出一行，輸出最大的高興值，答案保證小於$2^{32}$。</p>
 <h1 id="Sample-Input"><a href="#Sample-Input" class="headerlink" title="Sample Input"></a>Sample Input</h1><p><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">2 3 2</span><br><span class="line">7 8 1</span><br><span class="line">4 5 6</span><br><span class="line">1 2 3</span><br><span class="line">1 1 1</span><br><span class="line">1 1 1</span><br><span class="line">1 1 1</span><br><span class="line">0 0 0</span><br></pre></td></tr></table></figure></p>
 <h1 id="Sample-Output"><a href="#Sample-Output" class="headerlink" title="Sample Output"></a>Sample Output</h1><p><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">27</span><br></pre></td></tr></table></figure>
-本側資示意圖如下：
+本測資示意圖如下：
 <img src="1.png" alt=""><br>UVa - <a href="https://uva.onlinejudge.org/external/14/1427.pdf" target="_blank" rel="noopener">1427</a>  </p>
 </blockquote>
 <h1 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h1><p>這題很明顯的是DP。但是如果用一般的DP寫，時間複雜度是$O(nm^2)$，會導致TLE，所以需要用優化將其複雜度壓下一個維度。<br>由於這是我第一次寫有關單調隊列的題解，所以在推導過程中可能不會寫得很好。  </p>
@@ -597,7 +597,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">33</span>
+                <span class="site-state-item-count">34</span>
                 <span class="site-state-item-name">posts</span>
               </a>
             </div>
