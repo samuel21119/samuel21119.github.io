@@ -121,22 +121,22 @@
 
 
 
-<meta name="description" content="以下將以Arch Linux做示範。 如果以「migrate physical machine to virtualbox」之類的詞當作關鍵字去Google，會發現網路上的做法都是請你使用Virtual Box的指令來達成目的：   # VBoxManage internalcommands createrawvmdk -filename &amp;lt;path-to-file&amp;gt;.vmdk -ra">
+<meta name="description" content="以下將以Arch Linux做示範。 如果以「migrate physical machine to virtualbox」之類的詞當作關鍵字去Google，會發現網路上的做法都是請你使用Virtual Box的指令來達成目的： # VBoxManage internalcommands createrawvmdk -filename &amp;lt;path-to-file&amp;gt;.vmdk -rawd">
 <meta name="keywords" content="Linux">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Convert Physical OS to Virtual Machine">
 <meta property="og:url" content="http://samuel21119.github.io/2019/02/24/Convert-Physical-OS-to-Virtual-Machine/index.html">
 <meta property="og:site_name" content="Samuel&#39;s Blog">
-<meta property="og:description" content="以下將以Arch Linux做示範。 如果以「migrate physical machine to virtualbox」之類的詞當作關鍵字去Google，會發現網路上的做法都是請你使用Virtual Box的指令來達成目的：   # VBoxManage internalcommands createrawvmdk -filename &amp;lt;path-to-file&amp;gt;.vmdk -ra">
+<meta property="og:description" content="以下將以Arch Linux做示範。 如果以「migrate physical machine to virtualbox」之類的詞當作關鍵字去Google，會發現網路上的做法都是請你使用Virtual Box的指令來達成目的： # VBoxManage internalcommands createrawvmdk -filename &amp;lt;path-to-file&amp;gt;.vmdk -rawd">
 <meta property="og:locale" content="en">
 <meta property="og:image" content="http://samuel21119.github.io/2019/02/24/Convert-Physical-OS-to-Virtual-Machine/1.png">
 <meta property="og:image" content="http://samuel21119.github.io/2019/02/24/Convert-Physical-OS-to-Virtual-Machine/2.png">
 <meta property="og:image" content="http://samuel21119.github.io/2019/02/24/Convert-Physical-OS-to-Virtual-Machine/3.png">
 <meta property="og:image" content="http://samuel21119.github.io/2019/02/24/Convert-Physical-OS-to-Virtual-Machine/4.png">
-<meta property="og:updated_time" content="2019-02-24T15:26:41.811Z">
+<meta property="og:updated_time" content="2019-03-01T07:15:45.938Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Convert Physical OS to Virtual Machine">
-<meta name="twitter:description" content="以下將以Arch Linux做示範。 如果以「migrate physical machine to virtualbox」之類的詞當作關鍵字去Google，會發現網路上的做法都是請你使用Virtual Box的指令來達成目的：   # VBoxManage internalcommands createrawvmdk -filename &amp;lt;path-to-file&amp;gt;.vmdk -ra">
+<meta name="twitter:description" content="以下將以Arch Linux做示範。 如果以「migrate physical machine to virtualbox」之類的詞當作關鍵字去Google，會發現網路上的做法都是請你使用Virtual Box的指令來達成目的： # VBoxManage internalcommands createrawvmdk -filename &amp;lt;path-to-file&amp;gt;.vmdk -rawd">
 <meta name="twitter:image" content="http://samuel21119.github.io/2019/02/24/Convert-Physical-OS-to-Virtual-Machine/1.png">
 
 
@@ -448,21 +448,19 @@
 
       
         <p>以下將以Arch Linux做示範。</p>
-<p>如果以「migrate physical machine to virtualbox」之類的詞當作關鍵字去Google，會發現網路上的做法都是請你使用Virtual Box的指令來達成目的：  </p>
-<pre><code># VBoxManage internalcommands createrawvmdk -filename &lt;path-to-file&gt;.vmdk -rawdisk &lt;disk-location&gt; -partitions &lt;partitions-to-migrate&gt;
-</code></pre><a id="more"></a>
-<p>可是在我的電腦上，當我執行此指令時會發生悲劇：</p>
-<pre><code>VBoxManage: error: Cannot open the raw disk &apos;/dev/disk0&apos;: VERR_ACCESS_DENIED
-VBoxManage: error: The raw disk vmdk file was not created
-</code></pre><p>詳細原因我不太清楚，網路上有人說是因為System Integrity Protection(macOS的系統保護機制)是啟動的關係，但是我就算關掉了還是沒有用。<br>後來我就到網路上查查看有沒有辦法把磁碟映像檔轉成VirtualBox的虛擬碟格式，發現可以用<code>VBoxManage convertfromraw</code>這個指令達成，所以我就想到了一個比較神奇的方法：  </p>
-<p>首先，先把我要的磁碟分割區dd出來(root和efi分割區)：</p>
-<pre><code># dd if=&lt;root-partition&gt; of=~/root.iso bs=2M
-# dd if=&lt;efi-partition&gt; of=~/efi.iso bs=2M
-</code></pre><p>這裡要注意的是dd出來的映像檔大小=分割區大小，所以如果本機磁碟空間不夠可以把這兩個映像檔塞到其他地方。  </p>
-<p>接著我們要把磁碟映像檔轉成虛擬碟格式：</p>
-<pre><code>$ VBoxManage convertfromraw root.iso root.vdi
-$ VBoxManage convertfromraw efi.iso efi.vdi
-</code></pre><p>前置作業到此為止</p>
+<p>如果以「migrate physical machine to virtualbox」之類的詞當作關鍵字去Google，會發現網路上的做法都是請你使用Virtual Box的指令來達成目的：
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">#</span> VBoxManage internalcommands createrawvmdk -filename &lt;path-to-file&gt;.vmdk -rawdisk &lt;disk-location&gt; -partitions &lt;partitions-to-migrate&gt;</span><br></pre></td></tr></table></figure></p>
+<a id="more"></a>
+<p>可是在我的電腦上，當我執行此指令時會發生悲劇：  </p>
+<blockquote>
+<p>VBoxManage: error: Cannot open the raw disk &#39;/dev/disk0&#39;: VERR_ACCESS_DENIED<br>VBoxManage: error: The raw disk vmdk file was not created</p>
+</blockquote>
+<p>詳細原因我不太清楚，網路上有人說是因為System Integrity Protection(macOS的系統保護機制)是啟動的關係，但是我就算關掉了還是沒有用。<br>後來我就到網路上查查看有沒有辦法把磁碟映像檔轉成VirtualBox的虛擬碟格式，發現可以用<code>VBoxManage convertfromraw</code>這個指令達成，所以我就想到了一個比較神奇的方法：  </p>
+<p>首先，先把我要的磁碟分割區dd出來(root和efi分割區)：<br><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">#</span> dd if=&lt;root-partition&gt; of=~/root.iso bs=2M</span><br><span class="line"><span class="meta">#</span> dd if=&lt;efi-partition&gt; of=~/efi.iso bs=2M</span><br></pre></td></tr></table></figure>
+這裡要注意的是dd出來的映像檔大小=分割區大小，所以如果本機磁碟空間不夠可以把這兩個映像檔塞到其他地方。  </p>
+<p>接著我們要把磁碟映像檔轉成虛擬碟格式：
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">$</span> VBoxManage convertfromraw root.iso root.vdi</span><br><span class="line"><span class="meta">$</span> VBoxManage convertfromraw efi.iso efi.vdi</span><br></pre></td></tr></table></figure>
+前置作業到此為止</p>
 <hr>
 <h1 id="Import-root-partition"><a href="#Import-root-partition" class="headerlink" title="Import root partition"></a>Import root partition</h1><p>接下來進入了重頭戲。</p>
 <p>開啟Virtual Box後建立一個虛擬機，作業系統選擇Linux，然後磁碟大小設定要比原本的那兩個分割區還大。<br>建立完虛擬機之後到設定裡面新增開機映像檔和剛剛建立的虛擬碟：</p>
@@ -471,28 +469,22 @@ $ VBoxManage convertfromraw efi.iso efi.vdi
 <p>然後開啟虛擬機，(這裡會使用BIOS Legacy方法開機，因為Virtual Box用UEFI開Arch Linux會黑屏)
 輸入<code>fdisk -l</code>查看裝載的磁碟編號，可以根據磁碟大小來判斷。
 以我的狀況來看，/dev/sda是剛建立的虛擬碟 /dev/sdb是原先的root.vdi /dev/sdc是efi.vdi。<br>利用<code>fdisk /dev/sda</code>來分割磁碟，產生一個空間為200MiB和剩下所有空間的分割區(類型為預設的Linux就好，不需要像UEFI那樣設定ef00)。  </p>
-<p>格式化開機分割區：</p>
-<pre><code># mkfs.ext2 /dev/sda1          #boot分割區
-</code></pre><p>把原先的root.vdi檔案複製到/dev/sda2。</p>
-<pre><code># dd if=/dev/sdb of=/dev/sda2 bs=2M
-</code></pre><p>裝載磁碟：</p>
-<pre><code># mount /dev/sda2 /mnt
-# mount /dev/sda1 /mnt/boot   #若無boot資料夾請建立一個
-</code></pre><p>重新產生fstab：</p>
-<pre><code># genfstab /mnt -U &gt; /mnt/etc/fstab
-</code></pre><p>root分割區移植到這裡結束。</p>
+<p>格式化開機分割區：
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">#</span> mkfs.ext2 /dev/sda1          #boot分割區</span><br></pre></td></tr></table></figure>
+把原先的root.vdi檔案複製到/dev/sda2。
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">#</span> dd if=/dev/sdb of=/dev/sda2 bs=2M</span><br></pre></td></tr></table></figure>
+裝載磁碟：
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">#</span> mount /dev/sda2 /mnt</span><br><span class="line"><span class="meta">#</span> mount /dev/sda1 /mnt/boot   #若無boot資料夾請建立一個</span><br></pre></td></tr></table></figure>
+重新產生fstab：<br><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">#</span> genfstab /mnt -U &gt; /mnt/etc/fstab</span><br></pre></td></tr></table></figure>
+root分割區移植到這裡結束。</p>
 <hr>
-<h1 id="Import-boot-partition"><a href="#Import-boot-partition" class="headerlink" title="Import boot partition"></a>Import boot partition</h1><p>先建立/mnt2資料夾，以便於裝載之前產生的efi.vdi</p>
-<pre><code># mkdir /mnt2
-# mount /dev/sdc /mn2
-</code></pre><p>把efi裡面系統kernel檔案複製出來</p>
-<pre><code># cd /mnt2
-# cp *linux* /mnt/boot
-</code></pre><p>重新安裝BIOS Legacy版本grub</p>
-<pre><code># arch-chroot /mnt
-# grub install /dev/sda
-# grub-mkconfig -o /boot/grub/grub.cfg
-</code></pre><p>到這裡若系統都沒噴錯誤，就算移植整個系統完成了。</p>
+<h1 id="Import-boot-partition"><a href="#Import-boot-partition" class="headerlink" title="Import boot partition"></a>Import boot partition</h1><p>先建立/mnt2資料夾，以便於裝載之前產生的efi.vdi
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">#</span> mkdir /mnt2</span><br><span class="line"><span class="meta">#</span> mount /dev/sdc /mn2</span><br></pre></td></tr></table></figure>
+把efi裡面系統kernel檔案複製出來
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">#</span> cd /mnt2</span><br><span class="line"><span class="meta">#</span> cp *linux* /mnt/boot</span><br><span class="line"><span class="meta">#</span> arch-chroot /mnt</span><br><span class="line"><span class="meta">#</span> mkinitcpio -p linux</span><br></pre></td></tr></table></figure>
+重新安裝BIOS Legacy版本grub
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">#</span> arch-chroot /mnt</span><br><span class="line"><span class="meta">#</span> grub install /dev/sda</span><br><span class="line"><span class="meta">#</span> grub-mkconfig -o /boot/grub/grub.cfg</span><br></pre></td></tr></table></figure>
+到這裡若系統都沒噴錯誤，就算移植整個系統完成了。</p>
 <hr>
 <h1 id="Export-VM-to-VMware-Optional"><a href="#Export-VM-to-VMware-Optional" class="headerlink" title="Export VM to VMware (Optional)"></a>Export VM to VMware (Optional)</h1><p>因為我習慣用VMware Fusion作為虛擬機軟體，而且Virtual Box效能上較不佳，所以我要把Virtual Box上的虛擬機匯出。<br>點擊Tab bar上面的File，選取Export Appliance以匯出。這裡要特別注意的是Open Virtualization Format一定要選1.0，2.0我測試過在後面的匯入會出錯。
 <img src="3.png" alt=""></p>
