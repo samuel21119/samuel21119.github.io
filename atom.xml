@@ -157,13 +157,13 @@
       <category term="題目" scheme="http://samuel21119.github.io/categories/%E9%A1%8C%E7%9B%AE/"/>
     
     
-      <category term="Dynamic Programming" scheme="http://samuel21119.github.io/tags/Dynamic-Programming/"/>
-    
       <category term="DFS" scheme="http://samuel21119.github.io/tags/DFS/"/>
     
-      <category term="Greedy" scheme="http://samuel21119.github.io/tags/Greedy/"/>
+      <category term="Dynamic Programming" scheme="http://samuel21119.github.io/tags/Dynamic-Programming/"/>
     
       <category term="Math" scheme="http://samuel21119.github.io/tags/Math/"/>
+    
+      <category term="Greedy" scheme="http://samuel21119.github.io/tags/Greedy/"/>
     
   </entry>
   
@@ -239,9 +239,9 @@
     
       <category term="UVa" scheme="http://samuel21119.github.io/tags/UVa/"/>
     
-      <category term="Dynamic Programming" scheme="http://samuel21119.github.io/tags/Dynamic-Programming/"/>
-    
       <category term="DFS" scheme="http://samuel21119.github.io/tags/DFS/"/>
+    
+      <category term="Dynamic Programming" scheme="http://samuel21119.github.io/tags/Dynamic-Programming/"/>
     
   </entry>
   
@@ -265,9 +265,9 @@
     
       <category term="UVa" scheme="http://samuel21119.github.io/tags/UVa/"/>
     
-      <category term="Dynamic Programming" scheme="http://samuel21119.github.io/tags/Dynamic-Programming/"/>
-    
       <category term="DFS" scheme="http://samuel21119.github.io/tags/DFS/"/>
+    
+      <category term="Dynamic Programming" scheme="http://samuel21119.github.io/tags/Dynamic-Programming/"/>
     
       <category term="Dijkstra" scheme="http://samuel21119.github.io/tags/Dijkstra/"/>
     

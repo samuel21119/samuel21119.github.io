@@ -66,10 +66,10 @@
         <category>題目</category>
       </categories>
       <tags>
-        <tag>Dynamic Programming</tag>
         <tag>DFS</tag>
-        <tag>Greedy</tag>
+        <tag>Dynamic Programming</tag>
         <tag>Math</tag>
+        <tag>Greedy</tag>
       </tags>
   </entry>
   <entry>
@@ -107,8 +107,8 @@
       </categories>
       <tags>
         <tag>UVa</tag>
-        <tag>Dynamic Programming</tag>
         <tag>DFS</tag>
+        <tag>Dynamic Programming</tag>
       </tags>
   </entry>
   <entry>
@@ -120,8 +120,8 @@
       </categories>
       <tags>
         <tag>UVa</tag>
-        <tag>Dynamic Programming</tag>
         <tag>DFS</tag>
+        <tag>Dynamic Programming</tag>
         <tag>Dijkstra</tag>
       </tags>
   </entry>
@@ -259,8 +259,8 @@
       </categories>
       <tags>
         <tag>UVa</tag>
-        <tag>Dynamic Programming</tag>
         <tag>Bitwise</tag>
+        <tag>Dynamic Programming</tag>
       </tags>
   </entry>
   <entry>
@@ -311,8 +311,8 @@
         <category>題解</category>
       </categories>
       <tags>
-        <tag>Dynamic Programming</tag>
         <tag>Bitwise</tag>
+        <tag>Dynamic Programming</tag>
         <tag>CodeForces</tag>
         <tag>Sort</tag>
         <tag>Math</tag>
