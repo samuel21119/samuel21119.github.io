@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://samuel21119.github.io/"/>
-  <updated>2019-02-26T04:41:01.000Z</updated>
+  <updated>2019-06-06T15:40:45.286Z</updated>
   <id>http://samuel21119.github.io/</id>
   
   <author>
@@ -15,6 +15,28 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>T-Rex Runner with Tensorflow</title>
+    <link href="http://samuel21119.github.io/2019/06/06/T-Rex-Runner-with-Tensorflow/"/>
+    <id>http://samuel21119.github.io/2019/06/06/T-Rex-Runner-with-Tensorflow/</id>
+    <published>2019-06-06T13:07:08.000Z</published>
+    <updated>2019-06-06T15:40:45.286Z</updated>
+    
+    <content type="html"><![CDATA[<p>「無法連上網際網路」畫面的小恐龍一直是Chrome的小彩蛋，而這裡使用了神經網路+Q-learning，讓AI去學習玩這個遊戲。<a id="more"></a></p><h1 id="Q-learning介紹"><a href="#Q-learning介紹" class="headerlink" title="Q-learning介紹"></a>Q-learning介紹</h1><p>Q-learning是強化學習(Reinforcement Learning)中的一種。舉個例子來看：有個小朋友在練習走路，如果往前走了一步，父母就會給他糖果；反之則無。<br>而這個程式也是一樣，利用強化學習的方式，讓程式在沒有監督的環境下，能夠自己找出讓小恐龍存活、得到最高獎賞的方法。  </p><p>而Q-learning是沒有模型的強化學習，說簡單點，就是因為我們不知道要怎麼建立模型的情況，所以我們自己定義每種「行動」(跳跟不跳)的「獎賞」，並且判斷當前「狀態」做的「行動」會不會導致小恐龍死掉，讓程式自己去挖掘在這個情況下到底要不要往上跳。  </p><p>經過Q-learning的方法學習後，會產生類似下圖的表格(在這裡我們的「狀態」就是遊戲截圖)：<img src="1.gif" alt=""><br>對於每種狀態，會對應到一個動作，而因為我們只分成跳跟不跳，所以只有0和1。  </p><p>而在這個模型裡面，有兩個很重要。其中一個是名叫epsilon($\epsilon$)的函數，我們引入了$\epsilon$函數來決定部分行動的隨機性，然後再逐漸降低$\epsilon$減少隨機動作的發生，最後讓模型去挖掘最好的最好得到獎賞的動作。另一個就是$\gamma$(Discount Factor)，$\gamma$決定了程式做出動作時要看多遠，因為小恐龍在無障礙物時跳起來可能會在之後掉到仙人掌上面，而在這程式裡面$\gamma=0.99$時，模型能夠辨認上述所遇到的問題、知道在半空中沒辦法二連跳。</p><h1 id="遊戲模組"><a href="#遊戲模組" class="headerlink" title="遊戲模組"></a>遊戲模組</h1><p>此程式利用了Selenium模組使Python能與Firefox溝通，並利用Pillow和OpenCV來處理影像。</p><h1 id="遊戲處理"><a href="#遊戲處理" class="headerlink" title="遊戲處理"></a>遊戲處理</h1><h2 id="修改遊戲"><a href="#修改遊戲" class="headerlink" title="修改遊戲"></a>修改遊戲</h2><p>為了簡化我們的模型，我們簡化了原始的遊戲，使之背景不會變成夜晚、遊戲速度不會加快。</p><h2 id="處理影像"><a href="#處理影像" class="headerlink" title="處理影像"></a>處理影像</h2><p>此遊戲的截圖解析度是$1200\times 300$，而這裡把圖片裁切並壓縮成4個$80\times80$的圖片並丟入神經網路裡做運算。</p><h1 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h1><p>Github: <a href="https://github.com/samuel21119/T-Rex-Runner" target="_blank" rel="noopener">samuel21119/T-Rex-Runner</a><br>T-Rex 遊戲網址: <a href="samuel21119.github.io/t-rex">samuel21119.github.io/t-rex</a></p><h1 id="參考連結"><a href="#參考連結" class="headerlink" title="參考連結"></a>參考連結</h1><ul><li><a href="https://medium.com/acing-ai/how-i-build-an-ai-to-play-dino-run-e37f37bdf153" target="_blank" rel="noopener">How I built an AI to play Dino Run</a></li><li><a href="https://www.cs.toronto.edu/~vmnih/docs/dqn.pdf" target="_blank" rel="noopener">Playing Atari with Deep Reinforcement Learning</a></li></ul>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;「無法連上網際網路」畫面的小恐龍一直是Chrome的小彩蛋，而這裡使用了神經網路+Q-learning，讓AI去學習玩這個遊戲。
+    
+    </summary>
+    
+    
+      <category term="Machine Learning" scheme="http://samuel21119.github.io/tags/Machine-Learning/"/>
+    
+      <category term="Python" scheme="http://samuel21119.github.io/tags/Python/"/>
+    
+  </entry>
   
   <entry>
     <title>UVa 11516. WiFi</title>
@@ -427,9 +449,9 @@
     
       <category term="Tree" scheme="http://samuel21119.github.io/tags/Tree/"/>
     
-      <category term="LCA" scheme="http://samuel21119.github.io/tags/LCA/"/>
-    
       <category term="Heavy-light Decomposition" scheme="http://samuel21119.github.io/tags/Heavy-light-Decomposition/"/>
+    
+      <category term="LCA" scheme="http://samuel21119.github.io/tags/LCA/"/>
     
   </entry>
   
@@ -510,32 +532,6 @@
       <category term="Tree" scheme="http://samuel21119.github.io/tags/Tree/"/>
     
       <category term="Persistence" scheme="http://samuel21119.github.io/tags/Persistence/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>UVa 10032. Tug of War</title>
-    <link href="http://samuel21119.github.io/2018/08/11/UVa-10032-Tug-of-War/"/>
-    <id>http://samuel21119.github.io/2018/08/11/UVa-10032-Tug-of-War/</id>
-    <published>2018-08-11T11:57:43.000Z</published>
-    <updated>2019-01-31T08:25:13.000Z</updated>
-    
-    <content type="html"><![CDATA[<blockquote><h1 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h1><p>N個人參加拔河比賽，每個人有其重量w[i]，欲使二隊的人數最多只差一，雙方的重量和越接近越好。請問二隊的重量和分別是多少？<br><a id="more"></a></p><h1 id="Input-Format"><a href="#Input-Format" class="headerlink" title="Input Format"></a>Input Format</h1><p>第一列有一個整數，代表以下有幾組測試資料。每筆測試資料的第1列有一個整數 n$(n\le100)$，代表共有n個人參加拔河。<br>接下來的n列，代表這n個人的體重，體重均界於1到450之間。測試資料間有空一列。請參考Sample Input。</p><h1 id="Output-Format"><a href="#Output-Format" class="headerlink" title="Output Format"></a>Output Format</h1><p>每一筆測試資料請輸出一列，包含2個整數，代表2隊的總體重。如果這2個數不相同，小的在前面。測試資料間有空一列。請參考Sample Output。</p><h1 id="Sample-Input"><a href="#Sample-Input" class="headerlink" title="Sample Input"></a>Sample Input</h1><p><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">1</span><br><span class="line"></span><br><span class="line">3</span><br><span class="line">100</span><br><span class="line">90</span><br><span class="line">200</span><br></pre></td></tr></table></figure></p><h1 id="Sample-Output"><a href="#Sample-Output" class="headerlink" title="Sample Output"></a>Sample Output</h1><p><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">190 200</span><br></pre></td></tr></table></figure>UVa - <a href="https://uva.onlinejudge.org/external/100/10032.pdf" target="_blank" rel="noopener">10032</a><br>翻譯來源：<a href="http://luckycat.kshs.kh.edu.tw/homework/q10032.htm" target="_blank" rel="noopener">Luckycat</a></p></blockquote><h1 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h1><p>這題可以用一般的DP解，令<code>bool dp[i][k]</code>代表 <strong>是否可以在選擇$k$人時，其重量總和為$i$</strong> ，如果是這樣解的話，時間複雜度會到$O(n^2 \times \text{sum_of_weight})$，所以以最大測資來看需要計算$100^2 \times 17500 = 1.75 \times 10^8$次，很明顯地會TLE，所以這時候就要用位元運算來簡化。<br>首先我們令<code>long long int dp[i]</code>代表 <strong>當重量為$i$時，有哪些人數可以達成</strong> 。<br>假設<code>dp[5] = 0b001010;</code> (<code>0b</code>是使用二進位的表示方法)，代表可以選擇1和3人使其重量和為5。詳細解法請看Code。<br><em>時間複雜度$O(n^2 + \text{sum_of_weight})$</em></p><h1 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h1><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*************************************************************************</span></span><br><span class="line"><span class="comment">  &gt; File Name: 10032 - Tug of War.cpp</span></span><br><span class="line"><span class="comment">  &gt; Author: Samuel</span></span><br><span class="line"><span class="comment">  &gt; Mail: enminghuang21119@gmail.com</span></span><br><span class="line"><span class="comment">  &gt; Created Time: Wed Feb 14 19:23:28 2018</span></span><br><span class="line"><span class="comment">*************************************************************************/</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">long</span> <span class="keyword">long</span> dp[<span class="number">22600</span>];</span><br><span class="line"><span class="keyword">int</span> input[<span class="number">110</span>];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    ios::sync_with_stdio(<span class="number">0</span>);</span><br><span class="line">    <span class="built_in">cin</span>.tie(<span class="number">0</span>);</span><br><span class="line">    <span class="keyword">int</span> c, n, sum, Sh, Nh;</span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; c;</span><br><span class="line">    <span class="keyword">while</span> (c--) &#123;</span><br><span class="line">        <span class="built_in">cin</span> &gt;&gt; n;</span><br><span class="line">        sum = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++) &#123;</span><br><span class="line">            <span class="built_in">cin</span> &gt;&gt; input[i];</span><br><span class="line">            sum += input[i];</span><br><span class="line">        &#125;</span><br><span class="line">        Sh = sum &gt;&gt; <span class="number">1</span>;</span><br><span class="line">        Nh = (n + <span class="number">1</span>) &gt;&gt; <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= Sh; i++)</span><br><span class="line">            dp[i] = <span class="number">0</span>;</span><br><span class="line">        dp[<span class="number">0</span>] = <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++)</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> j = Sh; j &gt;= input[i]; j--)</span><br><span class="line">                dp[j] |= dp[j - input[i]] &lt;&lt; <span class="number">1L</span>L;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = Sh; i &gt;= <span class="number">0</span>; i--)</span><br><span class="line">            <span class="keyword">if</span> (dp[i] &gt;&gt; Nh &amp; <span class="number">1</span> || ((n &amp; <span class="number">1</span>) &amp;&amp; (dp[i] &gt;&gt; (Nh - <span class="number">1</span>) &amp; <span class="number">1</span>))) &#123;</span><br><span class="line">                <span class="built_in">cout</span> &lt;&lt; i &lt;&lt; <span class="string">' '</span> &lt;&lt; sum - i &lt;&lt; <span class="string">'\n'</span>;</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        <span class="keyword">if</span> (c)</span><br><span class="line">            <span class="built_in">cout</span> &lt;&lt; <span class="string">'\n'</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      &lt;blockquote&gt;&lt;h1 id=&quot;Description&quot;&gt;&lt;a href=&quot;#Description&quot; class=&quot;headerlink&quot; title=&quot;Description&quot;&gt;&lt;/a&gt;Description&lt;/h1&gt;&lt;p&gt;N個人參加拔河比賽，每個人有其重量w[i]，欲使二隊的人數最多只差一，雙方的重量和越接近越好。請問二隊的重量和分別是多少？&lt;br&gt;
-    
-    </summary>
-    
-      <category term="題解" scheme="http://samuel21119.github.io/categories/%E9%A1%8C%E8%A7%A3/"/>
-    
-    
-      <category term="UVa" scheme="http://samuel21119.github.io/tags/UVa/"/>
-    
-      <category term="Dynamic Programming" scheme="http://samuel21119.github.io/tags/Dynamic-Programming/"/>
-    
-      <category term="Bitwise" scheme="http://samuel21119.github.io/tags/Bitwise/"/>
     
   </entry>
   
