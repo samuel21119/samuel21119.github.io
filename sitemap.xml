@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://samuel21119.github.io/2019/06/06/T-Rex-Runner-with-Tensorflow/</loc>
+    
+    <lastmod>2019-06-06T15:42:17.357Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://samuel21119.github.io/2018/08/05/Cpp%E6%95%99%E5%AD%B8/</loc>
     
     <lastmod>2019-06-04T14:47:20.578Z</lastmod>
@@ -121,13 +128,6 @@
   </url>
   
   <url>
-    <loc>http://samuel21119.github.io/2018/08/07/Template-Disjoint-set/</loc>
-    
-    <lastmod>2019-01-31T08:25:13.000Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://samuel21119.github.io/2018/08/06/UVa-571-Jugs/</loc>
     
     <lastmod>2019-01-31T08:25:13.000Z</lastmod>
@@ -135,7 +135,7 @@
   </url>
   
   <url>
-    <loc>http://samuel21119.github.io/2018/08/07/Template-Segment-Tree/</loc>
+    <loc>http://samuel21119.github.io/2018/08/07/Template-Disjoint-set/</loc>
     
     <lastmod>2019-01-31T08:25:13.000Z</lastmod>
     
@@ -143,6 +143,13 @@
   
   <url>
     <loc>http://samuel21119.github.io/2018/08/08/Template-Binary-Index-Tree/</loc>
+    
+    <lastmod>2019-01-31T08:25:13.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://samuel21119.github.io/2018/08/07/Template-Segment-Tree/</loc>
     
     <lastmod>2019-01-31T08:25:13.000Z</lastmod>
     
@@ -163,14 +170,14 @@
   </url>
   
   <url>
-    <loc>http://samuel21119.github.io/2018/08/14/Template-Treap/</loc>
+    <loc>http://samuel21119.github.io/2018/08/11/UVa-10032-Tug-of-War/</loc>
     
     <lastmod>2019-01-31T08:25:13.000Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://samuel21119.github.io/2018/08/15/Template-Heavy-light-Decomposition/</loc>
+    <loc>http://samuel21119.github.io/2018/08/14/Template-Treap/</loc>
     
     <lastmod>2019-01-31T08:25:13.000Z</lastmod>
     
@@ -184,13 +191,6 @@
   </url>
   
   <url>
-    <loc>http://samuel21119.github.io/2018/08/11/UVa-10032-Tug-of-War/</loc>
-    
-    <lastmod>2019-01-31T08:25:13.000Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://samuel21119.github.io/2018/08/16/Template-KMP/</loc>
     
     <lastmod>2019-01-31T08:25:13.000Z</lastmod>
@@ -198,14 +198,7 @@
   </url>
   
   <url>
-    <loc>http://samuel21119.github.io/2018/08/21/UVa-11456-Trainsorting/</loc>
-    
-    <lastmod>2019-01-31T08:25:13.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://samuel21119.github.io/2018/08/26/UVa-12538-Version-Controlled-IDE/</loc>
+    <loc>http://samuel21119.github.io/2018/08/15/Template-Heavy-light-Decomposition/</loc>
     
     <lastmod>2019-01-31T08:25:13.000Z</lastmod>
     
@@ -219,6 +212,20 @@
   </url>
   
   <url>
+    <loc>http://samuel21119.github.io/2018/08/26/UVa-12538-Version-Controlled-IDE/</loc>
+    
+    <lastmod>2019-01-31T08:25:13.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://samuel21119.github.io/2018/08/21/UVa-11456-Trainsorting/</loc>
+    
+    <lastmod>2019-01-31T08:25:13.000Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://samuel21119.github.io/2018/09/09/UVa-10917-Walk-Through-the-Forest/</loc>
     
     <lastmod>2019-01-31T08:25:13.000Z</lastmod>
@@ -226,14 +233,14 @@
   </url>
   
   <url>
-    <loc>http://samuel21119.github.io/2018/09/15/UVa-165-Stamps/</loc>
+    <loc>http://samuel21119.github.io/2018/10/09/UVa-838-Worm-World/</loc>
     
     <lastmod>2019-01-31T08:25:13.000Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://samuel21119.github.io/2018/10/09/UVa-838-Worm-World/</loc>
+    <loc>http://samuel21119.github.io/2018/09/15/UVa-165-Stamps/</loc>
     
     <lastmod>2019-01-31T08:25:13.000Z</lastmod>
     
