@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://samuel21119.github.io/"/>
-  <updated>2019-06-29T05:12:19.023Z</updated>
+  <updated>2019-10-20T12:52:52.590Z</updated>
   <id>http://samuel21119.github.io/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Zerojudge. c523 狗狗攻擊</title>
+    <link href="http://samuel21119.github.io/2019/10/20/Zerojudge-c523/"/>
+    <id>http://samuel21119.github.io/2019/10/20/Zerojudge-c523/</id>
+    <published>2019-10-20T02:22:40.000Z</published>
+    <updated>2019-10-20T12:52:52.590Z</updated>
+    
+    <content type="html"><![CDATA[<a id="more"></a><h1 id="Problem"><a href="#Problem" class="headerlink" title="Problem"></a>Problem</h1><div class="row">    <embed src="https://oj.nerde.pw/static2/kaohsiung-2017/p8.pdf" width="100%" height="550" type="application/pdf"></div><h1 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h1><p>這題其實有兩種做法，分別為DP+線段樹與貪心法，比賽當初給的正解好像是DP的解法，不過我自己寫的時候是用貪心法解決的。<br>以下敘述中，$x,y$分別代表正反面最後一次的攻擊招式，$c$為當前攻擊招式。<br>從最直覺的地方出發，我們知道如果$A&gt;B$，則一定會希望某面遭到同樣招式的連續攻擊；若$A&lt;B$，則希望變換攻擊招數。所以我們分成兩種情況討論，分別是$A&gt;B$和$A&lt;B$。  </p><h2 id="A-gt-B"><a href="#A-gt-B" class="headerlink" title="$A&gt;B$"></a>$A&gt;B$</h2><p>假設第一次攻擊打在正面，那第一次要換面打的時候，就是<code>x!=c</code>。因為$A&gt;B$，所以我們可以確定<code>x==c</code>時打在正面一定會比打在反面有更佳解。而以下討論的均為正反面均受過至少一次攻擊的情況：<br>如果$x$跟$y$其中有一個為$c$，則一定是把當前攻擊加到上次也是受到招式$c$的那面，所以傷害會加上A。但是如果$x,y$均不等於$c$的話，就比較複雜了。這時我們就要考慮，到底是什麼原因，才會使得目前的攻擊加在正/反面會影響到最大傷害？<br>舉個例子：<br><img src="/2019/10/20/Zerojudge-c523/1.png"></p><p>根據上面推論出來的法則，首先我會把1打在正面，2打在反面，接著3就不知道要打在哪裡了$(x=1, y=2, c=3)$。但是我們知道，唯一能使傷害最大化的方法，就是盡量<strong>讓之後的招式1打到正面，或是招式2打到反面，而且這中間不能穿插其他種類的招式</strong>。雖然要同時達成是不可能的，不過可以選擇比較好的方法，也就是看之後1和2誰比較早出現，就把當前招式打在另一邊。以剛剛的例子為例，第三次攻擊時不知道要打在哪裡，這時候就比較第四次以後1,2誰比較早出現，而因為1在第5次時就出現了，所以我們就把當前攻擊加在反面上。</p><h2 id="A-lt-B"><a href="#A-lt-B" class="headerlink" title="$A&lt;B$"></a>$A&lt;B$</h2><p>在$A&lt;B$的情況中，其實想法跟$A&gt;B$的一樣，只是把這裡的「相等」看成$A&lt;B$時的「不相等」，「不相等」看成「相等」就可以了，而推論的方法則跟上述一樣。</p><h1 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h1><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> n, a, b, Front, Back, mx;</span><br><span class="line"><span class="keyword">int</span> in[<span class="number">200001</span>];</span><br><span class="line"><span class="built_in">deque</span>&lt;<span class="keyword">int</span>&gt; pos[<span class="number">200001</span>];</span><br><span class="line"><span class="keyword">long</span> <span class="keyword">long</span> ans1, ans2;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    ios::sync_with_stdio(<span class="number">0</span>);</span><br><span class="line">    <span class="built_in">cin</span>.tie(<span class="number">0</span>);</span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; n &gt;&gt; a &gt;&gt; b;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; i++) &#123;</span><br><span class="line">        <span class="keyword">int</span> j;</span><br><span class="line">        <span class="built_in">cin</span> &gt;&gt; j;</span><br><span class="line">        in[i] = j;</span><br><span class="line">        pos[j].emplace_back(i);</span><br><span class="line">        mx = max(mx, j);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">bool</span> mode = a &gt; b;</span><br><span class="line">    pos[Front = in[<span class="number">1</span>]].pop_front();</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= mx; i++)</span><br><span class="line">        pos[i].emplace_back(<span class="number">100000000</span>);</span><br><span class="line">    pos[<span class="number">0</span>].emplace_back(<span class="number">100000001</span>);</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">2</span>; i &lt;= n; i++) &#123;</span><br><span class="line">        <span class="keyword">int</span> &amp;cur = in[i];</span><br><span class="line">        pos[cur].pop_front();</span><br><span class="line">        <span class="keyword">if</span> (mode) &#123;</span><br><span class="line">            <span class="keyword">if</span> (cur == Front || cur == Back)</span><br><span class="line">                ans1 += a;</span><br><span class="line">            <span class="keyword">else</span> &#123;</span><br><span class="line">                <span class="keyword">if</span> (Back) &#123;</span><br><span class="line">                    <span class="keyword">if</span> (pos[Front][<span class="number">0</span>] &gt; pos[Back][<span class="number">0</span>])</span><br><span class="line">                        Front = cur;</span><br><span class="line">                    <span class="keyword">else</span></span><br><span class="line">                        Back = cur;</span><br><span class="line">                    ans1 += b;</span><br><span class="line">                &#125;<span class="keyword">else</span></span><br><span class="line">                    Back = cur;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;<span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="keyword">if</span> (cur == Front &amp;&amp; cur == Back)</span><br><span class="line">                ans1 += a;</span><br><span class="line">            <span class="keyword">else</span> <span class="keyword">if</span> (cur == Front || cur == Back) &#123;</span><br><span class="line">                <span class="keyword">if</span> (Back)</span><br><span class="line">                    ans1 += b;</span><br><span class="line">                Front = Back = cur;</span><br><span class="line">            &#125;<span class="keyword">else</span> &#123;</span><br><span class="line">                <span class="keyword">if</span> (pos[Front][<span class="number">0</span>] &gt; pos[Back][<span class="number">0</span>])</span><br><span class="line">                    Back = cur;</span><br><span class="line">                <span class="keyword">else</span></span><br><span class="line">                    Front = cur;</span><br><span class="line">                ans1 += b;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">2</span>; i &lt;= n; i++)</span><br><span class="line">        <span class="keyword">if</span> (in[i] == in[i - <span class="number">1</span>])</span><br><span class="line">            ans2 += a;</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">            ans2 += b;</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; max(ans1, ans2) &lt;&lt; <span class="string">'\n'</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
+&lt;h1 id=&quot;Problem&quot;&gt;&lt;a href=&quot;#Problem&quot; class=&quot;headerlink&quot; title=&quot;Problem&quot;&gt;&lt;/a&gt;Problem&lt;/h1&gt;
+
+	&lt;div class=&quot;row&quot;&gt;
+    &lt;embed src
+      
+    
+    </summary>
+    
+    
+  </entry>
   
   <entry>
     <title>T-Rex Runner with Keras</title>
@@ -157,13 +182,13 @@
       <category term="題目" scheme="http://samuel21119.github.io/categories/%E9%A1%8C%E7%9B%AE/"/>
     
     
-      <category term="DFS" scheme="http://samuel21119.github.io/tags/DFS/"/>
-    
       <category term="Dynamic Programming" scheme="http://samuel21119.github.io/tags/Dynamic-Programming/"/>
     
-      <category term="Math" scheme="http://samuel21119.github.io/tags/Math/"/>
+      <category term="DFS" scheme="http://samuel21119.github.io/tags/DFS/"/>
     
       <category term="Greedy" scheme="http://samuel21119.github.io/tags/Greedy/"/>
+    
+      <category term="Math" scheme="http://samuel21119.github.io/tags/Math/"/>
     
   </entry>
   
@@ -211,9 +236,9 @@
     
       <category term="UVa" scheme="http://samuel21119.github.io/tags/UVa/"/>
     
-      <category term="Tree" scheme="http://samuel21119.github.io/tags/Tree/"/>
-    
       <category term="LCA" scheme="http://samuel21119.github.io/tags/LCA/"/>
+    
+      <category term="Tree" scheme="http://samuel21119.github.io/tags/Tree/"/>
     
       <category term="MST" scheme="http://samuel21119.github.io/tags/MST/"/>
     
@@ -239,9 +264,9 @@
     
       <category term="UVa" scheme="http://samuel21119.github.io/tags/UVa/"/>
     
-      <category term="DFS" scheme="http://samuel21119.github.io/tags/DFS/"/>
-    
       <category term="Dynamic Programming" scheme="http://samuel21119.github.io/tags/Dynamic-Programming/"/>
+    
+      <category term="DFS" scheme="http://samuel21119.github.io/tags/DFS/"/>
     
   </entry>
   
@@ -265,9 +290,9 @@
     
       <category term="UVa" scheme="http://samuel21119.github.io/tags/UVa/"/>
     
-      <category term="DFS" scheme="http://samuel21119.github.io/tags/DFS/"/>
-    
       <category term="Dynamic Programming" scheme="http://samuel21119.github.io/tags/Dynamic-Programming/"/>
+    
+      <category term="DFS" scheme="http://samuel21119.github.io/tags/DFS/"/>
     
       <category term="Dijkstra" scheme="http://samuel21119.github.io/tags/Dijkstra/"/>
     
@@ -292,9 +317,9 @@
       <category term="題解" scheme="http://samuel21119.github.io/categories/%E9%A1%8C%E8%A7%A3/"/>
     
     
-      <category term="Treap" scheme="http://samuel21119.github.io/tags/Treap/"/>
-    
       <category term="Tree" scheme="http://samuel21119.github.io/tags/Tree/"/>
+    
+      <category term="Treap" scheme="http://samuel21119.github.io/tags/Treap/"/>
     
       <category term="Persistence" scheme="http://samuel21119.github.io/tags/Persistence/"/>
     
@@ -400,9 +425,9 @@
     
       <category term="Disjoint set" scheme="http://samuel21119.github.io/tags/Disjoint-set/"/>
     
-      <category term="Treap" scheme="http://samuel21119.github.io/tags/Treap/"/>
-    
       <category term="Tree" scheme="http://samuel21119.github.io/tags/Tree/"/>
+    
+      <category term="Treap" scheme="http://samuel21119.github.io/tags/Treap/"/>
     
   </entry>
   
@@ -448,11 +473,11 @@
       <category term="模板" scheme="http://samuel21119.github.io/categories/%E6%A8%A1%E6%9D%BF/"/>
     
     
-      <category term="Tree" scheme="http://samuel21119.github.io/tags/Tree/"/>
-    
       <category term="Heavy-light Decomposition" scheme="http://samuel21119.github.io/tags/Heavy-light-Decomposition/"/>
     
       <category term="LCA" scheme="http://samuel21119.github.io/tags/LCA/"/>
+    
+      <category term="Tree" scheme="http://samuel21119.github.io/tags/Tree/"/>
     
   </entry>
   
@@ -474,9 +499,9 @@
       <category term="模板" scheme="http://samuel21119.github.io/categories/%E6%A8%A1%E6%9D%BF/"/>
     
     
-      <category term="Tree" scheme="http://samuel21119.github.io/tags/Tree/"/>
-    
       <category term="LCA" scheme="http://samuel21119.github.io/tags/LCA/"/>
+    
+      <category term="Tree" scheme="http://samuel21119.github.io/tags/Tree/"/>
     
   </entry>
   
@@ -501,38 +526,6 @@
       <category term="Tarjan Algorithm" scheme="http://samuel21119.github.io/tags/Tarjan-Algorithm/"/>
     
       <category term="SCC" scheme="http://samuel21119.github.io/tags/SCC/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Template. Treap</title>
-    <link href="http://samuel21119.github.io/2018/08/14/Template-Treap/"/>
-    <id>http://samuel21119.github.io/2018/08/14/Template-Treap/</id>
-    <published>2018-08-13T16:13:12.000Z</published>
-    <updated>2019-01-31T08:25:13.000Z</updated>
-    
-    <content type="html"><![CDATA[<p>Treap = Heap + Tree。</p><h1 id="Usage"><a href="#Usage" class="headerlink" title="Usage"></a>Usage</h1><ul><li>宣告：<br><code>treap&lt;型別&gt; a, b;</code></li><li>插入：<br><code>a.insert(100);</code></li><li>刪除：<br><code>a.erase(100);</code></li><li>查詢第k大（回傳node指標，取<code>-&gt;key</code>即可得到該數字）：<br><code>a.kth(1);</code></li><li>查詢某數為第幾大（0為第一個）：<br><code>a.rank(100);</code><a id="more"></a></li></ul><h1 id="Template"><a href="#Template" class="headerlink" title="Template"></a>Template</h1><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">rand</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">static</span> <span class="keyword">int</span> x = <span class="number">123456789</span>;</span><br><span class="line">    <span class="keyword">return</span> x += (x &lt;&lt; <span class="number">2</span>) + <span class="number">1</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;</span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">treap</span> &#123;</span></span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">node</span> &#123;</span></span><br><span class="line">        node *l, *r;</span><br><span class="line">        T key;</span><br><span class="line">        <span class="keyword">int</span> pri, size;</span><br><span class="line">        node(T k):key(k) &#123;</span><br><span class="line">            l = r = <span class="literal">nullptr</span>;</span><br><span class="line">            pri = rand();</span><br><span class="line">            size = <span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="function"><span class="keyword">void</span> <span class="title">up</span><span class="params">()</span> </span>&#123;</span><br><span class="line">            size = <span class="number">1</span>;</span><br><span class="line">            <span class="keyword">if</span> (l)</span><br><span class="line">                size += l-&gt;size;</span><br><span class="line">            <span class="keyword">if</span> (r)</span><br><span class="line">                size += r-&gt;size;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;;</span><br><span class="line"></span><br><span class="line">    node *root = <span class="literal">nullptr</span>;</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">size</span><span class="params">(node *a)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (!a)</span><br><span class="line">            <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">return</span> a-&gt;size;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function">node* <span class="title">merge</span><span class="params">(node *a, node *b)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (!a || !b)</span><br><span class="line">            <span class="keyword">return</span> a ? a : b;</span><br><span class="line">        <span class="keyword">if</span> (a-&gt;pri &lt; b-&gt;pri) &#123;</span><br><span class="line">            a-&gt;r = merge(a-&gt;r, b);</span><br><span class="line">            a-&gt;up();</span><br><span class="line">            <span class="keyword">return</span> a;</span><br><span class="line">        &#125;</span><br><span class="line">        b-&gt;l = merge(a, b-&gt;l);</span><br><span class="line">        b-&gt;up();</span><br><span class="line">        <span class="keyword">return</span> b;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">split</span><span class="params">(node *R, node *&amp;a, node *&amp;b, T k)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (!R)</span><br><span class="line">            a = b = <span class="literal">nullptr</span>;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span> (R-&gt;key &lt; k) &#123;</span><br><span class="line">            a = R;</span><br><span class="line">            split(R-&gt;r, a-&gt;r, b, k);</span><br><span class="line">            R-&gt;up();</span><br><span class="line">        &#125;<span class="keyword">else</span> &#123;</span><br><span class="line">            b = R;</span><br><span class="line">            split(R-&gt;l, a, b-&gt;l, k);</span><br><span class="line">            R-&gt;up();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">insert</span><span class="params">(node *&amp;Root, T k)</span> </span>&#123;</span><br><span class="line">        node *a, *b;</span><br><span class="line">        split(Root, a, b, k);</span><br><span class="line">        Root = merge(a, merge(<span class="keyword">new</span> node(k), b));</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">bool</span> <span class="title">erase</span><span class="params">(node *&amp;R, T k)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (!R)</span><br><span class="line">            <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">if</span> (R-&gt;key == k) &#123;</span><br><span class="line">            node *tmp = R;</span><br><span class="line">            R = merge(R-&gt;l, R-&gt;r);</span><br><span class="line">            <span class="keyword">delete</span> tmp;</span><br><span class="line">            <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        node *&amp;nxt = R-&gt;key &gt; k ? R-&gt;l : R-&gt;r;</span><br><span class="line">        <span class="keyword">if</span> (erase(nxt, k)) &#123;</span><br><span class="line">            R-&gt;up();</span><br><span class="line">            <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">split2</span><span class="params">(node *R, node *&amp;a, node *&amp;b, <span class="keyword">int</span> k)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (!R)</span><br><span class="line">            a = b = <span class="literal">nullptr</span>;</span><br><span class="line">        <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="keyword">if</span> (k &gt;= size(R-&gt;l) + <span class="number">1</span>) &#123;</span><br><span class="line">                a = R;</span><br><span class="line">                split2(R-&gt;r, a-&gt;r, b, k - size(R-&gt;l) - <span class="number">1</span>);</span><br><span class="line">            &#125;<span class="keyword">else</span> &#123;</span><br><span class="line">                b = R;</span><br><span class="line">                split2(R-&gt;l, a, b-&gt;l, k);</span><br><span class="line">            &#125;</span><br><span class="line">            R-&gt;up();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//Simple way to use:</span></span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">insert</span><span class="params">(T k)</span> </span>&#123;</span><br><span class="line">        insert(root, k);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">bool</span> <span class="title">erase</span><span class="params">(T k)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> erase(root, k);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">rank</span><span class="params">(T k)</span> </span>&#123;</span><br><span class="line">        node *a, *b;</span><br><span class="line">        split(root, a, b, k);</span><br><span class="line">        <span class="keyword">int</span> re = size(a);</span><br><span class="line">        root = merge(a, b);</span><br><span class="line">        <span class="keyword">return</span> re;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function">node* <span class="title">kth</span><span class="params">(<span class="keyword">int</span> k)</span> </span>&#123;</span><br><span class="line">        node *a, *b, *c;</span><br><span class="line">        a = b = c = <span class="literal">nullptr</span>;</span><br><span class="line">        split2(root, a, c, k);</span><br><span class="line">        split2(a, a, b, k - <span class="number">1</span>);</span><br><span class="line">        root = merge(merge(a, b), c);</span><br><span class="line">        <span class="keyword">return</span> b;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure><h1 id="Demo"><a href="#Demo" class="headerlink" title="Demo"></a>Demo</h1><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">treap&lt;<span class="keyword">int</span>&gt; t;</span><br><span class="line">t.insert(<span class="number">1</span>);</span><br><span class="line">t.insert(<span class="number">2</span>);</span><br><span class="line">t.insert(<span class="number">100</span>);</span><br><span class="line"><span class="built_in">cout</span> &lt;&lt; t.kth(<span class="number">3</span>)-&gt;key &lt;&lt; <span class="string">'\n'</span>;</span><br><span class="line"><span class="built_in">cout</span> &lt;&lt; t.rank(<span class="number">1</span>) &lt;&lt; <span class="string">'\n'</span>;</span><br></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;Treap = Heap + Tree。&lt;/p&gt;
-&lt;h1 id=&quot;Usage&quot;&gt;&lt;a href=&quot;#Usage&quot; class=&quot;headerlink&quot; title=&quot;Usage&quot;&gt;&lt;/a&gt;Usage&lt;/h1&gt;&lt;ul&gt;
-&lt;li&gt;宣告：&lt;br&gt;&lt;code&gt;treap&amp;lt;型別&amp;gt; a, b;&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;插入：&lt;br&gt;&lt;code&gt;a.insert(100);&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;刪除：&lt;br&gt;&lt;code&gt;a.erase(100);&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;查詢第k大（回傳node指標，取&lt;code&gt;-&amp;gt;key&lt;/code&gt;即可得到該數字）：&lt;br&gt;&lt;code&gt;a.kth(1);&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;查詢某數為第幾大（0為第一個）：&lt;br&gt;&lt;code&gt;a.rank(100);&lt;/code&gt;
-    
-    </summary>
-    
-      <category term="模板" scheme="http://samuel21119.github.io/categories/%E6%A8%A1%E6%9D%BF/"/>
-    
-    
-      <category term="Treap" scheme="http://samuel21119.github.io/tags/Treap/"/>
-    
-      <category term="Tree" scheme="http://samuel21119.github.io/tags/Tree/"/>
-    
-      <category term="Persistence" scheme="http://samuel21119.github.io/tags/Persistence/"/>
     
   </entry>
   
