@@ -6,7 +6,7 @@
 	<meta charset='utf-8'>
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, shrink-to-fit=no">
-	<title>mnmlurl - Minimal URL is a modern URL shortener with support for custom alias</title>
+	<title>URL shortener</title>
 	<meta name="description" content="Minimal URL is a modern URL shortener with support for custom alias">
 	<link rel="icon" href="favicon.ico">
 	<meta itemprop="name" content="mnmlurl">
@@ -86,19 +86,6 @@
 			<a href="manage">
 				<img src="icons/manage.svg" alt="logo" style="height: 24px; margin-right: 8px;">Manage URLs
 			</a>
-			<a href="https://github.com/liyasthomas/mnmlurl-extension" target="_blank" rel="noopener">
-				<img src="icons/extension.svg" alt="GitHub" style="height: 24px; margin-right: 8px;">Get browser extension
-			</a>
-			<a href="https://github.com/liyasthomas/mnmlurl" target="_blank" rel="noopener">
-				<img src="icons/github.svg" alt="GitHub" style="height: 24px; margin-right: 8px;">GitHub
-			</a>
-			<button id="installPWA" onclick="installPWA()" style="padding: 16px;">
-				<img src="icons/pwalogo.svg" alt="PWA" style="height: 16px;">
-			</button>
-			<div class="flex"></div>
-			<a href="https://mnmlurl.ml">
-				<img src="icons/logo.svg" alt="logo" style="height: 24px; margin-right: 8px;">&copy;2019
-			</a>
 		</footer>
 	</main>
 	<script src="index.js"></script>
@@ -115,7 +102,7 @@
 		if (pwaInstalled) {
 			document.getElementById('installPWA').style.display = 'none'
 		} else {
-			document.getElementById('installPWA').style.display = 'block'
+			//document.getElementById('installPWA').style.display = 'block'
 		}
 		let deferredPrompt = null
 		window.addEventListener('beforeinstallprompt', (e) => {
