@@ -2,9 +2,23 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://samuel21119.github.io/links/index.html</loc>
+    
+    <lastmod>2019-11-23T01:18:34.084Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://samuel21119.github.io/about/index.html</loc>
+    
+    <lastmod>2019-11-23T01:17:15.406Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://samuel21119.github.io/2019/10/20/Zerojudge-c523/</loc>
     
-    <lastmod>2019-10-20T12:52:52.590Z</lastmod>
+    <lastmod>2019-11-22T12:28:04.997Z</lastmod>
     
   </url>
   
@@ -12,13 +26,6 @@
     <loc>http://samuel21119.github.io/2019/06/06/T-Rex-Runner-with-Tensorflow/</loc>
     
     <lastmod>2019-06-29T05:12:19.023Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://samuel21119.github.io/links/index.html</loc>
-    
-    <lastmod>2019-06-06T16:31:53.263Z</lastmod>
     
   </url>
   
@@ -33,13 +40,6 @@
     <loc>http://samuel21119.github.io/tags/index.html</loc>
     
     <lastmod>2019-06-04T14:40:36.896Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://samuel21119.github.io/about/index.html</loc>
-    
-    <lastmod>2019-06-04T14:16:13.110Z</lastmod>
     
   </url>
   
