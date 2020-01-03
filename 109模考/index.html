@@ -10,7 +10,7 @@
     <h1>雄中模考查詢</h1>
     <form>
         班級： <select name="class" id="class"></select><br><br>
-        座號： <input type="number" name="座號" id="seat" value=""><br><br>
+        座號： <input type="number" name="座號" id="seat" value="" onkeydown="if (event.keyCode == 13) return false;"><br><br>
         考試： <select name="exam" id="exam">
             <option value="CU_3082">第一次全模</option>
             <option value="CU_3083">第二次全模</option>
