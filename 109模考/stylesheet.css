@@ -115,3 +115,7 @@ input {
     position: absolute;
     bottom: 0;
 }
+.red {
+  display: inline;
+  color: red;
+}
