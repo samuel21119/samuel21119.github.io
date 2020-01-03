@@ -24,7 +24,7 @@ select {
   font-size: 25px;
   overflow: hidden;
   width: 6em;
-  height: 30px;
+  height: 35px;
   border-radius: 0px;
   border-width: 0px;
 }
@@ -105,7 +105,8 @@ input {
 }
 
 #lowerleft{
-    margin-bottom: 1px;
+  font-size: 14px;
+  margin-top: 20px;
     margin-left : 1px;
     display: block;
     bottom: 1;
