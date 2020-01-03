@@ -6,6 +6,7 @@
   font-family: 'Inconsolata', 'Noto Sans TC', sans-serif;
 }
 body {
+  overflow: auto;
   background-color: rgba(64, 64, 64, 5);
   color: white;
   font-family: 'Inconsolata', 'Noto Sans TC', sans-serif;
@@ -118,4 +119,7 @@ input {
 .red {
   display: inline;
   color: red;
+}
+table {
+  overflow: auto;
 }

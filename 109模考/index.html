@@ -23,6 +23,7 @@
             </div>
     </div>
     <div id="lowerleft">統整製作：<div class="red">318黃恩明</div> *<div class="red">不用輸入煩人金鑰</div>*</div>
+
     <script>
         /* add class*/
         function add_class() {   
@@ -35,6 +36,11 @@
             }
         }
         add_class();
+        document.addEventListener("keyup", function(event) {
+            if (event.keyCode === 13) {
+                document.getElementById("button-start").click();
+            }
+        });
         document.getElementById("button-start").addEventListener("click", () => {
             t = `http://59.125.86.115/is/School/AJAForm.php?Exam_No=${document.getElementById("exam").value}&GClass=000&Seat_Nomber=000&Group_No=0&Student_No=`;
             var c = parseInt(document.getElementById("class").value);
