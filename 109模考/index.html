@@ -1,0 +1,52 @@
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="stylesheet.css">
+    <link rel="stylesheet" href="animate.min.css">
+    <title>百九雄中模考查詢</title>
+</head>
+
+<body id="body">
+    <h1>109雄中模考查詢</h1>
+    <form>
+        班級： <select name="class" id="class"></select><br><br>
+        座號： <input type="number" name="座號" id="seat" value=""><br><br>
+        考試： <select name="exam" id="exam">
+            <option value="CU_3082">第一次全模</option>
+            <option value="CU_3083">第二次全模</option>
+            <option value="CU_3084">第三次全模</option>
+        </select>
+    </form>
+    <div class="button-start" id="button-start" style="background-color: rgba(64, 64, 64, 5);">
+            <div class="button-btn button-btn1">
+                <span>查詢</span>
+            </div>
+    </div>
+    <div id="lowerleft">統整製作：318黃恩明<br>*不用輸入煩人金鑰*</div>
+    <script>
+        /* add class*/
+        function add_class() {   
+            var opt = document.getElementById("class");
+            for (var i = 1; i <= 21; i++) {
+                var add = document.createElement("option");
+                add.setAttribute("value", i);
+                add.innerText = i;
+                opt.appendChild(add);
+            }
+        }
+        add_class();
+        document.getElementById("button-start").addEventListener("click", () => {
+            t = `http://59.125.86.115/is/School/AJAForm.php?Exam_No=${document.getElementById("exam").value}&GClass=000&Seat_Nomber=000&Group_No=0&Student_No=`;
+            var c = parseInt(document.getElementById("class").value);
+            if (c < 10) c = "0" + c;
+            var s = parseInt(document.getElementById("seat").value);
+            if (s < 10) s = "10" + s;
+            t += "801" + "3" + c + "0" + s;
+            console.log(t);
+            window.location.href = t;
+        });
+    </script>
+</body>
+
+
