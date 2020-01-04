@@ -9,6 +9,7 @@
 <body id="body">
     <h1>雄中模考查詢</h1>
     <form>
+        學校： <select name="school" id="school"></select><br><br>
         班級： <select name="class" id="class"></select><br><br>
         座號： <input type="number" name="座號" id="seat" value="" onkeydown="if (event.keyCode == 13) return false;"><br><br>
         考試： <select name="exam" id="exam">
@@ -23,8 +24,8 @@
             </div>
     </div>
     <div id="lowerleft">統整製作：<div class="red">318黃恩明</div> *<div class="red">不用輸入煩人金鑰</div>*</div>
-
-    <script>
+    <script type="text/javascript" src="school.js"></script>
+    <script type="text/javascript">
         /* add class*/
         function add_class() {   
             var opt = document.getElementById("class");
@@ -52,7 +53,7 @@
             window.location.href = t;
         });
     </script>
-    
+
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-121963518-3"></script>
     <script>
