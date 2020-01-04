@@ -48,7 +48,7 @@
             if (c < 10) c = "0" + c;
             var s = parseInt(document.getElementById("seat").value);
             if (s < 10) s = "0" + s;
-            t += "801" + "3" + c + "0" + s;
+            t += document.getElementById("school").value + "3" + c + "0" + s;
             console.log(t);
             window.location.href = t;
         });
