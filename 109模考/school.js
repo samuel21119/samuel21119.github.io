@@ -2731,10 +2731,13 @@ var school = [
         "NO": "D01",
         "NAME": "雲林縣台灣復興藝術實驗教育機構"
     }
-]
+];
+var canadd = ["801", "802"];
 async function add_school() {   
     var opt = document.getElementById("school");
     for (var i = 0; i < school.length; i++) {
+        if (canadd.indexOf(school[i]["NO"]) === -1)
+            continue;
         var add = document.createElement("option");
         add.setAttribute("value", school[i]["NO"]);
         add.innerText = school[i]["NO"] + " : " + school[i]["NAME"];
