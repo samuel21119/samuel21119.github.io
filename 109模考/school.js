@@ -2733,10 +2733,11 @@ var school = [
     }
 ];
 var canadd = ["801", "802"];
+var limit = false;
 async function add_school() {   
     var opt = document.getElementById("school");
     for (var i = 0; i < school.length; i++) {
-        if (canadd.indexOf(school[i]["NO"]) === -1)
+        if (limit && canadd.indexOf(school[i]["NO"]) === -1)
             continue;
         var add = document.createElement("option");
         add.setAttribute("value", school[i]["NO"]);
