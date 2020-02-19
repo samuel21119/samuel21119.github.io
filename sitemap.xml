@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://samuel21119.github.io/2018/08/15/Template-LCA-Doubling-Search/</loc>
+    
+    <lastmod>2020-02-19T07:04:05.107Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://samuel21119.github.io/about/index.html</loc>
     
     <lastmod>2019-11-23T05:37:15.990Z</lastmod>
@@ -89,13 +96,6 @@
     <loc>http://samuel21119.github.io/2018/08/23/Template-Fibonacci-Matrix/</loc>
     
     <lastmod>2019-02-10T15:15:34.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://samuel21119.github.io/2018/08/15/Template-LCA-Doubling-Search/</loc>
-    
-    <lastmod>2019-02-10T15:15:33.000Z</lastmod>
     
   </url>
   
