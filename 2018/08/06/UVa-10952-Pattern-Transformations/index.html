@@ -1,38 +1,450 @@
-{% extends '_layout.swig' %}
-{% import '_macro/post.swig' as post_template %}
-{% import '_macro/sidebar.swig' as sidebar_template %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.2.0">
 
 
-{% block title %}{{ page.title }} | {{ config.title }}{% endblock %}
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/72px.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/72px.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
 
-{% block page_class %}page-post-detail{% endblock %}
+<link rel="stylesheet" href="/css/main.css">
 
 
-{% block content %}
 
-  <div id="posts" class="posts-expand">
-    {{ post_template.render(page) }}
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.1/css/all.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css">
 
-    <div class="post-spread">
-      {% if theme.jiathis %}
-        {% include '_partials/share/jiathis.swig' %}
-      {% elseif theme.baidushare %}
-        {% include '_partials/share/baidushare.swig' %}
-      {% elseif theme.add_this_id %}
-        {% include '_partials/share/add-this.swig' %}
-      {% elseif theme.duoshuo_shortname and theme.duoshuo_share %}
-        {% include '_partials/share/duoshuo_share.swig' %}
-      {% endif %}
+<script class="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"samuel21119.github.io","root":"/","images":"/images","scheme":"Mist","version":"8.1.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}};
+  </script>
+<meta name="description" content="DescriptionConsider the two patterns of ‘O’ and ‘X’ below (‘.’ represent an empty square). We want the first pattern to be transformed into the second pattern in one time unit. During this time unit,">
+<meta property="og:type" content="article">
+<meta property="og:title" content="UVa 10952. Pattern Transformations">
+<meta property="og:url" content="http://samuel21119.github.io/2018/08/06/UVa-10952-Pattern-Transformations/index.html">
+<meta property="og:site_name" content="Samuel&#39;s Blog">
+<meta property="og:description" content="DescriptionConsider the two patterns of ‘O’ and ‘X’ below (‘.’ represent an empty square). We want the first pattern to be transformed into the second pattern in one time unit. During this time unit,">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://samuel21119.github.io/2018/08/06/UVa-10952-Pattern-Transformations/1.png">
+<meta property="article:published_time" content="2018-08-05T18:31:30.000Z">
+<meta property="article:modified_time" content="2020-12-06T03:31:26.166Z">
+<meta property="article:author" content="Samuel Huang">
+<meta property="article:tag" content="UVa">
+<meta property="article:tag" content="Bitwise">
+<meta property="article:tag" content="DFS">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://samuel21119.github.io/2018/08/06/UVa-10952-Pattern-Transformations/1.png">
+
+
+<link rel="canonical" href="http://samuel21119.github.io/2018/08/06/UVa-10952-Pattern-Transformations/">
+
+
+<script class="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'en'
+  };
+</script>
+<title>UVa 10952. Pattern Transformations | Samuel's Blog</title>
+  
+
+
+
+  <noscript>
+  <style>
+  body { margin-top: 2rem; }
+
+  .use-motion .menu-item,
+  .use-motion .sidebar,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header {
+    visibility: visible;
+  }
+
+  .use-motion .header,
+  .use-motion .site-brand-container .toggle,
+  .use-motion .footer { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle,
+  .use-motion .custom-logo-image {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line {
+    transform: scaleX(1);
+  }
+
+  .search-pop-overlay, .sidebar-nav { display: none; }
+  .sidebar-panel { display: block; }
+  </style>
+</noscript>
+
+<link rel="alternate" href="/atom.xml" title="Samuel's Blog" type="application/atom+xml"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
     </div>
   </div>
 
-{% endblock %}
+  <div class="site-meta">
 
-{% block sidebar %}
-  {{ sidebar_template.render(true) }}
-{% endblock %}
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <h1 class="site-title">Samuel's Blog</h1>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
 
 
-{% block script_extra %}
-  {% include '_scripts/pages/post-details.swig' %}
-{% endblock %}
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-home"><a href="/" rel="section">Home</a></li>
+        <li class="menu-item menu-item-categories"><a href="/categories/" rel="section">Categories</a></li>
+        <li class="menu-item menu-item-archives"><a href="/archives/" rel="section">Archives</a></li>
+        <li class="menu-item menu-item-tags"><a href="/tags/" rel="section">Tags</a></li>
+        <li class="menu-item menu-item-links"><a href="/links" rel="section">links</a></li>
+        <li class="menu-item menu-item-about"><a href="/about/" rel="section">About</a></li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <section class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Description"><span class="nav-number">1.</span> <span class="nav-text">Description</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Solution"><span class="nav-number">2.</span> <span class="nav-text">Solution</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Code"><span class="nav-number">3.</span> <span class="nav-text">Code</span></a></li></ol></div>
+        </section>
+        <!--/noindex-->
+
+        <section class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Samuel Huang</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">37</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">5</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">37</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/samuel21119" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;samuel21119" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://gitlab.com/samuel21119" title="GitLab → https:&#x2F;&#x2F;gitlab.com&#x2F;samuel21119" rel="noopener" target="_blank"><i class="fab fa-gitlab fa-fw"></i>GitLab</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:enminghuang21119@gmail.com" title="E-Mail → mailto:enminghuang21119@gmail.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://t.me/enmingw32" title="Telegram → https:&#x2F;&#x2F;t.me&#x2F;enmingw32" rel="noopener" target="_blank"><i class="fa fa-telegram fa-fw"></i>Telegram</a>
+      </span>
+  </div>
+
+
+
+        </section>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://samuel21119.github.io/2018/08/06/UVa-10952-Pattern-Transformations/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Samuel Huang">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Samuel's Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          UVa 10952. Pattern Transformations
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2018-08-06 02:31:30" itemprop="dateCreated datePublished" datetime="2018-08-06T02:31:30+08:00">2018-08-06</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">Edited on</span>
+        <time title="Modified: 2020-12-06 11:31:26" itemprop="dateModified" datetime="2020-12-06T11:31:26+08:00">2020-12-06</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E9%A1%8C%E8%A7%A3/" itemprop="url" rel="index"><span itemprop="name">題解</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <blockquote><h1 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h1><p>Consider the two patterns of ‘O’ and ‘X’ below (‘.’ represent an empty square). We want the first pattern to be transformed into the second pattern in one time unit. During this time unit, each symbol (‘O’ and ‘X’) can move one step in any of the four directions (or remain at its current square). All movements happen simultaneously, so a symbol can move to an occupied square, if that symbol is moved to some other square. If a symbol moves from square A to B, and the symbol at B moves to A, we have a swap. Write a program which calculates the least number of swaps needed to transform a given pattern into another given pattern.</p>
+<a id="more"></a> 
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">.XO..  ..XO.  </span><br><span class="line">..OX.  .XX..  </span><br><span class="line">.XX..  ..OX.  </span><br></pre></td></tr></table></figure>To transform the first pattern above into the second one requires one swap: The two symbols in the first line are moved to the right, the ‘O’ in the second line must be swapped with the ‘X’ below. The other two ‘X’ are moved up and down, respectively.  
+# Input Format
+The first line in the input contains the number of test cases to follow (at most 20). Each test case starts with a line containing two integers, w and h ($1 \le w, h \le 8$), the width and height of the two patterns. Then follow h lines describing each row of the two patterns (the two patterns will be separated with a single space, see the sample input). The only allowed characters in the patterns will be the symbols ‘O’, ‘X’ and ‘.’.  
+# Output Format
+For each input you should output a line containing a single integer: the least number of swaps required to transform the first pattern into the second. If the transformation is not possible, output a ‘-1’.  
+# Sample Input
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">3  </span><br><span class="line">5 3  </span><br><span class="line">.XO.. ..XO.  </span><br><span class="line">..OX. .XX..  </span><br><span class="line">.XX.. ..OX.  </span><br><span class="line">4 4  </span><br><span class="line">OXOX XOXO  </span><br><span class="line">XX.O OX.X  </span><br><span class="line">O..X X..O  </span><br><span class="line">XOXO OXOX  </span><br><span class="line">3 4  </span><br><span class="line">.X. .X.  </span><br><span class="line">.OX XO.  </span><br><span class="line">..O .O.  </span><br><span class="line">... ...</span><br></pre></td></tr></table></figure>
+# Sample Output
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">0  </span><br><span class="line">0  </span><br><span class="line">-1  </span><br></pre></td></tr></table></figure>
+UVa - [10952](https://uva.onlinejudge.org/external/109/10952.pdf)</blockquote>
+<h1 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h1><p>這題令我印象最深刻的就是我是這題的Topcoder：AC 0.000sec。  </p>
+<img src="/2018/08/06/UVa-10952-Pattern-Transformations/1.png" class="">
+<p>這題主要是考驗如何以bit來表示狀態，以及在寫狀態轉移式時的細心程度，再利用DFS來達成搜尋目的。<br>在我的程式裡面，共有四個狀態，分別是當前垂直、水平改變，以及上一行的垂直、水平改變。<br>以水平為例，第i位的0代表未有O或X移動到第i位置，若是1則相反。若是垂直的狀態，1則代表有往下移動。<br>若只以上述的想法來寫，會TLE，所以需要以DP的方式將重複狀態的DFS記錄下來（下面程式的38~41行）。<br><strong>注意！此題第一測資答案為0，在上方已修正</strong></p>
+<h1 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h1><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*************************************************************************</span></span><br><span class="line"><span class="comment">  &gt; File Name: 10952 - Pattern Transformations.cpp</span></span><br><span class="line"><span class="comment">  &gt; Author: Samuel</span></span><br><span class="line"><span class="comment">  &gt; Mail: enminghuang21119@gmail.com</span></span><br><span class="line"><span class="comment">  &gt; Created Time: Sat Jul 28 11:22:06 2018</span></span><br><span class="line"><span class="comment">*************************************************************************/</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> inf = <span class="number">1</span> &lt;&lt; <span class="number">30</span>;</span><br><span class="line"><span class="keyword">int</span> n, m, c;</span><br><span class="line"><span class="keyword">char</span> s[<span class="number">8</span>][<span class="number">8</span>], e[<span class="number">8</span>][<span class="number">8</span>];</span><br><span class="line"><span class="keyword">int</span> dp[<span class="number">8</span>][<span class="number">1</span> &lt;&lt; <span class="number">8</span>][<span class="number">1</span> &lt;&lt; <span class="number">8</span>], run[<span class="number">8</span>][<span class="number">1</span> &lt;&lt; <span class="number">8</span>][<span class="number">1</span> &lt;&lt; <span class="number">8</span>];</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">dfs</span><span class="params">(<span class="keyword">int</span>, <span class="keyword">int</span>, <span class="keyword">int</span>, <span class="keyword">int</span>, <span class="keyword">int</span>, <span class="keyword">int</span>)</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">sol</span><span class="params">(<span class="keyword">int</span>, <span class="keyword">int</span>, <span class="keyword">int</span>)</span></span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    ios::sync_with_stdio(<span class="number">0</span>);</span><br><span class="line">    <span class="built_in">cin</span>.tie(<span class="number">0</span>);</span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; c;</span><br><span class="line">    <span class="keyword">while</span> (c--) &#123;</span><br><span class="line">        <span class="built_in">cin</span> &gt;&gt; m &gt;&gt; n;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++) &#123;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; m; j++)</span><br><span class="line">                <span class="built_in">cin</span> &gt;&gt; s[i][j];</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; m; j++)</span><br><span class="line">                <span class="built_in">cin</span> &gt;&gt; e[i][j];</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">int</span> ans = sol(<span class="number">0</span>, <span class="number">0</span>, (<span class="number">1</span> &lt;&lt; m) - <span class="number">1</span>);</span><br><span class="line">        <span class="built_in">cout</span> &lt;&lt; (ans == inf ? <span class="number">-1</span> : ans) &lt;&lt; <span class="string">&#x27;\n&#x27;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">sol</span><span class="params">(<span class="keyword">int</span> row, <span class="keyword">int</span> prev_ver, <span class="keyword">int</span> prev_hor)</span> </span>&#123; <span class="comment">//垂直 平行</span></span><br><span class="line">    <span class="keyword">if</span> (row == n)</span><br><span class="line">        <span class="keyword">return</span> (!prev_ver &amp;&amp; prev_hor == (<span class="number">1</span> &lt;&lt; m) - <span class="number">1</span>) ? <span class="number">0</span> : inf;</span><br><span class="line">    <span class="keyword">if</span> (run[row][prev_ver][prev_hor] == c)</span><br><span class="line">        <span class="keyword">return</span> dp[row][prev_ver][prev_hor];</span><br><span class="line">    run[row][prev_ver][prev_hor] = c;</span><br><span class="line">    <span class="keyword">return</span> dp[row][prev_ver][prev_hor] = dfs(row, <span class="number">0</span>, prev_ver, prev_hor, <span class="number">0</span>, <span class="number">0</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">dfs</span><span class="params">(<span class="keyword">int</span> row, <span class="keyword">int</span> col, <span class="keyword">int</span> prev_ver, <span class="keyword">int</span> prev_hor, <span class="keyword">int</span> now_ver, <span class="keyword">int</span> now_hor)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">while</span> (<span class="number">1</span>) &#123;</span><br><span class="line">        <span class="keyword">int</span> re = inf;</span><br><span class="line">        <span class="keyword">int</span> col1 = <span class="number">1</span> &lt;&lt; col;</span><br><span class="line">        <span class="keyword">if</span> (col == m) &#123;</span><br><span class="line">            <span class="keyword">if</span> (prev_hor != (<span class="number">1</span> &lt;&lt; m) - <span class="number">1</span>)</span><br><span class="line">                <span class="keyword">return</span> inf;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; m; i++)</span><br><span class="line">                <span class="keyword">if</span> (e[row][i] == <span class="string">&#x27;.&#x27;</span>)</span><br><span class="line">                    now_hor |= <span class="number">1</span> &lt;&lt; i;</span><br><span class="line">            <span class="keyword">return</span> sol(row + <span class="number">1</span>, now_ver, now_hor);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (prev_ver &amp; col1) &#123;</span><br><span class="line">            <span class="keyword">if</span> (now_hor &amp; col1)</span><br><span class="line">                <span class="keyword">return</span> inf;</span><br><span class="line">            now_hor |= col1;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (s[row][col] == <span class="string">&#x27;.&#x27;</span>) &#123;</span><br><span class="line">            <span class="keyword">if</span> (!(prev_hor &amp; col1))</span><br><span class="line">                <span class="keyword">return</span> inf;</span><br><span class="line">            <span class="keyword">if</span> (e[row][col] == <span class="string">&#x27;.&#x27;</span>)</span><br><span class="line">                now_hor |= col1;</span><br><span class="line">            col++;</span><br><span class="line">            <span class="keyword">continue</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (!(prev_hor &amp; col1)) &#123;</span><br><span class="line">            <span class="keyword">if</span> (s[row][col] != e[row - <span class="number">1</span>][col])</span><br><span class="line">                <span class="keyword">return</span> inf;</span><br><span class="line">            <span class="keyword">if</span> (prev_ver &amp; col1)</span><br><span class="line">                <span class="keyword">return</span> <span class="number">1</span> + dfs(row, col + <span class="number">1</span>, prev_ver, prev_hor | col1, now_ver, now_hor);</span><br><span class="line">            prev_hor |= col1;</span><br><span class="line">            col++;</span><br><span class="line">            <span class="keyword">continue</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (s[row][col] == e[row][col] &amp;&amp; !(prev_ver &amp; col1) &amp;&amp; !(now_hor &amp; col1))</span><br><span class="line">            re = min(re, dfs(row, col + <span class="number">1</span>, prev_ver, prev_hor, now_ver, now_hor | col1));</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (col &lt; m - <span class="number">1</span> &amp;&amp; s[row][col] == e[row][col + <span class="number">1</span>])</span><br><span class="line">            re = min(re, dfs(row, col + <span class="number">1</span>, prev_ver, prev_hor, now_ver, now_hor | (col1 &lt;&lt; <span class="number">1</span>)));</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (col &amp;&amp; s[row][col] == e[row][col - <span class="number">1</span>] &amp;&amp; !(now_hor &amp; (col1 &gt;&gt; <span class="number">1</span>))) &#123;</span><br><span class="line">            <span class="keyword">if</span> (!(prev_ver &amp; col1) &amp;&amp; (now_hor &amp; col1))</span><br><span class="line">                re = min(re, <span class="number">1</span> + dfs(row, col + <span class="number">1</span>, prev_ver, prev_hor, now_ver, now_hor | (col1 &gt;&gt; <span class="number">1</span>)));</span><br><span class="line">            <span class="keyword">else</span></span><br><span class="line">                re = min(re, dfs(row, col + <span class="number">1</span>, prev_ver, prev_hor, now_ver, now_hor | (col1 &gt;&gt; <span class="number">1</span>)));</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (row &lt; n - <span class="number">1</span> &amp;&amp; s[row][col] == e[row + <span class="number">1</span>][col])</span><br><span class="line">            re = min(re, dfs(row, col + <span class="number">1</span>, prev_ver, prev_hor, now_ver | col1, now_hor));</span><br><span class="line">        <span class="keyword">return</span> re;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/UVa/" rel="tag"># UVa</a>
+              <a href="/tags/Bitwise/" rel="tag"># Bitwise</a>
+              <a href="/tags/DFS/" rel="tag"># DFS</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2018/08/05/Cpp%E6%95%99%E5%AD%B8/" rel="prev" title="Cpp教學">
+                  <i class="fa fa-chevron-left"></i> Cpp教學
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2018/08/06/UVa-103-Stacking-Boxes/" rel="next" title="UVa 103. Stacking Boxes">
+                  UVa 103. Stacking Boxes <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      const activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      const commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Samuel Huang</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/mist/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <script src="//cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js"></script>
+<script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/schemes/muse.js"></script><script src="/js/next-boot.js"></script>
+
+  
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  <script>
+  if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      tex: {
+        inlineMath: {'[+]': [['$', '$']]},
+        tags: 'all'
+      },
+      options: {
+        renderActions: {
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              const target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+    const script = document.createElement('script');
+    script.src = '//cdn.jsdelivr.net/npm/mathjax@3.1.2/es5/tex-mml-chtml.js';
+    script.defer = true;
+    document.head.appendChild(script);
+  } else {
+    MathJax.startup.document.state(0);
+    MathJax.typesetClear();
+    MathJax.texReset();
+    MathJax.typeset();
+  }
+</script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+
+
+
+</body>
+</html>
