@@ -1,38 +1,447 @@
-{% extends '_layout.swig' %}
-{% import '_macro/post.swig' as post_template %}
-{% import '_macro/sidebar.swig' as sidebar_template %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.2.0">
 
 
-{% block title %}{{ page.title }} | {{ config.title }}{% endblock %}
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/72px.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/72px.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
 
-{% block page_class %}page-post-detail{% endblock %}
+<link rel="stylesheet" href="/css/main.css">
 
 
-{% block content %}
 
-  <div id="posts" class="posts-expand">
-    {{ post_template.render(page) }}
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.1/css/all.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css">
 
-    <div class="post-spread">
-      {% if theme.jiathis %}
-        {% include '_partials/share/jiathis.swig' %}
-      {% elseif theme.baidushare %}
-        {% include '_partials/share/baidushare.swig' %}
-      {% elseif theme.add_this_id %}
-        {% include '_partials/share/add-this.swig' %}
-      {% elseif theme.duoshuo_shortname and theme.duoshuo_share %}
-        {% include '_partials/share/duoshuo_share.swig' %}
-      {% endif %}
+<script class="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"samuel21119.github.io","root":"/","images":"/images","scheme":"Mist","version":"8.1.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}};
+  </script>
+<meta name="description" content="Specs首先先附上我桌機的規格：  CPU: Intel i9-10900   Motherboard: Gigabyte Vision G Z490   RAM: Kingston 16GB DDR4 2666MHz * 2   Cooler: Noctua NH-D15S   Power Supply: LEADEX Gold 750W   GPU:  NVIDIA RTX 3070 @ P">
+<meta property="og:type" content="article">
+<meta property="og:title" content="KVM+QEMU with PCIe Passthrough via OVMF">
+<meta property="og:url" content="http://samuel21119.github.io/2020/12/06/KVM-QEMU-with-PCIe-Passthrough-via-OVMF/index.html">
+<meta property="og:site_name" content="Samuel&#39;s Blog">
+<meta property="og:description" content="Specs首先先附上我桌機的規格：  CPU: Intel i9-10900   Motherboard: Gigabyte Vision G Z490   RAM: Kingston 16GB DDR4 2666MHz * 2   Cooler: Noctua NH-D15S   Power Supply: LEADEX Gold 750W   GPU:  NVIDIA RTX 3070 @ P">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://samuel21119.github.io/2020/12/06/KVM-QEMU-with-PCIe-Passthrough-via-OVMF/windows_network.png">
+<meta property="og:image" content="http://samuel21119.github.io/2020/12/06/KVM-QEMU-with-PCIe-Passthrough-via-OVMF/disk.png">
+<meta property="article:published_time" content="2020-12-05T18:29:11.000Z">
+<meta property="article:modified_time" content="2020-12-06T03:32:04.493Z">
+<meta property="article:author" content="Samuel Huang">
+<meta property="article:tag" content="Linux">
+<meta property="article:tag" content="KVM">
+<meta property="article:tag" content="QEMU">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://samuel21119.github.io/2020/12/06/KVM-QEMU-with-PCIe-Passthrough-via-OVMF/windows_network.png">
+
+
+<link rel="canonical" href="http://samuel21119.github.io/2020/12/06/KVM-QEMU-with-PCIe-Passthrough-via-OVMF/">
+
+
+<script class="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'en'
+  };
+</script>
+<title>KVM+QEMU with PCIe Passthrough via OVMF | Samuel's Blog</title>
+  
+
+
+
+  <noscript>
+  <style>
+  body { margin-top: 2rem; }
+
+  .use-motion .menu-item,
+  .use-motion .sidebar,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header {
+    visibility: visible;
+  }
+
+  .use-motion .header,
+  .use-motion .site-brand-container .toggle,
+  .use-motion .footer { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle,
+  .use-motion .custom-logo-image {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line {
+    transform: scaleX(1);
+  }
+
+  .search-pop-overlay, .sidebar-nav { display: none; }
+  .sidebar-panel { display: block; }
+  </style>
+</noscript>
+
+<link rel="alternate" href="/atom.xml" title="Samuel's Blog" type="application/atom+xml"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
     </div>
   </div>
 
-{% endblock %}
+  <div class="site-meta">
 
-{% block sidebar %}
-  {{ sidebar_template.render(true) }}
-{% endblock %}
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <h1 class="site-title">Samuel's Blog</h1>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
 
 
-{% block script_extra %}
-  {% include '_scripts/pages/post-details.swig' %}
-{% endblock %}
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-home"><a href="/" rel="section">Home</a></li>
+        <li class="menu-item menu-item-categories"><a href="/categories/" rel="section">Categories</a></li>
+        <li class="menu-item menu-item-archives"><a href="/archives/" rel="section">Archives</a></li>
+        <li class="menu-item menu-item-tags"><a href="/tags/" rel="section">Tags</a></li>
+        <li class="menu-item menu-item-links"><a href="/links" rel="section">links</a></li>
+        <li class="menu-item menu-item-about"><a href="/about/" rel="section">About</a></li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <section class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Specs"><span class="nav-number">1.</span> <span class="nav-text">Specs</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Current-Setup"><span class="nav-number">2.</span> <span class="nav-text">Current Setup</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%9B%AE%E6%A8%99"><span class="nav-number">3.</span> <span class="nav-text">目標</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B1%8F%E8%94%BDGPU"><span class="nav-number">4.</span> <span class="nav-text">屏蔽GPU</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#macOS-VM"><span class="nav-number">5.</span> <span class="nav-text">macOS VM</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Windows-VM"><span class="nav-number">6.</span> <span class="nav-text">Windows VM</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Evdev"><span class="nav-number">7.</span> <span class="nav-text">Evdev</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%95%88%E8%83%BD%E6%B8%AC%E8%A9%A6"><span class="nav-number">8.</span> <span class="nav-text">效能測試</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Windows"><span class="nav-number">8.1.</span> <span class="nav-text">Windows</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#macOS"><span class="nav-number">8.2.</span> <span class="nav-text">macOS</span></a></li></ol></li></ol></div>
+        </section>
+        <!--/noindex-->
+
+        <section class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Samuel Huang</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">37</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">5</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">37</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/samuel21119" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;samuel21119" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://gitlab.com/samuel21119" title="GitLab → https:&#x2F;&#x2F;gitlab.com&#x2F;samuel21119" rel="noopener" target="_blank"><i class="fab fa-gitlab fa-fw"></i>GitLab</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:enminghuang21119@gmail.com" title="E-Mail → mailto:enminghuang21119@gmail.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://t.me/enmingw32" title="Telegram → https:&#x2F;&#x2F;t.me&#x2F;enmingw32" rel="noopener" target="_blank"><i class="fa fa-telegram fa-fw"></i>Telegram</a>
+      </span>
+  </div>
+
+
+
+        </section>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://samuel21119.github.io/2020/12/06/KVM-QEMU-with-PCIe-Passthrough-via-OVMF/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Samuel Huang">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Samuel's Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          KVM+QEMU with PCIe Passthrough via OVMF
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+      
+
+      <time title="Created: 2020-12-06 02:29:11 / Modified: 11:32:04" itemprop="dateCreated datePublished" datetime="2020-12-06T02:29:11+08:00">2020-12-06</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <h2 id="Specs"><a href="#Specs" class="headerlink" title="Specs"></a>Specs</h2><p>首先先附上我桌機的規格：</p>
+<ul>
+<li>CPU: Intel i9-10900  </li>
+<li>Motherboard: Gigabyte Vision G Z490  </li>
+<li>RAM: Kingston 16GB DDR4 2666MHz * 2  </li>
+<li>Cooler: Noctua NH-D15S  </li>
+<li>Power Supply: LEADEX Gold 750W  </li>
+<li>GPU: <ul>
+<li>NVIDIA RTX 3070 @ PCIe 3.0 x8</li>
+<li>AMD Radeon RX 580 8GB @ PCIe 3.0 x8</li>
+</ul>
+</li>
+<li>Storage:  <ul>
+<li>1TB NVMe PCIe SSD (Pioneer APS-SE20G 1TB)  </li>
+<li>512GB NVMe PCIe SSD (Samsung SM951a)  </li>
+<li>512GB ACHI SATA SSD * 2  </li>
+<li>1TB HDD  </li>
+</ul>
+</li>
+</ul>
+<a id="more"></a> 
+
+<h2 id="Current-Setup"><a href="#Current-Setup" class="headerlink" title="Current Setup"></a>Current Setup</h2><p>以下是原本的電腦配置，在一般電腦上跑黑蘋果的方法這裡不會解釋。基本上黑蘋果本身可以驅動所有的東西，例如Wi-Fi,Bluetooth,AirDrop,Sidecar...。  </p>
+<ul>
+<li>1TB NVMe PCIe SSD (Pioneer APS-SE20G 1TB)<ul>
+<li>macOS Catalina 10.15.7</li>
+<li>Arch Linux</li>
+</ul>
+</li>
+<li>512GB NVMe PCIe SSD (Samsung SM951a)<ul>
+<li>Windows 10</li>
+</ul>
+</li>
+<li>SATA Disks<ul>
+<li>Data</li>
+</ul>
+</li>
+</ul>
+<h2 id="目標"><a href="#目標" class="headerlink" title="目標"></a>目標</h2><p>因為有了雙顯卡，我希望可以在Linux下利用KVM技術用接近原生的效能模擬兩個系統，並透過GPU passthrough來達成不錯的顯示效能。  </p>
+<h2 id="屏蔽GPU"><a href="#屏蔽GPU" class="headerlink" title="屏蔽GPU"></a>屏蔽GPU</h2><p><a target="_blank" rel="noopener" href="https://wiki.archlinux.org/index.php/PCI_passthrough_via_OVMF#Isolating_the_GPU">參考教學</a><br>這裡問題最多，最重要的就是每個IOMMU group是導入PCIe裝置的最小單位。在Intel Core系列上，直通CPU的16條PCIe並沒有ACS(Access Control Services)，所以在我的配置下兩顆GPU都屬於同個IOMMU group。理論上這樣是沒辦法分別導向到不同VM的(PCH上通常都會有ACS，所以經過主機板的PCIe裝置應該是可以正常區分成不同group的)。  </p>
+<p>不過還是有一個辦法「有可能」可以解決，叫做ACS Patch，能夠把同個group不同裝置切開成不同IOMMU group。這個東西不是萬能的，它只是欺騙Linux kernel IOMMU group的樣子，在物理(電)層面上，原本同個group的裝置還是有辦法看到對方。使用這種patch會出問題的情況通常是兩顆GPU都是同樣的，所以在driver載入的時候它會想辦法去init看到的那兩顆GPU，產生不可預期的錯誤。不過在我的情況上，GPU分別為NVIDIA和AMD，會出問題的機率不大，我才使這個patch。切記在使用這個patch前，務必要先暸解<a target="_blank" rel="noopener" href="https://vfio.blogspot.com/2014/08/iommu-groups-inside-and-out.html">潛在的風險</a>。<br>在Arch Linux下安裝ACS patch的方式很簡單。安裝<a target="_blank" rel="noopener" href="https://aur.archlinux.org/packages/linux-vfio/">linux-vfio(AUR)</a>，使用linux-vfio客製kernel開機並在boot-args加上<code>pcie_acs_override=downstream</code>。這個patch會重新編譯linux kernel，所以記得在執行安裝前設定<code>make -jX</code>的FLAG，縮短編譯時間。  </p>
+<h2 id="macOS-VM"><a href="#macOS-VM" class="headerlink" title="macOS VM"></a>macOS VM</h2><p>基本上照著<a target="_blank" rel="noopener" href="https://github.com/kholia/OSX-KVM">kholia/OSX-KVM</a>的操作就可以成功了，然後再把實體硬碟導入到VM裡面(使用virtio)就好。  </p>
+<p>如果在導入磁碟時出現  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Error starting domain: Unable to get devmapper targets for &#x2F;dev&#x2F;sdX</span><br></pre></td></tr></table></figure>
+<p>請記得downgrade libvirt 版本到 6.5.0-1。</p>
+<p>另外我還將Bluetooth導入到VM裡面(USB介面)，成功驅動，但是Wi-Fi部分就有問題，目前還沒有解決方法。有線網卡的型號請記得設定成e1000e，要不然VM的上傳速度會慢到受不了。為了更有效地使用CPU資源，可以考慮<a target="_blank" rel="noopener" href="https://wiki.archlinux.org/index.php/PCI_passthrough_via_OVMF#CPU_pinning">CPU Pinning</a>  </p>
+<h2 id="Windows-VM"><a href="#Windows-VM" class="headerlink" title="Windows VM"></a>Windows VM</h2><p>理論上Windows會比較簡單，可是我在這裡反而遇到了很多問題。  </p>
+<p>以下是簡單的解決方法</p>
+<ol>
+<li>虛擬網卡Device model使用virtio (改善網路效能)
+<img src="windows_network.png">  </li>
+<li>硬碟Bus使用VirtIO (增加硬碟讀取速度，同樣也可套用在上面的macOS)
+<img src="disk.png">  </li>
+<li>安裝virtio drivers: <a target="_blank" rel="noopener" href="https://fedorapeople.org/groups/virt/virtio-win/direct-downloads/">fedora virtio-win.iso</a>  </li>
+<li>NVIDIA 驅動程式安裝後GPU沒有訊號。這個其實就是Code 43，NVIDIA driver偵測到使用者的GPU不是Tesla,Quadro等特殊產品線，而且又在VM裡面的時候，就會把RTX/GTX的GPU給屏蔽。解決方法就是騙它這台VM不是VM。<a target="_blank" rel="noopener" href="https://passthroughpo.st/apply-error-43-workaround/">Solution</a></li>
+<li>聲音傳遞方式使用<a target="_blank" rel="noopener" href="https://github.com/duncanthrax/scream">duncanthrax/scream</a>，配合host上的pluseaudio。</li>
+<li>導入整顆NVMe SSD進去(類似上面屏蔽GPU的方法，需要把SSD的PCIe ID擋住避免host使用)。</li>
+</ol>
+<h2 id="Evdev"><a href="#Evdev" class="headerlink" title="Evdev"></a>Evdev</h2><p>如果沒有多重滑鼠/鍵盤的話，可以考慮使用Evdev來傳遞訊號。<a target="_blank" rel="noopener" href="https://wiki.archlinux.org/index.php/PCI_passthrough_via_OVMF#Passing_keyboard/mouse_via_Evdev">ArchLinux Wiki</a>上面都有寫詳細的教學。不過這有一個問題就是它不支援滑鼠熱插拔，如果VM使用到一半，鍵盤拔掉後又重新接回來，Evdev會沒辦法運作，需要將VM重新開機才生效。不過這裡有一個解決方法，使用額外的script去處理這種問題：<a target="_blank" rel="noopener" href="https://github.com/aiberia/persistent-evdev">aiberia/persistent-evdev</a>。</p>
+<h2 id="效能測試"><a href="#效能測試" class="headerlink" title="效能測試"></a>效能測試</h2><h3 id="Windows"><a href="#Windows" class="headerlink" title="Windows"></a>Windows</h3><p>在Windows下跑3D Mark的RTX 3070分數與原生系統下的分數差距不到1%。使用GeekBench 5測試CPU的多核效能為1000*p，p為VM CPU數量，單核大概為900~1000。在遊玩遊戲上基本上沒有什麼問題。  </p>
+<h3 id="macOS"><a href="#macOS" class="headerlink" title="macOS"></a>macOS</h3><p>這篇文就是在這裡產生出來的。我在macOS不會用到太多的顯示效能，導入GPU只是為了不要使用QEMU模擬的GPU，因為它的效能差到極致。目前在使用上也沒碰到什麼太大的問題。</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/Linux/" rel="tag"># Linux</a>
+              <a href="/tags/KVM/" rel="tag"># KVM</a>
+              <a href="/tags/QEMU/" rel="tag"># QEMU</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2019/10/20/Zerojudge-c523/" rel="prev" title="Zerojudge. c523 狗狗攻擊">
+                  <i class="fa fa-chevron-left"></i> Zerojudge. c523 狗狗攻擊
+                </a>
+            </div>
+            <div class="post-nav-item">
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      const activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      const commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Samuel Huang</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/mist/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <script src="//cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js"></script>
+<script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/schemes/muse.js"></script><script src="/js/next-boot.js"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+
+  
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+</body>
+</html>
