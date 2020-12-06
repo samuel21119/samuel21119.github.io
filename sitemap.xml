@@ -2,290 +2,602 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>http://samuel21119.github.io/about/index.html</loc>
+    <loc>http://samuel21119.github.io/2020/12/06/KVM-QEMU-with-PCIe-Passthrough-via-OVMF/</loc>
     
-    <lastmod>2020-03-29T08:36:05.677Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://samuel21119.github.io/2018/08/15/Template-LCA-Doubling-Search/</loc>
-    
-    <lastmod>2020-02-19T07:04:05.107Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://samuel21119.github.io/links/index.html</loc>
-    
-    <lastmod>2019-11-23T01:18:34.084Z</lastmod>
+    <lastmod>2020-12-06</lastmod>
     
   </url>
   
   <url>
     <loc>http://samuel21119.github.io/2019/10/20/Zerojudge-c523/</loc>
     
-    <lastmod>2019-11-22T12:28:04.997Z</lastmod>
+    <lastmod>2020-12-05</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://samuel21119.github.io/about/index.html</loc>
+    
+    <lastmod>2020-11-27</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://samuel21119.github.io/2018/08/15/Template-LCA-Doubling-Search/</loc>
+    
+    <lastmod>2020-02-19</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://samuel21119.github.io/links/index.html</loc>
+    
+    <lastmod>2019-11-23</lastmod>
     
   </url>
   
   <url>
     <loc>http://samuel21119.github.io/2019/06/06/T-Rex-Runner-with-Tensorflow/</loc>
     
-    <lastmod>2019-06-29T05:12:19.023Z</lastmod>
+    <lastmod>2019-06-29</lastmod>
     
   </url>
   
   <url>
     <loc>http://samuel21119.github.io/2018/08/05/Cpp%E6%95%99%E5%AD%B8/</loc>
     
-    <lastmod>2019-06-04T14:47:20.578Z</lastmod>
+    <lastmod>2019-06-04</lastmod>
     
   </url>
   
   <url>
     <loc>http://samuel21119.github.io/tags/index.html</loc>
     
-    <lastmod>2019-06-04T14:40:36.896Z</lastmod>
+    <lastmod>2019-06-04</lastmod>
     
   </url>
   
   <url>
     <loc>http://samuel21119.github.io/2019/02/24/Convert-Physical-OS-to-Virtual-Machine/</loc>
     
-    <lastmod>2019-03-01T07:15:45.000Z</lastmod>
+    <lastmod>2019-03-01</lastmod>
     
   </url>
   
   <url>
     <loc>http://samuel21119.github.io/2019/02/26/UVa-11516-WiFi/</loc>
     
-    <lastmod>2019-02-26T04:41:01.000Z</lastmod>
+    <lastmod>2019-02-26</lastmod>
     
   </url>
   
   <url>
     <loc>http://samuel21119.github.io/2018/12/11/UVa-1427-Parade/</loc>
     
-    <lastmod>2019-02-26T04:01:37.000Z</lastmod>
+    <lastmod>2019-02-26</lastmod>
     
   </url>
   
   <url>
     <loc>http://samuel21119.github.io/2019/02/19/APCS-2019-02-16/</loc>
     
-    <lastmod>2019-02-24T14:23:03.000Z</lastmod>
+    <lastmod>2019-02-24</lastmod>
     
   </url>
   
   <url>
     <loc>http://samuel21119.github.io/2018/08/09/CodeForces-Round-502/</loc>
     
-    <lastmod>2019-02-10T15:15:50.000Z</lastmod>
+    <lastmod>2019-02-10</lastmod>
     
   </url>
   
   <url>
     <loc>http://samuel21119.github.io/2018/08/09/Template-Longest-Common-Subsequence/</loc>
     
-    <lastmod>2019-02-10T15:15:44.000Z</lastmod>
+    <lastmod>2019-02-10</lastmod>
     
   </url>
   
   <url>
     <loc>http://samuel21119.github.io/2018/08/23/Template-Fibonacci-Matrix/</loc>
     
-    <lastmod>2019-02-10T15:15:34.000Z</lastmod>
+    <lastmod>2019-02-10</lastmod>
     
   </url>
   
   <url>
     <loc>http://samuel21119.github.io/2018/08/09/UVa-10949-Kids-in-a-Grid/</loc>
     
-    <lastmod>2019-02-10T15:15:28.000Z</lastmod>
+    <lastmod>2019-02-10</lastmod>
     
   </url>
   
   <url>
     <loc>http://samuel21119.github.io/2018/08/18/UVa-1479-Graph-and-Queries/</loc>
     
-    <lastmod>2019-02-10T15:15:25.000Z</lastmod>
+    <lastmod>2019-02-10</lastmod>
     
   </url>
   
   <url>
     <loc>http://samuel21119.github.io/2018/08/06/Arch-Linux-Installation-Guide/</loc>
     
-    <lastmod>2019-01-31T08:25:13.000Z</lastmod>
+    <lastmod>2019-01-31</lastmod>
     
   </url>
   
   <url>
     <loc>http://samuel21119.github.io/2018/08/06/UVa-103-Stacking-Boxes/</loc>
     
-    <lastmod>2019-01-31T08:25:13.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://samuel21119.github.io/2018/08/06/UVa-307-Sticks/</loc>
-    
-    <lastmod>2019-01-31T08:25:13.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://samuel21119.github.io/2018/08/07/Template-Disjoint-set/</loc>
-    
-    <lastmod>2019-01-31T08:25:13.000Z</lastmod>
+    <lastmod>2019-01-31</lastmod>
     
   </url>
   
   <url>
     <loc>http://samuel21119.github.io/2018/08/06/UVa-10952-Pattern-Transformations/</loc>
     
-    <lastmod>2019-01-31T08:25:13.000Z</lastmod>
+    <lastmod>2019-01-31</lastmod>
     
   </url>
   
   <url>
-    <loc>http://samuel21119.github.io/2018/08/07/Template-Segment-Tree/</loc>
+    <loc>http://samuel21119.github.io/2018/08/06/UVa-307-Sticks/</loc>
     
-    <lastmod>2019-01-31T08:25:13.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://samuel21119.github.io/2018/08/07/UVa-13153-Number-of-Connected-Components/</loc>
-    
-    <lastmod>2019-01-31T08:25:13.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://samuel21119.github.io/2018/08/08/Template-Binary-Index-Tree/</loc>
-    
-    <lastmod>2019-01-31T08:25:13.000Z</lastmod>
+    <lastmod>2019-01-31</lastmod>
     
   </url>
   
   <url>
     <loc>http://samuel21119.github.io/2018/08/06/UVa-571-Jugs/</loc>
     
-    <lastmod>2019-01-31T08:25:13.000Z</lastmod>
+    <lastmod>2019-01-31</lastmod>
     
   </url>
   
   <url>
-    <loc>http://samuel21119.github.io/2018/08/11/UVa-10032-Tug-of-War/</loc>
+    <loc>http://samuel21119.github.io/2018/08/07/Template-Disjoint-set/</loc>
     
-    <lastmod>2019-01-31T08:25:13.000Z</lastmod>
+    <lastmod>2019-01-31</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://samuel21119.github.io/2018/08/07/Template-Segment-Tree/</loc>
+    
+    <lastmod>2019-01-31</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://samuel21119.github.io/2018/08/07/UVa-13153-Number-of-Connected-Components/</loc>
+    
+    <lastmod>2019-01-31</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://samuel21119.github.io/2018/08/08/Template-Binary-Index-Tree/</loc>
+    
+    <lastmod>2019-01-31</lastmod>
     
   </url>
   
   <url>
     <loc>http://samuel21119.github.io/2018/08/09/UVa-315-Network/</loc>
     
-    <lastmod>2019-01-31T08:25:13.000Z</lastmod>
+    <lastmod>2019-01-31</lastmod>
     
   </url>
   
   <url>
-    <loc>http://samuel21119.github.io/2018/08/15/Template-Heavy-light-Decomposition/</loc>
+    <loc>http://samuel21119.github.io/2018/08/11/UVa-10032-Tug-of-War/</loc>
     
-    <lastmod>2019-01-31T08:25:13.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://samuel21119.github.io/2018/08/16/Template-KMP/</loc>
-    
-    <lastmod>2019-01-31T08:25:13.000Z</lastmod>
+    <lastmod>2019-01-31</lastmod>
     
   </url>
   
   <url>
     <loc>http://samuel21119.github.io/2018/08/14/Template-Treap/</loc>
     
-    <lastmod>2019-01-31T08:25:13.000Z</lastmod>
+    <lastmod>2019-01-31</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://samuel21119.github.io/2018/08/15/Template-Heavy-light-Decomposition/</loc>
+    
+    <lastmod>2019-01-31</lastmod>
     
   </url>
   
   <url>
     <loc>http://samuel21119.github.io/2018/08/15/Template-Strongly-Connect-Component/</loc>
     
-    <lastmod>2019-01-31T08:25:13.000Z</lastmod>
+    <lastmod>2019-01-31</lastmod>
     
   </url>
   
   <url>
-    <loc>http://samuel21119.github.io/2018/08/21/UVa-11456-Trainsorting/</loc>
+    <loc>http://samuel21119.github.io/2018/08/16/Template-KMP/</loc>
     
-    <lastmod>2019-01-31T08:25:13.000Z</lastmod>
+    <lastmod>2019-01-31</lastmod>
     
   </url>
   
   <url>
     <loc>http://samuel21119.github.io/2018/08/20/Template-Persistent-Segment-Tree/</loc>
     
-    <lastmod>2019-01-31T08:25:13.000Z</lastmod>
+    <lastmod>2019-01-31</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://samuel21119.github.io/2018/08/21/UVa-11456-Trainsorting/</loc>
+    
+    <lastmod>2019-01-31</lastmod>
     
   </url>
   
   <url>
     <loc>http://samuel21119.github.io/2018/08/26/UVa-12538-Version-Controlled-IDE/</loc>
     
-    <lastmod>2019-01-31T08:25:13.000Z</lastmod>
+    <lastmod>2019-01-31</lastmod>
     
   </url>
   
   <url>
     <loc>http://samuel21119.github.io/2018/09/09/UVa-10917-Walk-Through-the-Forest/</loc>
     
-    <lastmod>2019-01-31T08:25:13.000Z</lastmod>
+    <lastmod>2019-01-31</lastmod>
     
   </url>
   
   <url>
     <loc>http://samuel21119.github.io/2018/09/15/UVa-165-Stamps/</loc>
     
-    <lastmod>2019-01-31T08:25:13.000Z</lastmod>
+    <lastmod>2019-01-31</lastmod>
     
   </url>
   
   <url>
     <loc>http://samuel21119.github.io/2018/09/22/UVa-10600-ACM-contest-and-Blackout/</loc>
     
-    <lastmod>2019-01-31T08:25:13.000Z</lastmod>
+    <lastmod>2019-01-31</lastmod>
     
   </url>
   
   <url>
     <loc>http://samuel21119.github.io/2018/10/09/UVa-838-Worm-World/</loc>
     
-    <lastmod>2019-01-31T08:25:13.000Z</lastmod>
+    <lastmod>2019-01-31</lastmod>
     
   </url>
   
   <url>
     <loc>http://samuel21119.github.io/2018/10/25/107%E5%AD%B8%E5%B9%B4%E5%BA%A6-%E6%A0%A1%E5%85%A7%E5%88%9D%E9%81%B8%E9%A1%8C%E7%9B%AE/</loc>
     
-    <lastmod>2019-01-31T08:25:13.000Z</lastmod>
+    <lastmod>2019-01-31</lastmod>
     
   </url>
   
   <url>
     <loc>http://samuel21119.github.io/archives/index.html</loc>
     
-    <lastmod>2019-01-31T08:25:13.000Z</lastmod>
+    <lastmod>2019-01-31</lastmod>
     
   </url>
   
   <url>
     <loc>http://samuel21119.github.io/categories/index.html</loc>
     
-    <lastmod>2019-01-31T08:25:13.000Z</lastmod>
+    <lastmod>2019-01-31</lastmod>
     
+  </url>
+  
+
+  <url>
+    <loc>http://samuel21119.github.io/</loc>
+    <lastmod>2020-12-06</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>1.0</priority>
+  </url>
+
+  
+  <url>
+    <loc>http://samuel21119.github.io/tags/C/</loc>
+    <lastmod>2020-12-06</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://samuel21119.github.io/tags/Linux/</loc>
+    <lastmod>2020-12-06</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://samuel21119.github.io/tags/UVa/</loc>
+    <lastmod>2020-12-06</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://samuel21119.github.io/tags/Dynamic-Programming/</loc>
+    <lastmod>2020-12-06</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://samuel21119.github.io/tags/LIS/</loc>
+    <lastmod>2020-12-06</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://samuel21119.github.io/tags/Bitwise/</loc>
+    <lastmod>2020-12-06</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://samuel21119.github.io/tags/DFS/</loc>
+    <lastmod>2020-12-06</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://samuel21119.github.io/tags/BFS/</loc>
+    <lastmod>2020-12-06</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://samuel21119.github.io/tags/Disjoint-set/</loc>
+    <lastmod>2020-12-06</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://samuel21119.github.io/tags/Segment-Tree/</loc>
+    <lastmod>2020-12-06</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://samuel21119.github.io/tags/Prime-factor/</loc>
+    <lastmod>2020-12-06</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://samuel21119.github.io/tags/BIT/</loc>
+    <lastmod>2020-12-06</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://samuel21119.github.io/tags/CodeForces/</loc>
+    <lastmod>2020-12-06</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://samuel21119.github.io/tags/Sort/</loc>
+    <lastmod>2020-12-06</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://samuel21119.github.io/tags/Math/</loc>
+    <lastmod>2020-12-06</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://samuel21119.github.io/tags/LCS/</loc>
+    <lastmod>2020-12-06</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://samuel21119.github.io/tags/Greedy/</loc>
+    <lastmod>2020-12-06</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://samuel21119.github.io/tags/Binary-Search/</loc>
+    <lastmod>2020-12-06</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://samuel21119.github.io/tags/Articulation-Points/</loc>
+    <lastmod>2020-12-06</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://samuel21119.github.io/tags/Tarjan-Algorithm/</loc>
+    <lastmod>2020-12-06</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://samuel21119.github.io/tags/Treap/</loc>
+    <lastmod>2020-12-06</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://samuel21119.github.io/tags/Tree/</loc>
+    <lastmod>2020-12-06</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://samuel21119.github.io/tags/Persistence/</loc>
+    <lastmod>2020-12-06</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://samuel21119.github.io/tags/Heavy-light-Decomposition/</loc>
+    <lastmod>2020-12-06</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://samuel21119.github.io/tags/LCA/</loc>
+    <lastmod>2020-12-06</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://samuel21119.github.io/tags/SCC/</loc>
+    <lastmod>2020-12-06</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://samuel21119.github.io/tags/String/</loc>
+    <lastmod>2020-12-06</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://samuel21119.github.io/tags/KMP/</loc>
+    <lastmod>2020-12-06</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://samuel21119.github.io/tags/Matrix/</loc>
+    <lastmod>2020-12-06</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://samuel21119.github.io/tags/Fibonacci/</loc>
+    <lastmod>2020-12-06</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://samuel21119.github.io/tags/Dijkstra/</loc>
+    <lastmod>2020-12-06</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://samuel21119.github.io/tags/MST/</loc>
+    <lastmod>2020-12-06</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://samuel21119.github.io/tags/APCS/</loc>
+    <lastmod>2020-12-06</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://samuel21119.github.io/tags/Machine-Learning/</loc>
+    <lastmod>2020-12-06</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://samuel21119.github.io/tags/Python/</loc>
+    <lastmod>2020-12-06</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://samuel21119.github.io/tags/KVM/</loc>
+    <lastmod>2020-12-06</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://samuel21119.github.io/tags/QEMU/</loc>
+    <lastmod>2020-12-06</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+
+  
+  <url>
+    <loc>http://samuel21119.github.io/categories/%E9%80%A3%E7%B5%90/</loc>
+    <lastmod>2020-12-06</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://samuel21119.github.io/categories/%E6%95%99%E5%AD%B8/</loc>
+    <lastmod>2020-12-06</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://samuel21119.github.io/categories/%E9%A1%8C%E8%A7%A3/</loc>
+    <lastmod>2020-12-06</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://samuel21119.github.io/categories/%E6%A8%A1%E6%9D%BF/</loc>
+    <lastmod>2020-12-06</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://samuel21119.github.io/categories/%E9%A1%8C%E7%9B%AE/</loc>
+    <lastmod>2020-12-06</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
   </url>
   
 </urlset>
