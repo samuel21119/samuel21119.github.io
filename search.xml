@@ -239,6 +239,20 @@ UVa - [571](https://uva.onlinejudge.org/external/5/571.pdf)
       </tags>
   </entry>
   <entry>
+    <title>Template. Binary Index Tree</title>
+    <url>/2018/08/08/Template-Binary-Index-Tree/</url>
+    <content><![CDATA[<p>Fendwick Tree，區間查詢和，支援修改。</p>
+<a id="more"></a> 
+<h1 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h1><figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">define</span> maxn 1000</span></span><br><span class="line"><span class="keyword">int</span> tree[maxn + <span class="number">1</span>], num[maxn + <span class="number">1</span>];</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">init</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="built_in">memset</span>(tree, <span class="number">0</span>, <span class="keyword">sizeof</span>(tree));</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= maxn; i++)</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> j = i; j &lt;= maxn; j += i &amp; -i)</span><br><span class="line">            tree[j] += num[i];</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">query</span><span class="params">(<span class="keyword">int</span> i)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> ans = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span> (; i; i -= i &amp; -i)</span><br><span class="line">        ans += tree[i];</span><br><span class="line">    <span class="keyword">return</span> ans;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">modify</span><span class="params">(<span class="keyword">int</span> i, <span class="keyword">int</span> d)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">for</span> (; i &lt;= maxn; i += i &amp; -i)</span><br><span class="line">        tree[i] += d;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>模板</category>
+      </categories>
+      <tags>
+        <tag>BIT</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>UVa 13153. Number of Connected Components</title>
     <url>/2018/08/07/UVa-13153-Number-of-Connected-Components/</url>
     <content><![CDATA[<blockquote><h1 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h1><p>給你 N 個節點，每個點上附有一個介於$1～10^6$之間的正整數。假如某2個節點上的數其最大公因數（GCD）大於1，則這2個節點之間會有一條邊存在。<br>要請你算出這N個節點構成的的圖形中，共有幾個連通的單元。  </p>
@@ -259,20 +273,6 @@ UVa - [13153](https://uva.onlinejudge.org/external/131/13153.pdf)
         <tag>UVa</tag>
         <tag>Disjoint set</tag>
         <tag>Prime factor</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Template. Binary Index Tree</title>
-    <url>/2018/08/08/Template-Binary-Index-Tree/</url>
-    <content><![CDATA[<p>Fendwick Tree，區間查詢和，支援修改。</p>
-<a id="more"></a> 
-<h1 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h1><figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">define</span> maxn 1000</span></span><br><span class="line"><span class="keyword">int</span> tree[maxn + <span class="number">1</span>], num[maxn + <span class="number">1</span>];</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">init</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="built_in">memset</span>(tree, <span class="number">0</span>, <span class="keyword">sizeof</span>(tree));</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= maxn; i++)</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> j = i; j &lt;= maxn; j += i &amp; -i)</span><br><span class="line">            tree[j] += num[i];</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">query</span><span class="params">(<span class="keyword">int</span> i)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> ans = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span> (; i; i -= i &amp; -i)</span><br><span class="line">        ans += tree[i];</span><br><span class="line">    <span class="keyword">return</span> ans;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">modify</span><span class="params">(<span class="keyword">int</span> i, <span class="keyword">int</span> d)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">for</span> (; i &lt;= maxn; i += i &amp; -i)</span><br><span class="line">        tree[i] += d;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>模板</category>
-      </categories>
-      <tags>
-        <tag>BIT</tag>
       </tags>
   </entry>
   <entry>
