@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>C&#43;&#43; on Eureka Demo</title>
+    <title>C&#43;&#43; on EnMinGW32</title>
     <link>/tags/c&#43;&#43;/</link>
-    <description>Recent content in C&#43;&#43; on Eureka Demo</description>
+    <description>Recent content in C&#43;&#43; on EnMinGW32</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-Hant</language>
     <copyright>&amp;copy; 2021 &lt;a href=&#34;https://www.wangchucheng.com/&#34;&gt;C. Wang&lt;/a&gt; and &lt;a href=&#34;https://www.ruiqima.com/&#34;&gt;R. Ma&lt;/a&gt;
@@ -15,7 +15,7 @@
       <pubDate>Sun, 05 Aug 2018 15:08:25 +0800</pubDate>
       
       <guid>/posts/cpp%E6%95%99%E5%AD%B8/</guid>
-      <description>C++語言自學手冊 是我自己撰寫的自學手冊，裡面是從零基礎開始教起的，不需要任何程式基礎。另外，後面還有演算法的入門教學，這部分與C++語言較無關聯，但是在程式競賽裡面是最重要的部分。</description>
+      <description>C++語言自學手冊 是我自己撰寫的自學手冊，裡面是從零基礎開始教起的，不需要任何程式基礎。另外，後面還有演算法的入門教學，這部分與C++語言較無關聯，但</description>
     </item>
     
   </channel>
