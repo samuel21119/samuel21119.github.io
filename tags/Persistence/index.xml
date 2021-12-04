@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Persistence on Eureka Demo</title>
+    <link>/tags/persistence/</link>
+    <description>Recent content in Persistence on Eureka Demo</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-Hant</language>
+    <copyright>&amp;copy; 2021 &lt;a href=&#34;https://www.wangchucheng.com/&#34;&gt;C. Wang&lt;/a&gt; and &lt;a href=&#34;https://www.ruiqima.com/&#34;&gt;R. Ma&lt;/a&gt;
+</copyright>
+    <lastBuildDate>Sun, 26 Aug 2018 21:59:15 +0000</lastBuildDate><atom:link href="/tags/persistence/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>UVa 12538. Version Controlled IDE</title>
+      <link>/posts/uva-12538-version-controlled-ide/</link>
+      <pubDate>Sun, 26 Aug 2018 21:59:15 +0000</pubDate>
+      
+      <guid>/posts/uva-12538-version-controlled-ide/</guid>
+      <description>&lt;h1 id=&#34;description&#34;&gt;Description&lt;/h1&gt;
+&lt;blockquote&gt;
+&lt;p&gt;題目有三種操作：&lt;br&gt;
+1 p s: 在當前字串位置p後插入s字串。&lt;br&gt;
+2 p c: 將當前字串位置p後面連續c個字符移除。&lt;br&gt;
+3 v p c: 在版本號v的字串中，在位置p之後印出c個字元。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;由於怕離線處理，因此輸入的數值會進行加密：&lt;br&gt;
+每個數字會增加數值d，其d為當前打印字符&lt;code&gt;c&lt;/code&gt;的個數。&lt;/p&gt;
+&lt;/blockquote&gt;</description>
+    </item>
+    
+    <item>
+      <title>Template. Treap</title>
+      <link>/posts/template-treap/</link>
+      <pubDate>Tue, 14 Aug 2018 00:13:12 +0000</pubDate>
+      
+      <guid>/posts/template-treap/</guid>
+      <description>&lt;p&gt;Treap = Heap + Tree。&lt;/p&gt;
+&lt;h1 id=&#34;usage&#34;&gt;Usage&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;宣告：&lt;br&gt;
+&lt;code&gt;treap&amp;lt;型別&amp;gt; a, b;&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;插入：&lt;br&gt;
+&lt;code&gt;a.insert(100);&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;刪除：&lt;br&gt;
+&lt;code&gt;a.erase(100);&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;查詢第k大（回傳node指標，取&lt;code&gt;-&amp;gt;key&lt;/code&gt;即可得到該數字）：&lt;br&gt;
+&lt;code&gt;a.kth(1);&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;查詢某數為第幾大（0為第一個）：&lt;br&gt;
+&lt;code&gt;a.rank(100);&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

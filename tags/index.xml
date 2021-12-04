@@ -1,0 +1,355 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tags on Eureka Demo</title>
+    <link>/tags/</link>
+    <description>Recent content in Tags on Eureka Demo</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-Hant</language>
+    <copyright>&amp;copy; 2021 &lt;a href=&#34;https://www.wangchucheng.com/&#34;&gt;C. Wang&lt;/a&gt; and &lt;a href=&#34;https://www.ruiqima.com/&#34;&gt;R. Ma&lt;/a&gt;
+</copyright>
+    <lastBuildDate>Sat, 04 Dec 2021 16:12:26 +0800</lastBuildDate><atom:link href="/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>HPC</title>
+      <link>/tags/hpc/</link>
+      <pubDate>Sat, 04 Dec 2021 16:12:26 +0800</pubDate>
+      
+      <guid>/tags/hpc/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>CUDA Programming</title>
+      <link>/tags/cuda-programming/</link>
+      <pubDate>Sat, 04 Sep 2021 16:05:24 +0800</pubDate>
+      
+      <guid>/tags/cuda-programming/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>GPU</title>
+      <link>/tags/gpu/</link>
+      <pubDate>Sat, 04 Sep 2021 16:05:24 +0800</pubDate>
+      
+      <guid>/tags/gpu/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>KVM</title>
+      <link>/tags/kvm/</link>
+      <pubDate>Sun, 06 Dec 2020 02:29:11 +0000</pubDate>
+      
+      <guid>/tags/kvm/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Linux</title>
+      <link>/tags/linux/</link>
+      <pubDate>Sun, 06 Dec 2020 02:29:11 +0000</pubDate>
+      
+      <guid>/tags/linux/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>QEMU</title>
+      <link>/tags/qemu/</link>
+      <pubDate>Sun, 06 Dec 2020 02:29:11 +0000</pubDate>
+      
+      <guid>/tags/qemu/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Dynamic Programming</title>
+      <link>/tags/dynamic-programming/</link>
+      <pubDate>Sun, 20 Oct 2019 10:22:40 +0000</pubDate>
+      
+      <guid>/tags/dynamic-programming/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Greedy</title>
+      <link>/tags/greedy/</link>
+      <pubDate>Sun, 20 Oct 2019 10:22:40 +0000</pubDate>
+      
+      <guid>/tags/greedy/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Machine Learning</title>
+      <link>/tags/machine-learning/</link>
+      <pubDate>Thu, 06 Jun 2019 21:07:08 +0000</pubDate>
+      
+      <guid>/tags/machine-learning/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Python</title>
+      <link>/tags/python/</link>
+      <pubDate>Thu, 06 Jun 2019 21:07:08 +0000</pubDate>
+      
+      <guid>/tags/python/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Binary Search</title>
+      <link>/tags/binary-search/</link>
+      <pubDate>Tue, 26 Feb 2019 12:00:31 +0000</pubDate>
+      
+      <guid>/tags/binary-search/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>UVa</title>
+      <link>/tags/uva/</link>
+      <pubDate>Tue, 26 Feb 2019 12:00:31 +0000</pubDate>
+      
+      <guid>/tags/uva/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>APCS</title>
+      <link>/tags/apcs/</link>
+      <pubDate>Tue, 19 Feb 2019 11:44:23 +0000</pubDate>
+      
+      <guid>/tags/apcs/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>DFS</title>
+      <link>/tags/dfs/</link>
+      <pubDate>Tue, 19 Feb 2019 11:44:23 +0000</pubDate>
+      
+      <guid>/tags/dfs/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Disjoint set</title>
+      <link>/tags/disjoint-set/</link>
+      <pubDate>Tue, 19 Feb 2019 11:44:23 +0000</pubDate>
+      
+      <guid>/tags/disjoint-set/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Math</title>
+      <link>/tags/math/</link>
+      <pubDate>Thu, 25 Oct 2018 18:04:43 +0000</pubDate>
+      
+      <guid>/tags/math/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>LCA</title>
+      <link>/tags/lca/</link>
+      <pubDate>Sat, 22 Sep 2018 12:24:55 +0000</pubDate>
+      
+      <guid>/tags/lca/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>MST</title>
+      <link>/tags/mst/</link>
+      <pubDate>Sat, 22 Sep 2018 12:24:55 +0000</pubDate>
+      
+      <guid>/tags/mst/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Tree</title>
+      <link>/tags/tree/</link>
+      <pubDate>Sat, 22 Sep 2018 12:24:55 +0000</pubDate>
+      
+      <guid>/tags/tree/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Dijkstra</title>
+      <link>/tags/dijkstra/</link>
+      <pubDate>Sun, 09 Sep 2018 10:23:31 +0000</pubDate>
+      
+      <guid>/tags/dijkstra/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Persistence</title>
+      <link>/tags/persistence/</link>
+      <pubDate>Sun, 26 Aug 2018 21:59:15 +0000</pubDate>
+      
+      <guid>/tags/persistence/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Treap</title>
+      <link>/tags/treap/</link>
+      <pubDate>Sun, 26 Aug 2018 21:59:15 +0000</pubDate>
+      
+      <guid>/tags/treap/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Segment Tree</title>
+      <link>/tags/segment-tree/</link>
+      <pubDate>Mon, 20 Aug 2018 23:10:48 +0000</pubDate>
+      
+      <guid>/tags/segment-tree/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>KMP</title>
+      <link>/tags/kmp/</link>
+      <pubDate>Thu, 16 Aug 2018 15:33:03 +0000</pubDate>
+      
+      <guid>/tags/kmp/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>String</title>
+      <link>/tags/string/</link>
+      <pubDate>Thu, 16 Aug 2018 15:33:03 +0000</pubDate>
+      
+      <guid>/tags/string/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Heavy-light Decomposition</title>
+      <link>/tags/heavy-light-decomposition/</link>
+      <pubDate>Wed, 15 Aug 2018 10:54:44 +0000</pubDate>
+      
+      <guid>/tags/heavy-light-decomposition/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>SCC</title>
+      <link>/tags/scc/</link>
+      <pubDate>Wed, 15 Aug 2018 00:11:07 +0000</pubDate>
+      
+      <guid>/tags/scc/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Tarjan Algorithm</title>
+      <link>/tags/tarjan-algorithm/</link>
+      <pubDate>Wed, 15 Aug 2018 00:11:07 +0000</pubDate>
+      
+      <guid>/tags/tarjan-algorithm/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Bitwise</title>
+      <link>/tags/bitwise/</link>
+      <pubDate>Sat, 11 Aug 2018 19:57:43 +0000</pubDate>
+      
+      <guid>/tags/bitwise/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>LCS</title>
+      <link>/tags/lcs/</link>
+      <pubDate>Thu, 09 Aug 2018 23:21:52 +0000</pubDate>
+      
+      <guid>/tags/lcs/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Articulation Points</title>
+      <link>/tags/articulation-points/</link>
+      <pubDate>Thu, 09 Aug 2018 10:59:37 +0000</pubDate>
+      
+      <guid>/tags/articulation-points/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>CodeForces</title>
+      <link>/tags/codeforces/</link>
+      <pubDate>Thu, 09 Aug 2018 01:09:35 +0000</pubDate>
+      
+      <guid>/tags/codeforces/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Sort</title>
+      <link>/tags/sort/</link>
+      <pubDate>Thu, 09 Aug 2018 01:09:35 +0000</pubDate>
+      
+      <guid>/tags/sort/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>BIT</title>
+      <link>/tags/bit/</link>
+      <pubDate>Wed, 08 Aug 2018 08:57:19 +0000</pubDate>
+      
+      <guid>/tags/bit/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Prime factor</title>
+      <link>/tags/prime-factor/</link>
+      <pubDate>Tue, 07 Aug 2018 10:26:31 +0000</pubDate>
+      
+      <guid>/tags/prime-factor/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>BFS</title>
+      <link>/tags/bfs/</link>
+      <pubDate>Mon, 06 Aug 2018 18:43:23 +0000</pubDate>
+      
+      <guid>/tags/bfs/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>LIS</title>
+      <link>/tags/lis/</link>
+      <pubDate>Mon, 06 Aug 2018 15:18:27 +0800</pubDate>
+      
+      <guid>/tags/lis/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>C&#43;&#43;</title>
+      <link>/tags/c&#43;&#43;/</link>
+      <pubDate>Sun, 05 Aug 2018 15:08:25 +0800</pubDate>
+      
+      <guid>/tags/c&#43;&#43;/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

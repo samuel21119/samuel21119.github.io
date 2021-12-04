@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Dynamic Programming on Eureka Demo</title>
+    <link>/tags/dynamic-programming/</link>
+    <description>Recent content in Dynamic Programming on Eureka Demo</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-Hant</language>
+    <copyright>&amp;copy; 2021 &lt;a href=&#34;https://www.wangchucheng.com/&#34;&gt;C. Wang&lt;/a&gt; and &lt;a href=&#34;https://www.ruiqima.com/&#34;&gt;R. Ma&lt;/a&gt;
+</copyright>
+    <lastBuildDate>Sun, 20 Oct 2019 10:22:40 +0000</lastBuildDate><atom:link href="/tags/dynamic-programming/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Zerojudge. c523 狗狗攻擊</title>
+      <link>/posts/zerojudge-c523/</link>
+      <pubDate>Sun, 20 Oct 2019 10:22:40 +0000</pubDate>
+      
+      <guid>/posts/zerojudge-c523/</guid>
+      <description>&lt;p&gt;Zerojudge. c523 狗狗攻擊&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>UVa 1427. Parade</title>
+      <link>/posts/uva-1427-parade/</link>
+      <pubDate>Tue, 11 Dec 2018 19:12:08 +0000</pubDate>
+      
+      <guid>/posts/uva-1427-parade/</guid>
+      <description>&lt;h1 id=&#34;description&#34;&gt;Description&lt;/h1&gt;
+&lt;blockquote&gt;
+&lt;p&gt;一個城市有n+1個橫向路和m+1個縱向路，一個國王從最北邊的進入，然後沿某種路線從最南邊出去，每小段橫向路都有一個高興值，但國王不會在某條橫向路待超過k分鐘，問國王可以得到的最大的高興值是多少？&lt;/p&gt;
+&lt;/blockquote&gt;</description>
+    </item>
+    
+    <item>
+      <title>107學年度 校內初選題目</title>
+      <link>/posts/107%E5%AD%B8%E5%B9%B4%E5%BA%A6-%E6%A0%A1%E5%85%A7%E5%88%9D%E9%81%B8%E9%A1%8C%E7%9B%AE/</link>
+      <pubDate>Thu, 25 Oct 2018 18:04:43 +0000</pubDate>
+      
+      <guid>/posts/107%E5%AD%B8%E5%B9%B4%E5%BA%A6-%E6%A0%A1%E5%85%A7%E5%88%9D%E9%81%B8%E9%A1%8C%E7%9B%AE/</guid>
+      <description>&lt;p&gt;前幾天是雄中資訊學科能力競賽初試，而下面是這次競賽的題目，其中有幾題是出自於UVa的。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>UVa 165. Stamps</title>
+      <link>/posts/uva-165-stamps/</link>
+      <pubDate>Sat, 15 Sep 2018 21:28:30 +0000</pubDate>
+      
+      <guid>/posts/uva-165-stamps/</guid>
+      <description>&lt;h1 id=&#34;description&#34;&gt;Description&lt;/h1&gt;
+&lt;blockquote&gt;
+&lt;p&gt;每張信封上面最多可以貼上h張郵票，請設計k種面額，並求出能組成的連續面額最大值。
+例如當$h=3, k=2$，1和3元的面額最多可以連續從1組到7。&lt;/p&gt;
+&lt;/blockquote&gt;</description>
+    </item>
+    
+    <item>
+      <title>UVa 10917. Walk Through the Forest</title>
+      <link>/posts/uva-10917-walk-through-the-forest/</link>
+      <pubDate>Sun, 09 Sep 2018 10:23:31 +0000</pubDate>
+      
+      <guid>/posts/uva-10917-walk-through-the-forest/</guid>
+      <description>&lt;h1 id=&#34;description&#34;&gt;Description&lt;/h1&gt;
+&lt;p&gt;Jimmy的辦公室在森林的一邊，而他的家在森林的另一邊。&lt;br&gt;
+Jimmy想要每天都走不同的路徑回家。但是他也不想要回家太晚，所以他總是選擇一條可以朝他家「前進」的路徑來走。所謂「前進」指的是他會選擇從A點走到B點如果B點存在一條到他家的路徑長度比A點到他家任一路徑的長度都來的短的話。請你算出Jimmy共有多少種不同的路徑可以走。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>UVa 11456. Trainsorting</title>
+      <link>/posts/uva-11456-trainsorting/</link>
+      <pubDate>Tue, 21 Aug 2018 17:54:50 +0000</pubDate>
+      
+      <guid>/posts/uva-11456-trainsorting/</guid>
+      <description>&lt;h1 id=&#34;description&#34;&gt;Description&lt;/h1&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Erin是一個開火車工程師。他喜歡把車廂按照其重量來安排，重的車廂排在前端。&lt;br&gt;
+不幸的是，把車廂排序並不是一件容易的事。你只能將一節車廂加在一列火車的前端或後端。&lt;br&gt;
+各個車廂來到火車站的順序及其重量是已經知道的。當每節車廂來到的時候，Erin可以把它加到火車的兩端，或者不加進去。最後，火車的總車廂數是越長越好，不過要記得車廂得按照重量大小排列。 &lt;br&gt;
+給你按照出現順序各車廂的重量，Erin最長可安排車廂的長度是多少？&lt;/p&gt;
+&lt;/blockquote&gt;</description>
+    </item>
+    
+    <item>
+      <title>UVa 10032. Tug of War</title>
+      <link>/posts/uva-10032-tug-of-war/</link>
+      <pubDate>Sat, 11 Aug 2018 19:57:43 +0000</pubDate>
+      
+      <guid>/posts/uva-10032-tug-of-war/</guid>
+      <description>&lt;h1 id=&#34;description&#34;&gt;Description&lt;/h1&gt;
+&lt;blockquote&gt;
+&lt;p&gt;N個人參加拔河比賽，每個人有其重量w[i]，欲使二隊的人數最多只差一，雙方的重量和越接近越好。請問二隊的重量和分別是多少？&lt;/p&gt;
+&lt;/blockquote&gt;</description>
+    </item>
+    
+    <item>
+      <title>Template. Longest Common Subsequence</title>
+      <link>/posts/template-longest-common-subsequence/</link>
+      <pubDate>Thu, 09 Aug 2018 23:21:52 +0000</pubDate>
+      
+      <guid>/posts/template-longest-common-subsequence/</guid>
+      <description>&lt;h1 id=&#34;dynamic-programming&#34;&gt;Dynamic Programming&lt;/h1&gt;
+&lt;p&gt;&lt;em&gt;時間複雜度：$O(N^2)$&lt;/em&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>CodeForces. Round 502</title>
+      <link>/posts/codeforces-round-502/</link>
+      <pubDate>Thu, 09 Aug 2018 01:09:35 +0000</pubDate>
+      
+      <guid>/posts/codeforces-round-502/</guid>
+      <description>&lt;p&gt;比賽連結：&lt;a href=&#34;http://codeforces.com/contest/1017&#34;&gt;CodeForces Round #502&lt;/a&gt;&lt;br&gt;
+以下為我個人的解法，在優化上不一定做得很好。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>UVa 103. Stacking Boxes</title>
+      <link>/posts/uva-103.-stacking-boxes/</link>
+      <pubDate>Mon, 06 Aug 2018 15:18:27 +0800</pubDate>
+      
+      <guid>/posts/uva-103.-stacking-boxes/</guid>
+      <description>&lt;h1 id=&#34;description&#34;&gt;Description&lt;/h1&gt;
+&lt;blockquote&gt;
+&lt;p&gt;在數學或電腦科學裡，有些概念在一維或二維時還蠻簡單的，但到 N 維就會顯得非常複雜。試想一個 n 維的「盒子」：在二維空間裡，盒子 ( 2 , 3 ) 可代表一個長為 2 個單位，寬為 3 個單位的盒子；在三維空間裡，盒子 ( 4 , 8 , 9 ) 則是一個 4*8*9（長、寬、高）的盒子。至於在六維空間裡，也許我們不清楚 ( 4 , 5 , 6 , 7 , 8 , 9 ) 長得怎樣，不過我們還是可以分析這些盒子的特性。&lt;/p&gt;
+&lt;/blockquote&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

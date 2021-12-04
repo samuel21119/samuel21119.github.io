@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>BFS on Eureka Demo</title>
+    <link>/tags/bfs/</link>
+    <description>Recent content in BFS on Eureka Demo</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-Hant</language>
+    <copyright>&amp;copy; 2021 &lt;a href=&#34;https://www.wangchucheng.com/&#34;&gt;C. Wang&lt;/a&gt; and &lt;a href=&#34;https://www.ruiqima.com/&#34;&gt;R. Ma&lt;/a&gt;
+</copyright>
+    <lastBuildDate>Mon, 06 Aug 2018 18:43:23 +0000</lastBuildDate><atom:link href="/tags/bfs/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>UVa 571. Jugs</title>
+      <link>/posts/uva-571-jugs/</link>
+      <pubDate>Mon, 06 Aug 2018 18:43:23 +0000</pubDate>
+      
+      <guid>/posts/uva-571-jugs/</guid>
+      <description>&lt;h1 id=&#34;description&#34;&gt;Description&lt;/h1&gt;
+&lt;blockquote&gt;
+&lt;p&gt;在電影「終極警探 3（Die Hard 3）」中布魯斯威利（Bruce Willis）和山謬傑克森（Samuel L. Jackson）遇到壞蛋設下的謎題：給一個3加侖和5加侖的桶子，要求他們必須在5加侖的桶子中裝4加侖的水。現在你的任務就是解決這個問題。&lt;/p&gt;
+&lt;/blockquote&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

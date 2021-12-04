@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>模板 on Eureka Demo</title>
+    <link>/categories/%E6%A8%A1%E6%9D%BF/</link>
+    <description>Recent content in 模板 on Eureka Demo</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-Hant</language>
+    <copyright>&amp;copy; 2021 &lt;a href=&#34;https://www.wangchucheng.com/&#34;&gt;C. Wang&lt;/a&gt; and &lt;a href=&#34;https://www.ruiqima.com/&#34;&gt;R. Ma&lt;/a&gt;
+</copyright>
+    <lastBuildDate>Mon, 20 Aug 2018 23:10:48 +0000</lastBuildDate><atom:link href="/categories/%E6%A8%A1%E6%9D%BF/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Template. Persistent Segment Tree</title>
+      <link>/posts/template-persistent-segment-tree/</link>
+      <pubDate>Mon, 20 Aug 2018 23:10:48 +0000</pubDate>
+      
+      <guid>/posts/template-persistent-segment-tree/</guid>
+      <description>&lt;p&gt;可持久化線段樹適用於查詢不同版本的線段樹，其運作方式非常簡單，就是將要更改的點先複製一遍，未更改的點則不動。而且每新增一個節點，就建立一個新的root，所以我們就可以透過不同的root來讀取不同版本的值。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Template. KMP</title>
+      <link>/posts/template-kmp/</link>
+      <pubDate>Thu, 16 Aug 2018 15:33:03 +0000</pubDate>
+      
+      <guid>/posts/template-kmp/</guid>
+      <description>&lt;p&gt;KMP字串比對，回傳第一組子字串的位置。&lt;br&gt;
+若失敗則回傳-1。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Template. Heavy-light Decomposition</title>
+      <link>/posts/template-heavy-light-decomposition/</link>
+      <pubDate>Wed, 15 Aug 2018 10:54:44 +0000</pubDate>
+      
+      <guid>/posts/template-heavy-light-decomposition/</guid>
+      <description>&lt;p&gt;第一次DFS，&lt;code&gt;son()&lt;/code&gt;：先紀錄所有點的子節點（含）數目、深度等資訊。&lt;br&gt;
+第二次DFS，&lt;code&gt;build()&lt;/code&gt;：依據上次DFS的結果，優先選擇子節點最多的點構成重鏈。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Template. LCA Doubling Search</title>
+      <link>/posts/template-lca-doubling-search/</link>
+      <pubDate>Wed, 15 Aug 2018 06:38:44 +0000</pubDate>
+      
+      <guid>/posts/template-lca-doubling-search/</guid>
+      <description>&lt;p&gt;使用倍增法的做法來計算LCA。&lt;br&gt;
+先製作dp表，$dp[i][j]$代表$i$的第$2^j$祖先是誰，若不存在則為-1。&lt;br&gt;
+在查詢時，先將點$a$和$b$調整到相同高度，再一起慢慢往上移動尋找LCA。&lt;br&gt;
+&lt;em&gt;時間複雜度：$O(N log N)$&lt;/em&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Template. Strongly Connect Component</title>
+      <link>/posts/template-strongly-connect-component/</link>
+      <pubDate>Wed, 15 Aug 2018 00:11:07 +0000</pubDate>
+      
+      <guid>/posts/template-strongly-connect-component/</guid>
+      <description>&lt;p&gt;使用&lt;code&gt;point&lt;/code&gt;來記錄點的路徑，結果存在&lt;code&gt;result&lt;/code&gt;。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Template. Treap</title>
+      <link>/posts/template-treap/</link>
+      <pubDate>Tue, 14 Aug 2018 00:13:12 +0000</pubDate>
+      
+      <guid>/posts/template-treap/</guid>
+      <description>&lt;p&gt;Treap = Heap + Tree。&lt;/p&gt;
+&lt;h1 id=&#34;usage&#34;&gt;Usage&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;宣告：&lt;br&gt;
+&lt;code&gt;treap&amp;lt;型別&amp;gt; a, b;&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;插入：&lt;br&gt;
+&lt;code&gt;a.insert(100);&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;刪除：&lt;br&gt;
+&lt;code&gt;a.erase(100);&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;查詢第k大（回傳node指標，取&lt;code&gt;-&amp;gt;key&lt;/code&gt;即可得到該數字）：&lt;br&gt;
+&lt;code&gt;a.kth(1);&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;查詢某數為第幾大（0為第一個）：&lt;br&gt;
+&lt;code&gt;a.rank(100);&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;</description>
+    </item>
+    
+    <item>
+      <title>Template. Longest Common Subsequence</title>
+      <link>/posts/template-longest-common-subsequence/</link>
+      <pubDate>Thu, 09 Aug 2018 23:21:52 +0000</pubDate>
+      
+      <guid>/posts/template-longest-common-subsequence/</guid>
+      <description>&lt;h1 id=&#34;dynamic-programming&#34;&gt;Dynamic Programming&lt;/h1&gt;
+&lt;p&gt;&lt;em&gt;時間複雜度：$O(N^2)$&lt;/em&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Template. Binary Index Tree</title>
+      <link>/posts/template-binary-index-tree/</link>
+      <pubDate>Wed, 08 Aug 2018 08:57:19 +0000</pubDate>
+      
+      <guid>/posts/template-binary-index-tree/</guid>
+      <description>&lt;p&gt;Fendwick Tree，區間查詢和，支援修改。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Template. Disjoint set</title>
+      <link>/posts/template-disjoint-set/</link>
+      <pubDate>Tue, 07 Aug 2018 23:34:33 +0000</pubDate>
+      
+      <guid>/posts/template-disjoint-set/</guid>
+      <description>&lt;p&gt;Disjoint set並查集。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Template. Segment Tree</title>
+      <link>/posts/template-segment-tree/</link>
+      <pubDate>Tue, 07 Aug 2018 23:14:50 +0000</pubDate>
+      
+      <guid>/posts/template-segment-tree/</guid>
+      <description>&lt;p&gt;區間查詢最大值線段樹，支援單點、範圍修改，使用Lazy flag優化。&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

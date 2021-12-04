@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>HPC on Eureka Demo</title>
+    <link>/en/tags/hpc/</link>
+    <description>Recent content in HPC on Eureka Demo</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <copyright>&amp;copy; 2021 &lt;a href=&#34;https://www.wangchucheng.com/&#34;&gt;C. Wang&lt;/a&gt; and &lt;a href=&#34;https://www.ruiqima.com/&#34;&gt;R. Ma&lt;/a&gt;
+</copyright>
+    <lastBuildDate>Sat, 04 Dec 2021 16:12:26 +0800</lastBuildDate><atom:link href="/en/tags/hpc/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>HPC AI Competition</title>
+      <link>/en/posts/hpc-ai-competition/</link>
+      <pubDate>Sat, 04 Dec 2021 16:12:26 +0800</pubDate>
+      
+      <guid>/en/posts/hpc-ai-competition/</guid>
+      <description>We participated in the APAC HPC AI contest in the second half of 2021. This contest is held by Singapore. The goal is to run specify applications on their supercomputer. Besides, we also need to measure and compare its performance. Although this seems interesting, what we were doing is actually dealing with old environments. Because the software version on Singapore&amp;rsquo;s super computer is too old, most of the dependencies of the application failed to work. Therefore, our results doesn&amp;rsquo;t perform well.</description>
+    </item>
+    
+  </channel>
+</rss>

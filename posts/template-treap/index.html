@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang='zh-Hant' ><meta charset="utf-8">
+<meta name="viewport" content="width=device-width">
+
+
+<title>Template. Treap | Eureka Demo</title>
+
+<meta name="generator" content="Hugo Eureka 0.8.4" />
+<link rel="stylesheet" href="/css/eureka.min.css">
+<script defer src="/js/eureka.min.js"></script>
+
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload"
+  href="https://fonts.googleapis.com/css2?family=Lora:wght@400;600;700&family=Noto+Serif+SC:wght@400;600;700&display=swap"
+  as="style" onload="this.onload=null;this.rel='stylesheet'">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.0/build/styles/solarized-light.min.css"
+   media="print"
+  onload="this.media='all';this.onload=null" crossorigin>
+<script defer src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.0/build/highlight.min.js"
+   crossorigin></script>
+
+  <script defer src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.0/build/languages/dart.min.js"
+     crossorigin></script>
+
+<script defer src="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.14.0/js/all.min.js"
+   integrity="sha256-uNYoXefWRqv&#43;PsIF/OflNmwtKM4lStn9yrz2gVl6ymo="  crossorigin></script>
+
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css"
+   integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3&#43;Aro6EYUG4&#43;cU&#43;KJWu/X"  media="print"
+  onload="this.media='all';this.onload=null" crossorigin>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js" 
+  integrity="sha384-g7c&#43;Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI&#43;sEnkvrMWph2EDg4"  crossorigin></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/contrib/auto-render.min.js"
+   integrity="sha384-mll67QQFJfxn0IYznZYonOWZ644AWYC&#43;Pt2cHqMaRhXVrursRwvLnLaebdGIlYNa"  crossorigin></script>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    renderMathInElement(document.body, {
+      delimiters: [
+        { left: "$$", right: "$$", display: true },
+        { left: "$", right: "$", display: false },
+        { left: "\\(", right: "\\)", display: false },
+        { left: "\\[", right: "\\]", display: true }
+      ],
+    });
+  });
+</script>
+
+
+<script defer src="https://cdn.jsdelivr.net/npm/mermaid@8.9.2/dist/mermaid.min.js" 
+  integrity="sha256-Zmpaaj&#43;GXFsPF5WdPArSrnW3b30dovldeKsW00xBVwE="  crossorigin></script>
+
+
+<link rel="icon" type="image/png" sizes="32x32" href="/images/icon_hu64421c6c7700f606f0ad45d807017b09_5843_32x32_fill_box_center_3.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/images/icon_hu64421c6c7700f606f0ad45d807017b09_5843_180x180_fill_box_center_3.png">
+
+<meta name="description"
+  content="Treap = Heap &#43; Tree。
+Usage
+
+宣告：
+treap&lt;型別&gt; a, b;
+插入：
+a.insert(100);
+刪除：
+a.erase(100);
+查詢第k大（回傳node指標，取-&gt;key即可得到該數字）：
+a.kth(1);
+查詢某數為第幾大（0為第一個）：
+a.rank(100);
+">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [{
+      "@type": "ListItem",
+      "position": 1 ,
+      "name":"Posts",
+      "item":"/posts/"},{
+      "@type": "ListItem",
+      "position": 2 ,
+      "name":"Template. Treap",
+      "item":"/posts/template-treap/"}]
+}
+</script>
+
+
+
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "/posts/template-treap/"
+    },
+    "headline": "Template. Treap | Eureka Demo","datePublished": "2018-08-14T00:13:12+00:00",
+    "dateModified": "2018-08-14T00:13:12+00:00",
+    "wordCount":  391 ,
+    "publisher": {
+        "@type": "Person",
+        "name": "C. Wang",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "/images/icon.png"
+        }
+        },
+    "description": "\u003cp\u003eTreap = Heap \u002b Tree。\u003c\/p\u003e\n\u003ch1 id=\u0022usage\u0022\u003eUsage\u003c\/h1\u003e\n\u003cul\u003e\n\u003cli\u003e宣告：\u003cbr\u003e\n\u003ccode\u003etreap\u0026lt;型別\u0026gt; a, b;\u003c\/code\u003e\u003c\/li\u003e\n\u003cli\u003e插入：\u003cbr\u003e\n\u003ccode\u003ea.insert(100);\u003c\/code\u003e\u003c\/li\u003e\n\u003cli\u003e刪除：\u003cbr\u003e\n\u003ccode\u003ea.erase(100);\u003c\/code\u003e\u003c\/li\u003e\n\u003cli\u003e查詢第k大（回傳node指標，取\u003ccode\u003e-\u0026gt;key\u003c\/code\u003e即可得到該數字）：\u003cbr\u003e\n\u003ccode\u003ea.kth(1);\u003c\/code\u003e\u003c\/li\u003e\n\u003cli\u003e查詢某數為第幾大（0為第一個）：\u003cbr\u003e\n\u003ccode\u003ea.rank(100);\u003c\/code\u003e\u003c\/li\u003e\n\u003c\/ul\u003e"
+}
+</script><meta property="og:title" content="Template. Treap | Eureka Demo" />
+<meta property="og:type" content="article" />
+
+
+<meta property="og:image" content="/images/icon.png">
+
+
+<meta property="og:url" content="/posts/template-treap/" />
+
+
+
+
+<meta property="og:description" content="Treap = Heap &#43; Tree。
+Usage
+
+宣告：
+treap&lt;型別&gt; a, b;
+插入：
+a.insert(100);
+刪除：
+a.erase(100);
+查詢第k大（回傳node指標，取-&gt;key即可得到該數字）：
+a.kth(1);
+查詢某數為第幾大（0為第一個）：
+a.rank(100);
+" />
+
+
+
+
+<meta property="og:locale" content="zh-Hant" />
+
+
+
+
+<meta property="og:site_name" content="Eureka Demo" />
+
+
+
+
+
+
+<meta property="article:published_time" content="2018-08-14T00:13:12&#43;00:00" />
+
+
+<meta property="article:modified_time" content="2018-08-14T00:13:12&#43;00:00" />
+
+
+
+<meta property="article:section" content="posts" />
+
+
+<meta property="article:tag" content="Treap" />
+
+<meta property="article:tag" content="Tree" />
+
+<meta property="article:tag" content="Persistence" />
+
+
+
+
+
+<body class="flex flex-col min-h-screen">
+  <header class="fixed flex items-center w-full min-h-16 pl-scrollbar z-50 bg-secondary-bg shadow-sm">
+    <div class="w-full max-w-screen-xl mx-auto"><script>
+    let storageColorScheme = localStorage.getItem("lightDarkMode")
+    if (((storageColorScheme == 'Auto' || storageColorScheme == null) && window.matchMedia("(prefers-color-scheme: dark)").matches) || storageColorScheme == "Dark") {
+        document.getElementsByTagName('html')[0].classList.add('dark')
+    }
+</script>
+<nav class="flex items-center justify-between flex-wrap px-4 py-4 md:py-0">
+    <a href="/" class="mr-6 text-primary-text text-xl font-bold">Eureka Demo</a>
+    <button id="navbar-btn" class="md:hidden flex items-center px-3 py-2" aria-label="Open Navbar">
+        <i class="fas fa-bars"></i>
+    </button>
+
+    <div id="target"
+        class="hidden block md:flex md:flex-grow md:justify-between md:items-center w-full md:w-auto text-primary-text z-20">
+        <div class="md:flex md:h-16 text-sm md:flex-grow pb-4 md:pb-0 border-b md:border-b-0">
+            <a href="/#about" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  border-transparent  mr-4">About</a>
+            <a href="/posts/" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  selected-menu-item  mr-4">Posts</a>
+        </div>
+
+        <div class="flex">
+            <div class="relative pt-4 md:pt-0">
+                <div class="cursor-pointer hover:text-eureka" id="lightDarkMode">
+                    <i class="fas fa-adjust"></i>
+                </div>
+                <div class="fixed hidden inset-0 opacity-0 h-full w-full cursor-default z-30" id="is-open">
+                </div>
+                <div class="absolute flex flex-col left-0 md:left-auto right-auto md:right-0 hidden bg-secondary-bg w-48 rounded py-2 border border-tertiary-bg cursor-pointer z-40"
+                    id='lightDarkOptions'>
+                    <span class="px-4 py-1 hover:text-eureka" name="Light">淺色</span>
+                    <span class="px-4 py-1 hover:text-eureka" name="Dark">深色</span>
+                    <span class="px-4 py-1 hover:text-eureka" name="Auto">自動</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="fixed hidden inset-0 opacity-0 h-full w-full cursor-default z-0" id="is-open-mobile">
+    </div>
+
+</nav>
+<script>
+    
+    let element = document.getElementById('lightDarkMode')
+    if (storageColorScheme == null || storageColorScheme == 'Auto') {
+        document.addEventListener('DOMContentLoaded', () => {
+            window.matchMedia("(prefers-color-scheme: dark)").addEventListener('change', switchDarkMode)
+        })
+    } else if (storageColorScheme == "Light") {
+        element.firstElementChild.classList.remove('fa-adjust')
+        element.firstElementChild.setAttribute("data-icon", 'sun')
+        element.firstElementChild.classList.add('fa-sun')
+    } else if (storageColorScheme == "Dark") {
+        element.firstElementChild.classList.remove('fa-adjust')
+        element.firstElementChild.setAttribute("data-icon", 'moon')
+        element.firstElementChild.classList.add('fa-moon')
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+        getcolorscheme();
+        switchBurger();
+    });
+</script>
+</div>
+  </header>
+  <main class="flex-grow pt-16">
+    <div class="pl-scrollbar">
+      <div class="w-full max-w-screen-xl lg:px-4 xl:px-8 mx-auto">
+
+
+<div class="grid grid-cols-2 lg:grid-cols-8 gap-4 lg:pt-12">
+    <div
+        class="col-span-2 lg:col-start-2 lg:col-span-6 bg-secondary-bg rounded px-6 py-8">
+        <h1 class="font-bold text-3xl text-primary-text">Template. Treap</h1>
+        <div class="flex flex-wrap flex-row items-center mt-2 text-tertiary-text">
+    <div class="mr-6 my-2">
+        <i class="fas fa-calendar mr-1"></i>
+        <span>2018-08-14</span>
+    </div>
+    <div class="mr-6 my-2">
+        <i class="fas fa-clock mr-1"></i>
+        <span>2分鐘閱讀</span>
+    </div>
+    
+    
+    <div class="mr-6 my-2">
+        <i class="fas fa-folder mr-1"></i>
+        
+        <a href="/categories/%E6%A8%A1%E6%9D%BF/" class="hover:text-eureka">模板</a>
+        
+    </div>
+    
+
+    
+</div>
+        
+        
+        
+
+        <div class="content">
+            <p>Treap = Heap + Tree。</p>
+<h1 id="usage">Usage</h1>
+<ul>
+<li>宣告：<br>
+<code>treap&lt;型別&gt; a, b;</code></li>
+<li>插入：<br>
+<code>a.insert(100);</code></li>
+<li>刪除：<br>
+<code>a.erase(100);</code></li>
+<li>查詢第k大（回傳node指標，取<code>-&gt;key</code>即可得到該數字）：<br>
+<code>a.kth(1);</code></li>
+<li>查詢某數為第幾大（0為第一個）：<br>
+<code>a.rank(100);</code></li>
+</ul>
+<h1 id="template">Template</h1>
+<pre><code class="language-cpp">int rand() {
+    static int x = 123456789;
+    return x += (x &lt;&lt; 2) + 1;
+}
+template &lt;typename T&gt;
+struct treap {
+    struct node {
+        node *l, *r;
+        T key;
+        int pri, size;
+        node(T k):key(k) {
+            l = r = nullptr;
+            pri = rand();
+            size = 1;
+        }
+        void up() {
+            size = 1;
+            if (l)
+                size += l-&gt;size;
+            if (r)
+                size += r-&gt;size;
+        }
+    };
+
+    node *root = nullptr;
+    int size(node *a) {
+        if (!a)
+            return 0;
+        return a-&gt;size;
+    }
+    node* merge(node *a, node *b) {
+        if (!a || !b)
+            return a ? a : b;
+        if (a-&gt;pri &lt; b-&gt;pri) {
+            a-&gt;r = merge(a-&gt;r, b);
+            a-&gt;up();
+            return a;
+        }
+        b-&gt;l = merge(a, b-&gt;l);
+        b-&gt;up();
+        return b;
+    }
+    void split(node *R, node *&amp;a, node *&amp;b, T k) {
+        if (!R)
+            a = b = nullptr;
+        else if (R-&gt;key &lt; k) {
+            a = R;
+            split(R-&gt;r, a-&gt;r, b, k);
+            R-&gt;up();
+        }else {
+            b = R;
+            split(R-&gt;l, a, b-&gt;l, k);
+            R-&gt;up();
+        }
+    }
+    void insert(node *&amp;Root, T k) {
+        node *a, *b;
+        split(Root, a, b, k);
+        Root = merge(a, merge(new node(k), b));
+    }
+    bool erase(node *&amp;R, T k) {
+        if (!R)
+            return 0;
+        if (R-&gt;key == k) {
+            node *tmp = R;
+            R = merge(R-&gt;l, R-&gt;r);
+            delete tmp;
+            return 1;
+        }
+        node *&amp;nxt = R-&gt;key &gt; k ? R-&gt;l : R-&gt;r;
+        if (erase(nxt, k)) {
+            R-&gt;up();
+            return 1;
+        }
+        return 0;
+    }
+    void split2(node *R, node *&amp;a, node *&amp;b, int k) {
+        if (!R)
+            a = b = nullptr;
+        else {
+            if (k &gt;= size(R-&gt;l) + 1) {
+                a = R;
+                split2(R-&gt;r, a-&gt;r, b, k - size(R-&gt;l) - 1);
+            }else {
+                b = R;
+                split2(R-&gt;l, a, b-&gt;l, k);
+            }
+            R-&gt;up();
+        }
+    }
+
+    //Simple way to use:
+    void insert(T k) {
+        insert(root, k);
+    }
+    bool erase(T k) {
+        return erase(root, k);
+    }
+    int rank(T k) {
+        node *a, *b;
+        split(root, a, b, k);
+        int re = size(a);
+        root = merge(a, b);
+        return re;
+    }
+    node* kth(int k) {
+        node *a, *b, *c;
+        a = b = c = nullptr;
+        split2(root, a, c, k);
+        split2(a, a, b, k - 1);
+        root = merge(merge(a, b), c);
+        return b;
+    }
+};
+</code></pre>
+<h1 id="demo">Demo</h1>
+<pre><code class="language-cpp">treap&lt;int&gt; t;
+t.insert(1);
+t.insert(2);
+t.insert(100);
+cout &lt;&lt; t.kth(3)-&gt;key &lt;&lt; '\n';
+cout &lt;&lt; t.rank(1) &lt;&lt; '\n';
+</code></pre>
+        </div>
+        
+        <div class="my-4">
+    
+    <a href="/tags/treap/" class="inline-block bg-tertiary-bg text-sm rounded px-3 py-1 my-1 mr-2 hover:text-eureka">#Treap</a>
+    
+    <a href="/tags/tree/" class="inline-block bg-tertiary-bg text-sm rounded px-3 py-1 my-1 mr-2 hover:text-eureka">#Tree</a>
+    
+    <a href="/tags/persistence/" class="inline-block bg-tertiary-bg text-sm rounded px-3 py-1 my-1 mr-2 hover:text-eureka">#Persistence</a>
+    
+</div>
+        
+        
+        
+
+
+        
+        
+        
+        
+<div class="flex flex-col md:flex-row md:justify-between -mx-2 mt-4 px-2 pt-4 border-t">
+    <div>
+        
+        <span class="block font-bold">上一頁</span>
+        <a href="/posts/template-strongly-connect-component/" class="block">Template. Strongly Connect Component</a>
+        
+    </div>
+    <div class="md:text-right mt-4 md:mt-0">
+        
+        <span class="block font-bold">下一頁</span>
+        <a href="/posts/uva-10032-tug-of-war/" class="block">UVa 10032. Tug of War</a>
+        
+    </div>
+</div>
+
+        
+
+
+
+    </div>
+    
+
+    
+    
+</div>
+<script>
+    document.addEventListener('DOMContentLoaded', ()=>{
+        hljs.initHighlightingOnLoad();
+    })
+</script>
+
+      </div>
+    </div>
+    
+  </main>
+  <footer class="pl-scrollbar">
+    <div class="w-full max-w-screen-xl mx-auto"><div class="text-center p-6 pin-b">
+    <p class="text-sm text-tertiary-text">&copy; 2021 <a href="https://www.wangchucheng.com/">C. Wang</a> and <a href="https://www.ruiqima.com/">R. Ma</a>
+ &middot;  Powered by the <a href="https://github.com/wangchucheng/hugo-eureka" class="hover:text-eureka">Eureka</a> theme for <a href="https://gohugo.io" class="hover:text-eureka">Hugo</a></p>
+</div></div>
+  </footer>
+</body>
+
+</html>

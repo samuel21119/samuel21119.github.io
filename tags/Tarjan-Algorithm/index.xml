@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tarjan Algorithm on Eureka Demo</title>
+    <link>/tags/tarjan-algorithm/</link>
+    <description>Recent content in Tarjan Algorithm on Eureka Demo</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-Hant</language>
+    <copyright>&amp;copy; 2021 &lt;a href=&#34;https://www.wangchucheng.com/&#34;&gt;C. Wang&lt;/a&gt; and &lt;a href=&#34;https://www.ruiqima.com/&#34;&gt;R. Ma&lt;/a&gt;
+</copyright>
+    <lastBuildDate>Wed, 15 Aug 2018 00:11:07 +0000</lastBuildDate><atom:link href="/tags/tarjan-algorithm/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Template. Strongly Connect Component</title>
+      <link>/posts/template-strongly-connect-component/</link>
+      <pubDate>Wed, 15 Aug 2018 00:11:07 +0000</pubDate>
+      
+      <guid>/posts/template-strongly-connect-component/</guid>
+      <description>&lt;p&gt;使用&lt;code&gt;point&lt;/code&gt;來記錄點的路徑，結果存在&lt;code&gt;result&lt;/code&gt;。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>UVa 315. Network</title>
+      <link>/posts/uva-315-network/</link>
+      <pubDate>Thu, 09 Aug 2018 10:59:37 +0000</pubDate>
+      
+      <guid>/posts/uva-315-network/</guid>
+      <description>&lt;h1 id=&#34;description&#34;&gt;Description&lt;/h1&gt;
+&lt;blockquote&gt;
+&lt;p&gt;一家電話公司在許多地方建有機房，這些機房以1到N來編號，沒有2個地方有相同的號碼。電纜線是雙向的，並且只有在機房中的交換機才可互相連接（每個機房只有一部交換機）。電話訊號可以從一個機房傳到另一個機房，但是這些機房並不一定要直接相連，它們之間的通訊可能是透過好幾個交換機。&lt;br&gt;
+偶爾當有停電的情況發生時，當地的機房也會因停電而無法運作。這個時候不僅這個機房的通訊中斷，可能也有其他的機房因此無法彼此通訊。在這種情況之下，我們稱這個機房為critical的。&lt;br&gt;
+現在你的任務就是寫一個程式幫助該公司的工程師找出在他們的系統中有多少個critical的機房。&lt;/p&gt;
+&lt;/blockquote&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Bitwise on Eureka Demo</title>
+    <link>/tags/bitwise/</link>
+    <description>Recent content in Bitwise on Eureka Demo</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-Hant</language>
+    <copyright>&amp;copy; 2021 &lt;a href=&#34;https://www.wangchucheng.com/&#34;&gt;C. Wang&lt;/a&gt; and &lt;a href=&#34;https://www.ruiqima.com/&#34;&gt;R. Ma&lt;/a&gt;
+</copyright>
+    <lastBuildDate>Sat, 11 Aug 2018 19:57:43 +0000</lastBuildDate><atom:link href="/tags/bitwise/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>UVa 10032. Tug of War</title>
+      <link>/posts/uva-10032-tug-of-war/</link>
+      <pubDate>Sat, 11 Aug 2018 19:57:43 +0000</pubDate>
+      
+      <guid>/posts/uva-10032-tug-of-war/</guid>
+      <description>&lt;h1 id=&#34;description&#34;&gt;Description&lt;/h1&gt;
+&lt;blockquote&gt;
+&lt;p&gt;N個人參加拔河比賽，每個人有其重量w[i]，欲使二隊的人數最多只差一，雙方的重量和越接近越好。請問二隊的重量和分別是多少？&lt;/p&gt;
+&lt;/blockquote&gt;</description>
+    </item>
+    
+    <item>
+      <title>CodeForces. Round 502</title>
+      <link>/posts/codeforces-round-502/</link>
+      <pubDate>Thu, 09 Aug 2018 01:09:35 +0000</pubDate>
+      
+      <guid>/posts/codeforces-round-502/</guid>
+      <description>&lt;p&gt;比賽連結：&lt;a href=&#34;http://codeforces.com/contest/1017&#34;&gt;CodeForces Round #502&lt;/a&gt;&lt;br&gt;
+以下為我個人的解法，在優化上不一定做得很好。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>UVa 10952. Pattern Transformations</title>
+      <link>/posts/uva-10952.-pattern-transformations/</link>
+      <pubDate>Mon, 06 Aug 2018 15:22:16 +0800</pubDate>
+      
+      <guid>/posts/uva-10952.-pattern-transformations/</guid>
+      <description>&lt;h1 id=&#34;description&#34;&gt;Description&lt;/h1&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Consider the two patterns of ‘O’ and ‘X’ below (‘.’ represent an empty square). We want the first pattern to be transformed into the second pattern in one time unit. During this time unit, each symbol (‘O’ and ‘X’) can move one step in any of the four directions (or remain at its current square). All movements happen simultaneously, so a symbol can move to an occupied square, if that symbol is moved to some other square. If a symbol moves from square A to B, and the symbol at B moves to A, we have a swap. Write a program which calculates the least number of swaps needed to transform a given pattern into another given pattern.&lt;/p&gt;
+&lt;/blockquote&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

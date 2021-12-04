@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>KMP on Eureka Demo</title>
+    <link>/tags/kmp/</link>
+    <description>Recent content in KMP on Eureka Demo</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-Hant</language>
+    <copyright>&amp;copy; 2021 &lt;a href=&#34;https://www.wangchucheng.com/&#34;&gt;C. Wang&lt;/a&gt; and &lt;a href=&#34;https://www.ruiqima.com/&#34;&gt;R. Ma&lt;/a&gt;
+</copyright>
+    <lastBuildDate>Thu, 16 Aug 2018 15:33:03 +0000</lastBuildDate><atom:link href="/tags/kmp/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Template. KMP</title>
+      <link>/posts/template-kmp/</link>
+      <pubDate>Thu, 16 Aug 2018 15:33:03 +0000</pubDate>
+      
+      <guid>/posts/template-kmp/</guid>
+      <description>&lt;p&gt;KMP字串比對，回傳第一組子字串的位置。&lt;br&gt;
+若失敗則回傳-1。&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

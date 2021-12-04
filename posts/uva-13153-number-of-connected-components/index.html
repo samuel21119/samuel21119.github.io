@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang='zh-Hant' ><meta charset="utf-8">
+<meta name="viewport" content="width=device-width">
+
+
+<title>UVa 13153. Number of Connected Components | Eureka Demo</title>
+
+<meta name="generator" content="Hugo Eureka 0.8.4" />
+<link rel="stylesheet" href="/css/eureka.min.css">
+<script defer src="/js/eureka.min.js"></script>
+
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload"
+  href="https://fonts.googleapis.com/css2?family=Lora:wght@400;600;700&family=Noto+Serif+SC:wght@400;600;700&display=swap"
+  as="style" onload="this.onload=null;this.rel='stylesheet'">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.0/build/styles/solarized-light.min.css"
+   media="print"
+  onload="this.media='all';this.onload=null" crossorigin>
+<script defer src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.0/build/highlight.min.js"
+   crossorigin></script>
+
+  <script defer src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.0/build/languages/dart.min.js"
+     crossorigin></script>
+
+<script defer src="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.14.0/js/all.min.js"
+   integrity="sha256-uNYoXefWRqv&#43;PsIF/OflNmwtKM4lStn9yrz2gVl6ymo="  crossorigin></script>
+
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css"
+   integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3&#43;Aro6EYUG4&#43;cU&#43;KJWu/X"  media="print"
+  onload="this.media='all';this.onload=null" crossorigin>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js" 
+  integrity="sha384-g7c&#43;Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI&#43;sEnkvrMWph2EDg4"  crossorigin></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/contrib/auto-render.min.js"
+   integrity="sha384-mll67QQFJfxn0IYznZYonOWZ644AWYC&#43;Pt2cHqMaRhXVrursRwvLnLaebdGIlYNa"  crossorigin></script>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    renderMathInElement(document.body, {
+      delimiters: [
+        { left: "$$", right: "$$", display: true },
+        { left: "$", right: "$", display: false },
+        { left: "\\(", right: "\\)", display: false },
+        { left: "\\[", right: "\\]", display: true }
+      ],
+    });
+  });
+</script>
+
+
+<script defer src="https://cdn.jsdelivr.net/npm/mermaid@8.9.2/dist/mermaid.min.js" 
+  integrity="sha256-Zmpaaj&#43;GXFsPF5WdPArSrnW3b30dovldeKsW00xBVwE="  crossorigin></script>
+
+
+<link rel="icon" type="image/png" sizes="32x32" href="/images/icon_hu64421c6c7700f606f0ad45d807017b09_5843_32x32_fill_box_center_3.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/images/icon_hu64421c6c7700f606f0ad45d807017b09_5843_180x180_fill_box_center_3.png">
+
+<meta name="description"
+  content="Description
+
+給你 N 個節點，每個點上附有一個介於$1～10^6$之間的正整數。假如某2個節點上的數其最大公因數（GCD）大於1，則這2個節點之間會有一條邊存在。
+要請你算出這N個節點構成的的圖形中，共有幾個連通的單元。
+">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [{
+      "@type": "ListItem",
+      "position": 1 ,
+      "name":"Posts",
+      "item":"/posts/"},{
+      "@type": "ListItem",
+      "position": 2 ,
+      "name":"UVa 13153. Number of Connected Components",
+      "item":"/posts/uva-13153-number-of-connected-components/"}]
+}
+</script>
+
+
+
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "/posts/uva-13153-number-of-connected-components/"
+    },
+    "headline": "UVa 13153. Number of Connected Components | Eureka Demo","datePublished": "2018-08-07T10:26:31+00:00",
+    "dateModified": "2018-08-07T10:26:31+00:00",
+    "wordCount":  354 ,
+    "publisher": {
+        "@type": "Person",
+        "name": "C. Wang",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "/images/icon.png"
+        }
+        },
+    "description": "\u003ch1 id=\u0022description\u0022\u003eDescription\u003c\/h1\u003e\n\u003cblockquote\u003e\n\u003cp\u003e給你 N 個節點，每個點上附有一個介於$1～10^6$之間的正整數。假如某2個節點上的數其最大公因數（GCD）大於1，則這2個節點之間會有一條邊存在。\u003cbr\u003e\n要請你算出這N個節點構成的的圖形中，共有幾個連通的單元。\u003c\/p\u003e\n\u003c\/blockquote\u003e"
+}
+</script><meta property="og:title" content="UVa 13153. Number of Connected Components | Eureka Demo" />
+<meta property="og:type" content="article" />
+
+
+<meta property="og:image" content="/images/icon.png">
+
+
+<meta property="og:url" content="/posts/uva-13153-number-of-connected-components/" />
+
+
+
+
+<meta property="og:description" content="Description
+
+給你 N 個節點，每個點上附有一個介於$1～10^6$之間的正整數。假如某2個節點上的數其最大公因數（GCD）大於1，則這2個節點之間會有一條邊存在。
+要請你算出這N個節點構成的的圖形中，共有幾個連通的單元。
+" />
+
+
+
+
+<meta property="og:locale" content="zh-Hant" />
+
+
+
+
+<meta property="og:site_name" content="Eureka Demo" />
+
+
+
+
+
+
+<meta property="article:published_time" content="2018-08-07T10:26:31&#43;00:00" />
+
+
+<meta property="article:modified_time" content="2018-08-07T10:26:31&#43;00:00" />
+
+
+
+<meta property="article:section" content="posts" />
+
+
+<meta property="article:tag" content="UVa" />
+
+<meta property="article:tag" content="Disjoint set" />
+
+<meta property="article:tag" content="Prime factor" />
+
+
+
+
+
+<meta property="og:see_also" content="/posts/uva-571-jugs/" />
+
+<meta property="og:see_also" content="/posts/uva-307-sticks/" />
+
+<meta property="og:see_also" content="/posts/uva-10952.-pattern-transformations/" />
+
+<meta property="og:see_also" content="/posts/uva-103.-stacking-boxes/" />
+
+
+
+<body class="flex flex-col min-h-screen">
+  <header class="fixed flex items-center w-full min-h-16 pl-scrollbar z-50 bg-secondary-bg shadow-sm">
+    <div class="w-full max-w-screen-xl mx-auto"><script>
+    let storageColorScheme = localStorage.getItem("lightDarkMode")
+    if (((storageColorScheme == 'Auto' || storageColorScheme == null) && window.matchMedia("(prefers-color-scheme: dark)").matches) || storageColorScheme == "Dark") {
+        document.getElementsByTagName('html')[0].classList.add('dark')
+    }
+</script>
+<nav class="flex items-center justify-between flex-wrap px-4 py-4 md:py-0">
+    <a href="/" class="mr-6 text-primary-text text-xl font-bold">Eureka Demo</a>
+    <button id="navbar-btn" class="md:hidden flex items-center px-3 py-2" aria-label="Open Navbar">
+        <i class="fas fa-bars"></i>
+    </button>
+
+    <div id="target"
+        class="hidden block md:flex md:flex-grow md:justify-between md:items-center w-full md:w-auto text-primary-text z-20">
+        <div class="md:flex md:h-16 text-sm md:flex-grow pb-4 md:pb-0 border-b md:border-b-0">
+            <a href="/#about" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  border-transparent  mr-4">About</a>
+            <a href="/posts/" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  selected-menu-item  mr-4">Posts</a>
+        </div>
+
+        <div class="flex">
+            <div class="relative pt-4 md:pt-0">
+                <div class="cursor-pointer hover:text-eureka" id="lightDarkMode">
+                    <i class="fas fa-adjust"></i>
+                </div>
+                <div class="fixed hidden inset-0 opacity-0 h-full w-full cursor-default z-30" id="is-open">
+                </div>
+                <div class="absolute flex flex-col left-0 md:left-auto right-auto md:right-0 hidden bg-secondary-bg w-48 rounded py-2 border border-tertiary-bg cursor-pointer z-40"
+                    id='lightDarkOptions'>
+                    <span class="px-4 py-1 hover:text-eureka" name="Light">淺色</span>
+                    <span class="px-4 py-1 hover:text-eureka" name="Dark">深色</span>
+                    <span class="px-4 py-1 hover:text-eureka" name="Auto">自動</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="fixed hidden inset-0 opacity-0 h-full w-full cursor-default z-0" id="is-open-mobile">
+    </div>
+
+</nav>
+<script>
+    
+    let element = document.getElementById('lightDarkMode')
+    if (storageColorScheme == null || storageColorScheme == 'Auto') {
+        document.addEventListener('DOMContentLoaded', () => {
+            window.matchMedia("(prefers-color-scheme: dark)").addEventListener('change', switchDarkMode)
+        })
+    } else if (storageColorScheme == "Light") {
+        element.firstElementChild.classList.remove('fa-adjust')
+        element.firstElementChild.setAttribute("data-icon", 'sun')
+        element.firstElementChild.classList.add('fa-sun')
+    } else if (storageColorScheme == "Dark") {
+        element.firstElementChild.classList.remove('fa-adjust')
+        element.firstElementChild.setAttribute("data-icon", 'moon')
+        element.firstElementChild.classList.add('fa-moon')
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+        getcolorscheme();
+        switchBurger();
+    });
+</script>
+</div>
+  </header>
+  <main class="flex-grow pt-16">
+    <div class="pl-scrollbar">
+      <div class="w-full max-w-screen-xl lg:px-4 xl:px-8 mx-auto">
+
+
+<div class="grid grid-cols-2 lg:grid-cols-8 gap-4 lg:pt-12">
+    <div
+        class="col-span-2 lg:col-start-2 lg:col-span-6 bg-secondary-bg rounded px-6 py-8">
+        <h1 class="font-bold text-3xl text-primary-text">UVa 13153. Number of Connected Components</h1>
+        <div class="flex flex-wrap flex-row items-center mt-2 text-tertiary-text">
+    <div class="mr-6 my-2">
+        <i class="fas fa-calendar mr-1"></i>
+        <span>2018-08-07</span>
+    </div>
+    <div class="mr-6 my-2">
+        <i class="fas fa-clock mr-1"></i>
+        <span>2分鐘閱讀</span>
+    </div>
+    
+    
+    <div class="mr-6 my-2">
+        <i class="fas fa-folder mr-1"></i>
+        
+        <a href="/categories/%E9%A1%8C%E8%A7%A3/" class="hover:text-eureka">題解</a>
+        
+    </div>
+    
+
+    
+</div>
+        
+        
+        
+
+        <div class="content">
+            <h1 id="description">Description</h1>
+<blockquote>
+<p>給你 N 個節點，每個點上附有一個介於$1～10^6$之間的正整數。假如某2個節點上的數其最大公因數（GCD）大於1，則這2個節點之間會有一條邊存在。<br>
+要請你算出這N個節點構成的的圖形中，共有幾個連通的單元。</p>
+</blockquote>
+<h1 id="input-format">Input Format</h1>
+<p>輸入的第一列有一個正整數t代表以下有幾筆測資。（$t \le 100$）<br>
+每筆測資的第一列，有一個正整數 N（$1 \le N \le 10^5$），代表節點的數目。接下來的一列含有N個正整數，代表這N個節點上面附帶的數。</p>
+<h1 id="output-format">Output Format</h1>
+<p>對每筆測資輸出一列，先輸出這是第幾筆測資，然後輸出這N個節點構成的圖形中，共有幾個連通的單元。</p>
+<h1 id="sample-input">Sample Input</h1>
+<pre><code>2
+3
+2 3 4
+6
+2 3 4 5 6 6
+</code></pre>
+<h1 id="sample-output">Sample Output</h1>
+<pre><code>Case 1: 2
+Case 2: 2
+</code></pre>
+<p>UVa - <a href="https://uva.onlinejudge.org/external/131/13153.pdf">13153</a><br>
+翻譯來源：<a href="http://luckycat.kshs.kh.edu.tw/homework/q13153.htm">Luckycat</a></p>
+<h1 id="solution">Solution</h1>
+<p>這題有兩個想法，第一就是對點$i, j(i,j \in 輸入 \text{ 且 } i \neq j)$ 去做Disjoint set，時間複雜度為$O(N^2)$。<br>
+如果是這樣做的話，一定會TLE，所以我們要去思考另一種做法：<br>
+題目是跟我們說 $\text{最大公因數} &gt; 1$的兩點要連起來，不妨試試將點和點的連接換成質數的連接，每輸入一個數字n，就將n所有的質因數連起來，輸入結束之後再算共有幾個集合即可。<br>
+<strong>注意！題目有可能會輸入重複數字，若為1，則需特別考慮。</strong></p>
+<h1 id="code">Code</h1>
+<pre><code class="language-cpp">/*************************************************************************
+  &gt; File Name: 13153 - Number of Connected Components.cpp
+  &gt; Author: Samuel
+  &gt; Mail: enminghuang21119@gmail.com
+  &gt; Created Time: Tue Jul 24 19:59:14 2018
+*************************************************************************/
+
+#include &lt;bits/stdc++.h&gt;
+using namespace std;
+
+bool tmp[1000000];
+int parent[1000000];
+vector&lt;int&gt; p;
+int usenum[1000000];
+int n, cnt, size, num;
+
+int find_parent(int i) {
+    if (i == parent[i])
+        return i;
+    return parent[i] = find_parent(parent[i]);
+}
+
+void connect(int a, int b) {
+    int pa = find_parent(a);
+    int pb = find_parent(b);
+    if (pa == pb)
+        return;
+    parent[pb] = pa;
+}
+
+void factorization(int i) {
+    int first = 0;
+    int a = 2;
+    for (int j = 0; a &lt;= sqrt(i); a = p[++j])
+        if (!(i % a)) {
+            if (!tmp[a]) {
+                usenum[num++] = a;
+                parent[a] = a;
+            }
+            tmp[a] = 1;
+            if (!first)
+                first = a;
+            else {
+                connect(first, a);
+            }
+            while (!(i % a)) 
+                i /= a;
+        }
+    if (i &gt; 1) {
+        if (!tmp[i]) {
+            usenum[num++] = i;
+            parent[i] = i;
+        }
+        tmp[i] = 1;
+        if (first)
+            connect(first, i);
+    }
+}
+
+int main() {
+    ios::sync_with_stdio(0);
+    cin.tie(0);
+    tmp[2] = 1;
+    p.push_back(2);
+    for (int i = 3; i &lt; 1000; i += 2) {
+        if (tmp[i])
+            continue;
+        p.push_back(i);
+        for (int j = i &lt;&lt; 1; j &lt; 1000; j += i)
+            tmp[j] = 1;
+    }
+    p.push_back(1 &lt;&lt; 30);
+    int c;
+    cin &gt;&gt; c;
+    for (int i = 1; i &lt;= c; i++) {
+        cin &gt;&gt; n;
+        memset(tmp, 0, sizeof(tmp));
+        num = cnt = 0;
+        while (n--) {
+            int i;
+            cin &gt;&gt; i;
+            if (i == 1)
+                cnt++;
+            else
+                factorization(i);
+        }
+        for (int i = 0; i &lt; num; i++) {
+            int t;
+            if (tmp[t = find_parent(usenum[i])])
+                tmp[t] = 0, cnt++;
+        }
+        cout &lt;&lt; &quot;Case &quot; &lt;&lt; i &lt;&lt; &quot;: &quot; &lt;&lt; cnt &lt;&lt; '\n';
+    }
+    return 0;
+}
+</code></pre>
+        </div>
+        
+        <div class="my-4">
+    
+    <a href="/tags/uva/" class="inline-block bg-tertiary-bg text-sm rounded px-3 py-1 my-1 mr-2 hover:text-eureka">#UVa</a>
+    
+    <a href="/tags/disjoint-set/" class="inline-block bg-tertiary-bg text-sm rounded px-3 py-1 my-1 mr-2 hover:text-eureka">#Disjoint set</a>
+    
+    <a href="/tags/prime-factor/" class="inline-block bg-tertiary-bg text-sm rounded px-3 py-1 my-1 mr-2 hover:text-eureka">#Prime factor</a>
+    
+</div>
+        
+        
+        
+
+
+        
+        
+        
+        
+<div class="flex flex-col md:flex-row md:justify-between -mx-2 mt-4 px-2 pt-4 border-t">
+    <div>
+        
+        <span class="block font-bold">上一頁</span>
+        <a href="/posts/template-segment-tree/" class="block">Template. Segment Tree</a>
+        
+    </div>
+    <div class="md:text-right mt-4 md:mt-0">
+        
+        <span class="block font-bold">下一頁</span>
+        <a href="/posts/uva-571-jugs/" class="block">UVa 571. Jugs</a>
+        
+    </div>
+</div>
+
+        
+
+
+
+    </div>
+    
+
+    
+    
+    <div
+        class="col-span-2 lg:col-start-2 lg:col-span-6 bg-secondary-bg rounded p-6">
+        <h2 class="text-lg font-semibold mb-4">相關</h2>
+        <div class="content">
+            
+            <a href="/posts/uva-571-jugs/">UVa 571. Jugs</a>
+            <br />
+            
+            <a href="/posts/uva-307-sticks/">UVa 307. Sticks</a>
+            <br />
+            
+            <a href="/posts/uva-10952.-pattern-transformations/">UVa 10952. Pattern Transformations</a>
+            <br />
+            
+            <a href="/posts/uva-103.-stacking-boxes/">UVa 103. Stacking Boxes</a>
+            <br />
+            
+        </div>
+    </div>
+    
+</div>
+<script>
+    document.addEventListener('DOMContentLoaded', ()=>{
+        hljs.initHighlightingOnLoad();
+    })
+</script>
+
+      </div>
+    </div>
+    
+  </main>
+  <footer class="pl-scrollbar">
+    <div class="w-full max-w-screen-xl mx-auto"><div class="text-center p-6 pin-b">
+    <p class="text-sm text-tertiary-text">&copy; 2021 <a href="https://www.wangchucheng.com/">C. Wang</a> and <a href="https://www.ruiqima.com/">R. Ma</a>
+ &middot;  Powered by the <a href="https://github.com/wangchucheng/hugo-eureka" class="hover:text-eureka">Eureka</a> theme for <a href="https://gohugo.io" class="hover:text-eureka">Hugo</a></p>
+</div></div>
+  </footer>
+</body>
+
+</html>

@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang='zh-Hant' ><meta charset="utf-8">
+<meta name="viewport" content="width=device-width">
+
+
+<title>UVa 10952. Pattern Transformations | Eureka Demo</title>
+
+<meta name="generator" content="Hugo Eureka 0.8.4" />
+<link rel="stylesheet" href="/css/eureka.min.css">
+<script defer src="/js/eureka.min.js"></script>
+
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload"
+  href="https://fonts.googleapis.com/css2?family=Lora:wght@400;600;700&family=Noto+Serif+SC:wght@400;600;700&display=swap"
+  as="style" onload="this.onload=null;this.rel='stylesheet'">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.0/build/styles/solarized-light.min.css"
+   media="print"
+  onload="this.media='all';this.onload=null" crossorigin>
+<script defer src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.0/build/highlight.min.js"
+   crossorigin></script>
+
+  <script defer src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.0/build/languages/dart.min.js"
+     crossorigin></script>
+
+<script defer src="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.14.0/js/all.min.js"
+   integrity="sha256-uNYoXefWRqv&#43;PsIF/OflNmwtKM4lStn9yrz2gVl6ymo="  crossorigin></script>
+
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css"
+   integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3&#43;Aro6EYUG4&#43;cU&#43;KJWu/X"  media="print"
+  onload="this.media='all';this.onload=null" crossorigin>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js" 
+  integrity="sha384-g7c&#43;Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI&#43;sEnkvrMWph2EDg4"  crossorigin></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/contrib/auto-render.min.js"
+   integrity="sha384-mll67QQFJfxn0IYznZYonOWZ644AWYC&#43;Pt2cHqMaRhXVrursRwvLnLaebdGIlYNa"  crossorigin></script>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    renderMathInElement(document.body, {
+      delimiters: [
+        { left: "$$", right: "$$", display: true },
+        { left: "$", right: "$", display: false },
+        { left: "\\(", right: "\\)", display: false },
+        { left: "\\[", right: "\\]", display: true }
+      ],
+    });
+  });
+</script>
+
+
+<script defer src="https://cdn.jsdelivr.net/npm/mermaid@8.9.2/dist/mermaid.min.js" 
+  integrity="sha256-Zmpaaj&#43;GXFsPF5WdPArSrnW3b30dovldeKsW00xBVwE="  crossorigin></script>
+
+
+<link rel="icon" type="image/png" sizes="32x32" href="/images/icon_hu64421c6c7700f606f0ad45d807017b09_5843_32x32_fill_box_center_3.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/images/icon_hu64421c6c7700f606f0ad45d807017b09_5843_180x180_fill_box_center_3.png">
+
+<meta name="description"
+  content="Description
+
+Consider the two patterns of ‘O’ and ‘X’ below (‘.’ represent an empty square). We want the first pattern to be transformed into the second pattern in one time unit. During this time unit, each symbol (‘O’ and ‘X’) can move one step in any of the four directions (or remain at its current square). All movements happen simultaneously, so a symbol can move to an occupied square, if that symbol is moved to some other square. If a symbol moves from square A to B, and the symbol at B moves to A, we have a swap. Write a program which calculates the least number of swaps needed to transform a given pattern into another given pattern.
+">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [{
+      "@type": "ListItem",
+      "position": 1 ,
+      "name":"Posts",
+      "item":"/posts/"},{
+      "@type": "ListItem",
+      "position": 2 ,
+      "name":"UVa 10952. Pattern Transformations",
+      "item":"/posts/uva-10952.-pattern-transformations/"}]
+}
+</script>
+
+
+
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "/posts/uva-10952.-pattern-transformations/"
+    },
+    "headline": "UVa 10952. Pattern Transformations | Eureka Demo","datePublished": "2018-08-06T15:22:16+08:00",
+    "dateModified": "2018-08-06T15:22:16+08:00",
+    "wordCount":  808 ,
+    "publisher": {
+        "@type": "Person",
+        "name": "C. Wang",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "/images/icon.png"
+        }
+        },
+    "description": "\u003ch1 id=\u0022description\u0022\u003eDescription\u003c\/h1\u003e\n\u003cblockquote\u003e\n\u003cp\u003eConsider the two patterns of ‘O’ and ‘X’ below (‘.’ represent an empty square). We want the first pattern to be transformed into the second pattern in one time unit. During this time unit, each symbol (‘O’ and ‘X’) can move one step in any of the four directions (or remain at its current square). All movements happen simultaneously, so a symbol can move to an occupied square, if that symbol is moved to some other square. If a symbol moves from square A to B, and the symbol at B moves to A, we have a swap. Write a program which calculates the least number of swaps needed to transform a given pattern into another given pattern.\u003c\/p\u003e\n\u003c\/blockquote\u003e"
+}
+</script><meta property="og:title" content="UVa 10952. Pattern Transformations | Eureka Demo" />
+<meta property="og:type" content="article" />
+
+
+<meta property="og:image" content="/images/icon.png">
+
+
+<meta property="og:url" content="/posts/uva-10952.-pattern-transformations/" />
+
+
+
+
+<meta property="og:description" content="Description
+
+Consider the two patterns of ‘O’ and ‘X’ below (‘.’ represent an empty square). We want the first pattern to be transformed into the second pattern in one time unit. During this time unit, each symbol (‘O’ and ‘X’) can move one step in any of the four directions (or remain at its current square). All movements happen simultaneously, so a symbol can move to an occupied square, if that symbol is moved to some other square. If a symbol moves from square A to B, and the symbol at B moves to A, we have a swap. Write a program which calculates the least number of swaps needed to transform a given pattern into another given pattern.
+" />
+
+
+
+
+<meta property="og:locale" content="zh-Hant" />
+
+
+
+
+<meta property="og:site_name" content="Eureka Demo" />
+
+
+
+
+
+
+<meta property="article:published_time" content="2018-08-06T15:22:16&#43;08:00" />
+
+
+<meta property="article:modified_time" content="2018-08-06T15:22:16&#43;08:00" />
+
+
+
+<meta property="article:section" content="posts" />
+
+
+<meta property="article:tag" content="UVa" />
+
+<meta property="article:tag" content="Bitwise" />
+
+<meta property="article:tag" content="DFS" />
+
+
+
+
+
+<meta property="og:see_also" content="/posts/uva-103.-stacking-boxes/" />
+
+
+
+<body class="flex flex-col min-h-screen">
+  <header class="fixed flex items-center w-full min-h-16 pl-scrollbar z-50 bg-secondary-bg shadow-sm">
+    <div class="w-full max-w-screen-xl mx-auto"><script>
+    let storageColorScheme = localStorage.getItem("lightDarkMode")
+    if (((storageColorScheme == 'Auto' || storageColorScheme == null) && window.matchMedia("(prefers-color-scheme: dark)").matches) || storageColorScheme == "Dark") {
+        document.getElementsByTagName('html')[0].classList.add('dark')
+    }
+</script>
+<nav class="flex items-center justify-between flex-wrap px-4 py-4 md:py-0">
+    <a href="/" class="mr-6 text-primary-text text-xl font-bold">Eureka Demo</a>
+    <button id="navbar-btn" class="md:hidden flex items-center px-3 py-2" aria-label="Open Navbar">
+        <i class="fas fa-bars"></i>
+    </button>
+
+    <div id="target"
+        class="hidden block md:flex md:flex-grow md:justify-between md:items-center w-full md:w-auto text-primary-text z-20">
+        <div class="md:flex md:h-16 text-sm md:flex-grow pb-4 md:pb-0 border-b md:border-b-0">
+            <a href="/#about" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  border-transparent  mr-4">About</a>
+            <a href="/posts/" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  selected-menu-item  mr-4">Posts</a>
+        </div>
+
+        <div class="flex">
+            <div class="relative pt-4 md:pt-0">
+                <div class="cursor-pointer hover:text-eureka" id="lightDarkMode">
+                    <i class="fas fa-adjust"></i>
+                </div>
+                <div class="fixed hidden inset-0 opacity-0 h-full w-full cursor-default z-30" id="is-open">
+                </div>
+                <div class="absolute flex flex-col left-0 md:left-auto right-auto md:right-0 hidden bg-secondary-bg w-48 rounded py-2 border border-tertiary-bg cursor-pointer z-40"
+                    id='lightDarkOptions'>
+                    <span class="px-4 py-1 hover:text-eureka" name="Light">淺色</span>
+                    <span class="px-4 py-1 hover:text-eureka" name="Dark">深色</span>
+                    <span class="px-4 py-1 hover:text-eureka" name="Auto">自動</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="fixed hidden inset-0 opacity-0 h-full w-full cursor-default z-0" id="is-open-mobile">
+    </div>
+
+</nav>
+<script>
+    
+    let element = document.getElementById('lightDarkMode')
+    if (storageColorScheme == null || storageColorScheme == 'Auto') {
+        document.addEventListener('DOMContentLoaded', () => {
+            window.matchMedia("(prefers-color-scheme: dark)").addEventListener('change', switchDarkMode)
+        })
+    } else if (storageColorScheme == "Light") {
+        element.firstElementChild.classList.remove('fa-adjust')
+        element.firstElementChild.setAttribute("data-icon", 'sun')
+        element.firstElementChild.classList.add('fa-sun')
+    } else if (storageColorScheme == "Dark") {
+        element.firstElementChild.classList.remove('fa-adjust')
+        element.firstElementChild.setAttribute("data-icon", 'moon')
+        element.firstElementChild.classList.add('fa-moon')
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+        getcolorscheme();
+        switchBurger();
+    });
+</script>
+</div>
+  </header>
+  <main class="flex-grow pt-16">
+    <div class="pl-scrollbar">
+      <div class="w-full max-w-screen-xl lg:px-4 xl:px-8 mx-auto">
+
+
+<div class="grid grid-cols-2 lg:grid-cols-8 gap-4 lg:pt-12">
+    <div
+        class="col-span-2 lg:col-start-2 lg:col-span-6 bg-secondary-bg rounded px-6 py-8">
+        <h1 class="font-bold text-3xl text-primary-text">UVa 10952. Pattern Transformations</h1>
+        <div class="flex flex-wrap flex-row items-center mt-2 text-tertiary-text">
+    <div class="mr-6 my-2">
+        <i class="fas fa-calendar mr-1"></i>
+        <span>2018-08-06</span>
+    </div>
+    <div class="mr-6 my-2">
+        <i class="fas fa-clock mr-1"></i>
+        <span>4分鐘閱讀</span>
+    </div>
+    
+    
+    <div class="mr-6 my-2">
+        <i class="fas fa-folder mr-1"></i>
+        
+        <a href="/categories/%E9%A1%8C%E8%A7%A3/" class="hover:text-eureka">題解</a>
+        
+    </div>
+    
+
+    
+</div>
+        
+        
+        
+
+        <div class="content">
+            <h1 id="description">Description</h1>
+<blockquote>
+<p>Consider the two patterns of ‘O’ and ‘X’ below (‘.’ represent an empty square). We want the first pattern to be transformed into the second pattern in one time unit. During this time unit, each symbol (‘O’ and ‘X’) can move one step in any of the four directions (or remain at its current square). All movements happen simultaneously, so a symbol can move to an occupied square, if that symbol is moved to some other square. If a symbol moves from square A to B, and the symbol at B moves to A, we have a swap. Write a program which calculates the least number of swaps needed to transform a given pattern into another given pattern.</p>
+</blockquote>
+<pre><code>.XO..  ..XO.  
+..OX.  .XX..  
+.XX..  ..OX.  
+</code></pre>
+<blockquote>
+<p>To transform the first pattern above into the second one requires one swap: The two symbols in the first line are moved to the right, the ‘O’ in the second line must be swapped with the ‘X’ below. The other two ‘X’ are moved up and down, respectively.</p>
+</blockquote>
+<h1 id="input-format">Input Format</h1>
+<p>The first line in the input contains the number of test cases to follow (at most 20). Each test case starts with a line containing two integers, w and h ($1 \le w, h \le 8$), the width and height of the two patterns. Then follow h lines describing each row of the two patterns (the two patterns will be separated with a single space, see the sample input). The only allowed characters in the patterns will be the symbols ‘O’, ‘X’ and ‘.’.</p>
+<h1 id="output-format">Output Format</h1>
+<p>For each input you should output a line containing a single integer: the least number of swaps required to transform the first pattern into the second. If the transformation is not possible, output a ‘-1’.</p>
+<h1 id="sample-input">Sample Input</h1>
+<pre><code>3  
+5 3  
+.XO.. ..XO.  
+..OX. .XX..  
+.XX.. ..OX.  
+4 4  
+OXOX XOXO  
+XX.O OX.X  
+O..X X..O  
+XOXO OXOX  
+3 4  
+.X. .X.  
+.OX XO.  
+..O .O.  
+... ...
+</code></pre>
+<h1 id="sample-output">Sample Output</h1>
+<pre><code>0  
+0  
+-1  
+</code></pre>
+<p>UVa - <a href="https://uva.onlinejudge.org/external/109/10952.pdf">10952</a></p>
+<h1 id="solution">Solution</h1>
+<p>這題令我印象最深刻的就是我是這題的Topcoder：AC 0.000sec。<br>
+<img src="1.png" alt="">
+這題主要是考驗如何以bit來表示狀態，以及在寫狀態轉移式時的細心程度，再利用DFS來達成搜尋目的。<br>
+在我的程式裡面，共有四個狀態，分別是當前垂直、水平改變，以及上一行的垂直、水平改變。<br>
+以水平為例，第i位的0代表未有O或X移動到第i位置，若是1則相反。若是垂直的狀態，1則代表有往下移動。<br>
+若只以上述的想法來寫，會TLE，所以需要以DP的方式將重複狀態的DFS記錄下來（下面程式的38~41行）。<br>
+<strong>注意！此題第一測資答案為0，在上方題目範例已修正</strong></p>
+<h1 id="code">Code</h1>
+<pre><code class="language-cpp">/*************************************************************************
+  &gt; File Name: 10952 - Pattern Transformations.cpp
+  &gt; Author: Samuel
+  &gt; Mail: enminghuang21119@gmail.com
+  &gt; Created Time: Sat Jul 28 11:22:06 2018
+*************************************************************************/
+
+#include &lt;bits/stdc++.h&gt;
+using namespace std;
+
+const int inf = 1 &lt;&lt; 30;
+int n, m, c;
+char s[8][8], e[8][8];
+int dp[8][1 &lt;&lt; 8][1 &lt;&lt; 8], run[8][1 &lt;&lt; 8][1 &lt;&lt; 8];
+int dfs(int, int, int, int, int, int);
+int sol(int, int, int);
+
+int main() {
+    ios::sync_with_stdio(0);
+    cin.tie(0);
+    cin &gt;&gt; c;
+    while (c--) {
+        cin &gt;&gt; m &gt;&gt; n;
+        for (int i = 0; i &lt; n; i++) {
+            for (int j = 0; j &lt; m; j++)
+                cin &gt;&gt; s[i][j];
+            for (int j = 0; j &lt; m; j++)
+                cin &gt;&gt; e[i][j];
+        }
+        int ans = sol(0, 0, (1 &lt;&lt; m) - 1);
+        cout &lt;&lt; (ans == inf ? -1 : ans) &lt;&lt; '\n';
+    }
+    return 0;
+}
+int sol(int row, int prev_ver, int prev_hor) { //垂直 平行
+    if (row == n)
+        return (!prev_ver &amp;&amp; prev_hor == (1 &lt;&lt; m) - 1) ? 0 : inf;
+    if (run[row][prev_ver][prev_hor] == c)
+        return dp[row][prev_ver][prev_hor];
+    run[row][prev_ver][prev_hor] = c;
+    return dp[row][prev_ver][prev_hor] = dfs(row, 0, prev_ver, prev_hor, 0, 0);
+}
+int dfs(int row, int col, int prev_ver, int prev_hor, int now_ver, int now_hor) {
+    while (1) {
+        int re = inf;
+        int col1 = 1 &lt;&lt; col;
+        if (col == m) {
+            if (prev_hor != (1 &lt;&lt; m) - 1)
+                return inf;
+            for (int i = 0; i &lt; m; i++)
+                if (e[row][i] == '.')
+                    now_hor |= 1 &lt;&lt; i;
+            return sol(row + 1, now_ver, now_hor);
+        }
+        if (prev_ver &amp; col1) {
+            if (now_hor &amp; col1)
+                return inf;
+            now_hor |= col1;
+        }
+        if (s[row][col] == '.') {
+            if (!(prev_hor &amp; col1))
+                return inf;
+            if (e[row][col] == '.')
+                now_hor |= col1;
+            col++;
+            continue;
+        }
+
+        if (!(prev_hor &amp; col1)) {
+            if (s[row][col] != e[row - 1][col])
+                return inf;
+            if (prev_ver &amp; col1)
+                return 1 + dfs(row, col + 1, prev_ver, prev_hor | col1, now_ver, now_hor);
+            prev_hor |= col1;
+            col++;
+            continue;
+        }
+        if (s[row][col] == e[row][col] &amp;&amp; !(prev_ver &amp; col1) &amp;&amp; !(now_hor &amp; col1))
+            re = min(re, dfs(row, col + 1, prev_ver, prev_hor, now_ver, now_hor | col1));
+
+        if (col &lt; m - 1 &amp;&amp; s[row][col] == e[row][col + 1])
+            re = min(re, dfs(row, col + 1, prev_ver, prev_hor, now_ver, now_hor | (col1 &lt;&lt; 1)));
+
+        if (col &amp;&amp; s[row][col] == e[row][col - 1] &amp;&amp; !(now_hor &amp; (col1 &gt;&gt; 1))) {
+            if (!(prev_ver &amp; col1) &amp;&amp; (now_hor &amp; col1))
+                re = min(re, 1 + dfs(row, col + 1, prev_ver, prev_hor, now_ver, now_hor | (col1 &gt;&gt; 1)));
+            else
+                re = min(re, dfs(row, col + 1, prev_ver, prev_hor, now_ver, now_hor | (col1 &gt;&gt; 1)));
+        }
+        if (row &lt; n - 1 &amp;&amp; s[row][col] == e[row + 1][col])
+            re = min(re, dfs(row, col + 1, prev_ver, prev_hor, now_ver | col1, now_hor));
+        return re;
+    }
+}
+</code></pre>
+        </div>
+        
+        <div class="my-4">
+    
+    <a href="/tags/uva/" class="inline-block bg-tertiary-bg text-sm rounded px-3 py-1 my-1 mr-2 hover:text-eureka">#UVa</a>
+    
+    <a href="/tags/bitwise/" class="inline-block bg-tertiary-bg text-sm rounded px-3 py-1 my-1 mr-2 hover:text-eureka">#Bitwise</a>
+    
+    <a href="/tags/dfs/" class="inline-block bg-tertiary-bg text-sm rounded px-3 py-1 my-1 mr-2 hover:text-eureka">#DFS</a>
+    
+</div>
+        
+        
+        
+
+
+        
+        
+        
+        
+<div class="flex flex-col md:flex-row md:justify-between -mx-2 mt-4 px-2 pt-4 border-t">
+    <div>
+        
+        <span class="block font-bold">上一頁</span>
+        <a href="/posts/uva-307-sticks/" class="block">UVa 307. Sticks</a>
+        
+    </div>
+    <div class="md:text-right mt-4 md:mt-0">
+        
+        <span class="block font-bold">下一頁</span>
+        <a href="/posts/uva-103.-stacking-boxes/" class="block">UVa 103. Stacking Boxes</a>
+        
+    </div>
+</div>
+
+        
+
+
+
+    </div>
+    
+
+    
+    
+    <div
+        class="col-span-2 lg:col-start-2 lg:col-span-6 bg-secondary-bg rounded p-6">
+        <h2 class="text-lg font-semibold mb-4">相關</h2>
+        <div class="content">
+            
+            <a href="/posts/uva-103.-stacking-boxes/">UVa 103. Stacking Boxes</a>
+            <br />
+            
+        </div>
+    </div>
+    
+</div>
+<script>
+    document.addEventListener('DOMContentLoaded', ()=>{
+        hljs.initHighlightingOnLoad();
+    })
+</script>
+
+      </div>
+    </div>
+    
+  </main>
+  <footer class="pl-scrollbar">
+    <div class="w-full max-w-screen-xl mx-auto"><div class="text-center p-6 pin-b">
+    <p class="text-sm text-tertiary-text">&copy; 2021 <a href="https://www.wangchucheng.com/">C. Wang</a> and <a href="https://www.ruiqima.com/">R. Ma</a>
+ &middot;  Powered by the <a href="https://github.com/wangchucheng/hugo-eureka" class="hover:text-eureka">Eureka</a> theme for <a href="https://gohugo.io" class="hover:text-eureka">Hugo</a></p>
+</div></div>
+  </footer>
+</body>
+
+</html>

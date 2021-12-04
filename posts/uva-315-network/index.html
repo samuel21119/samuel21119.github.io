@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang='zh-Hant' ><meta charset="utf-8">
+<meta name="viewport" content="width=device-width">
+
+
+<title>UVa 315. Network | Eureka Demo</title>
+
+<meta name="generator" content="Hugo Eureka 0.8.4" />
+<link rel="stylesheet" href="/css/eureka.min.css">
+<script defer src="/js/eureka.min.js"></script>
+
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload"
+  href="https://fonts.googleapis.com/css2?family=Lora:wght@400;600;700&family=Noto+Serif+SC:wght@400;600;700&display=swap"
+  as="style" onload="this.onload=null;this.rel='stylesheet'">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.0/build/styles/solarized-light.min.css"
+   media="print"
+  onload="this.media='all';this.onload=null" crossorigin>
+<script defer src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.0/build/highlight.min.js"
+   crossorigin></script>
+
+  <script defer src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.0/build/languages/dart.min.js"
+     crossorigin></script>
+
+<script defer src="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.14.0/js/all.min.js"
+   integrity="sha256-uNYoXefWRqv&#43;PsIF/OflNmwtKM4lStn9yrz2gVl6ymo="  crossorigin></script>
+
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css"
+   integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3&#43;Aro6EYUG4&#43;cU&#43;KJWu/X"  media="print"
+  onload="this.media='all';this.onload=null" crossorigin>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js" 
+  integrity="sha384-g7c&#43;Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI&#43;sEnkvrMWph2EDg4"  crossorigin></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/contrib/auto-render.min.js"
+   integrity="sha384-mll67QQFJfxn0IYznZYonOWZ644AWYC&#43;Pt2cHqMaRhXVrursRwvLnLaebdGIlYNa"  crossorigin></script>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    renderMathInElement(document.body, {
+      delimiters: [
+        { left: "$$", right: "$$", display: true },
+        { left: "$", right: "$", display: false },
+        { left: "\\(", right: "\\)", display: false },
+        { left: "\\[", right: "\\]", display: true }
+      ],
+    });
+  });
+</script>
+
+
+<script defer src="https://cdn.jsdelivr.net/npm/mermaid@8.9.2/dist/mermaid.min.js" 
+  integrity="sha256-Zmpaaj&#43;GXFsPF5WdPArSrnW3b30dovldeKsW00xBVwE="  crossorigin></script>
+
+
+<link rel="icon" type="image/png" sizes="32x32" href="/images/icon_hu64421c6c7700f606f0ad45d807017b09_5843_32x32_fill_box_center_3.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/images/icon_hu64421c6c7700f606f0ad45d807017b09_5843_180x180_fill_box_center_3.png">
+
+<meta name="description"
+  content="Description
+
+一家電話公司在許多地方建有機房，這些機房以1到N來編號，沒有2個地方有相同的號碼。電纜線是雙向的，並且只有在機房中的交換機才可互相連接（每個機房只有一部交換機）。電話訊號可以從一個機房傳到另一個機房，但是這些機房並不一定要直接相連，它們之間的通訊可能是透過好幾個交換機。
+偶爾當有停電的情況發生時，當地的機房也會因停電而無法運作。這個時候不僅這個機房的通訊中斷，可能也有其他的機房因此無法彼此通訊。在這種情況之下，我們稱這個機房為critical的。
+現在你的任務就是寫一個程式幫助該公司的工程師找出在他們的系統中有多少個critical的機房。
+">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [{
+      "@type": "ListItem",
+      "position": 1 ,
+      "name":"Posts",
+      "item":"/posts/"},{
+      "@type": "ListItem",
+      "position": 2 ,
+      "name":"UVa 315. Network",
+      "item":"/posts/uva-315-network/"}]
+}
+</script>
+
+
+
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "/posts/uva-315-network/"
+    },
+    "headline": "UVa 315. Network | Eureka Demo","datePublished": "2018-08-09T10:59:37+00:00",
+    "dateModified": "2018-08-09T10:59:37+00:00",
+    "wordCount":  234 ,
+    "publisher": {
+        "@type": "Person",
+        "name": "C. Wang",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "/images/icon.png"
+        }
+        },
+    "description": "\u003ch1 id=\u0022description\u0022\u003eDescription\u003c\/h1\u003e\n\u003cblockquote\u003e\n\u003cp\u003e一家電話公司在許多地方建有機房，這些機房以1到N來編號，沒有2個地方有相同的號碼。電纜線是雙向的，並且只有在機房中的交換機才可互相連接（每個機房只有一部交換機）。電話訊號可以從一個機房傳到另一個機房，但是這些機房並不一定要直接相連，它們之間的通訊可能是透過好幾個交換機。\u003cbr\u003e\n偶爾當有停電的情況發生時，當地的機房也會因停電而無法運作。這個時候不僅這個機房的通訊中斷，可能也有其他的機房因此無法彼此通訊。在這種情況之下，我們稱這個機房為critical的。\u003cbr\u003e\n現在你的任務就是寫一個程式幫助該公司的工程師找出在他們的系統中有多少個critical的機房。\u003c\/p\u003e\n\u003c\/blockquote\u003e"
+}
+</script><meta property="og:title" content="UVa 315. Network | Eureka Demo" />
+<meta property="og:type" content="article" />
+
+
+<meta property="og:image" content="/images/icon.png">
+
+
+<meta property="og:url" content="/posts/uva-315-network/" />
+
+
+
+
+<meta property="og:description" content="Description
+
+一家電話公司在許多地方建有機房，這些機房以1到N來編號，沒有2個地方有相同的號碼。電纜線是雙向的，並且只有在機房中的交換機才可互相連接（每個機房只有一部交換機）。電話訊號可以從一個機房傳到另一個機房，但是這些機房並不一定要直接相連，它們之間的通訊可能是透過好幾個交換機。
+偶爾當有停電的情況發生時，當地的機房也會因停電而無法運作。這個時候不僅這個機房的通訊中斷，可能也有其他的機房因此無法彼此通訊。在這種情況之下，我們稱這個機房為critical的。
+現在你的任務就是寫一個程式幫助該公司的工程師找出在他們的系統中有多少個critical的機房。
+" />
+
+
+
+
+<meta property="og:locale" content="zh-Hant" />
+
+
+
+
+<meta property="og:site_name" content="Eureka Demo" />
+
+
+
+
+
+
+<meta property="article:published_time" content="2018-08-09T10:59:37&#43;00:00" />
+
+
+<meta property="article:modified_time" content="2018-08-09T10:59:37&#43;00:00" />
+
+
+
+<meta property="article:section" content="posts" />
+
+
+<meta property="article:tag" content="UVa" />
+
+<meta property="article:tag" content="Articulation Points" />
+
+<meta property="article:tag" content="Tarjan Algorithm" />
+
+
+
+
+
+<meta property="og:see_also" content="/posts/uva-13153-number-of-connected-components/" />
+
+<meta property="og:see_also" content="/posts/uva-571-jugs/" />
+
+<meta property="og:see_also" content="/posts/uva-307-sticks/" />
+
+<meta property="og:see_also" content="/posts/uva-10952.-pattern-transformations/" />
+
+<meta property="og:see_also" content="/posts/uva-103.-stacking-boxes/" />
+
+
+
+<body class="flex flex-col min-h-screen">
+  <header class="fixed flex items-center w-full min-h-16 pl-scrollbar z-50 bg-secondary-bg shadow-sm">
+    <div class="w-full max-w-screen-xl mx-auto"><script>
+    let storageColorScheme = localStorage.getItem("lightDarkMode")
+    if (((storageColorScheme == 'Auto' || storageColorScheme == null) && window.matchMedia("(prefers-color-scheme: dark)").matches) || storageColorScheme == "Dark") {
+        document.getElementsByTagName('html')[0].classList.add('dark')
+    }
+</script>
+<nav class="flex items-center justify-between flex-wrap px-4 py-4 md:py-0">
+    <a href="/" class="mr-6 text-primary-text text-xl font-bold">Eureka Demo</a>
+    <button id="navbar-btn" class="md:hidden flex items-center px-3 py-2" aria-label="Open Navbar">
+        <i class="fas fa-bars"></i>
+    </button>
+
+    <div id="target"
+        class="hidden block md:flex md:flex-grow md:justify-between md:items-center w-full md:w-auto text-primary-text z-20">
+        <div class="md:flex md:h-16 text-sm md:flex-grow pb-4 md:pb-0 border-b md:border-b-0">
+            <a href="/#about" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  border-transparent  mr-4">About</a>
+            <a href="/posts/" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  selected-menu-item  mr-4">Posts</a>
+        </div>
+
+        <div class="flex">
+            <div class="relative pt-4 md:pt-0">
+                <div class="cursor-pointer hover:text-eureka" id="lightDarkMode">
+                    <i class="fas fa-adjust"></i>
+                </div>
+                <div class="fixed hidden inset-0 opacity-0 h-full w-full cursor-default z-30" id="is-open">
+                </div>
+                <div class="absolute flex flex-col left-0 md:left-auto right-auto md:right-0 hidden bg-secondary-bg w-48 rounded py-2 border border-tertiary-bg cursor-pointer z-40"
+                    id='lightDarkOptions'>
+                    <span class="px-4 py-1 hover:text-eureka" name="Light">淺色</span>
+                    <span class="px-4 py-1 hover:text-eureka" name="Dark">深色</span>
+                    <span class="px-4 py-1 hover:text-eureka" name="Auto">自動</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="fixed hidden inset-0 opacity-0 h-full w-full cursor-default z-0" id="is-open-mobile">
+    </div>
+
+</nav>
+<script>
+    
+    let element = document.getElementById('lightDarkMode')
+    if (storageColorScheme == null || storageColorScheme == 'Auto') {
+        document.addEventListener('DOMContentLoaded', () => {
+            window.matchMedia("(prefers-color-scheme: dark)").addEventListener('change', switchDarkMode)
+        })
+    } else if (storageColorScheme == "Light") {
+        element.firstElementChild.classList.remove('fa-adjust')
+        element.firstElementChild.setAttribute("data-icon", 'sun')
+        element.firstElementChild.classList.add('fa-sun')
+    } else if (storageColorScheme == "Dark") {
+        element.firstElementChild.classList.remove('fa-adjust')
+        element.firstElementChild.setAttribute("data-icon", 'moon')
+        element.firstElementChild.classList.add('fa-moon')
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+        getcolorscheme();
+        switchBurger();
+    });
+</script>
+</div>
+  </header>
+  <main class="flex-grow pt-16">
+    <div class="pl-scrollbar">
+      <div class="w-full max-w-screen-xl lg:px-4 xl:px-8 mx-auto">
+
+
+<div class="grid grid-cols-2 lg:grid-cols-8 gap-4 lg:pt-12">
+    <div
+        class="col-span-2 lg:col-start-2 lg:col-span-6 bg-secondary-bg rounded px-6 py-8">
+        <h1 class="font-bold text-3xl text-primary-text">UVa 315. Network</h1>
+        <div class="flex flex-wrap flex-row items-center mt-2 text-tertiary-text">
+    <div class="mr-6 my-2">
+        <i class="fas fa-calendar mr-1"></i>
+        <span>2018-08-09</span>
+    </div>
+    <div class="mr-6 my-2">
+        <i class="fas fa-clock mr-1"></i>
+        <span>2分鐘閱讀</span>
+    </div>
+    
+    
+    <div class="mr-6 my-2">
+        <i class="fas fa-folder mr-1"></i>
+        
+        <a href="/categories/%E9%A1%8C%E8%A7%A3/" class="hover:text-eureka">題解</a>
+        
+    </div>
+    
+
+    
+</div>
+        
+        
+        
+
+        <div class="content">
+            <h1 id="description">Description</h1>
+<blockquote>
+<p>一家電話公司在許多地方建有機房，這些機房以1到N來編號，沒有2個地方有相同的號碼。電纜線是雙向的，並且只有在機房中的交換機才可互相連接（每個機房只有一部交換機）。電話訊號可以從一個機房傳到另一個機房，但是這些機房並不一定要直接相連，它們之間的通訊可能是透過好幾個交換機。<br>
+偶爾當有停電的情況發生時，當地的機房也會因停電而無法運作。這個時候不僅這個機房的通訊中斷，可能也有其他的機房因此無法彼此通訊。在這種情況之下，我們稱這個機房為critical的。<br>
+現在你的任務就是寫一個程式幫助該公司的工程師找出在他們的系統中有多少個critical的機房。</p>
+</blockquote>
+<h1 id="input-format">Input Format</h1>
+<p>輸入包含多組測試資料。每組測試資料的第一列有一個整數N（N&lt;100）。接下來最多有N列，每列的第一個整數代表某一機房的編號，而接下來的整數則代表與此機房有直接連接的機房編號。當遇到謹含一個0的一列就代表此組測試資料結束。<br>
+以Sample Input中的第一組測試資料為例說明：此例共有(5,1),(5,2),(5,3),(5,4)四個直接連線。而若以第二組測試資料為例說明：此例共有(2,1),(2,3),(5,4),(5,6),(5,2)五個直接連線。</p>
+<p>N=0代表輸入結束。請參考Sample Input。</p>
+<h1 id="output-format">Output Format</h1>
+<p>對每一組測試資料，請輸出一列，含有critical機房的個數。</p>
+<h1 id="sample-input">Sample Input</h1>
+<pre><code>5
+5 1 2 3 4
+0
+6
+2 1 3
+5 4 6 2
+0
+0
+</code></pre>
+<h1 id="sample-output">Sample Output</h1>
+<pre><code>1
+2
+</code></pre>
+<p>UVa - <a href="https://uva.onlinejudge.org/external/3/315.pdf">315</a><br>
+翻譯來源：<a href="http://luckycat.kshs.kh.edu.tw/homework/q315.htm">Luckycat</a></p>
+<h1 id="solution">Solution</h1>
+<p>這題需要用到「割點」的概念，以及Tarjan Algorithm。<br>
+以下是推薦的教學影片<br>
+
+<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+  <iframe src="https://www.youtube.com/embed/2kREIkF9UAs" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" allowfullscreen title="YouTube Video"></iframe>
+</div>
+</p>
+<h1 id="code">Code</h1>
+<pre><code class="language-cpp">/*************************************************************************
+  &gt; File Name: 315 - Network.cpp
+  &gt; Author: Samuel
+  &gt; Mail: enminghuang21119@gmail.com
+  &gt; Created Time: Sat Dec 30 18:02:09 2017
+*************************************************************************/
+
+#include &lt;cstdio&gt;
+#include &lt;iostream&gt;
+#include &lt;sstream&gt;
+#include &lt;cstring&gt;
+#include &lt;vector&gt;
+#include &lt;cmath&gt;
+using namespace std;
+
+int N, dfs_time, ans;
+int _time[101], _low[101];
+vector&lt;int&gt; link[101];
+void dfs(int input, int parent) {
+    int child = 0;
+    int next, size;
+    bool add = false;
+    size = link[input].size();
+    _time[input] = _low[input] = dfs_time++;
+    for (int i = 0; i &lt; size; i++) {
+        next = link[input][i];
+        if (!_time[next]) {
+            child++;
+            dfs(next, input);
+            _low[input] = min(_low[input], _low[next]);
+            if (_time[input] &lt;= _low[next])
+                add = true;
+        }else if (next != parent)
+            _low[input] = min(_low[input], _time[next]);
+    }
+    if ((child &gt;= 2 || parent) &amp;&amp; add)
+        ans++;
+}
+int main() {
+    string line;
+    int a, b;
+    while (scanf(&quot;%d &quot;, &amp;N) &amp;&amp; N) {
+        for (int i = 0; i &lt;= N; i++) {
+            _time[i] = _low[i] = 0;
+            link[i].clear();
+        }
+        while (getline(cin, line)) {
+            stringstream ss(line);
+            ss &gt;&gt; a;
+            if (!a)
+                break;
+            while (ss &gt;&gt; b) {
+                link[a].push_back(b);
+                link[b].push_back(a);
+            }
+        }
+        dfs_time = 1;
+        ans = 0;
+        dfs(1, 0);
+        printf(&quot;%d\n&quot;, ans);
+    }
+    return 0;
+}
+
+</code></pre>
+        </div>
+        
+        <div class="my-4">
+    
+    <a href="/tags/uva/" class="inline-block bg-tertiary-bg text-sm rounded px-3 py-1 my-1 mr-2 hover:text-eureka">#UVa</a>
+    
+    <a href="/tags/articulation-points/" class="inline-block bg-tertiary-bg text-sm rounded px-3 py-1 my-1 mr-2 hover:text-eureka">#Articulation Points</a>
+    
+    <a href="/tags/tarjan-algorithm/" class="inline-block bg-tertiary-bg text-sm rounded px-3 py-1 my-1 mr-2 hover:text-eureka">#Tarjan Algorithm</a>
+    
+</div>
+        
+        
+        
+
+
+        
+        
+        
+        
+<div class="flex flex-col md:flex-row md:justify-between -mx-2 mt-4 px-2 pt-4 border-t">
+    <div>
+        
+        <span class="block font-bold">上一頁</span>
+        <a href="/posts/template-longest-common-subsequence/" class="block">Template. Longest Common Subsequence</a>
+        
+    </div>
+    <div class="md:text-right mt-4 md:mt-0">
+        
+        <span class="block font-bold">下一頁</span>
+        <a href="/posts/codeforces-round-502/" class="block">CodeForces. Round 502</a>
+        
+    </div>
+</div>
+
+        
+
+
+
+    </div>
+    
+
+    
+    
+    <div
+        class="col-span-2 lg:col-start-2 lg:col-span-6 bg-secondary-bg rounded p-6">
+        <h2 class="text-lg font-semibold mb-4">相關</h2>
+        <div class="content">
+            
+            <a href="/posts/uva-13153-number-of-connected-components/">UVa 13153. Number of Connected Components</a>
+            <br />
+            
+            <a href="/posts/uva-571-jugs/">UVa 571. Jugs</a>
+            <br />
+            
+            <a href="/posts/uva-307-sticks/">UVa 307. Sticks</a>
+            <br />
+            
+            <a href="/posts/uva-10952.-pattern-transformations/">UVa 10952. Pattern Transformations</a>
+            <br />
+            
+            <a href="/posts/uva-103.-stacking-boxes/">UVa 103. Stacking Boxes</a>
+            <br />
+            
+        </div>
+    </div>
+    
+</div>
+<script>
+    document.addEventListener('DOMContentLoaded', ()=>{
+        hljs.initHighlightingOnLoad();
+    })
+</script>
+
+      </div>
+    </div>
+    
+  </main>
+  <footer class="pl-scrollbar">
+    <div class="w-full max-w-screen-xl mx-auto"><div class="text-center p-6 pin-b">
+    <p class="text-sm text-tertiary-text">&copy; 2021 <a href="https://www.wangchucheng.com/">C. Wang</a> and <a href="https://www.ruiqima.com/">R. Ma</a>
+ &middot;  Powered by the <a href="https://github.com/wangchucheng/hugo-eureka" class="hover:text-eureka">Eureka</a> theme for <a href="https://gohugo.io" class="hover:text-eureka">Hugo</a></p>
+</div></div>
+  </footer>
+</body>
+
+</html>

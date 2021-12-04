@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Prime factor on Eureka Demo</title>
+    <link>/tags/prime-factor/</link>
+    <description>Recent content in Prime factor on Eureka Demo</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-Hant</language>
+    <copyright>&amp;copy; 2021 &lt;a href=&#34;https://www.wangchucheng.com/&#34;&gt;C. Wang&lt;/a&gt; and &lt;a href=&#34;https://www.ruiqima.com/&#34;&gt;R. Ma&lt;/a&gt;
+</copyright>
+    <lastBuildDate>Tue, 07 Aug 2018 10:26:31 +0000</lastBuildDate><atom:link href="/tags/prime-factor/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>UVa 13153. Number of Connected Components</title>
+      <link>/posts/uva-13153-number-of-connected-components/</link>
+      <pubDate>Tue, 07 Aug 2018 10:26:31 +0000</pubDate>
+      
+      <guid>/posts/uva-13153-number-of-connected-components/</guid>
+      <description>&lt;h1 id=&#34;description&#34;&gt;Description&lt;/h1&gt;
+&lt;blockquote&gt;
+&lt;p&gt;給你 N 個節點，每個點上附有一個介於$1～10^6$之間的正整數。假如某2個節點上的數其最大公因數（GCD）大於1，則這2個節點之間會有一條邊存在。&lt;br&gt;
+要請你算出這N個節點構成的的圖形中，共有幾個連通的單元。&lt;/p&gt;
+&lt;/blockquote&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

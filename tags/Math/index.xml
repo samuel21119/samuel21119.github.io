@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Math on Eureka Demo</title>
+    <link>/tags/math/</link>
+    <description>Recent content in Math on Eureka Demo</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-Hant</language>
+    <copyright>&amp;copy; 2021 &lt;a href=&#34;https://www.wangchucheng.com/&#34;&gt;C. Wang&lt;/a&gt; and &lt;a href=&#34;https://www.ruiqima.com/&#34;&gt;R. Ma&lt;/a&gt;
+</copyright>
+    <lastBuildDate>Thu, 25 Oct 2018 18:04:43 +0000</lastBuildDate><atom:link href="/tags/math/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>107學年度 校內初選題目</title>
+      <link>/posts/107%E5%AD%B8%E5%B9%B4%E5%BA%A6-%E6%A0%A1%E5%85%A7%E5%88%9D%E9%81%B8%E9%A1%8C%E7%9B%AE/</link>
+      <pubDate>Thu, 25 Oct 2018 18:04:43 +0000</pubDate>
+      
+      <guid>/posts/107%E5%AD%B8%E5%B9%B4%E5%BA%A6-%E6%A0%A1%E5%85%A7%E5%88%9D%E9%81%B8%E9%A1%8C%E7%9B%AE/</guid>
+      <description>&lt;p&gt;前幾天是雄中資訊學科能力競賽初試，而下面是這次競賽的題目，其中有幾題是出自於UVa的。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>CodeForces. Round 502</title>
+      <link>/posts/codeforces-round-502/</link>
+      <pubDate>Thu, 09 Aug 2018 01:09:35 +0000</pubDate>
+      
+      <guid>/posts/codeforces-round-502/</guid>
+      <description>&lt;p&gt;比賽連結：&lt;a href=&#34;http://codeforces.com/contest/1017&#34;&gt;CodeForces Round #502&lt;/a&gt;&lt;br&gt;
+以下為我個人的解法，在優化上不一定做得很好。&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

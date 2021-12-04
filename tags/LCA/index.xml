@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>LCA on Eureka Demo</title>
+    <link>/tags/lca/</link>
+    <description>Recent content in LCA on Eureka Demo</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-Hant</language>
+    <copyright>&amp;copy; 2021 &lt;a href=&#34;https://www.wangchucheng.com/&#34;&gt;C. Wang&lt;/a&gt; and &lt;a href=&#34;https://www.ruiqima.com/&#34;&gt;R. Ma&lt;/a&gt;
+</copyright>
+    <lastBuildDate>Sat, 22 Sep 2018 12:24:55 +0000</lastBuildDate><atom:link href="/tags/lca/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>UVa 10600. ACM contest and Blackout</title>
+      <link>/posts/uva-10600-acm-contest-and-blackout/</link>
+      <pubDate>Sat, 22 Sep 2018 12:24:55 +0000</pubDate>
+      
+      <guid>/posts/uva-10600-acm-contest-and-blackout/</guid>
+      <description>&lt;h1 id=&#34;description&#34;&gt;Description&lt;/h1&gt;
+&lt;blockquote&gt;
+&lt;p&gt;給定一張無向圖，請輸出最小生成樹和次小生成樹的大小。&lt;/p&gt;
+&lt;/blockquote&gt;</description>
+    </item>
+    
+    <item>
+      <title>Template. Heavy-light Decomposition</title>
+      <link>/posts/template-heavy-light-decomposition/</link>
+      <pubDate>Wed, 15 Aug 2018 10:54:44 +0000</pubDate>
+      
+      <guid>/posts/template-heavy-light-decomposition/</guid>
+      <description>&lt;p&gt;第一次DFS，&lt;code&gt;son()&lt;/code&gt;：先紀錄所有點的子節點（含）數目、深度等資訊。&lt;br&gt;
+第二次DFS，&lt;code&gt;build()&lt;/code&gt;：依據上次DFS的結果，優先選擇子節點最多的點構成重鏈。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Template. LCA Doubling Search</title>
+      <link>/posts/template-lca-doubling-search/</link>
+      <pubDate>Wed, 15 Aug 2018 06:38:44 +0000</pubDate>
+      
+      <guid>/posts/template-lca-doubling-search/</guid>
+      <description>&lt;p&gt;使用倍增法的做法來計算LCA。&lt;br&gt;
+先製作dp表，$dp[i][j]$代表$i$的第$2^j$祖先是誰，若不存在則為-1。&lt;br&gt;
+在查詢時，先將點$a$和$b$調整到相同高度，再一起慢慢往上移動尋找LCA。&lt;br&gt;
+&lt;em&gt;時間複雜度：$O(N log N)$&lt;/em&gt;&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

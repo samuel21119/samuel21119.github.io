@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Linux on Eureka Demo</title>
+    <link>/tags/linux/</link>
+    <description>Recent content in Linux on Eureka Demo</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-Hant</language>
+    <copyright>&amp;copy; 2021 &lt;a href=&#34;https://www.wangchucheng.com/&#34;&gt;C. Wang&lt;/a&gt; and &lt;a href=&#34;https://www.ruiqima.com/&#34;&gt;R. Ma&lt;/a&gt;
+</copyright>
+    <lastBuildDate>Sun, 06 Dec 2020 02:29:11 +0000</lastBuildDate><atom:link href="/tags/linux/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>KVM&#43;QEMU with PCIe Passthrough via OVMF</title>
+      <link>/posts/kvm-qemu-with-pcie-passthrough-via-ovmf/</link>
+      <pubDate>Sun, 06 Dec 2020 02:29:11 +0000</pubDate>
+      
+      <guid>/posts/kvm-qemu-with-pcie-passthrough-via-ovmf/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Convert Physical OS to Virtual Machine</title>
+      <link>/posts/convert-physical-os-to-virtual-machine/</link>
+      <pubDate>Sun, 24 Feb 2019 22:05:49 +0000</pubDate>
+      
+      <guid>/posts/convert-physical-os-to-virtual-machine/</guid>
+      <description>&lt;p&gt;以下將以Arch Linux做示範。&lt;/p&gt;
+&lt;p&gt;如果以「migrate physical machine to virtualbox」之類的詞當作關鍵字去Google，會發現網路上的做法都是請你使用Virtual Box的指令來達成目的：&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-shell&#34;&gt;# VBoxManage internalcommands createrawvmdk -filename &amp;lt;path-to-file&amp;gt;.vmdk -rawdisk &amp;lt;disk-location&amp;gt; -partitions &amp;lt;partitions-to-migrate&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;</description>
+    </item>
+    
+    <item>
+      <title>Arch Linux Installation Guide</title>
+      <link>/posts/arch-linux-installation-guide/</link>
+      <pubDate>Mon, 06 Aug 2018 15:11:34 +0800</pubDate>
+      
+      <guid>/posts/arch-linux-installation-guide/</guid>
+      <description>&lt;p&gt;Archlinux 簡易安裝教學&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

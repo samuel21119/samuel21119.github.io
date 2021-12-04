@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang='zh-Hant' ><meta charset="utf-8">
+<meta name="viewport" content="width=device-width">
+
+
+<title>UVa 11456. Trainsorting | Eureka Demo</title>
+
+<meta name="generator" content="Hugo Eureka 0.8.4" />
+<link rel="stylesheet" href="/css/eureka.min.css">
+<script defer src="/js/eureka.min.js"></script>
+
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload"
+  href="https://fonts.googleapis.com/css2?family=Lora:wght@400;600;700&family=Noto+Serif+SC:wght@400;600;700&display=swap"
+  as="style" onload="this.onload=null;this.rel='stylesheet'">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.0/build/styles/solarized-light.min.css"
+   media="print"
+  onload="this.media='all';this.onload=null" crossorigin>
+<script defer src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.0/build/highlight.min.js"
+   crossorigin></script>
+
+  <script defer src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.0/build/languages/dart.min.js"
+     crossorigin></script>
+
+<script defer src="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.14.0/js/all.min.js"
+   integrity="sha256-uNYoXefWRqv&#43;PsIF/OflNmwtKM4lStn9yrz2gVl6ymo="  crossorigin></script>
+
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css"
+   integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3&#43;Aro6EYUG4&#43;cU&#43;KJWu/X"  media="print"
+  onload="this.media='all';this.onload=null" crossorigin>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js" 
+  integrity="sha384-g7c&#43;Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI&#43;sEnkvrMWph2EDg4"  crossorigin></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/contrib/auto-render.min.js"
+   integrity="sha384-mll67QQFJfxn0IYznZYonOWZ644AWYC&#43;Pt2cHqMaRhXVrursRwvLnLaebdGIlYNa"  crossorigin></script>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    renderMathInElement(document.body, {
+      delimiters: [
+        { left: "$$", right: "$$", display: true },
+        { left: "$", right: "$", display: false },
+        { left: "\\(", right: "\\)", display: false },
+        { left: "\\[", right: "\\]", display: true }
+      ],
+    });
+  });
+</script>
+
+
+<script defer src="https://cdn.jsdelivr.net/npm/mermaid@8.9.2/dist/mermaid.min.js" 
+  integrity="sha256-Zmpaaj&#43;GXFsPF5WdPArSrnW3b30dovldeKsW00xBVwE="  crossorigin></script>
+
+
+<link rel="icon" type="image/png" sizes="32x32" href="/images/icon_hu64421c6c7700f606f0ad45d807017b09_5843_32x32_fill_box_center_3.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/images/icon_hu64421c6c7700f606f0ad45d807017b09_5843_180x180_fill_box_center_3.png">
+
+<meta name="description"
+  content="Description
+
+Erin是一個開火車工程師。他喜歡把車廂按照其重量來安排，重的車廂排在前端。
+不幸的是，把車廂排序並不是一件容易的事。你只能將一節車廂加在一列火車的前端或後端。
+各個車廂來到火車站的順序及其重量是已經知道的。當每節車廂來到的時候，Erin可以把它加到火車的兩端，或者不加進去。最後，火車的總車廂數是越長越好，不過要記得車廂得按照重量大小排列。 
+給你按照出現順序各車廂的重量，Erin最長可安排車廂的長度是多少？
+">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [{
+      "@type": "ListItem",
+      "position": 1 ,
+      "name":"Posts",
+      "item":"/posts/"},{
+      "@type": "ListItem",
+      "position": 2 ,
+      "name":"UVa 11456. Trainsorting",
+      "item":"/posts/uva-11456-trainsorting/"}]
+}
+</script>
+
+
+
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "/posts/uva-11456-trainsorting/"
+    },
+    "headline": "UVa 11456. Trainsorting | Eureka Demo","datePublished": "2018-08-21T17:54:50+00:00",
+    "dateModified": "2018-08-21T17:54:50+00:00",
+    "wordCount":  177 ,
+    "publisher": {
+        "@type": "Person",
+        "name": "C. Wang",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "/images/icon.png"
+        }
+        },
+    "description": "\u003ch1 id=\u0022description\u0022\u003eDescription\u003c\/h1\u003e\n\u003cblockquote\u003e\n\u003cp\u003eErin是一個開火車工程師。他喜歡把車廂按照其重量來安排，重的車廂排在前端。\u003cbr\u003e\n不幸的是，把車廂排序並不是一件容易的事。你只能將一節車廂加在一列火車的前端或後端。\u003cbr\u003e\n各個車廂來到火車站的順序及其重量是已經知道的。當每節車廂來到的時候，Erin可以把它加到火車的兩端，或者不加進去。最後，火車的總車廂數是越長越好，不過要記得車廂得按照重量大小排列。 \u003cbr\u003e\n給你按照出現順序各車廂的重量，Erin最長可安排車廂的長度是多少？\u003c\/p\u003e\n\u003c\/blockquote\u003e"
+}
+</script><meta property="og:title" content="UVa 11456. Trainsorting | Eureka Demo" />
+<meta property="og:type" content="article" />
+
+
+<meta property="og:image" content="/images/icon.png">
+
+
+<meta property="og:url" content="/posts/uva-11456-trainsorting/" />
+
+
+
+
+<meta property="og:description" content="Description
+
+Erin是一個開火車工程師。他喜歡把車廂按照其重量來安排，重的車廂排在前端。
+不幸的是，把車廂排序並不是一件容易的事。你只能將一節車廂加在一列火車的前端或後端。
+各個車廂來到火車站的順序及其重量是已經知道的。當每節車廂來到的時候，Erin可以把它加到火車的兩端，或者不加進去。最後，火車的總車廂數是越長越好，不過要記得車廂得按照重量大小排列。 
+給你按照出現順序各車廂的重量，Erin最長可安排車廂的長度是多少？
+" />
+
+
+
+
+<meta property="og:locale" content="zh-Hant" />
+
+
+
+
+<meta property="og:site_name" content="Eureka Demo" />
+
+
+
+
+
+
+<meta property="article:published_time" content="2018-08-21T17:54:50&#43;00:00" />
+
+
+<meta property="article:modified_time" content="2018-08-21T17:54:50&#43;00:00" />
+
+
+
+<meta property="article:section" content="posts" />
+
+
+<meta property="article:tag" content="UVa" />
+
+<meta property="article:tag" content="Dynamic Programming" />
+
+
+
+
+
+<meta property="og:see_also" content="/posts/uva-10032-tug-of-war/" />
+
+<meta property="og:see_also" content="/posts/uva-103.-stacking-boxes/" />
+
+<meta property="og:see_also" content="/posts/uva-1479-graph-and-queries/" />
+
+<meta property="og:see_also" content="/posts/template-longest-common-subsequence/" />
+
+<meta property="og:see_also" content="/posts/uva-315-network/" />
+
+<meta property="og:see_also" content="/posts/codeforces-round-502/" />
+
+
+
+<body class="flex flex-col min-h-screen">
+  <header class="fixed flex items-center w-full min-h-16 pl-scrollbar z-50 bg-secondary-bg shadow-sm">
+    <div class="w-full max-w-screen-xl mx-auto"><script>
+    let storageColorScheme = localStorage.getItem("lightDarkMode")
+    if (((storageColorScheme == 'Auto' || storageColorScheme == null) && window.matchMedia("(prefers-color-scheme: dark)").matches) || storageColorScheme == "Dark") {
+        document.getElementsByTagName('html')[0].classList.add('dark')
+    }
+</script>
+<nav class="flex items-center justify-between flex-wrap px-4 py-4 md:py-0">
+    <a href="/" class="mr-6 text-primary-text text-xl font-bold">Eureka Demo</a>
+    <button id="navbar-btn" class="md:hidden flex items-center px-3 py-2" aria-label="Open Navbar">
+        <i class="fas fa-bars"></i>
+    </button>
+
+    <div id="target"
+        class="hidden block md:flex md:flex-grow md:justify-between md:items-center w-full md:w-auto text-primary-text z-20">
+        <div class="md:flex md:h-16 text-sm md:flex-grow pb-4 md:pb-0 border-b md:border-b-0">
+            <a href="/#about" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  border-transparent  mr-4">About</a>
+            <a href="/posts/" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  selected-menu-item  mr-4">Posts</a>
+        </div>
+
+        <div class="flex">
+            <div class="relative pt-4 md:pt-0">
+                <div class="cursor-pointer hover:text-eureka" id="lightDarkMode">
+                    <i class="fas fa-adjust"></i>
+                </div>
+                <div class="fixed hidden inset-0 opacity-0 h-full w-full cursor-default z-30" id="is-open">
+                </div>
+                <div class="absolute flex flex-col left-0 md:left-auto right-auto md:right-0 hidden bg-secondary-bg w-48 rounded py-2 border border-tertiary-bg cursor-pointer z-40"
+                    id='lightDarkOptions'>
+                    <span class="px-4 py-1 hover:text-eureka" name="Light">淺色</span>
+                    <span class="px-4 py-1 hover:text-eureka" name="Dark">深色</span>
+                    <span class="px-4 py-1 hover:text-eureka" name="Auto">自動</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="fixed hidden inset-0 opacity-0 h-full w-full cursor-default z-0" id="is-open-mobile">
+    </div>
+
+</nav>
+<script>
+    
+    let element = document.getElementById('lightDarkMode')
+    if (storageColorScheme == null || storageColorScheme == 'Auto') {
+        document.addEventListener('DOMContentLoaded', () => {
+            window.matchMedia("(prefers-color-scheme: dark)").addEventListener('change', switchDarkMode)
+        })
+    } else if (storageColorScheme == "Light") {
+        element.firstElementChild.classList.remove('fa-adjust')
+        element.firstElementChild.setAttribute("data-icon", 'sun')
+        element.firstElementChild.classList.add('fa-sun')
+    } else if (storageColorScheme == "Dark") {
+        element.firstElementChild.classList.remove('fa-adjust')
+        element.firstElementChild.setAttribute("data-icon", 'moon')
+        element.firstElementChild.classList.add('fa-moon')
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+        getcolorscheme();
+        switchBurger();
+    });
+</script>
+</div>
+  </header>
+  <main class="flex-grow pt-16">
+    <div class="pl-scrollbar">
+      <div class="w-full max-w-screen-xl lg:px-4 xl:px-8 mx-auto">
+
+
+<div class="grid grid-cols-2 lg:grid-cols-8 gap-4 lg:pt-12">
+    <div
+        class="col-span-2 lg:col-start-2 lg:col-span-6 bg-secondary-bg rounded px-6 py-8">
+        <h1 class="font-bold text-3xl text-primary-text">UVa 11456. Trainsorting</h1>
+        <div class="flex flex-wrap flex-row items-center mt-2 text-tertiary-text">
+    <div class="mr-6 my-2">
+        <i class="fas fa-calendar mr-1"></i>
+        <span>2018-08-21</span>
+    </div>
+    <div class="mr-6 my-2">
+        <i class="fas fa-clock mr-1"></i>
+        <span>1分鐘閱讀</span>
+    </div>
+    
+    
+    <div class="mr-6 my-2">
+        <i class="fas fa-folder mr-1"></i>
+        
+        <a href="/categories/%E9%A1%8C%E8%A7%A3/" class="hover:text-eureka">題解</a>
+        
+    </div>
+    
+
+    
+</div>
+        
+        
+        
+
+        <div class="content">
+            <h1 id="description">Description</h1>
+<blockquote>
+<p>Erin是一個開火車工程師。他喜歡把車廂按照其重量來安排，重的車廂排在前端。<br>
+不幸的是，把車廂排序並不是一件容易的事。你只能將一節車廂加在一列火車的前端或後端。<br>
+各個車廂來到火車站的順序及其重量是已經知道的。當每節車廂來到的時候，Erin可以把它加到火車的兩端，或者不加進去。最後，火車的總車廂數是越長越好，不過要記得車廂得按照重量大小排列。 <br>
+給你按照出現順序各車廂的重量，Erin最長可安排車廂的長度是多少？</p>
+</blockquote>
+<h1 id="input-format">Input Format</h1>
+<p>輸入的第一列有一個整數表示測試資料的組數。<br>
+每組資料的第一列會有1個整數$n$ ,$(0 \le n \le 2000)$，代表車廂的數目。接下來$n$列整數，每列有一個大於等於0的整數，代表各車廂的重量。<br>
+請注意：所有車廂的重量都不一樣。請參考 Sample Input。</p>
+<h1 id="output-format">Output Format</h1>
+<p>對每組測試資料，Erin最長可安排車廂的長度是多少。</p>
+<h1 id="sample-input">Sample Input</h1>
+<pre><code>1
+3
+1
+2
+3
+</code></pre>
+<h1 id="sample-output">Sample Output</h1>
+<pre><code>3
+</code></pre>
+<p>UVa - <a href="https://uva.onlinejudge.org/external/114/11456.pdf">11456</a><br>
+翻譯來源：<a href="http://luckycat.kshs.kh.edu.tw/homework/q11456.htm">Luckycat</a></p>
+<h1 id="solution">Solution</h1>
+<p>因為有選取或不選取，可以考慮到使用DP的方法解。<br>
+令$up[i]\ down[i]$代表重量 大於/小於 第$i$車廂的最大車廂數。<br>
+接著跑迴圈每次取$max(ans, up[i] + down[i]-1)$就可以得到答案了。</p>
+<h1 id="code">Code</h1>
+<pre><code class="language-cpp">/*************************************************************************
+  &gt; File Name: 11456 - Trainsorting.cpp
+  &gt; Author: Samuel
+  &gt; Mail: enminghuang21119@gmail.com
+  &gt; Created Time: Sat May 19 14:10:47 2018
+*************************************************************************/
+
+#include &lt;bits/stdc++.h&gt;
+using namespace std;
+int up[2002], down[2002];
+int input[2003];
+int main() {
+    ios::sync_with_stdio(0);
+    cin.tie(0);
+    int c, n;
+    cin &gt;&gt; c;
+    while(c--) {
+        cin &gt;&gt; n;
+        for (int i = n; i; i--)
+            cin &gt;&gt; input[i];
+        int ans = 0;
+        for (int i = 1; i &lt;= n; i++) up[i] = down[i] = 1;
+        for (int i = 1; i &lt;= n; i++) {
+            for (int j = 0; j &lt; i; j++) {
+                if (input[j] &lt; input[i])
+                    up[i] = max(up[i], up[j] + 1);
+                else
+                    down[i] = max(down[i], down[j] + 1);
+            }
+            ans = max(ans, up[i] + down[i] - 1);
+        }
+        cout &lt;&lt; ans &lt;&lt; '\n';
+    }
+    return 0;
+}
+</code></pre>
+        </div>
+        
+        <div class="my-4">
+    
+    <a href="/tags/uva/" class="inline-block bg-tertiary-bg text-sm rounded px-3 py-1 my-1 mr-2 hover:text-eureka">#UVa</a>
+    
+    <a href="/tags/dynamic-programming/" class="inline-block bg-tertiary-bg text-sm rounded px-3 py-1 my-1 mr-2 hover:text-eureka">#Dynamic Programming</a>
+    
+</div>
+        
+        
+        
+
+
+        
+        
+        
+        
+<div class="flex flex-col md:flex-row md:justify-between -mx-2 mt-4 px-2 pt-4 border-t">
+    <div>
+        
+        <span class="block font-bold">上一頁</span>
+        <a href="/posts/uva-12538-version-controlled-ide/" class="block">UVa 12538. Version Controlled IDE</a>
+        
+    </div>
+    <div class="md:text-right mt-4 md:mt-0">
+        
+        <span class="block font-bold">下一頁</span>
+        <a href="/posts/template-persistent-segment-tree/" class="block">Template. Persistent Segment Tree</a>
+        
+    </div>
+</div>
+
+        
+
+
+
+    </div>
+    
+
+    
+    
+    <div
+        class="col-span-2 lg:col-start-2 lg:col-span-6 bg-secondary-bg rounded p-6">
+        <h2 class="text-lg font-semibold mb-4">相關</h2>
+        <div class="content">
+            
+            <a href="/posts/uva-10032-tug-of-war/">UVa 10032. Tug of War</a>
+            <br />
+            
+            <a href="/posts/uva-103.-stacking-boxes/">UVa 103. Stacking Boxes</a>
+            <br />
+            
+            <a href="/posts/uva-1479-graph-and-queries/">UVa 1479. Graph and Queries</a>
+            <br />
+            
+            <a href="/posts/template-longest-common-subsequence/">Template. Longest Common Subsequence</a>
+            <br />
+            
+            <a href="/posts/uva-315-network/">UVa 315. Network</a>
+            <br />
+            
+            <a href="/posts/codeforces-round-502/">CodeForces. Round 502</a>
+            <br />
+            
+        </div>
+    </div>
+    
+</div>
+<script>
+    document.addEventListener('DOMContentLoaded', ()=>{
+        hljs.initHighlightingOnLoad();
+    })
+</script>
+
+      </div>
+    </div>
+    
+  </main>
+  <footer class="pl-scrollbar">
+    <div class="w-full max-w-screen-xl mx-auto"><div class="text-center p-6 pin-b">
+    <p class="text-sm text-tertiary-text">&copy; 2021 <a href="https://www.wangchucheng.com/">C. Wang</a> and <a href="https://www.ruiqima.com/">R. Ma</a>
+ &middot;  Powered by the <a href="https://github.com/wangchucheng/hugo-eureka" class="hover:text-eureka">Eureka</a> theme for <a href="https://gohugo.io" class="hover:text-eureka">Hugo</a></p>
+</div></div>
+  </footer>
+</body>
+
+</html>

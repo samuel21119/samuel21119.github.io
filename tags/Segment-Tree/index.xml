@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Segment Tree on Eureka Demo</title>
+    <link>/tags/segment-tree/</link>
+    <description>Recent content in Segment Tree on Eureka Demo</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-Hant</language>
+    <copyright>&amp;copy; 2021 &lt;a href=&#34;https://www.wangchucheng.com/&#34;&gt;C. Wang&lt;/a&gt; and &lt;a href=&#34;https://www.ruiqima.com/&#34;&gt;R. Ma&lt;/a&gt;
+</copyright>
+    <lastBuildDate>Mon, 20 Aug 2018 23:10:48 +0000</lastBuildDate><atom:link href="/tags/segment-tree/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Template. Persistent Segment Tree</title>
+      <link>/posts/template-persistent-segment-tree/</link>
+      <pubDate>Mon, 20 Aug 2018 23:10:48 +0000</pubDate>
+      
+      <guid>/posts/template-persistent-segment-tree/</guid>
+      <description>&lt;p&gt;可持久化線段樹適用於查詢不同版本的線段樹，其運作方式非常簡單，就是將要更改的點先複製一遍，未更改的點則不動。而且每新增一個節點，就建立一個新的root，所以我們就可以透過不同的root來讀取不同版本的值。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Template. Segment Tree</title>
+      <link>/posts/template-segment-tree/</link>
+      <pubDate>Tue, 07 Aug 2018 23:14:50 +0000</pubDate>
+      
+      <guid>/posts/template-segment-tree/</guid>
+      <description>&lt;p&gt;區間查詢最大值線段樹，支援單點、範圍修改，使用Lazy flag優化。&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>
