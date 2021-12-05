@@ -1,92 +1,17 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>DFS on EnMinGW32</title>
-    <link>/tags/dfs/</link>
-    <description>Recent content in DFS on EnMinGW32</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>zh-Hant</language>
-    <copyright>&amp;copy; 2021 &lt;a href=&#34;https://www.wangchucheng.com/&#34;&gt;C. Wang&lt;/a&gt; and &lt;a href=&#34;https://www.ruiqima.com/&#34;&gt;R. Ma&lt;/a&gt;
-</copyright>
-    <lastBuildDate>Tue, 19 Feb 2019 11:44:23 +0000</lastBuildDate><atom:link href="/tags/dfs/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>APCS. 2019/02/16</title>
-      <link>/posts/apcs-2019-02-16/</link>
-      <pubDate>Tue, 19 Feb 2019 11:44:23 +0000</pubDate>
-      
-      <guid>/posts/apcs-2019-02-16/</guid>
-      <description>&lt;p&gt;2019/02/19 APCS實作題詳解及範例程式&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>107學年度 校內初選題目</title>
-      <link>/posts/107%E5%AD%B8%E5%B9%B4%E5%BA%A6-%E6%A0%A1%E5%85%A7%E5%88%9D%E9%81%B8%E9%A1%8C%E7%9B%AE/</link>
-      <pubDate>Thu, 25 Oct 2018 18:04:43 +0000</pubDate>
-      
-      <guid>/posts/107%E5%AD%B8%E5%B9%B4%E5%BA%A6-%E6%A0%A1%E5%85%A7%E5%88%9D%E9%81%B8%E9%A1%8C%E7%9B%AE/</guid>
-      <description>&lt;p&gt;前幾天是雄中資訊學科能力競賽初試，而下面是這次競賽的題目，其中有幾題是出自於UVa的。&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>UVa 838. Worm World</title>
-      <link>/posts/uva-838-worm-world/</link>
-      <pubDate>Tue, 09 Oct 2018 22:38:59 +0000</pubDate>
-      
-      <guid>/posts/uva-838-worm-world/</guid>
-      <description>&lt;h1 id=&#34;description&#34;&gt;Description&lt;/h1&gt;
-&lt;blockquote&gt;
-&lt;p&gt;給定一張n*n的圖，每個格子上面都有一個數字。&lt;br&gt;
-求在不碰到重複數字的情況下，最遠可以走多遠（只能上下左右移動）？&lt;/p&gt;
-&lt;/blockquote&gt;</description>
-    </item>
-    
-    <item>
-      <title>UVa 165. Stamps</title>
-      <link>/posts/uva-165-stamps/</link>
-      <pubDate>Sat, 15 Sep 2018 21:28:30 +0000</pubDate>
-      
-      <guid>/posts/uva-165-stamps/</guid>
-      <description>&lt;h1 id=&#34;description&#34;&gt;Description&lt;/h1&gt;
-&lt;blockquote&gt;
-&lt;p&gt;每張信封上面最多可以貼上h張郵票，請設計k種面額，並求出能組成的連續面額最大值。
-例如當$h=3, k=2$，1和3元的面額最多可以連續從1組到7。&lt;/p&gt;
-&lt;/blockquote&gt;</description>
-    </item>
-    
-    <item>
-      <title>UVa 10917. Walk Through the Forest</title>
-      <link>/posts/uva-10917-walk-through-the-forest/</link>
-      <pubDate>Sun, 09 Sep 2018 10:23:31 +0000</pubDate>
-      
-      <guid>/posts/uva-10917-walk-through-the-forest/</guid>
-      <description>&lt;h1 id=&#34;description&#34;&gt;Description&lt;/h1&gt;
-&lt;p&gt;Jimmy的辦公室在森林的一邊，而他的家在森林的另一邊。&lt;br&gt;
-Jimmy想要每天都走不同的路徑回家。但是他也不想要回家太晚，所以他總是選擇一條可以朝他家「前進」的路徑來走。所謂「前進」指的是他會選擇從A點走到B點如果B點存在一條到他家的路徑長度比A點到他家任一路徑的長度都來的短的話。請你算出Jimmy共有多少種不同的路徑可以走。&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>UVa 307. Sticks</title>
-      <link>/posts/uva-307-sticks/</link>
-      <pubDate>Mon, 06 Aug 2018 15:28:18 +0000</pubDate>
-      
-      <guid>/posts/uva-307-sticks/</guid>
-      <description>&lt;h1 id=&#34;description&#34;&gt;Description&lt;/h1&gt;
-&lt;blockquote&gt;
-&lt;p&gt;George 拿了一些&lt;strong&gt;相同&lt;/strong&gt;長度的棍子，然後隨意的把這些棍子切成一段一段的棍子（每段長度都不會超過 50 個單位長）。現在他想要把這些一段一段的棍子拼回原來的樣子，但是他忘了他原來帶多少根棍子來，並且也忘了原來每根棍子的長度。請幫助他設計一個程式算出這些棍子原來可能的最小長度。所有的棍子長度都是整數，並且大於 0。&lt;/p&gt;
-&lt;/blockquote&gt;</description>
-    </item>
-    
-    <item>
-      <title>UVa 10952. Pattern Transformations</title>
-      <link>/posts/uva-10952.-pattern-transformations/</link>
-      <pubDate>Mon, 06 Aug 2018 15:22:16 +0800</pubDate>
-      
-      <guid>/posts/uva-10952.-pattern-transformations/</guid>
-      <description>&lt;h1 id=&#34;description&#34;&gt;Description&lt;/h1&gt;
-&lt;blockquote&gt;
-&lt;p&gt;Consider the two patterns of ‘O’ and ‘X’ below (‘.’ represent an empty square). We want the first pattern to be transformed into the second pattern in one time unit. During this time unit, each symbol (‘O’ and ‘X’) can move one step in any of the four directions (or remain at its current square). All movements happen simultaneously, so a symbol can move to an occupied square, if that symbol is moved to some other square. If a symbol moves from square A to B, and the symbol at B moves to A, we have a swap. Write a program which calculates the least number of swaps needed to transform a given pattern into another given pattern.&lt;/p&gt;
-&lt;/blockquote&gt;</description>
-    </item>
-    
-  </channel>
-</rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>DFS on EnMinGW32</title><link>/tags/dfs/</link><description>Recent content in DFS on EnMinGW32</description><generator>Hugo -- gohugo.io</generator><language>zh-Hant</language><copyright>&amp;copy; 2021 &lt;a href="https://www.wangchucheng.com/">C. Wang&lt;/a> and &lt;a href="https://www.ruiqima.com/">R. Ma&lt;/a></copyright><lastBuildDate>Tue, 19 Feb 2019 11:44:23 +0000</lastBuildDate><atom:link href="/tags/dfs/index.xml" rel="self" type="application/rss+xml"/><item><title>APCS. 2019/02/16</title><link>/posts/apcs-2019-02-16/</link><pubDate>Tue, 19 Feb 2019 11:44:23 +0000</pubDate><guid>/posts/apcs-2019-02-16/</guid><description>&lt;p>2019/02/19 APCS實作題詳解及範例程式&lt;/p></description></item><item><title>107學年度 校內初選題目</title><link>/posts/107%E5%AD%B8%E5%B9%B4%E5%BA%A6-%E6%A0%A1%E5%85%A7%E5%88%9D%E9%81%B8%E9%A1%8C%E7%9B%AE/</link><pubDate>Thu, 25 Oct 2018 18:04:43 +0000</pubDate><guid>/posts/107%E5%AD%B8%E5%B9%B4%E5%BA%A6-%E6%A0%A1%E5%85%A7%E5%88%9D%E9%81%B8%E9%A1%8C%E7%9B%AE/</guid><description>&lt;p>前幾天是雄中資訊學科能力競賽初試，而下面是這次競賽的題目，其中有幾題是出自於UVa的。&lt;/p></description></item><item><title>UVa 838. Worm World</title><link>/posts/uva-838-worm-world/</link><pubDate>Tue, 09 Oct 2018 22:38:59 +0000</pubDate><guid>/posts/uva-838-worm-world/</guid><description>&lt;h1 id="description">Description&lt;/h1>
+&lt;blockquote>
+&lt;p>給定一張n*n的圖，每個格子上面都有一個數字。&lt;br>
+求在不碰到重複數字的情況下，最遠可以走多遠（只能上下左右移動）？&lt;/p>
+&lt;/blockquote></description></item><item><title>UVa 165. Stamps</title><link>/posts/uva-165-stamps/</link><pubDate>Sat, 15 Sep 2018 21:28:30 +0000</pubDate><guid>/posts/uva-165-stamps/</guid><description>&lt;h1 id="description">Description&lt;/h1>
+&lt;blockquote>
+&lt;p>每張信封上面最多可以貼上h張郵票，請設計k種面額，並求出能組成的連續面額最大值。
+例如當$h=3, k=2$，1和3元的面額最多可以連續從1組到7。&lt;/p>
+&lt;/blockquote></description></item><item><title>UVa 10917. Walk Through the Forest</title><link>/posts/uva-10917-walk-through-the-forest/</link><pubDate>Sun, 09 Sep 2018 10:23:31 +0000</pubDate><guid>/posts/uva-10917-walk-through-the-forest/</guid><description>&lt;h1 id="description">Description&lt;/h1>
+&lt;p>Jimmy的辦公室在森林的一邊，而他的家在森林的另一邊。&lt;br>
+Jimmy想要每天都走不同的路徑回家。但是他也不想要回家太晚，所以他總是選擇一條可以朝他家「前進」的路徑來走。所謂「前進」指的是他會選擇從A點走到B點如果B點存在一條到他家的路徑長度比A點到他家任一路徑的長度都來的短的話。請你算出Jimmy共有多少種不同的路徑可以走。&lt;/p></description></item><item><title>UVa 307. Sticks</title><link>/posts/uva-307-sticks/</link><pubDate>Mon, 06 Aug 2018 15:28:18 +0000</pubDate><guid>/posts/uva-307-sticks/</guid><description>&lt;h1 id="description">Description&lt;/h1>
+&lt;blockquote>
+&lt;p>George 拿了一些&lt;strong>相同&lt;/strong>長度的棍子，然後隨意的把這些棍子切成一段一段的棍子（每段長度都不會超過 50 個單位長）。現在他想要把這些一段一段的棍子拼回原來的樣子，但是他忘了他原來帶多少根棍子來，並且也忘了原來每根棍子的長度。請幫助他設計一個程式算出這些棍子原來可能的最小長度。所有的棍子長度都是整數，並且大於 0。&lt;/p>
+&lt;/blockquote></description></item><item><title>UVa 10952. Pattern Transformations</title><link>/posts/uva-10952.-pattern-transformations/</link><pubDate>Mon, 06 Aug 2018 15:22:16 +0800</pubDate><guid>/posts/uva-10952.-pattern-transformations/</guid><description>&lt;h1 id="description">Description&lt;/h1>
+&lt;blockquote>
+&lt;p>Consider the two patterns of ‘O’ and ‘X’ below (‘.’ represent an empty square). We want the first pattern to be transformed into the second pattern in one time unit. During this time unit, each symbol (‘O’ and ‘X’) can move one step in any of the four directions (or remain at its current square). All movements happen simultaneously, so a symbol can move to an occupied square, if that symbol is moved to some other square. If a symbol moves from square A to B, and the symbol at B moves to A, we have a swap. Write a program which calculates the least number of swaps needed to transform a given pattern into another given pattern.&lt;/p>
+&lt;/blockquote></description></item></channel></rss>

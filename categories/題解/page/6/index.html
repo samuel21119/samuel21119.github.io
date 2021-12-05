@@ -1,403 +1,193 @@
-<!DOCTYPE html>
-<html lang='zh-Hant' ><meta charset="utf-8">
-<meta name="viewport" content="width=device-width">
-
-
+<!doctype html><html lang=zh-hant><meta charset=utf-8>
+<meta name=viewport content="width=device-width">
 <title>題解 | EnMinGW32</title>
-
-<meta name="generator" content="Hugo Eureka 0.8.4" />
-<link rel="stylesheet" href="/css/eureka.min.css">
-<script defer src="/js/eureka.min.js"></script>
-
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="preload"
-  href="https://fonts.googleapis.com/css2?family=Lora:wght@400;600;700&family=Noto+Serif+SC:wght@400;600;700&display=swap"
-  as="style" onload="this.onload=null;this.rel='stylesheet'">
-
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.0/build/styles/solarized-light.min.css"
-   media="print"
-  onload="this.media='all';this.onload=null" crossorigin>
-<script defer src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.0/build/highlight.min.js"
-   crossorigin></script>
-
-  <script defer src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.0/build/languages/dart.min.js"
-     crossorigin></script>
-
-<script defer src="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.14.0/js/all.min.js"
-   integrity="sha256-uNYoXefWRqv&#43;PsIF/OflNmwtKM4lStn9yrz2gVl6ymo="  crossorigin></script>
-
-
-
-
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css"
-   integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3&#43;Aro6EYUG4&#43;cU&#43;KJWu/X"  media="print"
-  onload="this.media='all';this.onload=null" crossorigin>
-<script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js" 
-  integrity="sha384-g7c&#43;Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI&#43;sEnkvrMWph2EDg4"  crossorigin></script>
-<script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/contrib/auto-render.min.js"
-   integrity="sha384-mll67QQFJfxn0IYznZYonOWZ644AWYC&#43;Pt2cHqMaRhXVrursRwvLnLaebdGIlYNa"  crossorigin></script>
-<script>
-  document.addEventListener("DOMContentLoaded", function () {
-    renderMathInElement(document.body, {
-      delimiters: [
-        { left: "$$", right: "$$", display: true },
-        { left: "$", right: "$", display: false },
-        { left: "\\(", right: "\\)", display: false },
-        { left: "\\[", right: "\\]", display: true }
-      ],
-    });
-  });
-</script>
-
-
-<script defer src="https://cdn.jsdelivr.net/npm/mermaid@8.9.2/dist/mermaid.min.js" 
-  integrity="sha256-Zmpaaj&#43;GXFsPF5WdPArSrnW3b30dovldeKsW00xBVwE="  crossorigin></script>
-<link rel="preconnect" href="https://www.google-analytics.com" crossorigin>
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-HXWT368KGN"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag() { dataLayer.push(arguments); }
-  gtag('js', new Date());
-  gtag('config', 'G-HXWT368KGN');
-</script>
-
-
-<link rel="icon" type="image/png" sizes="32x32" href="/images/icon_hu64421c6c7700f606f0ad45d807017b09_5843_32x32_fill_box_center_3.png">
-<link rel="apple-touch-icon" sizes="180x180" href="/images/icon_hu64421c6c7700f606f0ad45d807017b09_5843_180x180_fill_box_center_3.png">
-
-<meta name="description"
-  content="Eureka is a elegant and powerful theme for Hugo.">
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "BreadcrumbList",
-  "itemListElement": [{
-      "@type": "ListItem",
-      "position": 1 ,
-      "name":"Categories",
-      "item":"/categories/"},{
-      "@type": "ListItem",
-      "position": 2 ,
-      "name":"題解",
-      "item":"/categories/%E9%A1%8C%E8%A7%A3/"}]
-}
-</script>
-
-
-
-
-<script type="application/ld+json">
-{
-    "@context":"https://schema.org",
-    "@type":"ItemList",
-    "itemListElement":[{
-            "@type":"ListItem",
-            "position":  1 ,
-            "name": "UVa 307. Sticks",
-            "description": "\u003ch1 id=\"description\"\u003eDescription\u003c/h1\u003e\n\u003cblockquote\u003e\n\u003cp\u003eGeorge 拿了一些\u003cstrong\u003e相同\u003c/strong\u003e長度的棍子，然後隨意的把這些棍子切成一段一段的棍子（每段長度都不會超過 50 個單位長）。現在他想要把這些一段一段的棍子拼回原來的樣子，但是他忘了他原來帶多少根棍子來，並且也忘了原來每根棍子的長度。請幫助他設計一個程式算出這些棍子原來可能的最小長度。所有的棍子長度都是整數，並且大於 0。\u003c/p\u003e\n\u003c/blockquote\u003e",
-            "url": "/posts/uva-307-sticks/"
-        },{
-            "@type":"ListItem",
-            "position":  2 ,
-            "name": "UVa 10952. Pattern Transformations",
-            "description": "\u003ch1 id=\"description\"\u003eDescription\u003c/h1\u003e\n\u003cblockquote\u003e\n\u003cp\u003eConsider the two patterns of ‘O’ and ‘X’ below (‘.’ represent an empty square). We want the first pattern to be transformed into the second pattern in one time unit. During this time unit, each symbol (‘O’ and ‘X’) can move one step in any of the four directions (or remain at its current square). All movements happen simultaneously, so a symbol can move to an occupied square, if that symbol is moved to some other square. If a symbol moves from square A to B, and the symbol at B moves to A, we have a swap. Write a program which calculates the least number of swaps needed to transform a given pattern into another given pattern.\u003c/p\u003e\n\u003c/blockquote\u003e",
-            "url": "/posts/uva-10952.-pattern-transformations/"
-        },{
-            "@type":"ListItem",
-            "position":  3 ,
-            "name": "UVa 103. Stacking Boxes",
-            "description": "\u003ch1 id=\"description\"\u003eDescription\u003c/h1\u003e\n\u003cblockquote\u003e\n\u003cp\u003e在數學或電腦科學裡，有些概念在一維或二維時還蠻簡單的，但到 N 維就會顯得非常複雜。試想一個 n 維的「盒子」：在二維空間裡，盒子 ( 2 , 3 ) 可代表一個長為 2 個單位，寬為 3 個單位的盒子；在三維空間裡，盒子 ( 4 , 8 , 9 ) 則是一個 4*8*9（長、寬、高）的盒子。至於在六維空間裡，也許我們不清楚 ( 4 , 5 , 6 , 7 , 8 , 9 ) 長得怎樣，不過我們還是可以分析這些盒子的特性。\u003c/p\u003e\n\u003c/blockquote\u003e",
-            "url": "/posts/uva-103.-stacking-boxes/"
-        }
-    ]
-}
-</script><meta property="og:title" content="題解 | EnMinGW32" />
-<meta property="og:type" content="website" />
-
-
+<meta name=generator content="Hugo Eureka 0.8.4">
+<link rel=stylesheet href=/css/eureka.min.css>
+<script defer src=/js/eureka.min.js></script>
+<link rel=preconnect href=https://fonts.gstatic.com crossorigin>
+<link rel=preload href="https://fonts.googleapis.com/css2?family=Lora:wght@400;600;700&family=Noto+Serif+SC:wght@400;600;700&display=swap" as=style onload="this.onload=null,this.rel='stylesheet'">
+<link rel=stylesheet href=https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.0/build/styles/solarized-light.min.css media=print onload="this.media='all',this.onload=null" crossorigin>
+<script defer src=https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.0/build/highlight.min.js crossorigin></script>
+<script defer src=https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.0/build/languages/dart.min.js crossorigin></script>
+<script defer src=https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.14.0/js/all.min.js integrity="sha256-uNYoXefWRqv+PsIF/OflNmwtKM4lStn9yrz2gVl6ymo=" crossorigin></script>
+<link rel=stylesheet href=https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css integrity=sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X media=print onload="this.media='all',this.onload=null" crossorigin>
+<script defer src=https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js integrity=sha384-g7c+Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI+sEnkvrMWph2EDg4 crossorigin></script>
+<script defer src=https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/contrib/auto-render.min.js integrity=sha384-mll67QQFJfxn0IYznZYonOWZ644AWYC+Pt2cHqMaRhXVrursRwvLnLaebdGIlYNa crossorigin></script>
+<script>document.addEventListener("DOMContentLoaded",function(){renderMathInElement(document.body,{delimiters:[{left:"$$",right:"$$",display:!0},{left:"$",right:"$",display:!1},{left:"\\(",right:"\\)",display:!1},{left:"\\[",right:"\\]",display:!0}]})})</script>
+<script defer src=https://cdn.jsdelivr.net/npm/mermaid@8.9.2/dist/mermaid.min.js integrity="sha256-Zmpaaj+GXFsPF5WdPArSrnW3b30dovldeKsW00xBVwE=" crossorigin></script>
+<link rel=icon type=image/png sizes=32x32 href=/images/icon_hu64421c6c7700f606f0ad45d807017b09_5843_32x32_fill_box_center_3.png>
+<link rel=apple-touch-icon sizes=180x180 href=/images/icon_hu64421c6c7700f606f0ad45d807017b09_5843_180x180_fill_box_center_3.png>
+<meta name=description content="Eureka is a elegant and powerful theme for Hugo.">
+<script type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Categories","item":"/categories/"},{"@type":"ListItem","position":2,"name":"題解","item":"/categories/%E9%A1%8C%E8%A7%A3/"}]}</script>
+<script type=application/ld+json>{"@context":"https://schema.org","@type":"ItemList","itemListElement":[{"@type":"ListItem","position":1,"name":"UVa 307. Sticks","description":"\u003ch1 id=\"description\"\u003eDescription\u003c/h1\u003e\n\u003cblockquote\u003e\n\u003cp\u003eGeorge 拿了一些\u003cstrong\u003e相同\u003c/strong\u003e長度的棍子，然後隨意的把這些棍子切成一段一段的棍子（每段長度都不會超過 50 個單位長）。現在他想要把這些一段一段的棍子拼回原來的樣子，但是他忘了他原來帶多少根棍子來，並且也忘了原來每根棍子的長度。請幫助他設計一個程式算出這些棍子原來可能的最小長度。所有的棍子長度都是整數，並且大於 0。\u003c/p\u003e\n\u003c/blockquote\u003e","url":"/posts/uva-307-sticks/"},{"@type":"ListItem","position":2,"name":"UVa 10952. Pattern Transformations","description":"\u003ch1 id=\"description\"\u003eDescription\u003c/h1\u003e\n\u003cblockquote\u003e\n\u003cp\u003eConsider the two patterns of ‘O’ and ‘X’ below (‘.’ represent an empty square). We want the first pattern to be transformed into the second pattern in one time unit. During this time unit, each symbol (‘O’ and ‘X’) can move one step in any of the four directions (or remain at its current square). All movements happen simultaneously, so a symbol can move to an occupied square, if that symbol is moved to some other square. If a symbol moves from square A to B, and the symbol at B moves to A, we have a swap. Write a program which calculates the least number of swaps needed to transform a given pattern into another given pattern.\u003c/p\u003e\n\u003c/blockquote\u003e","url":"/posts/uva-10952.-pattern-transformations/"},{"@type":"ListItem","position":3,"name":"UVa 103. Stacking Boxes","description":"\u003ch1 id=\"description\"\u003eDescription\u003c/h1\u003e\n\u003cblockquote\u003e\n\u003cp\u003e在數學或電腦科學裡，有些概念在一維或二維時還蠻簡單的，但到 N 維就會顯得非常複雜。試想一個 n 維的「盒子」：在二維空間裡，盒子 ( 2 , 3 ) 可代表一個長為 2 個單位，寬為 3 個單位的盒子；在三維空間裡，盒子 ( 4 , 8 , 9 ) 則是一個 4*8*9（長、寬、高）的盒子。至於在六維空間裡，也許我們不清楚 ( 4 , 5 , 6 , 7 , 8 , 9 ) 長得怎樣，不過我們還是可以分析這些盒子的特性。\u003c/p\u003e\n\u003c/blockquote\u003e","url":"/posts/uva-103.-stacking-boxes/"}]}</script><meta property="og:title" content="題解 | EnMinGW32">
+<meta property="og:type" content="website">
 <meta property="og:image" content="/images/icon.png">
-
-
-<meta property="og:url" content="/categories/%E9%A1%8C%E8%A7%A3/" />
-
-
-
-
-
-<meta property="og:description" content="Eureka is a elegant and powerful theme for Hugo." />
-
-
-
-
-
-<meta property="og:locale" content="zh-Hant" />
-
-
-
-
-<meta property="og:site_name" content="EnMinGW32" />
-
-
-
-
-
-
-<meta property="og:updated_time" content="2019-02-26T12:00:31&#43;00:00" />
-
-
-
-<meta property="article:section" content="categories" />
-
-
-<link rel="alternate" type="application/rss+xml" href="/categories/%E9%A1%8C%E8%A7%A3/index.xml" title="EnMinGW32" />
-
+<meta property="og:url" content="/categories/%E9%A1%8C%E8%A7%A3/">
+<meta property="og:description" content="Eureka is a elegant and powerful theme for Hugo.">
+<meta property="og:locale" content="zh-Hant">
+<meta property="og:site_name" content="EnMinGW32">
+<meta property="og:updated_time" content="2019-02-26T12:00:31+00:00">
+<meta property="article:section" content="categories">
+<link rel=alternate type=application/rss+xml href=/categories/%E9%A1%8C%E8%A7%A3/index.xml title=EnMinGW32>
 <body class="flex flex-col min-h-screen">
-  <header class="fixed flex items-center w-full min-h-16 pl-scrollbar z-50 bg-secondary-bg shadow-sm">
-    <div class="w-full max-w-screen-xl mx-auto"><script>
-    let storageColorScheme = localStorage.getItem("lightDarkMode")
-    if (((storageColorScheme == 'Auto' || storageColorScheme == null) && window.matchMedia("(prefers-color-scheme: dark)").matches) || storageColorScheme == "Dark") {
-        document.getElementsByTagName('html')[0].classList.add('dark')
-    }
-</script>
+<header class="fixed flex items-center w-full min-h-16 pl-scrollbar z-50 bg-secondary-bg shadow-sm">
+<div class="w-full max-w-screen-xl mx-auto"><script>let storageColorScheme=localStorage.getItem("lightDarkMode");((storageColorScheme=='Auto'||storageColorScheme==null)&&window.matchMedia("(prefers-color-scheme: dark)").matches||storageColorScheme=="Dark")&&document.getElementsByTagName('html')[0].classList.add('dark')</script>
 <nav class="flex items-center justify-between flex-wrap px-4 py-4 md:py-0">
-    <a href="/" class="mr-6 text-primary-text text-xl font-bold">EnMinGW32</a>
-    <button id="navbar-btn" class="md:hidden flex items-center px-3 py-2" aria-label="Open Navbar">
-        <i class="fas fa-bars"></i>
-    </button>
-
-    <div id="target"
-        class="hidden block md:flex md:flex-grow md:justify-between md:items-center w-full md:w-auto text-primary-text z-20">
-        <div class="md:flex md:h-16 text-sm md:flex-grow pb-4 md:pb-0 border-b md:border-b-0">
-            <a href="/#about" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  border-transparent  mr-4">About</a>
-            <a href="/posts/" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  border-transparent  mr-4">Posts</a>
-        </div>
-
-        <div class="flex">
-            <div class="relative pt-4 md:pt-0">
-                <div class="cursor-pointer hover:text-eureka" id="lightDarkMode">
-                    <i class="fas fa-adjust"></i>
-                </div>
-                <div class="fixed hidden inset-0 opacity-0 h-full w-full cursor-default z-30" id="is-open">
-                </div>
-                <div class="absolute flex flex-col left-0 md:left-auto right-auto md:right-0 hidden bg-secondary-bg w-48 rounded py-2 border border-tertiary-bg cursor-pointer z-40"
-                    id='lightDarkOptions'>
-                    <span class="px-4 py-1 hover:text-eureka" name="Light">淺色</span>
-                    <span class="px-4 py-1 hover:text-eureka" name="Dark">深色</span>
-                    <span class="px-4 py-1 hover:text-eureka" name="Auto">自動</span>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="fixed hidden inset-0 opacity-0 h-full w-full cursor-default z-0" id="is-open-mobile">
-    </div>
-
-</nav>
-<script>
-    
-    let element = document.getElementById('lightDarkMode')
-    if (storageColorScheme == null || storageColorScheme == 'Auto') {
-        document.addEventListener('DOMContentLoaded', () => {
-            window.matchMedia("(prefers-color-scheme: dark)").addEventListener('change', switchDarkMode)
-        })
-    } else if (storageColorScheme == "Light") {
-        element.firstElementChild.classList.remove('fa-adjust')
-        element.firstElementChild.setAttribute("data-icon", 'sun')
-        element.firstElementChild.classList.add('fa-sun')
-    } else if (storageColorScheme == "Dark") {
-        element.firstElementChild.classList.remove('fa-adjust')
-        element.firstElementChild.setAttribute("data-icon", 'moon')
-        element.firstElementChild.classList.add('fa-moon')
-    }
-
-    document.addEventListener('DOMContentLoaded', () => {
-        getcolorscheme();
-        switchBurger();
-    });
-</script>
+<a href=/ class="mr-6 text-primary-text text-xl font-bold">EnMinGW32</a>
+<button id=navbar-btn class="md:hidden flex items-center px-3 py-2" aria-label="Open Navbar">
+<i class="fas fa-bars"></i>
+</button>
+<div id=target class="hidden block md:flex md:flex-grow md:justify-between md:items-center w-full md:w-auto text-primary-text z-20">
+<div class="md:flex md:h-16 text-sm md:flex-grow pb-4 md:pb-0 border-b md:border-b-0">
+<a href=/#about class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2 border-transparent mr-4">About</a>
+<a href=/posts/ class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2 border-transparent mr-4">Posts</a>
 </div>
-  </header>
-  <main class="flex-grow pt-16">
-    <div class="pl-scrollbar">
-      <div class="w-full max-w-screen-xl lg:px-4 xl:px-8 mx-auto">
+<div class=flex>
+<div class="relative pt-4 md:pt-0">
+<div class="cursor-pointer hover:text-eureka" id=lightDarkMode>
+<i class="fas fa-adjust"></i>
+</div>
+<div class="fixed hidden inset-0 opacity-0 h-full w-full cursor-default z-30" id=is-open>
+</div>
+<div class="absolute flex flex-col left-0 md:left-auto right-auto md:right-0 hidden bg-secondary-bg w-48 rounded py-2 border border-tertiary-bg cursor-pointer z-40" id=lightDarkOptions>
+<span class="px-4 py-1 hover:text-eureka" name=Light>淺色</span>
+<span class="px-4 py-1 hover:text-eureka" name=Dark>深色</span>
+<span class="px-4 py-1 hover:text-eureka" name=Auto>自動</span>
+</div>
+</div>
+</div>
+</div>
+<div class="fixed hidden inset-0 opacity-0 h-full w-full cursor-default z-0" id=is-open-mobile>
+</div>
+</nav>
+<script>let element=document.getElementById('lightDarkMode');storageColorScheme==null||storageColorScheme=='Auto'?document.addEventListener('DOMContentLoaded',()=>{window.matchMedia("(prefers-color-scheme: dark)").addEventListener('change',switchDarkMode)}):storageColorScheme=="Light"?(element.firstElementChild.classList.remove('fa-adjust'),element.firstElementChild.setAttribute("data-icon",'sun'),element.firstElementChild.classList.add('fa-sun')):storageColorScheme=="Dark"&&(element.firstElementChild.classList.remove('fa-adjust'),element.firstElementChild.setAttribute("data-icon",'moon'),element.firstElementChild.classList.add('fa-moon')),document.addEventListener('DOMContentLoaded',()=>{getcolorscheme(),switchBurger()})</script>
+</div>
+</header>
+<main class="flex-grow pt-16">
+<div class=pl-scrollbar>
+<div class="w-full max-w-screen-xl lg:px-4 xl:px-8 mx-auto">
 <article class="mx-6 my-8">
-    <h1 class="font-bold text-3xl text-primary-text">題解</h1>
-    
+<h1 class="font-bold text-3xl text-primary-text">題解</h1>
 </article>
 <div class="bg-secondary-bg rounded px-6">
-    <div class="overflow-hidden divide-y">
-  
-  <div class="py-6">
-    <div class="flex flex-col-reverse lg:flex-row justify-between">
-  
-  <div class="w-full ">
-    <div class="mb-4">
-  <a href="/posts/uva-307-sticks/" class="font-bold text-xl hover:text-eureka">UVa 307. Sticks</a>
+<div class="overflow-hidden divide-y">
+<div class=py-6>
+<div class="flex flex-col-reverse lg:flex-row justify-between">
+<div class=w-full>
+<div class=mb-4>
+<a href=/posts/uva-307-sticks/ class="font-bold text-xl hover:text-eureka">UVa 307. Sticks</a>
 </div>
-<div class="content">
-  
-    Description  George 拿了一些相同長度的棍子，然後隨意的把這些棍子切成一段一段的棍子（每段長度都不會超過 50 個單位長）。現在他想要把這些一段一段的棍子拼回原來的樣子，但是他忘了他原來帶多少根棍子來，並且也忘了原來每根棍子的長度。請幫助他設計一個程式算出這些棍子原來可能的最小長度。所有的棍子長度都是整數，並且大於 0。
-
-  
+<div class=content>
+Description George 拿了一些相同長度的棍子，然後隨意的把這些棍子切成一段一段的棍子（每段長度都不會超過 50 個單位長）。現在他想要把這些一段一段的棍子拼回原來的樣子，但是他忘了他原來帶多少根棍子來，並且也忘了原來每根棍子的長度。請幫助他設計一個程式算出這些棍子原來可能的最小長度。所有的棍子長度都是整數，並且大於 0。
 </div>
-
 <div class="flex flex-wrap flex-row items-center mt-2 text-tertiary-text">
-    <div class="mr-6 my-2">
-        <i class="fas fa-calendar mr-1"></i>
-        <span>2018-08-06</span>
-    </div>
-    <div class="mr-6 my-2">
-        <i class="fas fa-clock mr-1"></i>
-        <span>2分鐘閱讀</span>
-    </div>
-    
-    
-    <div class="mr-6 my-2">
-        <i class="fas fa-folder mr-1"></i>
-        
-        <a href="/categories/%E9%A1%8C%E8%A7%A3/" class="hover:text-eureka">題解</a>
-        
-    </div>
-    
-
-    
+<div class="mr-6 my-2">
+<i class="fas fa-calendar mr-1"></i>
+<span>2018-08-06</span>
 </div>
-
-  </div>
-
-  
+<div class="mr-6 my-2">
+<i class="fas fa-clock mr-1"></i>
+<span>2分鐘閱讀</span>
 </div>
-  </div>
-  
-  <div class="py-6">
-    <div class="flex flex-col-reverse lg:flex-row justify-between">
-  
-  <div class="w-full ">
-    <div class="mb-4">
-  <a href="/posts/uva-10952.-pattern-transformations/" class="font-bold text-xl hover:text-eureka">UVa 10952. Pattern Transformations</a>
+<div class="mr-6 my-2">
+<i class="fas fa-folder mr-1"></i>
+<a href=/categories/%E9%A1%8C%E8%A7%A3/ class=hover:text-eureka>題解</a>
 </div>
-<div class="content">
-  
-    Description  Consider the two patterns of ‘O’ and ‘X’ below (‘.’ represent an empty square). We want the first pattern to be transformed into the second pattern in one time unit. During this time unit, each symbol (‘O’ and ‘X’) can move one step in any of the four directions (or remain at its current square). All movements happen simultaneously, so a symbol can move to an occupied square, if that symbol is moved to some other square. If a symbol moves from square A to B, and the symbol at B moves to A, we have a swap. Write a program which calculates the least number of swaps needed to transform a given pattern into another given pattern.
-
-  
 </div>
-
+</div>
+</div>
+</div>
+<div class=py-6>
+<div class="flex flex-col-reverse lg:flex-row justify-between">
+<div class=w-full>
+<div class=mb-4>
+<a href=/posts/uva-10952.-pattern-transformations/ class="font-bold text-xl hover:text-eureka">UVa 10952. Pattern Transformations</a>
+</div>
+<div class=content>
+Description Consider the two patterns of ‘O’ and ‘X’ below (‘.’ represent an empty square). We want the first pattern to be transformed into the second pattern in one time unit. During this time unit, each symbol (‘O’ and ‘X’) can move one step in any of the four directions (or remain at its current square). All movements happen simultaneously, so a symbol can move to an occupied square, if that symbol is moved to some other square. If a symbol moves from square A to B, and the symbol at B moves to A, we have a swap. Write a program which calculates the least number of swaps needed to transform a given pattern into another given pattern.
+</div>
 <div class="flex flex-wrap flex-row items-center mt-2 text-tertiary-text">
-    <div class="mr-6 my-2">
-        <i class="fas fa-calendar mr-1"></i>
-        <span>2018-08-06</span>
-    </div>
-    <div class="mr-6 my-2">
-        <i class="fas fa-clock mr-1"></i>
-        <span>3分鐘閱讀</span>
-    </div>
-    
-    
-    <div class="mr-6 my-2">
-        <i class="fas fa-folder mr-1"></i>
-        
-        <a href="/categories/%E9%A1%8C%E8%A7%A3/" class="hover:text-eureka">題解</a>
-        
-    </div>
-    
-
-    
+<div class="mr-6 my-2">
+<i class="fas fa-calendar mr-1"></i>
+<span>2018-08-06</span>
 </div>
-
-  </div>
-
-  
+<div class="mr-6 my-2">
+<i class="fas fa-clock mr-1"></i>
+<span>3分鐘閱讀</span>
 </div>
-  </div>
-  
-  <div class="py-6">
-    <div class="flex flex-col-reverse lg:flex-row justify-between">
-  
-  <div class="w-full ">
-    <div class="mb-4">
-  <a href="/posts/uva-103.-stacking-boxes/" class="font-bold text-xl hover:text-eureka">UVa 103. Stacking Boxes</a>
+<div class="mr-6 my-2">
+<i class="fas fa-folder mr-1"></i>
+<a href=/categories/%E9%A1%8C%E8%A7%A3/ class=hover:text-eureka>題解</a>
 </div>
-<div class="content">
-  
-    Description  在數學或電腦科學裡，有些概念在一維或二維時還蠻簡單的，但到 N 維就會顯得非常複雜。試想一個 n 維的「盒子」：在二維空間裡，盒子 ( 2 , 3 ) 可代表一個長為 2 個單位，寬為 3 個單位的盒子；在三維空間裡，盒子 ( 4 , 8 , 9 ) 則是一個 4*8*9（長、寬、高）的盒子。至於在六維空間裡，也許我們不清楚 ( 4 , 5 , 6 , 7 , 8 , 9 ) 長得怎樣，不過我們還是可以分析這些盒子的特性。
-
-  
 </div>
-
+</div>
+</div>
+</div>
+<div class=py-6>
+<div class="flex flex-col-reverse lg:flex-row justify-between">
+<div class=w-full>
+<div class=mb-4>
+<a href=/posts/uva-103.-stacking-boxes/ class="font-bold text-xl hover:text-eureka">UVa 103. Stacking Boxes</a>
+</div>
+<div class=content>
+Description 在數學或電腦科學裡，有些概念在一維或二維時還蠻簡單的，但到 N 維就會顯得非常複雜。試想一個 n 維的「盒子」：在二維空間裡，盒子 ( 2 , 3 ) 可代表一個長為 2 個單位，寬為 3 個單位的盒子；在三維空間裡，盒子 ( 4 , 8 , 9 ) 則是一個 4*8*9（長、寬、高）的盒子。至於在六維空間裡，也許我們不清楚 ( 4 , 5 , 6 , 7 , 8 , 9 ) 長得怎樣，不過我們還是可以分析這些盒子的特性。
+</div>
 <div class="flex flex-wrap flex-row items-center mt-2 text-tertiary-text">
-    <div class="mr-6 my-2">
-        <i class="fas fa-calendar mr-1"></i>
-        <span>2018-08-06</span>
-    </div>
-    <div class="mr-6 my-2">
-        <i class="fas fa-clock mr-1"></i>
-        <span>4分鐘閱讀</span>
-    </div>
-    
-    
-    <div class="mr-6 my-2">
-        <i class="fas fa-folder mr-1"></i>
-        
-        <a href="/categories/%E9%A1%8C%E8%A7%A3/" class="hover:text-eureka">題解</a>
-        
-    </div>
-    
-
-    
+<div class="mr-6 my-2">
+<i class="fas fa-calendar mr-1"></i>
+<span>2018-08-06</span>
 </div>
-
-  </div>
-
-  
+<div class="mr-6 my-2">
+<i class="fas fa-clock mr-1"></i>
+<span>4分鐘閱讀</span>
 </div>
-  </div>
-  
+<div class="mr-6 my-2">
+<i class="fas fa-folder mr-1"></i>
+<a href=/categories/%E9%A1%8C%E8%A7%A3/ class=hover:text-eureka>題解</a>
 </div>
-
-
 </div>
-
-    <ul class="pagination pagination-default">
-      <li class="page-item">
-        <a href="/categories/%E9%A1%8C%E8%A7%A3/" aria-label="First" class="page-link" role="button"><span aria-hidden="true">&laquo;&laquo;</span></a>
-      </li>
-      <li class="page-item">
-        <a href="/categories/%E9%A1%8C%E8%A7%A3/page/5/" aria-label="Previous" class="page-link" role="button"><span aria-hidden="true">&laquo;</span></a>
-      </li>
-      <li class="page-item">
-        <a href="/categories/%E9%A1%8C%E8%A7%A3/page/2/" aria-label="Page 2" class="page-link" role="button">2</a>
-      </li>
-      <li class="page-item">
-        <a href="/categories/%E9%A1%8C%E8%A7%A3/page/3/" aria-label="Page 3" class="page-link" role="button">3</a>
-      </li>
-      <li class="page-item">
-        <a href="/categories/%E9%A1%8C%E8%A7%A3/page/4/" aria-label="Page 4" class="page-link" role="button">4</a>
-      </li>
-      <li class="page-item">
-        <a href="/categories/%E9%A1%8C%E8%A7%A3/page/5/" aria-label="Page 5" class="page-link" role="button">5</a>
-      </li>
-      <li class="page-item active">
-        <a href="#" aria-current="page" aria-label="Page 6" class="page-link" role="button">6</a>
-      </li>
-      <li class="page-item disabled">
-        <a href="#" aria-disabled="true" aria-label="Next" class="page-link" role="button" tabindex="-1"><span aria-hidden="true">&raquo;</span></a>
-      </li>
-      <li class="page-item disabled">
-        <a href="#" aria-disabled="true" aria-label="Last" class="page-link" role="button" tabindex="-1"><span aria-hidden="true">&raquo;&raquo;</span></a>
-      </li>
-    </ul>
-
-      </div>
-    </div>
-    
-  </main>
-  <footer class="pl-scrollbar">
-    <div class="w-full max-w-screen-xl mx-auto"><div class="text-center p-6 pin-b">
-    <p class="text-sm text-tertiary-text">&copy; 2021 <a href="https://www.wangchucheng.com/">C. Wang</a> and <a href="https://www.ruiqima.com/">R. Ma</a>
- &middot;  Powered by the <a href="https://github.com/wangchucheng/hugo-eureka" class="hover:text-eureka">Eureka</a> theme for <a href="https://gohugo.io" class="hover:text-eureka">Hugo</a></p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<ul class="pagination pagination-default">
+<li class=page-item>
+<a href=/categories/%E9%A1%8C%E8%A7%A3/ aria-label=First class=page-link role=button><span aria-hidden=true>&#171;&#171;</span></a>
+</li>
+<li class=page-item>
+<a href=/categories/%E9%A1%8C%E8%A7%A3/page/5/ aria-label=Previous class=page-link role=button><span aria-hidden=true>&#171;</span></a>
+</li>
+<li class=page-item>
+<a href=/categories/%E9%A1%8C%E8%A7%A3/page/2/ aria-label="Page 2" class=page-link role=button>2</a>
+</li>
+<li class=page-item>
+<a href=/categories/%E9%A1%8C%E8%A7%A3/page/3/ aria-label="Page 3" class=page-link role=button>3</a>
+</li>
+<li class=page-item>
+<a href=/categories/%E9%A1%8C%E8%A7%A3/page/4/ aria-label="Page 4" class=page-link role=button>4</a>
+</li>
+<li class=page-item>
+<a href=/categories/%E9%A1%8C%E8%A7%A3/page/5/ aria-label="Page 5" class=page-link role=button>5</a>
+</li>
+<li class="page-item active">
+<a href=# aria-current=page aria-label="Page 6" class=page-link role=button>6</a>
+</li>
+<li class="page-item disabled">
+<a href=# aria-disabled=true aria-label=Next class=page-link role=button tabindex=-1><span aria-hidden=true>&#187;</span></a>
+</li>
+<li class="page-item disabled">
+<a href=# aria-disabled=true aria-label=Last class=page-link role=button tabindex=-1><span aria-hidden=true>&#187;&#187;</span></a>
+</li>
+</ul>
+</div>
+</div>
+</main>
+<footer class=pl-scrollbar>
+<div class="w-full max-w-screen-xl mx-auto"><div class="text-center p-6 pin-b">
+<p class="text-sm text-tertiary-text">&copy; 2021 <a href=https://www.wangchucheng.com/>C. Wang</a> and <a href=https://www.ruiqima.com/>R. Ma</a>
+&#183; Powered by the <a href=https://github.com/wangchucheng/hugo-eureka class=hover:text-eureka>Eureka</a> theme for <a href=https://gohugo.io class=hover:text-eureka>Hugo</a></p>
 </div></div>
-  </footer>
+</footer>
 </body>
-
 </html>

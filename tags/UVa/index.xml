@@ -1,208 +1,61 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>UVa on EnMinGW32</title>
-    <link>/tags/uva/</link>
-    <description>Recent content in UVa on EnMinGW32</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>zh-Hant</language>
-    <copyright>&amp;copy; 2021 &lt;a href=&#34;https://www.wangchucheng.com/&#34;&gt;C. Wang&lt;/a&gt; and &lt;a href=&#34;https://www.ruiqima.com/&#34;&gt;R. Ma&lt;/a&gt;
-</copyright>
-    <lastBuildDate>Tue, 26 Feb 2019 12:00:31 +0000</lastBuildDate><atom:link href="/tags/uva/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>UVa 11516. WiFi</title>
-      <link>/posts/uva-11516-wifi/</link>
-      <pubDate>Tue, 26 Feb 2019 12:00:31 +0000</pubDate>
-      
-      <guid>/posts/uva-11516-wifi/</guid>
-      <description>&lt;h1 id=&#34;description&#34;&gt;Description&lt;/h1&gt;
-&lt;blockquote&gt;
-&lt;p&gt;大街上的居民開會決定要在他們居住的街上安裝無線網路，讓無線網路環境涵蓋所有住戶，請你幫忙選擇無線網路基地台(AP)的地點，他們希望訊號愈強愈好，但他們購買AP的預算有限，在有限的AP數量之下，使得在「所有房子與其最近的AP之間的距離」中最大值，愈小愈好。&lt;/p&gt;
-&lt;/blockquote&gt;</description>
-    </item>
-    
-    <item>
-      <title>UVa 1427. Parade</title>
-      <link>/posts/uva-1427-parade/</link>
-      <pubDate>Tue, 11 Dec 2018 19:12:08 +0000</pubDate>
-      
-      <guid>/posts/uva-1427-parade/</guid>
-      <description>&lt;h1 id=&#34;description&#34;&gt;Description&lt;/h1&gt;
-&lt;blockquote&gt;
-&lt;p&gt;一個城市有n+1個橫向路和m+1個縱向路，一個國王從最北邊的進入，然後沿某種路線從最南邊出去，每小段橫向路都有一個高興值，但國王不會在某條橫向路待超過k分鐘，問國王可以得到的最大的高興值是多少？&lt;/p&gt;
-&lt;/blockquote&gt;</description>
-    </item>
-    
-    <item>
-      <title>UVa 838. Worm World</title>
-      <link>/posts/uva-838-worm-world/</link>
-      <pubDate>Tue, 09 Oct 2018 22:38:59 +0000</pubDate>
-      
-      <guid>/posts/uva-838-worm-world/</guid>
-      <description>&lt;h1 id=&#34;description&#34;&gt;Description&lt;/h1&gt;
-&lt;blockquote&gt;
-&lt;p&gt;給定一張n*n的圖，每個格子上面都有一個數字。&lt;br&gt;
-求在不碰到重複數字的情況下，最遠可以走多遠（只能上下左右移動）？&lt;/p&gt;
-&lt;/blockquote&gt;</description>
-    </item>
-    
-    <item>
-      <title>UVa 10600. ACM contest and Blackout</title>
-      <link>/posts/uva-10600-acm-contest-and-blackout/</link>
-      <pubDate>Sat, 22 Sep 2018 12:24:55 +0000</pubDate>
-      
-      <guid>/posts/uva-10600-acm-contest-and-blackout/</guid>
-      <description>&lt;h1 id=&#34;description&#34;&gt;Description&lt;/h1&gt;
-&lt;blockquote&gt;
-&lt;p&gt;給定一張無向圖，請輸出最小生成樹和次小生成樹的大小。&lt;/p&gt;
-&lt;/blockquote&gt;</description>
-    </item>
-    
-    <item>
-      <title>UVa 165. Stamps</title>
-      <link>/posts/uva-165-stamps/</link>
-      <pubDate>Sat, 15 Sep 2018 21:28:30 +0000</pubDate>
-      
-      <guid>/posts/uva-165-stamps/</guid>
-      <description>&lt;h1 id=&#34;description&#34;&gt;Description&lt;/h1&gt;
-&lt;blockquote&gt;
-&lt;p&gt;每張信封上面最多可以貼上h張郵票，請設計k種面額，並求出能組成的連續面額最大值。
-例如當$h=3, k=2$，1和3元的面額最多可以連續從1組到7。&lt;/p&gt;
-&lt;/blockquote&gt;</description>
-    </item>
-    
-    <item>
-      <title>UVa 10917. Walk Through the Forest</title>
-      <link>/posts/uva-10917-walk-through-the-forest/</link>
-      <pubDate>Sun, 09 Sep 2018 10:23:31 +0000</pubDate>
-      
-      <guid>/posts/uva-10917-walk-through-the-forest/</guid>
-      <description>&lt;h1 id=&#34;description&#34;&gt;Description&lt;/h1&gt;
-&lt;p&gt;Jimmy的辦公室在森林的一邊，而他的家在森林的另一邊。&lt;br&gt;
-Jimmy想要每天都走不同的路徑回家。但是他也不想要回家太晚，所以他總是選擇一條可以朝他家「前進」的路徑來走。所謂「前進」指的是他會選擇從A點走到B點如果B點存在一條到他家的路徑長度比A點到他家任一路徑的長度都來的短的話。請你算出Jimmy共有多少種不同的路徑可以走。&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>UVa 11456. Trainsorting</title>
-      <link>/posts/uva-11456-trainsorting/</link>
-      <pubDate>Tue, 21 Aug 2018 17:54:50 +0000</pubDate>
-      
-      <guid>/posts/uva-11456-trainsorting/</guid>
-      <description>&lt;h1 id=&#34;description&#34;&gt;Description&lt;/h1&gt;
-&lt;blockquote&gt;
-&lt;p&gt;Erin是一個開火車工程師。他喜歡把車廂按照其重量來安排，重的車廂排在前端。&lt;br&gt;
-不幸的是，把車廂排序並不是一件容易的事。你只能將一節車廂加在一列火車的前端或後端。&lt;br&gt;
-各個車廂來到火車站的順序及其重量是已經知道的。當每節車廂來到的時候，Erin可以把它加到火車的兩端，或者不加進去。最後，火車的總車廂數是越長越好，不過要記得車廂得按照重量大小排列。 &lt;br&gt;
-給你按照出現順序各車廂的重量，Erin最長可安排車廂的長度是多少？&lt;/p&gt;
-&lt;/blockquote&gt;</description>
-    </item>
-    
-    <item>
-      <title>UVa 1479. Graph and Queries</title>
-      <link>/posts/uva-1479-graph-and-queries/</link>
-      <pubDate>Sat, 18 Aug 2018 00:39:05 +0000</pubDate>
-      
-      <guid>/posts/uva-1479-graph-and-queries/</guid>
-      <description>&lt;h1 id=&#34;description&#34;&gt;Description&lt;/h1&gt;
-&lt;blockquote&gt;
-&lt;p&gt;給定一張無向圖，有三種操作：&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;ol&gt;
-&lt;li&gt;D x   ：刪除第x條邊&lt;/li&gt;
-&lt;li&gt;Q x y ：查詢x所在集合裡面第y大的數字，若查詢失敗，則此次查詢的結果為0&lt;/li&gt;
-&lt;li&gt;C x y ：將第x點的值改成y&lt;/li&gt;
-&lt;/ol&gt;
-&lt;blockquote&gt;
-&lt;p&gt;最後輸出所有查詢的平均值。&lt;/p&gt;
-&lt;/blockquote&gt;</description>
-    </item>
-    
-    <item>
-      <title>UVa 10032. Tug of War</title>
-      <link>/posts/uva-10032-tug-of-war/</link>
-      <pubDate>Sat, 11 Aug 2018 19:57:43 +0000</pubDate>
-      
-      <guid>/posts/uva-10032-tug-of-war/</guid>
-      <description>&lt;h1 id=&#34;description&#34;&gt;Description&lt;/h1&gt;
-&lt;blockquote&gt;
-&lt;p&gt;N個人參加拔河比賽，每個人有其重量w[i]，欲使二隊的人數最多只差一，雙方的重量和越接近越好。請問二隊的重量和分別是多少？&lt;/p&gt;
-&lt;/blockquote&gt;</description>
-    </item>
-    
-    <item>
-      <title>UVa 315. Network</title>
-      <link>/posts/uva-315-network/</link>
-      <pubDate>Thu, 09 Aug 2018 10:59:37 +0000</pubDate>
-      
-      <guid>/posts/uva-315-network/</guid>
-      <description>&lt;h1 id=&#34;description&#34;&gt;Description&lt;/h1&gt;
-&lt;blockquote&gt;
-&lt;p&gt;一家電話公司在許多地方建有機房，這些機房以1到N來編號，沒有2個地方有相同的號碼。電纜線是雙向的，並且只有在機房中的交換機才可互相連接（每個機房只有一部交換機）。電話訊號可以從一個機房傳到另一個機房，但是這些機房並不一定要直接相連，它們之間的通訊可能是透過好幾個交換機。&lt;br&gt;
-偶爾當有停電的情況發生時，當地的機房也會因停電而無法運作。這個時候不僅這個機房的通訊中斷，可能也有其他的機房因此無法彼此通訊。在這種情況之下，我們稱這個機房為critical的。&lt;br&gt;
-現在你的任務就是寫一個程式幫助該公司的工程師找出在他們的系統中有多少個critical的機房。&lt;/p&gt;
-&lt;/blockquote&gt;</description>
-    </item>
-    
-    <item>
-      <title>UVa 13153. Number of Connected Components</title>
-      <link>/posts/uva-13153-number-of-connected-components/</link>
-      <pubDate>Tue, 07 Aug 2018 10:26:31 +0000</pubDate>
-      
-      <guid>/posts/uva-13153-number-of-connected-components/</guid>
-      <description>&lt;h1 id=&#34;description&#34;&gt;Description&lt;/h1&gt;
-&lt;blockquote&gt;
-&lt;p&gt;給你 N 個節點，每個點上附有一個介於$1～10^6$之間的正整數。假如某2個節點上的數其最大公因數（GCD）大於1，則這2個節點之間會有一條邊存在。&lt;br&gt;
-要請你算出這N個節點構成的的圖形中，共有幾個連通的單元。&lt;/p&gt;
-&lt;/blockquote&gt;</description>
-    </item>
-    
-    <item>
-      <title>UVa 571. Jugs</title>
-      <link>/posts/uva-571-jugs/</link>
-      <pubDate>Mon, 06 Aug 2018 18:43:23 +0000</pubDate>
-      
-      <guid>/posts/uva-571-jugs/</guid>
-      <description>&lt;h1 id=&#34;description&#34;&gt;Description&lt;/h1&gt;
-&lt;blockquote&gt;
-&lt;p&gt;在電影「終極警探 3（Die Hard 3）」中布魯斯威利（Bruce Willis）和山謬傑克森（Samuel L. Jackson）遇到壞蛋設下的謎題：給一個3加侖和5加侖的桶子，要求他們必須在5加侖的桶子中裝4加侖的水。現在你的任務就是解決這個問題。&lt;/p&gt;
-&lt;/blockquote&gt;</description>
-    </item>
-    
-    <item>
-      <title>UVa 307. Sticks</title>
-      <link>/posts/uva-307-sticks/</link>
-      <pubDate>Mon, 06 Aug 2018 15:28:18 +0000</pubDate>
-      
-      <guid>/posts/uva-307-sticks/</guid>
-      <description>&lt;h1 id=&#34;description&#34;&gt;Description&lt;/h1&gt;
-&lt;blockquote&gt;
-&lt;p&gt;George 拿了一些&lt;strong&gt;相同&lt;/strong&gt;長度的棍子，然後隨意的把這些棍子切成一段一段的棍子（每段長度都不會超過 50 個單位長）。現在他想要把這些一段一段的棍子拼回原來的樣子，但是他忘了他原來帶多少根棍子來，並且也忘了原來每根棍子的長度。請幫助他設計一個程式算出這些棍子原來可能的最小長度。所有的棍子長度都是整數，並且大於 0。&lt;/p&gt;
-&lt;/blockquote&gt;</description>
-    </item>
-    
-    <item>
-      <title>UVa 10952. Pattern Transformations</title>
-      <link>/posts/uva-10952.-pattern-transformations/</link>
-      <pubDate>Mon, 06 Aug 2018 15:22:16 +0800</pubDate>
-      
-      <guid>/posts/uva-10952.-pattern-transformations/</guid>
-      <description>&lt;h1 id=&#34;description&#34;&gt;Description&lt;/h1&gt;
-&lt;blockquote&gt;
-&lt;p&gt;Consider the two patterns of ‘O’ and ‘X’ below (‘.’ represent an empty square). We want the first pattern to be transformed into the second pattern in one time unit. During this time unit, each symbol (‘O’ and ‘X’) can move one step in any of the four directions (or remain at its current square). All movements happen simultaneously, so a symbol can move to an occupied square, if that symbol is moved to some other square. If a symbol moves from square A to B, and the symbol at B moves to A, we have a swap. Write a program which calculates the least number of swaps needed to transform a given pattern into another given pattern.&lt;/p&gt;
-&lt;/blockquote&gt;</description>
-    </item>
-    
-    <item>
-      <title>UVa 103. Stacking Boxes</title>
-      <link>/posts/uva-103.-stacking-boxes/</link>
-      <pubDate>Mon, 06 Aug 2018 15:18:27 +0800</pubDate>
-      
-      <guid>/posts/uva-103.-stacking-boxes/</guid>
-      <description>&lt;h1 id=&#34;description&#34;&gt;Description&lt;/h1&gt;
-&lt;blockquote&gt;
-&lt;p&gt;在數學或電腦科學裡，有些概念在一維或二維時還蠻簡單的，但到 N 維就會顯得非常複雜。試想一個 n 維的「盒子」：在二維空間裡，盒子 ( 2 , 3 ) 可代表一個長為 2 個單位，寬為 3 個單位的盒子；在三維空間裡，盒子 ( 4 , 8 , 9 ) 則是一個 4*8*9（長、寬、高）的盒子。至於在六維空間裡，也許我們不清楚 ( 4 , 5 , 6 , 7 , 8 , 9 ) 長得怎樣，不過我們還是可以分析這些盒子的特性。&lt;/p&gt;
-&lt;/blockquote&gt;</description>
-    </item>
-    
-  </channel>
-</rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>UVa on EnMinGW32</title><link>/tags/uva/</link><description>Recent content in UVa on EnMinGW32</description><generator>Hugo -- gohugo.io</generator><language>zh-Hant</language><copyright>&amp;copy; 2021 &lt;a href="https://www.wangchucheng.com/">C. Wang&lt;/a> and &lt;a href="https://www.ruiqima.com/">R. Ma&lt;/a></copyright><lastBuildDate>Tue, 26 Feb 2019 12:00:31 +0000</lastBuildDate><atom:link href="/tags/uva/index.xml" rel="self" type="application/rss+xml"/><item><title>UVa 11516. WiFi</title><link>/posts/uva-11516-wifi/</link><pubDate>Tue, 26 Feb 2019 12:00:31 +0000</pubDate><guid>/posts/uva-11516-wifi/</guid><description>&lt;h1 id="description">Description&lt;/h1>
+&lt;blockquote>
+&lt;p>大街上的居民開會決定要在他們居住的街上安裝無線網路，讓無線網路環境涵蓋所有住戶，請你幫忙選擇無線網路基地台(AP)的地點，他們希望訊號愈強愈好，但他們購買AP的預算有限，在有限的AP數量之下，使得在「所有房子與其最近的AP之間的距離」中最大值，愈小愈好。&lt;/p>
+&lt;/blockquote></description></item><item><title>UVa 1427. Parade</title><link>/posts/uva-1427-parade/</link><pubDate>Tue, 11 Dec 2018 19:12:08 +0000</pubDate><guid>/posts/uva-1427-parade/</guid><description>&lt;h1 id="description">Description&lt;/h1>
+&lt;blockquote>
+&lt;p>一個城市有n+1個橫向路和m+1個縱向路，一個國王從最北邊的進入，然後沿某種路線從最南邊出去，每小段橫向路都有一個高興值，但國王不會在某條橫向路待超過k分鐘，問國王可以得到的最大的高興值是多少？&lt;/p>
+&lt;/blockquote></description></item><item><title>UVa 838. Worm World</title><link>/posts/uva-838-worm-world/</link><pubDate>Tue, 09 Oct 2018 22:38:59 +0000</pubDate><guid>/posts/uva-838-worm-world/</guid><description>&lt;h1 id="description">Description&lt;/h1>
+&lt;blockquote>
+&lt;p>給定一張n*n的圖，每個格子上面都有一個數字。&lt;br>
+求在不碰到重複數字的情況下，最遠可以走多遠（只能上下左右移動）？&lt;/p>
+&lt;/blockquote></description></item><item><title>UVa 10600. ACM contest and Blackout</title><link>/posts/uva-10600-acm-contest-and-blackout/</link><pubDate>Sat, 22 Sep 2018 12:24:55 +0000</pubDate><guid>/posts/uva-10600-acm-contest-and-blackout/</guid><description>&lt;h1 id="description">Description&lt;/h1>
+&lt;blockquote>
+&lt;p>給定一張無向圖，請輸出最小生成樹和次小生成樹的大小。&lt;/p>
+&lt;/blockquote></description></item><item><title>UVa 165. Stamps</title><link>/posts/uva-165-stamps/</link><pubDate>Sat, 15 Sep 2018 21:28:30 +0000</pubDate><guid>/posts/uva-165-stamps/</guid><description>&lt;h1 id="description">Description&lt;/h1>
+&lt;blockquote>
+&lt;p>每張信封上面最多可以貼上h張郵票，請設計k種面額，並求出能組成的連續面額最大值。
+例如當$h=3, k=2$，1和3元的面額最多可以連續從1組到7。&lt;/p>
+&lt;/blockquote></description></item><item><title>UVa 10917. Walk Through the Forest</title><link>/posts/uva-10917-walk-through-the-forest/</link><pubDate>Sun, 09 Sep 2018 10:23:31 +0000</pubDate><guid>/posts/uva-10917-walk-through-the-forest/</guid><description>&lt;h1 id="description">Description&lt;/h1>
+&lt;p>Jimmy的辦公室在森林的一邊，而他的家在森林的另一邊。&lt;br>
+Jimmy想要每天都走不同的路徑回家。但是他也不想要回家太晚，所以他總是選擇一條可以朝他家「前進」的路徑來走。所謂「前進」指的是他會選擇從A點走到B點如果B點存在一條到他家的路徑長度比A點到他家任一路徑的長度都來的短的話。請你算出Jimmy共有多少種不同的路徑可以走。&lt;/p></description></item><item><title>UVa 11456. Trainsorting</title><link>/posts/uva-11456-trainsorting/</link><pubDate>Tue, 21 Aug 2018 17:54:50 +0000</pubDate><guid>/posts/uva-11456-trainsorting/</guid><description>&lt;h1 id="description">Description&lt;/h1>
+&lt;blockquote>
+&lt;p>Erin是一個開火車工程師。他喜歡把車廂按照其重量來安排，重的車廂排在前端。&lt;br>
+不幸的是，把車廂排序並不是一件容易的事。你只能將一節車廂加在一列火車的前端或後端。&lt;br>
+各個車廂來到火車站的順序及其重量是已經知道的。當每節車廂來到的時候，Erin可以把它加到火車的兩端，或者不加進去。最後，火車的總車廂數是越長越好，不過要記得車廂得按照重量大小排列。 &lt;br>
+給你按照出現順序各車廂的重量，Erin最長可安排車廂的長度是多少？&lt;/p>
+&lt;/blockquote></description></item><item><title>UVa 1479. Graph and Queries</title><link>/posts/uva-1479-graph-and-queries/</link><pubDate>Sat, 18 Aug 2018 00:39:05 +0000</pubDate><guid>/posts/uva-1479-graph-and-queries/</guid><description>&lt;h1 id="description">Description&lt;/h1>
+&lt;blockquote>
+&lt;p>給定一張無向圖，有三種操作：&lt;/p>
+&lt;/blockquote>
+&lt;ol>
+&lt;li>D x ：刪除第x條邊&lt;/li>
+&lt;li>Q x y ：查詢x所在集合裡面第y大的數字，若查詢失敗，則此次查詢的結果為0&lt;/li>
+&lt;li>C x y ：將第x點的值改成y&lt;/li>
+&lt;/ol>
+&lt;blockquote>
+&lt;p>最後輸出所有查詢的平均值。&lt;/p>
+&lt;/blockquote></description></item><item><title>UVa 10032. Tug of War</title><link>/posts/uva-10032-tug-of-war/</link><pubDate>Sat, 11 Aug 2018 19:57:43 +0000</pubDate><guid>/posts/uva-10032-tug-of-war/</guid><description>&lt;h1 id="description">Description&lt;/h1>
+&lt;blockquote>
+&lt;p>N個人參加拔河比賽，每個人有其重量w[i]，欲使二隊的人數最多只差一，雙方的重量和越接近越好。請問二隊的重量和分別是多少？&lt;/p>
+&lt;/blockquote></description></item><item><title>UVa 315. Network</title><link>/posts/uva-315-network/</link><pubDate>Thu, 09 Aug 2018 10:59:37 +0000</pubDate><guid>/posts/uva-315-network/</guid><description>&lt;h1 id="description">Description&lt;/h1>
+&lt;blockquote>
+&lt;p>一家電話公司在許多地方建有機房，這些機房以1到N來編號，沒有2個地方有相同的號碼。電纜線是雙向的，並且只有在機房中的交換機才可互相連接（每個機房只有一部交換機）。電話訊號可以從一個機房傳到另一個機房，但是這些機房並不一定要直接相連，它們之間的通訊可能是透過好幾個交換機。&lt;br>
+偶爾當有停電的情況發生時，當地的機房也會因停電而無法運作。這個時候不僅這個機房的通訊中斷，可能也有其他的機房因此無法彼此通訊。在這種情況之下，我們稱這個機房為critical的。&lt;br>
+現在你的任務就是寫一個程式幫助該公司的工程師找出在他們的系統中有多少個critical的機房。&lt;/p>
+&lt;/blockquote></description></item><item><title>UVa 13153. Number of Connected Components</title><link>/posts/uva-13153-number-of-connected-components/</link><pubDate>Tue, 07 Aug 2018 10:26:31 +0000</pubDate><guid>/posts/uva-13153-number-of-connected-components/</guid><description>&lt;h1 id="description">Description&lt;/h1>
+&lt;blockquote>
+&lt;p>給你 N 個節點，每個點上附有一個介於$1～10^6$之間的正整數。假如某2個節點上的數其最大公因數（GCD）大於1，則這2個節點之間會有一條邊存在。&lt;br>
+要請你算出這N個節點構成的的圖形中，共有幾個連通的單元。&lt;/p>
+&lt;/blockquote></description></item><item><title>UVa 571. Jugs</title><link>/posts/uva-571-jugs/</link><pubDate>Mon, 06 Aug 2018 18:43:23 +0000</pubDate><guid>/posts/uva-571-jugs/</guid><description>&lt;h1 id="description">Description&lt;/h1>
+&lt;blockquote>
+&lt;p>在電影「終極警探 3（Die Hard 3）」中布魯斯威利（Bruce Willis）和山謬傑克森（Samuel L. Jackson）遇到壞蛋設下的謎題：給一個3加侖和5加侖的桶子，要求他們必須在5加侖的桶子中裝4加侖的水。現在你的任務就是解決這個問題。&lt;/p>
+&lt;/blockquote></description></item><item><title>UVa 307. Sticks</title><link>/posts/uva-307-sticks/</link><pubDate>Mon, 06 Aug 2018 15:28:18 +0000</pubDate><guid>/posts/uva-307-sticks/</guid><description>&lt;h1 id="description">Description&lt;/h1>
+&lt;blockquote>
+&lt;p>George 拿了一些&lt;strong>相同&lt;/strong>長度的棍子，然後隨意的把這些棍子切成一段一段的棍子（每段長度都不會超過 50 個單位長）。現在他想要把這些一段一段的棍子拼回原來的樣子，但是他忘了他原來帶多少根棍子來，並且也忘了原來每根棍子的長度。請幫助他設計一個程式算出這些棍子原來可能的最小長度。所有的棍子長度都是整數，並且大於 0。&lt;/p>
+&lt;/blockquote></description></item><item><title>UVa 10952. Pattern Transformations</title><link>/posts/uva-10952.-pattern-transformations/</link><pubDate>Mon, 06 Aug 2018 15:22:16 +0800</pubDate><guid>/posts/uva-10952.-pattern-transformations/</guid><description>&lt;h1 id="description">Description&lt;/h1>
+&lt;blockquote>
+&lt;p>Consider the two patterns of ‘O’ and ‘X’ below (‘.’ represent an empty square). We want the first pattern to be transformed into the second pattern in one time unit. During this time unit, each symbol (‘O’ and ‘X’) can move one step in any of the four directions (or remain at its current square). All movements happen simultaneously, so a symbol can move to an occupied square, if that symbol is moved to some other square. If a symbol moves from square A to B, and the symbol at B moves to A, we have a swap. Write a program which calculates the least number of swaps needed to transform a given pattern into another given pattern.&lt;/p>
+&lt;/blockquote></description></item><item><title>UVa 103. Stacking Boxes</title><link>/posts/uva-103.-stacking-boxes/</link><pubDate>Mon, 06 Aug 2018 15:18:27 +0800</pubDate><guid>/posts/uva-103.-stacking-boxes/</guid><description>&lt;h1 id="description">Description&lt;/h1>
+&lt;blockquote>
+&lt;p>在數學或電腦科學裡，有些概念在一維或二維時還蠻簡單的，但到 N 維就會顯得非常複雜。試想一個 n 維的「盒子」：在二維空間裡，盒子 ( 2 , 3 ) 可代表一個長為 2 個單位，寬為 3 個單位的盒子；在三維空間裡，盒子 ( 4 , 8 , 9 ) 則是一個 4*8*9（長、寬、高）的盒子。至於在六維空間裡，也許我們不清楚 ( 4 , 5 , 6 , 7 , 8 , 9 ) 長得怎樣，不過我們還是可以分析這些盒子的特性。&lt;/p>
+&lt;/blockquote></description></item></channel></rss>

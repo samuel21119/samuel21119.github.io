@@ -1,406 +1,196 @@
-<!DOCTYPE html>
-<html lang='zh-Hant' ><meta charset="utf-8">
-<meta name="viewport" content="width=device-width">
-
-
+<!doctype html><html lang=zh-hant><meta charset=utf-8>
+<meta name=viewport content="width=device-width">
 <title>UVa | EnMinGW32</title>
-
-<meta name="generator" content="Hugo Eureka 0.8.4" />
-<link rel="stylesheet" href="/css/eureka.min.css">
-<script defer src="/js/eureka.min.js"></script>
-
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="preload"
-  href="https://fonts.googleapis.com/css2?family=Lora:wght@400;600;700&family=Noto+Serif+SC:wght@400;600;700&display=swap"
-  as="style" onload="this.onload=null;this.rel='stylesheet'">
-
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.0/build/styles/solarized-light.min.css"
-   media="print"
-  onload="this.media='all';this.onload=null" crossorigin>
-<script defer src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.0/build/highlight.min.js"
-   crossorigin></script>
-
-  <script defer src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.0/build/languages/dart.min.js"
-     crossorigin></script>
-
-<script defer src="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.14.0/js/all.min.js"
-   integrity="sha256-uNYoXefWRqv&#43;PsIF/OflNmwtKM4lStn9yrz2gVl6ymo="  crossorigin></script>
-
-
-
-
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css"
-   integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3&#43;Aro6EYUG4&#43;cU&#43;KJWu/X"  media="print"
-  onload="this.media='all';this.onload=null" crossorigin>
-<script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js" 
-  integrity="sha384-g7c&#43;Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI&#43;sEnkvrMWph2EDg4"  crossorigin></script>
-<script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/contrib/auto-render.min.js"
-   integrity="sha384-mll67QQFJfxn0IYznZYonOWZ644AWYC&#43;Pt2cHqMaRhXVrursRwvLnLaebdGIlYNa"  crossorigin></script>
-<script>
-  document.addEventListener("DOMContentLoaded", function () {
-    renderMathInElement(document.body, {
-      delimiters: [
-        { left: "$$", right: "$$", display: true },
-        { left: "$", right: "$", display: false },
-        { left: "\\(", right: "\\)", display: false },
-        { left: "\\[", right: "\\]", display: true }
-      ],
-    });
-  });
-</script>
-
-
-<script defer src="https://cdn.jsdelivr.net/npm/mermaid@8.9.2/dist/mermaid.min.js" 
-  integrity="sha256-Zmpaaj&#43;GXFsPF5WdPArSrnW3b30dovldeKsW00xBVwE="  crossorigin></script>
-<link rel="preconnect" href="https://www.google-analytics.com" crossorigin>
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-HXWT368KGN"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag() { dataLayer.push(arguments); }
-  gtag('js', new Date());
-  gtag('config', 'G-HXWT368KGN');
-</script>
-
-
-<link rel="icon" type="image/png" sizes="32x32" href="/images/icon_hu64421c6c7700f606f0ad45d807017b09_5843_32x32_fill_box_center_3.png">
-<link rel="apple-touch-icon" sizes="180x180" href="/images/icon_hu64421c6c7700f606f0ad45d807017b09_5843_180x180_fill_box_center_3.png">
-
-<meta name="description"
-  content="Eureka is a elegant and powerful theme for Hugo.">
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "BreadcrumbList",
-  "itemListElement": [{
-      "@type": "ListItem",
-      "position": 1 ,
-      "name":"Tags",
-      "item":"/tags/"},{
-      "@type": "ListItem",
-      "position": 2 ,
-      "name":"UVa",
-      "item":"/tags/uva/"}]
-}
-</script>
-
-
-
-
-<script type="application/ld+json">
-{
-    "@context":"https://schema.org",
-    "@type":"ItemList",
-    "itemListElement":[{
-            "@type":"ListItem",
-            "position":  1 ,
-            "name": "UVa 11456. Trainsorting",
-            "description": "\u003ch1 id=\"description\"\u003eDescription\u003c/h1\u003e\n\u003cblockquote\u003e\n\u003cp\u003eErin是一個開火車工程師。他喜歡把車廂按照其重量來安排，重的車廂排在前端。\u003cbr\u003e\n不幸的是，把車廂排序並不是一件容易的事。你只能將一節車廂加在一列火車的前端或後端。\u003cbr\u003e\n各個車廂來到火車站的順序及其重量是已經知道的。當每節車廂來到的時候，Erin可以把它加到火車的兩端，或者不加進去。最後，火車的總車廂數是越長越好，不過要記得車廂得按照重量大小排列。 \u003cbr\u003e\n給你按照出現順序各車廂的重量，Erin最長可安排車廂的長度是多少？\u003c/p\u003e\n\u003c/blockquote\u003e",
-            "url": "/posts/uva-11456-trainsorting/"
-        },{
-            "@type":"ListItem",
-            "position":  2 ,
-            "name": "UVa 1479. Graph and Queries",
-            "description": "\u003ch1 id=\"description\"\u003eDescription\u003c/h1\u003e\n\u003cblockquote\u003e\n\u003cp\u003e給定一張無向圖，有三種操作：\u003c/p\u003e\n\u003c/blockquote\u003e\n\u003col\u003e\n\u003cli\u003eD x   ：刪除第x條邊\u003c/li\u003e\n\u003cli\u003eQ x y ：查詢x所在集合裡面第y大的數字，若查詢失敗，則此次查詢的結果為0\u003c/li\u003e\n\u003cli\u003eC x y ：將第x點的值改成y\u003c/li\u003e\n\u003c/ol\u003e\n\u003cblockquote\u003e\n\u003cp\u003e最後輸出所有查詢的平均值。\u003c/p\u003e\n\u003c/blockquote\u003e",
-            "url": "/posts/uva-1479-graph-and-queries/"
-        },{
-            "@type":"ListItem",
-            "position":  3 ,
-            "name": "UVa 10032. Tug of War",
-            "description": "\u003ch1 id=\"description\"\u003eDescription\u003c/h1\u003e\n\u003cblockquote\u003e\n\u003cp\u003eN個人參加拔河比賽，每個人有其重量w[i]，欲使二隊的人數最多只差一，雙方的重量和越接近越好。請問二隊的重量和分別是多少？\u003c/p\u003e\n\u003c/blockquote\u003e",
-            "url": "/posts/uva-10032-tug-of-war/"
-        }
-    ]
-}
-</script><meta property="og:title" content="UVa | EnMinGW32" />
-<meta property="og:type" content="website" />
-
-
+<meta name=generator content="Hugo Eureka 0.8.4">
+<link rel=stylesheet href=/css/eureka.min.css>
+<script defer src=/js/eureka.min.js></script>
+<link rel=preconnect href=https://fonts.gstatic.com crossorigin>
+<link rel=preload href="https://fonts.googleapis.com/css2?family=Lora:wght@400;600;700&family=Noto+Serif+SC:wght@400;600;700&display=swap" as=style onload="this.onload=null,this.rel='stylesheet'">
+<link rel=stylesheet href=https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.0/build/styles/solarized-light.min.css media=print onload="this.media='all',this.onload=null" crossorigin>
+<script defer src=https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.0/build/highlight.min.js crossorigin></script>
+<script defer src=https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.0/build/languages/dart.min.js crossorigin></script>
+<script defer src=https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.14.0/js/all.min.js integrity="sha256-uNYoXefWRqv+PsIF/OflNmwtKM4lStn9yrz2gVl6ymo=" crossorigin></script>
+<link rel=stylesheet href=https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css integrity=sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X media=print onload="this.media='all',this.onload=null" crossorigin>
+<script defer src=https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js integrity=sha384-g7c+Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI+sEnkvrMWph2EDg4 crossorigin></script>
+<script defer src=https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/contrib/auto-render.min.js integrity=sha384-mll67QQFJfxn0IYznZYonOWZ644AWYC+Pt2cHqMaRhXVrursRwvLnLaebdGIlYNa crossorigin></script>
+<script>document.addEventListener("DOMContentLoaded",function(){renderMathInElement(document.body,{delimiters:[{left:"$$",right:"$$",display:!0},{left:"$",right:"$",display:!1},{left:"\\(",right:"\\)",display:!1},{left:"\\[",right:"\\]",display:!0}]})})</script>
+<script defer src=https://cdn.jsdelivr.net/npm/mermaid@8.9.2/dist/mermaid.min.js integrity="sha256-Zmpaaj+GXFsPF5WdPArSrnW3b30dovldeKsW00xBVwE=" crossorigin></script>
+<link rel=icon type=image/png sizes=32x32 href=/images/icon_hu64421c6c7700f606f0ad45d807017b09_5843_32x32_fill_box_center_3.png>
+<link rel=apple-touch-icon sizes=180x180 href=/images/icon_hu64421c6c7700f606f0ad45d807017b09_5843_180x180_fill_box_center_3.png>
+<meta name=description content="Eureka is a elegant and powerful theme for Hugo.">
+<script type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Tags","item":"/tags/"},{"@type":"ListItem","position":2,"name":"UVa","item":"/tags/uva/"}]}</script>
+<script type=application/ld+json>{"@context":"https://schema.org","@type":"ItemList","itemListElement":[{"@type":"ListItem","position":1,"name":"UVa 11456. Trainsorting","description":"\u003ch1 id=\"description\"\u003eDescription\u003c/h1\u003e\n\u003cblockquote\u003e\n\u003cp\u003eErin是一個開火車工程師。他喜歡把車廂按照其重量來安排，重的車廂排在前端。\u003cbr\u003e\n不幸的是，把車廂排序並不是一件容易的事。你只能將一節車廂加在一列火車的前端或後端。\u003cbr\u003e\n各個車廂來到火車站的順序及其重量是已經知道的。當每節車廂來到的時候，Erin可以把它加到火車的兩端，或者不加進去。最後，火車的總車廂數是越長越好，不過要記得車廂得按照重量大小排列。 \u003cbr\u003e\n給你按照出現順序各車廂的重量，Erin最長可安排車廂的長度是多少？\u003c/p\u003e\n\u003c/blockquote\u003e","url":"/posts/uva-11456-trainsorting/"},{"@type":"ListItem","position":2,"name":"UVa 1479. Graph and Queries","description":"\u003ch1 id=\"description\"\u003eDescription\u003c/h1\u003e\n\u003cblockquote\u003e\n\u003cp\u003e給定一張無向圖，有三種操作：\u003c/p\u003e\n\u003c/blockquote\u003e\n\u003col\u003e\n\u003cli\u003eD x   ：刪除第x條邊\u003c/li\u003e\n\u003cli\u003eQ x y ：查詢x所在集合裡面第y大的數字，若查詢失敗，則此次查詢的結果為0\u003c/li\u003e\n\u003cli\u003eC x y ：將第x點的值改成y\u003c/li\u003e\n\u003c/ol\u003e\n\u003cblockquote\u003e\n\u003cp\u003e最後輸出所有查詢的平均值。\u003c/p\u003e\n\u003c/blockquote\u003e","url":"/posts/uva-1479-graph-and-queries/"},{"@type":"ListItem","position":3,"name":"UVa 10032. Tug of War","description":"\u003ch1 id=\"description\"\u003eDescription\u003c/h1\u003e\n\u003cblockquote\u003e\n\u003cp\u003eN個人參加拔河比賽，每個人有其重量w[i]，欲使二隊的人數最多只差一，雙方的重量和越接近越好。請問二隊的重量和分別是多少？\u003c/p\u003e\n\u003c/blockquote\u003e","url":"/posts/uva-10032-tug-of-war/"}]}</script><meta property="og:title" content="UVa | EnMinGW32">
+<meta property="og:type" content="website">
 <meta property="og:image" content="/images/icon.png">
-
-
-<meta property="og:url" content="/tags/uva/" />
-
-
-
-
-
-<meta property="og:description" content="Eureka is a elegant and powerful theme for Hugo." />
-
-
-
-
-
-<meta property="og:locale" content="zh-Hant" />
-
-
-
-
-<meta property="og:site_name" content="EnMinGW32" />
-
-
-
-
-
-
-<meta property="og:updated_time" content="2019-02-26T12:00:31&#43;00:00" />
-
-
-
-<meta property="article:section" content="tags" />
-
-
-<link rel="alternate" type="application/rss+xml" href="/tags/uva/index.xml" title="EnMinGW32" />
-
+<meta property="og:url" content="/tags/uva/">
+<meta property="og:description" content="Eureka is a elegant and powerful theme for Hugo.">
+<meta property="og:locale" content="zh-Hant">
+<meta property="og:site_name" content="EnMinGW32">
+<meta property="og:updated_time" content="2019-02-26T12:00:31+00:00">
+<meta property="article:section" content="tags">
+<link rel=alternate type=application/rss+xml href=/tags/uva/index.xml title=EnMinGW32>
 <body class="flex flex-col min-h-screen">
-  <header class="fixed flex items-center w-full min-h-16 pl-scrollbar z-50 bg-secondary-bg shadow-sm">
-    <div class="w-full max-w-screen-xl mx-auto"><script>
-    let storageColorScheme = localStorage.getItem("lightDarkMode")
-    if (((storageColorScheme == 'Auto' || storageColorScheme == null) && window.matchMedia("(prefers-color-scheme: dark)").matches) || storageColorScheme == "Dark") {
-        document.getElementsByTagName('html')[0].classList.add('dark')
-    }
-</script>
+<header class="fixed flex items-center w-full min-h-16 pl-scrollbar z-50 bg-secondary-bg shadow-sm">
+<div class="w-full max-w-screen-xl mx-auto"><script>let storageColorScheme=localStorage.getItem("lightDarkMode");((storageColorScheme=='Auto'||storageColorScheme==null)&&window.matchMedia("(prefers-color-scheme: dark)").matches||storageColorScheme=="Dark")&&document.getElementsByTagName('html')[0].classList.add('dark')</script>
 <nav class="flex items-center justify-between flex-wrap px-4 py-4 md:py-0">
-    <a href="/" class="mr-6 text-primary-text text-xl font-bold">EnMinGW32</a>
-    <button id="navbar-btn" class="md:hidden flex items-center px-3 py-2" aria-label="Open Navbar">
-        <i class="fas fa-bars"></i>
-    </button>
-
-    <div id="target"
-        class="hidden block md:flex md:flex-grow md:justify-between md:items-center w-full md:w-auto text-primary-text z-20">
-        <div class="md:flex md:h-16 text-sm md:flex-grow pb-4 md:pb-0 border-b md:border-b-0">
-            <a href="/#about" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  border-transparent  mr-4">About</a>
-            <a href="/posts/" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  border-transparent  mr-4">Posts</a>
-        </div>
-
-        <div class="flex">
-            <div class="relative pt-4 md:pt-0">
-                <div class="cursor-pointer hover:text-eureka" id="lightDarkMode">
-                    <i class="fas fa-adjust"></i>
-                </div>
-                <div class="fixed hidden inset-0 opacity-0 h-full w-full cursor-default z-30" id="is-open">
-                </div>
-                <div class="absolute flex flex-col left-0 md:left-auto right-auto md:right-0 hidden bg-secondary-bg w-48 rounded py-2 border border-tertiary-bg cursor-pointer z-40"
-                    id='lightDarkOptions'>
-                    <span class="px-4 py-1 hover:text-eureka" name="Light">淺色</span>
-                    <span class="px-4 py-1 hover:text-eureka" name="Dark">深色</span>
-                    <span class="px-4 py-1 hover:text-eureka" name="Auto">自動</span>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="fixed hidden inset-0 opacity-0 h-full w-full cursor-default z-0" id="is-open-mobile">
-    </div>
-
-</nav>
-<script>
-    
-    let element = document.getElementById('lightDarkMode')
-    if (storageColorScheme == null || storageColorScheme == 'Auto') {
-        document.addEventListener('DOMContentLoaded', () => {
-            window.matchMedia("(prefers-color-scheme: dark)").addEventListener('change', switchDarkMode)
-        })
-    } else if (storageColorScheme == "Light") {
-        element.firstElementChild.classList.remove('fa-adjust')
-        element.firstElementChild.setAttribute("data-icon", 'sun')
-        element.firstElementChild.classList.add('fa-sun')
-    } else if (storageColorScheme == "Dark") {
-        element.firstElementChild.classList.remove('fa-adjust')
-        element.firstElementChild.setAttribute("data-icon", 'moon')
-        element.firstElementChild.classList.add('fa-moon')
-    }
-
-    document.addEventListener('DOMContentLoaded', () => {
-        getcolorscheme();
-        switchBurger();
-    });
-</script>
+<a href=/ class="mr-6 text-primary-text text-xl font-bold">EnMinGW32</a>
+<button id=navbar-btn class="md:hidden flex items-center px-3 py-2" aria-label="Open Navbar">
+<i class="fas fa-bars"></i>
+</button>
+<div id=target class="hidden block md:flex md:flex-grow md:justify-between md:items-center w-full md:w-auto text-primary-text z-20">
+<div class="md:flex md:h-16 text-sm md:flex-grow pb-4 md:pb-0 border-b md:border-b-0">
+<a href=/#about class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2 border-transparent mr-4">About</a>
+<a href=/posts/ class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2 border-transparent mr-4">Posts</a>
 </div>
-  </header>
-  <main class="flex-grow pt-16">
-    <div class="pl-scrollbar">
-      <div class="w-full max-w-screen-xl lg:px-4 xl:px-8 mx-auto">
+<div class=flex>
+<div class="relative pt-4 md:pt-0">
+<div class="cursor-pointer hover:text-eureka" id=lightDarkMode>
+<i class="fas fa-adjust"></i>
+</div>
+<div class="fixed hidden inset-0 opacity-0 h-full w-full cursor-default z-30" id=is-open>
+</div>
+<div class="absolute flex flex-col left-0 md:left-auto right-auto md:right-0 hidden bg-secondary-bg w-48 rounded py-2 border border-tertiary-bg cursor-pointer z-40" id=lightDarkOptions>
+<span class="px-4 py-1 hover:text-eureka" name=Light>淺色</span>
+<span class="px-4 py-1 hover:text-eureka" name=Dark>深色</span>
+<span class="px-4 py-1 hover:text-eureka" name=Auto>自動</span>
+</div>
+</div>
+</div>
+</div>
+<div class="fixed hidden inset-0 opacity-0 h-full w-full cursor-default z-0" id=is-open-mobile>
+</div>
+</nav>
+<script>let element=document.getElementById('lightDarkMode');storageColorScheme==null||storageColorScheme=='Auto'?document.addEventListener('DOMContentLoaded',()=>{window.matchMedia("(prefers-color-scheme: dark)").addEventListener('change',switchDarkMode)}):storageColorScheme=="Light"?(element.firstElementChild.classList.remove('fa-adjust'),element.firstElementChild.setAttribute("data-icon",'sun'),element.firstElementChild.classList.add('fa-sun')):storageColorScheme=="Dark"&&(element.firstElementChild.classList.remove('fa-adjust'),element.firstElementChild.setAttribute("data-icon",'moon'),element.firstElementChild.classList.add('fa-moon')),document.addEventListener('DOMContentLoaded',()=>{getcolorscheme(),switchBurger()})</script>
+</div>
+</header>
+<main class="flex-grow pt-16">
+<div class=pl-scrollbar>
+<div class="w-full max-w-screen-xl lg:px-4 xl:px-8 mx-auto">
 <article class="mx-6 my-8">
-    <h1 class="font-bold text-3xl text-primary-text">UVa</h1>
-    
+<h1 class="font-bold text-3xl text-primary-text">UVa</h1>
 </article>
 <div class="bg-secondary-bg rounded px-6">
-    <div class="overflow-hidden divide-y">
-  
-  <div class="py-6">
-    <div class="flex flex-col-reverse lg:flex-row justify-between">
-  
-  <div class="w-full ">
-    <div class="mb-4">
-  <a href="/posts/uva-11456-trainsorting/" class="font-bold text-xl hover:text-eureka">UVa 11456. Trainsorting</a>
+<div class="overflow-hidden divide-y">
+<div class=py-6>
+<div class="flex flex-col-reverse lg:flex-row justify-between">
+<div class=w-full>
+<div class=mb-4>
+<a href=/posts/uva-11456-trainsorting/ class="font-bold text-xl hover:text-eureka">UVa 11456. Trainsorting</a>
 </div>
-<div class="content">
-  
-    Description  Erin是一個開火車工程師。他喜歡把車廂按照其重量來安排，重的車廂排在前端。
+<div class=content>
+Description Erin是一個開火車工程師。他喜歡把車廂按照其重量來安排，重的車廂排在前端。
 不幸的是，把車廂排序並不是一件容易的事。你只能將一節車廂加在一列火車的前端或後端。
 各個車廂來到火車站的順序及其重量是已經知道的。當每節車廂來到的時候，Erin可以把它加到火車的兩端，或者不加進去。最後，火車的總車廂數是越長越好，不過要記得車廂得按照重量大小排列。 給你按照出現順序各車廂的重量，Erin最長可安排車廂的長度是多少？
-
-  
 </div>
-
 <div class="flex flex-wrap flex-row items-center mt-2 text-tertiary-text">
-    <div class="mr-6 my-2">
-        <i class="fas fa-calendar mr-1"></i>
-        <span>2018-08-21</span>
-    </div>
-    <div class="mr-6 my-2">
-        <i class="fas fa-clock mr-1"></i>
-        <span>2分鐘閱讀</span>
-    </div>
-    
-    
-    <div class="mr-6 my-2">
-        <i class="fas fa-folder mr-1"></i>
-        
-        <a href="/categories/%E9%A1%8C%E8%A7%A3/" class="hover:text-eureka">題解</a>
-        
-    </div>
-    
-
-    
+<div class="mr-6 my-2">
+<i class="fas fa-calendar mr-1"></i>
+<span>2018-08-21</span>
 </div>
-
-  </div>
-
-  
+<div class="mr-6 my-2">
+<i class="fas fa-clock mr-1"></i>
+<span>2分鐘閱讀</span>
 </div>
-  </div>
-  
-  <div class="py-6">
-    <div class="flex flex-col-reverse lg:flex-row justify-between">
-  
-  <div class="w-full ">
-    <div class="mb-4">
-  <a href="/posts/uva-1479-graph-and-queries/" class="font-bold text-xl hover:text-eureka">UVa 1479. Graph and Queries</a>
+<div class="mr-6 my-2">
+<i class="fas fa-folder mr-1"></i>
+<a href=/categories/%E9%A1%8C%E8%A7%A3/ class=hover:text-eureka>題解</a>
 </div>
-<div class="content">
-  
-    Description  給定一張無向圖，有三種操作：
-  D x ：刪除第x條邊 Q x y ：查詢x所在集合裡面第y大的數字，若查詢失敗，則此次查詢的結果為0 C x y ：將第x點的值改成y   最後輸出所有查詢的平均值。
-
-  
 </div>
-
+</div>
+</div>
+</div>
+<div class=py-6>
+<div class="flex flex-col-reverse lg:flex-row justify-between">
+<div class=w-full>
+<div class=mb-4>
+<a href=/posts/uva-1479-graph-and-queries/ class="font-bold text-xl hover:text-eureka">UVa 1479. Graph and Queries</a>
+</div>
+<div class=content>
+Description 給定一張無向圖，有三種操作：
+D x ：刪除第x條邊 Q x y ：查詢x所在集合裡面第y大的數字，若查詢失敗，則此次查詢的結果為0 C x y ：將第x點的值改成y 最後輸出所有查詢的平均值。
+</div>
 <div class="flex flex-wrap flex-row items-center mt-2 text-tertiary-text">
-    <div class="mr-6 my-2">
-        <i class="fas fa-calendar mr-1"></i>
-        <span>2018-08-18</span>
-    </div>
-    <div class="mr-6 my-2">
-        <i class="fas fa-clock mr-1"></i>
-        <span>3分鐘閱讀</span>
-    </div>
-    
-    
-    <div class="mr-6 my-2">
-        <i class="fas fa-folder mr-1"></i>
-        
-        <a href="/categories/%E9%A1%8C%E8%A7%A3/" class="hover:text-eureka">題解</a>
-        
-    </div>
-    
-
-    
+<div class="mr-6 my-2">
+<i class="fas fa-calendar mr-1"></i>
+<span>2018-08-18</span>
 </div>
-
-  </div>
-
-  
+<div class="mr-6 my-2">
+<i class="fas fa-clock mr-1"></i>
+<span>3分鐘閱讀</span>
 </div>
-  </div>
-  
-  <div class="py-6">
-    <div class="flex flex-col-reverse lg:flex-row justify-between">
-  
-  <div class="w-full ">
-    <div class="mb-4">
-  <a href="/posts/uva-10032-tug-of-war/" class="font-bold text-xl hover:text-eureka">UVa 10032. Tug of War</a>
+<div class="mr-6 my-2">
+<i class="fas fa-folder mr-1"></i>
+<a href=/categories/%E9%A1%8C%E8%A7%A3/ class=hover:text-eureka>題解</a>
 </div>
-<div class="content">
-  
-    Description  N個人參加拔河比賽，每個人有其重量w[i]，欲使二隊的人數最多只差一，雙方的重量和越接近越好。請問二隊的重量和分別是多少？
-
-  
 </div>
-
+</div>
+</div>
+</div>
+<div class=py-6>
+<div class="flex flex-col-reverse lg:flex-row justify-between">
+<div class=w-full>
+<div class=mb-4>
+<a href=/posts/uva-10032-tug-of-war/ class="font-bold text-xl hover:text-eureka">UVa 10032. Tug of War</a>
+</div>
+<div class=content>
+Description N個人參加拔河比賽，每個人有其重量w[i]，欲使二隊的人數最多只差一，雙方的重量和越接近越好。請問二隊的重量和分別是多少？
+</div>
 <div class="flex flex-wrap flex-row items-center mt-2 text-tertiary-text">
-    <div class="mr-6 my-2">
-        <i class="fas fa-calendar mr-1"></i>
-        <span>2018-08-11</span>
-    </div>
-    <div class="mr-6 my-2">
-        <i class="fas fa-clock mr-1"></i>
-        <span>2分鐘閱讀</span>
-    </div>
-    
-    
-    <div class="mr-6 my-2">
-        <i class="fas fa-folder mr-1"></i>
-        
-        <a href="/categories/%E9%A1%8C%E8%A7%A3/" class="hover:text-eureka">題解</a>
-        
-    </div>
-    
-
-    
+<div class="mr-6 my-2">
+<i class="fas fa-calendar mr-1"></i>
+<span>2018-08-11</span>
 </div>
-
-  </div>
-
-  
+<div class="mr-6 my-2">
+<i class="fas fa-clock mr-1"></i>
+<span>2分鐘閱讀</span>
 </div>
-  </div>
-  
+<div class="mr-6 my-2">
+<i class="fas fa-folder mr-1"></i>
+<a href=/categories/%E9%A1%8C%E8%A7%A3/ class=hover:text-eureka>題解</a>
 </div>
-
-
 </div>
-
-    <ul class="pagination pagination-default">
-      <li class="page-item">
-        <a href="/tags/uva/" aria-label="First" class="page-link" role="button"><span aria-hidden="true">&laquo;&laquo;</span></a>
-      </li>
-      <li class="page-item">
-        <a href="/tags/uva/page/2/" aria-label="Previous" class="page-link" role="button"><span aria-hidden="true">&laquo;</span></a>
-      </li>
-      <li class="page-item">
-        <a href="/tags/uva/" aria-label="Page 1" class="page-link" role="button">1</a>
-      </li>
-      <li class="page-item">
-        <a href="/tags/uva/page/2/" aria-label="Page 2" class="page-link" role="button">2</a>
-      </li>
-      <li class="page-item active">
-        <a href="#" aria-current="page" aria-label="Page 3" class="page-link" role="button">3</a>
-      </li>
-      <li class="page-item">
-        <a href="/tags/uva/page/4/" aria-label="Page 4" class="page-link" role="button">4</a>
-      </li>
-      <li class="page-item">
-        <a href="/tags/uva/page/5/" aria-label="Page 5" class="page-link" role="button">5</a>
-      </li>
-      <li class="page-item">
-        <a href="/tags/uva/page/4/" aria-label="Next" class="page-link" role="button"><span aria-hidden="true">&raquo;</span></a>
-      </li>
-      <li class="page-item">
-        <a href="/tags/uva/page/5/" aria-label="Last" class="page-link" role="button"><span aria-hidden="true">&raquo;&raquo;</span></a>
-      </li>
-    </ul>
-
-      </div>
-    </div>
-    
-  </main>
-  <footer class="pl-scrollbar">
-    <div class="w-full max-w-screen-xl mx-auto"><div class="text-center p-6 pin-b">
-    <p class="text-sm text-tertiary-text">&copy; 2021 <a href="https://www.wangchucheng.com/">C. Wang</a> and <a href="https://www.ruiqima.com/">R. Ma</a>
- &middot;  Powered by the <a href="https://github.com/wangchucheng/hugo-eureka" class="hover:text-eureka">Eureka</a> theme for <a href="https://gohugo.io" class="hover:text-eureka">Hugo</a></p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<ul class="pagination pagination-default">
+<li class=page-item>
+<a href=/tags/uva/ aria-label=First class=page-link role=button><span aria-hidden=true>&#171;&#171;</span></a>
+</li>
+<li class=page-item>
+<a href=/tags/uva/page/2/ aria-label=Previous class=page-link role=button><span aria-hidden=true>&#171;</span></a>
+</li>
+<li class=page-item>
+<a href=/tags/uva/ aria-label="Page 1" class=page-link role=button>1</a>
+</li>
+<li class=page-item>
+<a href=/tags/uva/page/2/ aria-label="Page 2" class=page-link role=button>2</a>
+</li>
+<li class="page-item active">
+<a href=# aria-current=page aria-label="Page 3" class=page-link role=button>3</a>
+</li>
+<li class=page-item>
+<a href=/tags/uva/page/4/ aria-label="Page 4" class=page-link role=button>4</a>
+</li>
+<li class=page-item>
+<a href=/tags/uva/page/5/ aria-label="Page 5" class=page-link role=button>5</a>
+</li>
+<li class=page-item>
+<a href=/tags/uva/page/4/ aria-label=Next class=page-link role=button><span aria-hidden=true>&#187;</span></a>
+</li>
+<li class=page-item>
+<a href=/tags/uva/page/5/ aria-label=Last class=page-link role=button><span aria-hidden=true>&#187;&#187;</span></a>
+</li>
+</ul>
+</div>
+</div>
+</main>
+<footer class=pl-scrollbar>
+<div class="w-full max-w-screen-xl mx-auto"><div class="text-center p-6 pin-b">
+<p class="text-sm text-tertiary-text">&copy; 2021 <a href=https://www.wangchucheng.com/>C. Wang</a> and <a href=https://www.ruiqima.com/>R. Ma</a>
+&#183; Powered by the <a href=https://github.com/wangchucheng/hugo-eureka class=hover:text-eureka>Eureka</a> theme for <a href=https://gohugo.io class=hover:text-eureka>Hugo</a></p>
 </div></div>
-  </footer>
+</footer>
 </body>
-
 </html>

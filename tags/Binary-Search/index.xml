@@ -1,44 +1,5 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>Binary Search on EnMinGW32</title>
-    <link>/tags/binary-search/</link>
-    <description>Recent content in Binary Search on EnMinGW32</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>zh-Hant</language>
-    <copyright>&amp;copy; 2021 &lt;a href=&#34;https://www.wangchucheng.com/&#34;&gt;C. Wang&lt;/a&gt; and &lt;a href=&#34;https://www.ruiqima.com/&#34;&gt;R. Ma&lt;/a&gt;
-</copyright>
-    <lastBuildDate>Tue, 26 Feb 2019 12:00:31 +0000</lastBuildDate><atom:link href="/tags/binary-search/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>UVa 11516. WiFi</title>
-      <link>/posts/uva-11516-wifi/</link>
-      <pubDate>Tue, 26 Feb 2019 12:00:31 +0000</pubDate>
-      
-      <guid>/posts/uva-11516-wifi/</guid>
-      <description>&lt;h1 id=&#34;description&#34;&gt;Description&lt;/h1&gt;
-&lt;blockquote&gt;
-&lt;p&gt;大街上的居民開會決定要在他們居住的街上安裝無線網路，讓無線網路環境涵蓋所有住戶，請你幫忙選擇無線網路基地台(AP)的地點，他們希望訊號愈強愈好，但他們購買AP的預算有限，在有限的AP數量之下，使得在「所有房子與其最近的AP之間的距離」中最大值，愈小愈好。&lt;/p&gt;
-&lt;/blockquote&gt;</description>
-    </item>
-    
-    <item>
-      <title>APCS. 2019/02/16</title>
-      <link>/posts/apcs-2019-02-16/</link>
-      <pubDate>Tue, 19 Feb 2019 11:44:23 +0000</pubDate>
-      
-      <guid>/posts/apcs-2019-02-16/</guid>
-      <description>&lt;p&gt;2019/02/19 APCS實作題詳解及範例程式&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>Template. Longest Common Subsequence</title>
-      <link>/posts/template-longest-common-subsequence/</link>
-      <pubDate>Thu, 09 Aug 2018 23:21:52 +0000</pubDate>
-      
-      <guid>/posts/template-longest-common-subsequence/</guid>
-      <description>&lt;h1 id=&#34;dynamic-programming&#34;&gt;Dynamic Programming&lt;/h1&gt;
-&lt;p&gt;&lt;em&gt;時間複雜度：$O(N^2)$&lt;/em&gt;&lt;/p&gt;</description>
-    </item>
-    
-  </channel>
-</rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Binary Search on EnMinGW32</title><link>/tags/binary-search/</link><description>Recent content in Binary Search on EnMinGW32</description><generator>Hugo -- gohugo.io</generator><language>zh-Hant</language><copyright>&amp;copy; 2021 &lt;a href="https://www.wangchucheng.com/">C. Wang&lt;/a> and &lt;a href="https://www.ruiqima.com/">R. Ma&lt;/a></copyright><lastBuildDate>Tue, 26 Feb 2019 12:00:31 +0000</lastBuildDate><atom:link href="/tags/binary-search/index.xml" rel="self" type="application/rss+xml"/><item><title>UVa 11516. WiFi</title><link>/posts/uva-11516-wifi/</link><pubDate>Tue, 26 Feb 2019 12:00:31 +0000</pubDate><guid>/posts/uva-11516-wifi/</guid><description>&lt;h1 id="description">Description&lt;/h1>
+&lt;blockquote>
+&lt;p>大街上的居民開會決定要在他們居住的街上安裝無線網路，讓無線網路環境涵蓋所有住戶，請你幫忙選擇無線網路基地台(AP)的地點，他們希望訊號愈強愈好，但他們購買AP的預算有限，在有限的AP數量之下，使得在「所有房子與其最近的AP之間的距離」中最大值，愈小愈好。&lt;/p>
+&lt;/blockquote></description></item><item><title>APCS. 2019/02/16</title><link>/posts/apcs-2019-02-16/</link><pubDate>Tue, 19 Feb 2019 11:44:23 +0000</pubDate><guid>/posts/apcs-2019-02-16/</guid><description>&lt;p>2019/02/19 APCS實作題詳解及範例程式&lt;/p></description></item><item><title>Template. Longest Common Subsequence</title><link>/posts/template-longest-common-subsequence/</link><pubDate>Thu, 09 Aug 2018 23:21:52 +0000</pubDate><guid>/posts/template-longest-common-subsequence/</guid><description>&lt;h1 id="dynamic-programming">Dynamic Programming&lt;/h1>
+&lt;p>&lt;em>時間複雜度：$O(N^2)$&lt;/em>&lt;/p></description></item></channel></rss>

@@ -1,23 +1,2 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>LCS on EnMinGW32</title>
-    <link>/tags/lcs/</link>
-    <description>Recent content in LCS on EnMinGW32</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>zh-Hant</language>
-    <copyright>&amp;copy; 2021 &lt;a href=&#34;https://www.wangchucheng.com/&#34;&gt;C. Wang&lt;/a&gt; and &lt;a href=&#34;https://www.ruiqima.com/&#34;&gt;R. Ma&lt;/a&gt;
-</copyright>
-    <lastBuildDate>Thu, 09 Aug 2018 23:21:52 +0000</lastBuildDate><atom:link href="/tags/lcs/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Template. Longest Common Subsequence</title>
-      <link>/posts/template-longest-common-subsequence/</link>
-      <pubDate>Thu, 09 Aug 2018 23:21:52 +0000</pubDate>
-      
-      <guid>/posts/template-longest-common-subsequence/</guid>
-      <description>&lt;h1 id=&#34;dynamic-programming&#34;&gt;Dynamic Programming&lt;/h1&gt;
-&lt;p&gt;&lt;em&gt;時間複雜度：$O(N^2)$&lt;/em&gt;&lt;/p&gt;</description>
-    </item>
-    
-  </channel>
-</rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>LCS on EnMinGW32</title><link>/tags/lcs/</link><description>Recent content in LCS on EnMinGW32</description><generator>Hugo -- gohugo.io</generator><language>zh-Hant</language><copyright>&amp;copy; 2021 &lt;a href="https://www.wangchucheng.com/">C. Wang&lt;/a> and &lt;a href="https://www.ruiqima.com/">R. Ma&lt;/a></copyright><lastBuildDate>Thu, 09 Aug 2018 23:21:52 +0000</lastBuildDate><atom:link href="/tags/lcs/index.xml" rel="self" type="application/rss+xml"/><item><title>Template. Longest Common Subsequence</title><link>/posts/template-longest-common-subsequence/</link><pubDate>Thu, 09 Aug 2018 23:21:52 +0000</pubDate><guid>/posts/template-longest-common-subsequence/</guid><description>&lt;h1 id="dynamic-programming">Dynamic Programming&lt;/h1>
+&lt;p>&lt;em>時間複雜度：$O(N^2)$&lt;/em>&lt;/p></description></item></channel></rss>

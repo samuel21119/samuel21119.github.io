@@ -1,24 +1,3 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>Dijkstra on EnMinGW32</title>
-    <link>/tags/dijkstra/</link>
-    <description>Recent content in Dijkstra on EnMinGW32</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>zh-Hant</language>
-    <copyright>&amp;copy; 2021 &lt;a href=&#34;https://www.wangchucheng.com/&#34;&gt;C. Wang&lt;/a&gt; and &lt;a href=&#34;https://www.ruiqima.com/&#34;&gt;R. Ma&lt;/a&gt;
-</copyright>
-    <lastBuildDate>Sun, 09 Sep 2018 10:23:31 +0000</lastBuildDate><atom:link href="/tags/dijkstra/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>UVa 10917. Walk Through the Forest</title>
-      <link>/posts/uva-10917-walk-through-the-forest/</link>
-      <pubDate>Sun, 09 Sep 2018 10:23:31 +0000</pubDate>
-      
-      <guid>/posts/uva-10917-walk-through-the-forest/</guid>
-      <description>&lt;h1 id=&#34;description&#34;&gt;Description&lt;/h1&gt;
-&lt;p&gt;Jimmy的辦公室在森林的一邊，而他的家在森林的另一邊。&lt;br&gt;
-Jimmy想要每天都走不同的路徑回家。但是他也不想要回家太晚，所以他總是選擇一條可以朝他家「前進」的路徑來走。所謂「前進」指的是他會選擇從A點走到B點如果B點存在一條到他家的路徑長度比A點到他家任一路徑的長度都來的短的話。請你算出Jimmy共有多少種不同的路徑可以走。&lt;/p&gt;</description>
-    </item>
-    
-  </channel>
-</rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Dijkstra on EnMinGW32</title><link>/tags/dijkstra/</link><description>Recent content in Dijkstra on EnMinGW32</description><generator>Hugo -- gohugo.io</generator><language>zh-Hant</language><copyright>&amp;copy; 2021 &lt;a href="https://www.wangchucheng.com/">C. Wang&lt;/a> and &lt;a href="https://www.ruiqima.com/">R. Ma&lt;/a></copyright><lastBuildDate>Sun, 09 Sep 2018 10:23:31 +0000</lastBuildDate><atom:link href="/tags/dijkstra/index.xml" rel="self" type="application/rss+xml"/><item><title>UVa 10917. Walk Through the Forest</title><link>/posts/uva-10917-walk-through-the-forest/</link><pubDate>Sun, 09 Sep 2018 10:23:31 +0000</pubDate><guid>/posts/uva-10917-walk-through-the-forest/</guid><description>&lt;h1 id="description">Description&lt;/h1>
+&lt;p>Jimmy的辦公室在森林的一邊，而他的家在森林的另一邊。&lt;br>
+Jimmy想要每天都走不同的路徑回家。但是他也不想要回家太晚，所以他總是選擇一條可以朝他家「前進」的路徑來走。所謂「前進」指的是他會選擇從A點走到B點如果B點存在一條到他家的路徑長度比A點到他家任一路徑的長度都來的短的話。請你算出Jimmy共有多少種不同的路徑可以走。&lt;/p></description></item></channel></rss>

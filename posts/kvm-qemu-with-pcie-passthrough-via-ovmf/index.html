@@ -1,261 +1,91 @@
-<!DOCTYPE html>
-<html lang='zh-Hant' ><meta charset="utf-8">
-<meta name="viewport" content="width=device-width">
-
-
-<title>KVM&#43;QEMU with PCIe Passthrough via OVMF | EnMinGW32</title>
-
-<meta name="generator" content="Hugo Eureka 0.8.4" />
-<link rel="stylesheet" href="/css/eureka.min.css">
-<script defer src="/js/eureka.min.js"></script>
-
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="preload"
-  href="https://fonts.googleapis.com/css2?family=Lora:wght@400;600;700&family=Noto+Serif+SC:wght@400;600;700&display=swap"
-  as="style" onload="this.onload=null;this.rel='stylesheet'">
-
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.0/build/styles/solarized-light.min.css"
-   media="print"
-  onload="this.media='all';this.onload=null" crossorigin>
-<script defer src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.0/build/highlight.min.js"
-   crossorigin></script>
-
-  <script defer src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.0/build/languages/dart.min.js"
-     crossorigin></script>
-
-<script defer src="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.14.0/js/all.min.js"
-   integrity="sha256-uNYoXefWRqv&#43;PsIF/OflNmwtKM4lStn9yrz2gVl6ymo="  crossorigin></script>
-
-
-
-
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css"
-   integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3&#43;Aro6EYUG4&#43;cU&#43;KJWu/X"  media="print"
-  onload="this.media='all';this.onload=null" crossorigin>
-<script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js" 
-  integrity="sha384-g7c&#43;Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI&#43;sEnkvrMWph2EDg4"  crossorigin></script>
-<script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/contrib/auto-render.min.js"
-   integrity="sha384-mll67QQFJfxn0IYznZYonOWZ644AWYC&#43;Pt2cHqMaRhXVrursRwvLnLaebdGIlYNa"  crossorigin></script>
-<script>
-  document.addEventListener("DOMContentLoaded", function () {
-    renderMathInElement(document.body, {
-      delimiters: [
-        { left: "$$", right: "$$", display: true },
-        { left: "$", right: "$", display: false },
-        { left: "\\(", right: "\\)", display: false },
-        { left: "\\[", right: "\\]", display: true }
-      ],
-    });
-  });
-</script>
-
-
-<script defer src="https://cdn.jsdelivr.net/npm/mermaid@8.9.2/dist/mermaid.min.js" 
-  integrity="sha256-Zmpaaj&#43;GXFsPF5WdPArSrnW3b30dovldeKsW00xBVwE="  crossorigin></script>
-<link rel="preconnect" href="https://www.google-analytics.com" crossorigin>
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-HXWT368KGN"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag() { dataLayer.push(arguments); }
-  gtag('js', new Date());
-  gtag('config', 'G-HXWT368KGN');
-</script>
-
-
-<link rel="icon" type="image/png" sizes="32x32" href="/images/icon_hu64421c6c7700f606f0ad45d807017b09_5843_32x32_fill_box_center_3.png">
-<link rel="apple-touch-icon" sizes="180x180" href="/images/icon_hu64421c6c7700f606f0ad45d807017b09_5843_180x180_fill_box_center_3.png">
-
-<meta name="description"
-  content="Eureka is a elegant and powerful theme for Hugo.">
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "BreadcrumbList",
-  "itemListElement": [{
-      "@type": "ListItem",
-      "position": 1 ,
-      "name":"Posts",
-      "item":"/posts/"},{
-      "@type": "ListItem",
-      "position": 2 ,
-      "name":"KVM+QEMU with PCIe Passthrough via OVMF",
-      "item":"/posts/kvm-qemu-with-pcie-passthrough-via-ovmf/"}]
-}
-</script>
-
-
-
-<script type="application/ld+json">
-{
-    "@context": "https://schema.org",
-    "@type": "Article",
-    "mainEntityOfPage": {
-        "@type": "WebPage",
-        "@id": "/posts/kvm-qemu-with-pcie-passthrough-via-ovmf/"
-    },
-    "headline": "KVM\u002bQEMU with PCIe Passthrough via OVMF | EnMinGW32","datePublished": "2020-12-06T02:29:11+00:00",
-    "dateModified": "2020-12-06T02:29:11+00:00",
-    "wordCount":  1848 ,
-    "publisher": {
-        "@type": "Person",
-        "name": "C. Wang",
-        "logo": {
-            "@type": "ImageObject",
-            "url": "/images/icon.png"
-        }
-        },
-    "description": "Eureka is a elegant and powerful theme for Hugo."
-}
-</script><meta property="og:title" content="KVM&#43;QEMU with PCIe Passthrough via OVMF | EnMinGW32" />
-<meta property="og:type" content="article" />
-
-
+<!doctype html><html lang=zh-hant><meta charset=utf-8>
+<meta name=viewport content="width=device-width">
+<title>KVM+QEMU with PCIe Passthrough via OVMF | EnMinGW32</title>
+<meta name=generator content="Hugo Eureka 0.8.4">
+<link rel=stylesheet href=/css/eureka.min.css>
+<script defer src=/js/eureka.min.js></script>
+<link rel=preconnect href=https://fonts.gstatic.com crossorigin>
+<link rel=preload href="https://fonts.googleapis.com/css2?family=Lora:wght@400;600;700&family=Noto+Serif+SC:wght@400;600;700&display=swap" as=style onload="this.onload=null,this.rel='stylesheet'">
+<link rel=stylesheet href=https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.0/build/styles/solarized-light.min.css media=print onload="this.media='all',this.onload=null" crossorigin>
+<script defer src=https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.0/build/highlight.min.js crossorigin></script>
+<script defer src=https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.0/build/languages/dart.min.js crossorigin></script>
+<script defer src=https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.14.0/js/all.min.js integrity="sha256-uNYoXefWRqv+PsIF/OflNmwtKM4lStn9yrz2gVl6ymo=" crossorigin></script>
+<link rel=stylesheet href=https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css integrity=sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X media=print onload="this.media='all',this.onload=null" crossorigin>
+<script defer src=https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js integrity=sha384-g7c+Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI+sEnkvrMWph2EDg4 crossorigin></script>
+<script defer src=https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/contrib/auto-render.min.js integrity=sha384-mll67QQFJfxn0IYznZYonOWZ644AWYC+Pt2cHqMaRhXVrursRwvLnLaebdGIlYNa crossorigin></script>
+<script>document.addEventListener("DOMContentLoaded",function(){renderMathInElement(document.body,{delimiters:[{left:"$$",right:"$$",display:!0},{left:"$",right:"$",display:!1},{left:"\\(",right:"\\)",display:!1},{left:"\\[",right:"\\]",display:!0}]})})</script>
+<script defer src=https://cdn.jsdelivr.net/npm/mermaid@8.9.2/dist/mermaid.min.js integrity="sha256-Zmpaaj+GXFsPF5WdPArSrnW3b30dovldeKsW00xBVwE=" crossorigin></script>
+<link rel=icon type=image/png sizes=32x32 href=/images/icon_hu64421c6c7700f606f0ad45d807017b09_5843_32x32_fill_box_center_3.png>
+<link rel=apple-touch-icon sizes=180x180 href=/images/icon_hu64421c6c7700f606f0ad45d807017b09_5843_180x180_fill_box_center_3.png>
+<meta name=description content="Eureka is a elegant and powerful theme for Hugo.">
+<script type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Posts","item":"/posts/"},{"@type":"ListItem","position":2,"name":"KVM+QEMU with PCIe Passthrough via OVMF","item":"/posts/kvm-qemu-with-pcie-passthrough-via-ovmf/"}]}</script>
+<script type=application/ld+json>{"@context":"https://schema.org","@type":"Article","mainEntityOfPage":{"@type":"WebPage","@id":"/posts/kvm-qemu-with-pcie-passthrough-via-ovmf/"},"headline":"KVM\u002bQEMU with PCIe Passthrough via OVMF | EnMinGW32","datePublished":"2020-12-06T02:29:11+00:00","dateModified":"2020-12-06T02:29:11+00:00","wordCount":1848,"publisher":{"@type":"Person","name":"C. Wang","logo":{"@type":"ImageObject","url":"/images/icon.png"}},"description":"Eureka is a elegant and powerful theme for Hugo."}</script><meta property="og:title" content="KVM+QEMU with PCIe Passthrough via OVMF | EnMinGW32">
+<meta property="og:type" content="article">
 <meta property="og:image" content="/images/icon.png">
-
-
-<meta property="og:url" content="/posts/kvm-qemu-with-pcie-passthrough-via-ovmf/" />
-
-
-
-
-<meta property="og:description" content="" />
-
-
-
-
-<meta property="og:locale" content="zh-Hant" />
-
-
-
-
-<meta property="og:site_name" content="EnMinGW32" />
-
-
-
-
-
-
-<meta property="article:published_time" content="2020-12-06T02:29:11&#43;00:00" />
-
-
-<meta property="article:modified_time" content="2020-12-06T02:29:11&#43;00:00" />
-
-
-
-<meta property="article:section" content="posts" />
-
-
-<meta property="article:tag" content="Linux" />
-
-<meta property="article:tag" content="KVM" />
-
-<meta property="article:tag" content="QEMU" />
-
-
-
-
-
-<meta property="og:see_also" content="/posts/convert-physical-os-to-virtual-machine/" />
-
-<meta property="og:see_also" content="/posts/arch-linux-installation-guide/" />
-
-
-
+<meta property="og:url" content="/posts/kvm-qemu-with-pcie-passthrough-via-ovmf/">
+<meta property="og:description" content>
+<meta property="og:locale" content="zh-Hant">
+<meta property="og:site_name" content="EnMinGW32">
+<meta property="article:published_time" content="2020-12-06T02:29:11+00:00">
+<meta property="article:modified_time" content="2020-12-06T02:29:11+00:00">
+<meta property="article:section" content="posts">
+<meta property="article:tag" content="Linux">
+<meta property="article:tag" content="KVM">
+<meta property="article:tag" content="QEMU">
+<meta property="og:see_also" content="/posts/convert-physical-os-to-virtual-machine/">
+<meta property="og:see_also" content="/posts/arch-linux-installation-guide/">
 <body class="flex flex-col min-h-screen">
-  <header class="fixed flex items-center w-full min-h-16 pl-scrollbar z-50 bg-secondary-bg shadow-sm">
-    <div class="w-full max-w-screen-xl mx-auto"><script>
-    let storageColorScheme = localStorage.getItem("lightDarkMode")
-    if (((storageColorScheme == 'Auto' || storageColorScheme == null) && window.matchMedia("(prefers-color-scheme: dark)").matches) || storageColorScheme == "Dark") {
-        document.getElementsByTagName('html')[0].classList.add('dark')
-    }
-</script>
+<header class="fixed flex items-center w-full min-h-16 pl-scrollbar z-50 bg-secondary-bg shadow-sm">
+<div class="w-full max-w-screen-xl mx-auto"><script>let storageColorScheme=localStorage.getItem("lightDarkMode");((storageColorScheme=='Auto'||storageColorScheme==null)&&window.matchMedia("(prefers-color-scheme: dark)").matches||storageColorScheme=="Dark")&&document.getElementsByTagName('html')[0].classList.add('dark')</script>
 <nav class="flex items-center justify-between flex-wrap px-4 py-4 md:py-0">
-    <a href="/" class="mr-6 text-primary-text text-xl font-bold">EnMinGW32</a>
-    <button id="navbar-btn" class="md:hidden flex items-center px-3 py-2" aria-label="Open Navbar">
-        <i class="fas fa-bars"></i>
-    </button>
-
-    <div id="target"
-        class="hidden block md:flex md:flex-grow md:justify-between md:items-center w-full md:w-auto text-primary-text z-20">
-        <div class="md:flex md:h-16 text-sm md:flex-grow pb-4 md:pb-0 border-b md:border-b-0">
-            <a href="/#about" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  border-transparent  mr-4">About</a>
-            <a href="/posts/" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  selected-menu-item  mr-4">Posts</a>
-        </div>
-
-        <div class="flex">
-            <div class="relative pt-4 md:pt-0">
-                <div class="cursor-pointer hover:text-eureka" id="lightDarkMode">
-                    <i class="fas fa-adjust"></i>
-                </div>
-                <div class="fixed hidden inset-0 opacity-0 h-full w-full cursor-default z-30" id="is-open">
-                </div>
-                <div class="absolute flex flex-col left-0 md:left-auto right-auto md:right-0 hidden bg-secondary-bg w-48 rounded py-2 border border-tertiary-bg cursor-pointer z-40"
-                    id='lightDarkOptions'>
-                    <span class="px-4 py-1 hover:text-eureka" name="Light">淺色</span>
-                    <span class="px-4 py-1 hover:text-eureka" name="Dark">深色</span>
-                    <span class="px-4 py-1 hover:text-eureka" name="Auto">自動</span>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="fixed hidden inset-0 opacity-0 h-full w-full cursor-default z-0" id="is-open-mobile">
-    </div>
-
+<a href=/ class="mr-6 text-primary-text text-xl font-bold">EnMinGW32</a>
+<button id=navbar-btn class="md:hidden flex items-center px-3 py-2" aria-label="Open Navbar">
+<i class="fas fa-bars"></i>
+</button>
+<div id=target class="hidden block md:flex md:flex-grow md:justify-between md:items-center w-full md:w-auto text-primary-text z-20">
+<div class="md:flex md:h-16 text-sm md:flex-grow pb-4 md:pb-0 border-b md:border-b-0">
+<a href=/#about class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2 border-transparent mr-4">About</a>
+<a href=/posts/ class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2 selected-menu-item mr-4">Posts</a>
+</div>
+<div class=flex>
+<div class="relative pt-4 md:pt-0">
+<div class="cursor-pointer hover:text-eureka" id=lightDarkMode>
+<i class="fas fa-adjust"></i>
+</div>
+<div class="fixed hidden inset-0 opacity-0 h-full w-full cursor-default z-30" id=is-open>
+</div>
+<div class="absolute flex flex-col left-0 md:left-auto right-auto md:right-0 hidden bg-secondary-bg w-48 rounded py-2 border border-tertiary-bg cursor-pointer z-40" id=lightDarkOptions>
+<span class="px-4 py-1 hover:text-eureka" name=Light>淺色</span>
+<span class="px-4 py-1 hover:text-eureka" name=Dark>深色</span>
+<span class="px-4 py-1 hover:text-eureka" name=Auto>自動</span>
+</div>
+</div>
+</div>
+</div>
+<div class="fixed hidden inset-0 opacity-0 h-full w-full cursor-default z-0" id=is-open-mobile>
+</div>
 </nav>
-<script>
-    
-    let element = document.getElementById('lightDarkMode')
-    if (storageColorScheme == null || storageColorScheme == 'Auto') {
-        document.addEventListener('DOMContentLoaded', () => {
-            window.matchMedia("(prefers-color-scheme: dark)").addEventListener('change', switchDarkMode)
-        })
-    } else if (storageColorScheme == "Light") {
-        element.firstElementChild.classList.remove('fa-adjust')
-        element.firstElementChild.setAttribute("data-icon", 'sun')
-        element.firstElementChild.classList.add('fa-sun')
-    } else if (storageColorScheme == "Dark") {
-        element.firstElementChild.classList.remove('fa-adjust')
-        element.firstElementChild.setAttribute("data-icon", 'moon')
-        element.firstElementChild.classList.add('fa-moon')
-    }
-
-    document.addEventListener('DOMContentLoaded', () => {
-        getcolorscheme();
-        switchBurger();
-    });
-</script>
+<script>let element=document.getElementById('lightDarkMode');storageColorScheme==null||storageColorScheme=='Auto'?document.addEventListener('DOMContentLoaded',()=>{window.matchMedia("(prefers-color-scheme: dark)").addEventListener('change',switchDarkMode)}):storageColorScheme=="Light"?(element.firstElementChild.classList.remove('fa-adjust'),element.firstElementChild.setAttribute("data-icon",'sun'),element.firstElementChild.classList.add('fa-sun')):storageColorScheme=="Dark"&&(element.firstElementChild.classList.remove('fa-adjust'),element.firstElementChild.setAttribute("data-icon",'moon'),element.firstElementChild.classList.add('fa-moon')),document.addEventListener('DOMContentLoaded',()=>{getcolorscheme(),switchBurger()})</script>
 </div>
-  </header>
-  <main class="flex-grow pt-16">
-    <div class="pl-scrollbar">
-      <div class="w-full max-w-screen-xl lg:px-4 xl:px-8 mx-auto">
-
-
+</header>
+<main class="flex-grow pt-16">
+<div class=pl-scrollbar>
+<div class="w-full max-w-screen-xl lg:px-4 xl:px-8 mx-auto">
 <div class="grid grid-cols-2 lg:grid-cols-8 gap-4 lg:pt-12">
-    <div
-        class="col-span-2 lg:col-start-2 lg:col-span-6 bg-secondary-bg rounded px-6 py-8">
-        <h1 class="font-bold text-3xl text-primary-text">KVM&#43;QEMU with PCIe Passthrough via OVMF</h1>
-        <div class="flex flex-wrap flex-row items-center mt-2 text-tertiary-text">
-    <div class="mr-6 my-2">
-        <i class="fas fa-calendar mr-1"></i>
-        <span>2020-12-06</span>
-    </div>
-    <div class="mr-6 my-2">
-        <i class="fas fa-clock mr-1"></i>
-        <span>4分鐘閱讀</span>
-    </div>
-    
-    
-
-    
+<div class="col-span-2 lg:col-start-2 lg:col-span-6 bg-secondary-bg rounded px-6 py-8">
+<h1 class="font-bold text-3xl text-primary-text">KVM+QEMU with PCIe Passthrough via OVMF</h1>
+<div class="flex flex-wrap flex-row items-center mt-2 text-tertiary-text">
+<div class="mr-6 my-2">
+<i class="fas fa-calendar mr-1"></i>
+<span>2020-12-06</span>
 </div>
-        
-        
-        
-
-        <div class="content">
-            <h2 id="specs">Specs</h2>
+<div class="mr-6 my-2">
+<i class="fas fa-clock mr-1"></i>
+<span>4分鐘閱讀</span>
+</div>
+</div>
+<div class=content>
+<h2 id=specs>Specs</h2>
 <p>首先先附上我桌機的規格：</p>
 <ul>
 <li>CPU: Intel i9-10900</li>
@@ -278,8 +108,8 @@
 </ul>
 </li>
 </ul>
-<h2 id="current-setup">Current Setup</h2>
-<p>以下是原本的電腦配置，在一般電腦上跑黑蘋果的方法這裡不會解釋。基本上黑蘋果本身可以驅動所有的東西，例如Wi-Fi,Bluetooth,AirDrop,Sidecar&hellip;。</p>
+<h2 id=current-setup>Current Setup</h2>
+<p>以下是原本的電腦配置，在一般電腦上跑黑蘋果的方法這裡不會解釋。基本上黑蘋果本身可以驅動所有的東西，例如Wi-Fi,Bluetooth,AirDrop,Sidecar&mldr;。</p>
 <ul>
 <li>1TB NVMe PCIe SSD (Pioneer APS-SE20G 1TB)
 <ul>
@@ -298,115 +128,76 @@
 </ul>
 </li>
 </ul>
-<h2 id="目標">目標</h2>
+<h2 id=目標>目標</h2>
 <p>因為有了雙顯卡，我希望可以在Linux下利用KVM技術用接近原生的效能模擬兩個系統，並透過GPU passthrough來達成不錯的顯示效能。</p>
-<h2 id="屏蔽gpu">屏蔽GPU</h2>
-<p><a href="https://wiki.archlinux.org/index.php/PCI_passthrough_via_OVMF#Isolating_the_GPU">參考教學</a><br>
+<h2 id=屏蔽gpu>屏蔽GPU</h2>
+<p><a href=https://wiki.archlinux.org/index.php/PCI_passthrough_via_OVMF#Isolating_the_GPU>參考教學</a><br>
 這裡問題最多，最重要的就是每個IOMMU group是導入PCIe裝置的最小單位。在Intel Core系列上，直通CPU的16條PCIe並沒有ACS(Access Control Services)，所以在我的配置下兩顆GPU都屬於同個IOMMU group。理論上這樣是沒辦法分別導向到不同VM的(PCH上通常都會有ACS，所以經過主機板的PCIe裝置應該是可以正常區分成不同group的)。</p>
-<p>不過還是有一個辦法「有可能」可以解決，叫做ACS Patch，能夠把同個group不同裝置切開成不同IOMMU group。這個東西不是萬能的，它只是欺騙Linux kernel IOMMU group的樣子，在物理(電)層面上，原本同個group的裝置還是有辦法看到對方。使用這種patch會出問題的情況通常是兩顆GPU都是同樣的，所以在driver載入的時候它會想辦法去init看到的那兩顆GPU，產生不可預期的錯誤。不過在我的情況上，GPU分別為NVIDIA和AMD，會出問題的機率不大，我才使這個patch。切記在使用這個patch前，務必要先暸解<a href="https://vfio.blogspot.com/2014/08/iommu-groups-inside-and-out.html">潛在的風險</a>。 <br>
-在Arch Linux下安裝ACS patch的方式很簡單。安裝<a href="https://aur.archlinux.org/packages/linux-vfio/">linux-vfio(AUR)</a>，使用linux-vfio客製kernel開機並在boot-args加上<code>pcie_acs_override=downstream</code>。這個patch會重新編譯linux kernel，所以記得在執行安裝前設定<code>make -jX</code>的FLAG，縮短編譯時間。</p>
-<h2 id="macos-vm">macOS VM</h2>
-<p>基本上照著<a href="https://github.com/kholia/OSX-KVM">kholia/OSX-KVM</a>的操作就可以成功了，然後再把實體硬碟導入到VM裡面(使用virtio)就好。</p>
+<p>不過還是有一個辦法「有可能」可以解決，叫做ACS Patch，能夠把同個group不同裝置切開成不同IOMMU group。這個東西不是萬能的，它只是欺騙Linux kernel IOMMU group的樣子，在物理(電)層面上，原本同個group的裝置還是有辦法看到對方。使用這種patch會出問題的情況通常是兩顆GPU都是同樣的，所以在driver載入的時候它會想辦法去init看到的那兩顆GPU，產生不可預期的錯誤。不過在我的情況上，GPU分別為NVIDIA和AMD，會出問題的機率不大，我才使這個patch。切記在使用這個patch前，務必要先暸解<a href=https://vfio.blogspot.com/2014/08/iommu-groups-inside-and-out.html>潛在的風險</a>。 <br>
+在Arch Linux下安裝ACS patch的方式很簡單。安裝<a href=https://aur.archlinux.org/packages/linux-vfio/>linux-vfio(AUR)</a>，使用linux-vfio客製kernel開機並在boot-args加上<code>pcie_acs_override=downstream</code>。這個patch會重新編譯linux kernel，所以記得在執行安裝前設定<code>make -jX</code>的FLAG，縮短編譯時間。</p>
+<h2 id=macos-vm>macOS VM</h2>
+<p>基本上照著<a href=https://github.com/kholia/OSX-KVM>kholia/OSX-KVM</a>的操作就可以成功了，然後再把實體硬碟導入到VM裡面(使用virtio)就好。</p>
 <p>如果在導入磁碟時出現</p>
 <pre><code>Error starting domain: Unable to get devmapper targets for /dev/sdX
 </code></pre>
 <p>請記得downgrade libvirt 版本到 6.5.0-1。</p>
-<p>另外我還將Bluetooth導入到VM裡面(USB介面)，成功驅動，但是Wi-Fi部分就有問題，目前還沒有解決方法。有線網卡的型號請記得設定成e1000e，要不然VM的上傳速度會慢到受不了。為了更有效地使用CPU資源，可以考慮<a href="https://wiki.archlinux.org/index.php/PCI_passthrough_via_OVMF#CPU_pinning">CPU Pinning</a></p>
-<h2 id="windows-vm">Windows VM</h2>
+<p>另外我還將Bluetooth導入到VM裡面(USB介面)，成功驅動，但是Wi-Fi部分就有問題，目前還沒有解決方法。有線網卡的型號請記得設定成e1000e，要不然VM的上傳速度會慢到受不了。為了更有效地使用CPU資源，可以考慮<a href=https://wiki.archlinux.org/index.php/PCI_passthrough_via_OVMF#CPU_pinning>CPU Pinning</a></p>
+<h2 id=windows-vm>Windows VM</h2>
 <p>理論上Windows會比較簡單，可是我在這裡反而遇到了很多問題。</p>
 <p>以下是簡單的解決方法</p>
 <ol>
 <li>虛擬網卡Device model使用virtio (改善網路效能)
-<img src="windows_network.png" alt=""></li>
+<img src=windows_network.png alt></li>
 <li>硬碟Bus使用VirtIO (增加硬碟讀取速度，同樣也可套用在上面的macOS)
-<img src="disk.png" alt=""></li>
-<li>安裝virtio drivers: <a href="https://fedorapeople.org/groups/virt/virtio-win/direct-downloads/">fedora virtio-win.iso</a></li>
-<li>NVIDIA 驅動程式安裝後GPU沒有訊號。這個其實就是Code 43，NVIDIA driver偵測到使用者的GPU不是Tesla,Quadro等特殊產品線，而且又在VM裡面的時候，就會把RTX/GTX的GPU給屏蔽。解決方法就是騙它這台VM不是VM。<a href="https://passthroughpo.st/apply-error-43-workaround/">Solution</a></li>
-<li>聲音傳遞方式使用<a href="https://github.com/duncanthrax/scream">duncanthrax/scream</a>，配合host上的pluseaudio。</li>
+<img src=disk.png alt></li>
+<li>安裝virtio drivers: <a href=https://fedorapeople.org/groups/virt/virtio-win/direct-downloads/>fedora virtio-win.iso</a></li>
+<li>NVIDIA 驅動程式安裝後GPU沒有訊號。這個其實就是Code 43，NVIDIA driver偵測到使用者的GPU不是Tesla,Quadro等特殊產品線，而且又在VM裡面的時候，就會把RTX/GTX的GPU給屏蔽。解決方法就是騙它這台VM不是VM。<a href=https://passthroughpo.st/apply-error-43-workaround/>Solution</a></li>
+<li>聲音傳遞方式使用<a href=https://github.com/duncanthrax/scream>duncanthrax/scream</a>，配合host上的pluseaudio。</li>
 <li>導入整顆NVMe SSD進去(類似上面屏蔽GPU的方法，需要把SSD的PCIe ID擋住避免host使用)。</li>
 </ol>
-<h2 id="evdev">Evdev</h2>
-<p>如果沒有多重滑鼠/鍵盤的話，可以考慮使用Evdev來傳遞訊號。<a href="https://wiki.archlinux.org/index.php/PCI_passthrough_via_OVMF#Passing_keyboard/mouse_via_Evdev">ArchLinux Wiki</a>上面都有寫詳細的教學。不過這有一個問題就是它不支援滑鼠熱插拔，如果VM使用到一半，鍵盤拔掉後又重新接回來，Evdev會沒辦法運作，需要將VM重新開機才生效。不過這裡有一個解決方法，使用額外的script去處理這種問題：<a href="https://github.com/aiberia/persistent-evdev">aiberia/persistent-evdev</a>。</p>
-<h2 id="效能測試">效能測試</h2>
-<h3 id="windows">Windows</h3>
+<h2 id=evdev>Evdev</h2>
+<p>如果沒有多重滑鼠/鍵盤的話，可以考慮使用Evdev來傳遞訊號。<a href=https://wiki.archlinux.org/index.php/PCI_passthrough_via_OVMF#Passing_keyboard/mouse_via_Evdev>ArchLinux Wiki</a>上面都有寫詳細的教學。不過這有一個問題就是它不支援滑鼠熱插拔，如果VM使用到一半，鍵盤拔掉後又重新接回來，Evdev會沒辦法運作，需要將VM重新開機才生效。不過這裡有一個解決方法，使用額外的script去處理這種問題：<a href=https://github.com/aiberia/persistent-evdev>aiberia/persistent-evdev</a>。</p>
+<h2 id=效能測試>效能測試</h2>
+<h3 id=windows>Windows</h3>
 <p>在Windows下跑3D Mark的RTX 3070分數與原生系統下的分數差距不到1%。使用GeekBench 5測試CPU的多核效能為1000*p，p為VM CPU數量，單核大概為900~1000。在遊玩遊戲上基本上沒有什麼問題。</p>
-<h3 id="macos">macOS</h3>
+<h3 id=macos>macOS</h3>
 <p>這篇文就是在這裡產生出來的。我在macOS不會用到太多的顯示效能，導入GPU只是為了不要使用QEMU模擬的GPU，因為它的效能差到極致。目前在使用上也沒碰到什麼太大的問題。</p>
-        </div>
-        
-        <div class="my-4">
-    
-    <a href="/tags/linux/" class="inline-block bg-tertiary-bg text-sm rounded px-3 py-1 my-1 mr-2 hover:text-eureka">#Linux</a>
-    
-    <a href="/tags/kvm/" class="inline-block bg-tertiary-bg text-sm rounded px-3 py-1 my-1 mr-2 hover:text-eureka">#KVM</a>
-    
-    <a href="/tags/qemu/" class="inline-block bg-tertiary-bg text-sm rounded px-3 py-1 my-1 mr-2 hover:text-eureka">#QEMU</a>
-    
 </div>
-        
-        
-        
-
-
-        
-        
-        
-        
+<div class=my-4>
+<a href=/tags/linux/ class="inline-block bg-tertiary-bg text-sm rounded px-3 py-1 my-1 mr-2 hover:text-eureka">#Linux</a>
+<a href=/tags/kvm/ class="inline-block bg-tertiary-bg text-sm rounded px-3 py-1 my-1 mr-2 hover:text-eureka">#KVM</a>
+<a href=/tags/qemu/ class="inline-block bg-tertiary-bg text-sm rounded px-3 py-1 my-1 mr-2 hover:text-eureka">#QEMU</a>
+</div>
 <div class="flex flex-col md:flex-row md:justify-between -mx-2 mt-4 px-2 pt-4 border-t">
-    <div>
-        
-        <span class="block font-bold">上一頁</span>
-        <a href="/posts/2021-sitcon-%E6%BC%94%E8%AC%9B/" class="block">2021 SITCON 演講</a>
-        
-    </div>
-    <div class="md:text-right mt-4 md:mt-0">
-        
-        <span class="block font-bold">下一頁</span>
-        <a href="/posts/zerojudge-c523/" class="block">Zerojudge. c523 狗狗攻擊</a>
-        
-    </div>
+<div>
+<span class="block font-bold">上一頁</span>
+<a href=/posts/2021-sitcon-%E6%BC%94%E8%AC%9B/ class=block>2021 SITCON 演講</a>
 </div>
-
-        
-
-
-
-    </div>
-    
-
-    
-    
-    <div
-        class="col-span-2 lg:col-start-2 lg:col-span-6 bg-secondary-bg rounded p-6">
-        <h2 class="text-lg font-semibold mb-4">相關</h2>
-        <div class="content">
-            
-            <a href="/posts/convert-physical-os-to-virtual-machine/">Convert Physical OS to Virtual Machine</a>
-            <br />
-            
-            <a href="/posts/arch-linux-installation-guide/">Arch Linux Installation Guide</a>
-            <br />
-            
-        </div>
-    </div>
-    
+<div class="md:text-right mt-4 md:mt-0">
+<span class="block font-bold">下一頁</span>
+<a href=/posts/zerojudge-c523/ class=block>Zerojudge. c523 狗狗攻擊</a>
 </div>
-<script>
-    document.addEventListener('DOMContentLoaded', ()=>{
-        hljs.initHighlightingOnLoad();
-    })
-</script>
-
-      </div>
-    </div>
-    
-  </main>
-  <footer class="pl-scrollbar">
-    <div class="w-full max-w-screen-xl mx-auto"><div class="text-center p-6 pin-b">
-    <p class="text-sm text-tertiary-text">&copy; 2021 <a href="https://www.wangchucheng.com/">C. Wang</a> and <a href="https://www.ruiqima.com/">R. Ma</a>
- &middot;  Powered by the <a href="https://github.com/wangchucheng/hugo-eureka" class="hover:text-eureka">Eureka</a> theme for <a href="https://gohugo.io" class="hover:text-eureka">Hugo</a></p>
+</div>
+</div>
+<div class="col-span-2 lg:col-start-2 lg:col-span-6 bg-secondary-bg rounded p-6">
+<h2 class="text-lg font-semibold mb-4">相關</h2>
+<div class=content>
+<a href=/posts/convert-physical-os-to-virtual-machine/>Convert Physical OS to Virtual Machine</a>
+<br>
+<a href=/posts/arch-linux-installation-guide/>Arch Linux Installation Guide</a>
+<br>
+</div>
+</div>
+</div>
+<script>document.addEventListener('DOMContentLoaded',()=>{hljs.initHighlightingOnLoad()})</script>
+</div>
+</div>
+</main>
+<footer class=pl-scrollbar>
+<div class="w-full max-w-screen-xl mx-auto"><div class="text-center p-6 pin-b">
+<p class="text-sm text-tertiary-text">&copy; 2021 <a href=https://www.wangchucheng.com/>C. Wang</a> and <a href=https://www.ruiqima.com/>R. Ma</a>
+&#183; Powered by the <a href=https://github.com/wangchucheng/hugo-eureka class=hover:text-eureka>Eureka</a> theme for <a href=https://gohugo.io class=hover:text-eureka>Hugo</a></p>
 </div></div>
-  </footer>
+</footer>
 </body>
-
 </html>
