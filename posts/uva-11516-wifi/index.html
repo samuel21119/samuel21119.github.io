@@ -22,7 +22,7 @@
 大街上的居民開會決定要在他們居住的街上安裝無線網路，讓無線網路環境涵蓋所有住戶，請你幫忙選擇無線網路基地台(AP)的地點，他們希望訊號愈強愈好，但他們購買AP的預算有限，在有限的AP數量之下，使得在「所有房子與其最近的AP之間的距離」中最大值，愈小愈好。
 ">
 <script type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Posts","item":"/posts/"},{"@type":"ListItem","position":2,"name":"UVa 11516. WiFi","item":"/posts/uva-11516-wifi/"}]}</script>
-<script type=application/ld+json>{"@context":"https://schema.org","@type":"Article","mainEntityOfPage":{"@type":"WebPage","@id":"/posts/uva-11516-wifi/"},"headline":"UVa 11516. WiFi | EnMinGW32","datePublished":"2019-02-26T12:00:31+00:00","dateModified":"2019-02-26T12:00:31+00:00","wordCount":1325,"publisher":{"@type":"Person","name":"C. Wang","logo":{"@type":"ImageObject","url":"/images/icon.png"}},"description":"\u003ch1 id=\u0022description\u0022\u003eDescription\u003c\/h1\u003e\n\u003cblockquote\u003e\n\u003cp\u003e大街上的居民開會決定要在他們居住的街上安裝無線網路，讓無線網路環境涵蓋所有住戶，請你幫忙選擇無線網路基地台(AP)的地點，他們希望訊號愈強愈好，但他們購買AP的預算有限，在有限的AP數量之下，使得在「所有房子與其最近的AP之間的距離」中最大值，愈小愈好。\u003c\/p\u003e\n\u003c\/blockquote\u003e"}</script><meta property="og:title" content="UVa 11516. WiFi | EnMinGW32">
+<script type=application/ld+json>{"@context":"https://schema.org","@type":"Article","mainEntityOfPage":{"@type":"WebPage","@id":"/posts/uva-11516-wifi/"},"headline":"UVa 11516. WiFi | EnMinGW32","datePublished":"2019-02-26T12:00:31+00:00","dateModified":"2019-02-26T12:00:31+00:00","wordCount":1310,"publisher":{"@type":"Person","name":"C. Wang","logo":{"@type":"ImageObject","url":"/images/icon.png"}},"description":"\u003ch1 id=\u0022description\u0022\u003eDescription\u003c\/h1\u003e\n\u003cblockquote\u003e\n\u003cp\u003e大街上的居民開會決定要在他們居住的街上安裝無線網路，讓無線網路環境涵蓋所有住戶，請你幫忙選擇無線網路基地台(AP)的地點，他們希望訊號愈強愈好，但他們購買AP的預算有限，在有限的AP數量之下，使得在「所有房子與其最近的AP之間的距離」中最大值，愈小愈好。\u003c\/p\u003e\n\u003c\/blockquote\u003e"}</script><meta property="og:title" content="UVa 11516. WiFi | EnMinGW32">
 <meta property="og:type" content="article">
 <meta property="og:image" content="/images/icon.png">
 <meta property="og:url" content="/posts/uva-11516-wifi/">
@@ -130,16 +130,15 @@
 <p><em>時間複雜度：$O(n)$</em></p>
 <h2 id=要如何決定所有住戶到最近基地台的最大遠距>要如何決定所有住戶到最近基地台的最大遠距?</h2>
 <p>題目會給住戶的門牌號碼，所以在最差的情況下答案就是$(最大門牌號碼-最小門牌號碼)/2$，而最佳的擺法則是$0$。<br>
-所以可以從$0\text{~}(最大門牌號碼-最小門牌號碼)/2$一路搜索下去。可是這樣的會時間複雜度會變成$O(n*檢查的複雜度) = O(n^2)$，很明顯地會TLE，所以需要一個比較好的方法。</p>
-<p>假設最大距離為$t$成立，則可以用反證法證明$t+1$時仍成立，接著用數學歸納法可得$t\text{~}(最大門牌號碼-最小門牌號碼)/2$接成立。
+所以可以從$0\sim$ (最大門牌號碼-最小門牌號碼)/2一路搜索下去。可是這樣的會時間複雜度會變成$O(n*檢查的複雜度) = O(n^2)$，很明顯地會TLE，所以需要一個比較好的方法。</p>
+<p>假設最大距離為$t$成立，則可以用反證法證明$t+1$時仍成立，接著用數學歸納法可得$t\sim (最大門牌號碼-最小門牌號碼)/2$接成立。
 若$t$不成立，則也可以用上述的想法推得$t-1$時也是不成立。<br>
-所以t從小到大，一定是類似這樣排列：
-{% codeblock line_number:false %}
-X: 不成立
+所以t從小到大，一定是類似這樣排列：</p>
+<pre><code>X: 不成立
 O: 成立
-X X X &mldr; X O O O &mldr; O
-{% endcodeblock %}
-如果有這樣類似的特點，我們可以利用「單調性」來做二分搜。下界跟上界分別為$0$和$(最大門牌號碼-最小門牌號碼)/2$，每次去找中間點並用$O(n)$的方法來檢查是否成立。若不成立，則令 下界=mid+1，否則令上界=mid。</p>
+X X X ... X O O O ... O
+</code></pre>
+<p>如果有這樣類似的特點，我們可以利用「單調性」來做二分搜。下界跟上界分別為$0$和$(最大門牌號碼-最小門牌號碼)/2$，每次去找中間點並用$O(n)$的方法來檢查是否成立。若不成立，則令 下界=mid+1，否則令上界=mid。</p>
 <p><em>時間複雜度：$O(nlogn)$</em></p>
 <h1 id=code>Code</h1>
 <pre><code class=language-cpp>/*************************************************************************

@@ -22,7 +22,7 @@
 一個城市有n+1個橫向路和m+1個縱向路，一個國王從最北邊的進入，然後沿某種路線從最南邊出去，每小段橫向路都有一個高興值，但國王不會在某條橫向路待超過k分鐘，問國王可以得到的最大的高興值是多少？
 ">
 <script type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Posts","item":"/posts/"},{"@type":"ListItem","position":2,"name":"UVa 1427. Parade","item":"/posts/uva-1427-parade/"}]}</script>
-<script type=application/ld+json>{"@context":"https://schema.org","@type":"Article","mainEntityOfPage":{"@type":"WebPage","@id":"/posts/uva-1427-parade/"},"headline":"UVa 1427. Parade | EnMinGW32","datePublished":"2018-12-11T19:12:08+00:00","dateModified":"2018-12-11T19:12:08+00:00","wordCount":970,"publisher":{"@type":"Person","name":"C. Wang","logo":{"@type":"ImageObject","url":"/images/icon.png"}},"description":"\u003ch1 id=\u0022description\u0022\u003eDescription\u003c\/h1\u003e\n\u003cblockquote\u003e\n\u003cp\u003e一個城市有n\u002b1個橫向路和m\u002b1個縱向路，一個國王從最北邊的進入，然後沿某種路線從最南邊出去，每小段橫向路都有一個高興值，但國王不會在某條橫向路待超過k分鐘，問國王可以得到的最大的高興值是多少？\u003c\/p\u003e\n\u003c\/blockquote\u003e"}</script><meta property="og:title" content="UVa 1427. Parade | EnMinGW32">
+<script type=application/ld+json>{"@context":"https://schema.org","@type":"Article","mainEntityOfPage":{"@type":"WebPage","@id":"/posts/uva-1427-parade/"},"headline":"UVa 1427. Parade | EnMinGW32","datePublished":"2018-12-11T19:12:08+00:00","dateModified":"2018-12-11T19:12:08+00:00","wordCount":964,"publisher":{"@type":"Person","name":"C. Wang","logo":{"@type":"ImageObject","url":"/images/icon.png"}},"description":"\u003ch1 id=\u0022description\u0022\u003eDescription\u003c\/h1\u003e\n\u003cblockquote\u003e\n\u003cp\u003e一個城市有n\u002b1個橫向路和m\u002b1個縱向路，一個國王從最北邊的進入，然後沿某種路線從最南邊出去，每小段橫向路都有一個高興值，但國王不會在某條橫向路待超過k分鐘，問國王可以得到的最大的高興值是多少？\u003c\/p\u003e\n\u003c\/blockquote\u003e"}</script><meta property="og:title" content="UVa 1427. Parade | EnMinGW32">
 <meta property="og:type" content="article">
 <meta property="og:image" content="/images/icon.png">
 <meta property="og:url" content="/posts/uva-1427-parade/">
@@ -130,12 +130,12 @@ UVa - <a href=https://uva.onlinejudge.org/external/14/1427.pdf>1427</a></p>
 <p>這題很明顯的是DP。但是如果用一般的DP寫，時間複雜度是$O(nm^2)$，會導致TLE，所以需要用優化將其複雜度壓下一個維度。<br>
 由於這是我第一次寫有關單調隊列的題解，所以在推導過程中可能不會寫得很好。</p>
 <p>令$dp[i][j]$為第i行時j點的最大幸福度。則可以轉移式可以寫成如下：<br>
-$dp[i][j] = max(dp[i][j], dp[i-1][k]+\text{happy_sum}[k\text{~}j]) 且 \text{length_sum}[k\text{~}j] \le K$<br>
+$dp[i][j] = max(dp[i][j], dp[i-1][k]+\text{happy-sum}[k\sim j]), \ \text{length-sum}[k\sim j] \le K$<br>
 為了方便計算，令<br>
-$happy[i]=從0\text{~}i的高興值總和$<br>
-$len[i]=從0\text{~}i道路長度總和$<br>
+$happy[i]=從0\sim i的高興值總和$<br>
+$len[i]=從0\sim i道路長度總和$<br>
 則可以寫成：<br>
-$dp[i][j] = max(dp[i][j],\text{ }dp[i-1][k] + happy[j] - happy[k]) 且 len[j] - len[k] \le K$<br>
+$dp[i][j] = max(dp[i][j],\ dp[i-1][k] + happy[j] - happy[k]), \ len[j] - len[k] \le K$<br>
 移項得：<br>
 $(dp[i - 1][k] - happy[k]) + happy[j]$<br>
 很明顯可以看出可以利用deque，維護$(dp[i - 1][k] - happy[k])$的遞減佇列，並在當最前項$len[j] - len[k] > K$時pop掉，以確保最前項在滿足條件下為最大值。</p>

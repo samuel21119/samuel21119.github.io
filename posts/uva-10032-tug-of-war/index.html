@@ -122,10 +122,10 @@ N個人參加拔河比賽，每個人有其重量w[i]，欲使二隊的人數最
 <p>UVa - <a href=https://uva.onlinejudge.org/external/100/10032.pdf>10032</a><br>
 翻譯來源：<a href=http://luckycat.kshs.kh.edu.tw/homework/q10032.htm>Luckycat</a></p>
 <h1 id=solution>Solution</h1>
-<p>這題可以用一般的DP解，令<code>bool dp[i][k]</code>代表 <strong>是否可以在選擇$k$人時，其重量總和為$i$</strong> ，如果是這樣解的話，時間複雜度會到$O(n^2 \times \text{sum_of_weight})$，所以以最大測資來看需要計算$100^2 \times 17500 = 1.75 \times 10^8$次，很明顯地會TLE，所以這時候就要用位元運算來簡化。<br>
+<p>這題可以用一般的DP解，令<code>bool dp[i][k]</code>代表 <strong>是否可以在選擇$k$人時，其重量總和為$i$</strong> ，如果是這樣解的話，時間複雜度會到$O(n^2 \times \text{sum-of-weight})$，所以以最大測資來看需要計算$100^2 \times 17500 = 1.75 \times 10^8$次，很明顯地會TLE，所以這時候就要用位元運算來簡化。<br>
 首先我們令<code>long long int dp[i]</code>代表 <strong>當重量為$i$時，有哪些人數可以達成</strong> 。<br>
 假設<code>dp[5] = 0b001010;</code> (<code>0b</code>是使用二進位的表示方法)，代表可以選擇1和3人使其重量和為5。詳細解法請看Code。<br>
-<em>時間複雜度$O(n^2 + \text{sum_of_weight})$</em></p>
+<em>時間複雜度$O(n^2 + \text{sum-of-weight})$</em></p>
 <h1 id=code>Code</h1>
 <pre><code class=language-cpp>/*************************************************************************
   &gt; File Name: 10032 - Tug of War.cpp
