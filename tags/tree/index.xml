@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Tree on EnMinGW32</title><link>/tags/tree/</link><description>Recent content in Tree on EnMinGW32</description><generator>Hugo -- gohugo.io</generator><language>zh-Hant</language><copyright>&amp;copy; 2021 &lt;a href="https://www.wangchucheng.com/">C. Wang&lt;/a> and &lt;a href="https://www.ruiqima.com/">R. Ma&lt;/a></copyright><lastBuildDate>Sat, 22 Sep 2018 12:24:55 +0000</lastBuildDate><atom:link href="/tags/tree/index.xml" rel="self" type="application/rss+xml"/><item><title>UVa 10600. ACM contest and Blackout</title><link>/posts/uva-10600-acm-contest-and-blackout/</link><pubDate>Sat, 22 Sep 2018 12:24:55 +0000</pubDate><guid>/posts/uva-10600-acm-contest-and-blackout/</guid><description>&lt;h1 id="description">Description&lt;/h1>
+&lt;blockquote>
+&lt;p>給定一張無向圖，請輸出最小生成樹和次小生成樹的大小。&lt;/p>
+&lt;/blockquote></description></item><item><title>UVa 12538. Version Controlled IDE</title><link>/posts/uva-12538-version-controlled-ide/</link><pubDate>Sun, 26 Aug 2018 21:59:15 +0000</pubDate><guid>/posts/uva-12538-version-controlled-ide/</guid><description>&lt;h1 id="description">Description&lt;/h1>
+&lt;blockquote>
+&lt;p>題目有三種操作：&lt;br>
+1 p s: 在當前字串位置p後插入s字串。&lt;br>
+2 p c: 將當前字串位置p後面連續c個字符移除。&lt;br>
+3 v p c: 在版本號v的字串中，在位置p之後印出c個字元。&lt;/p>
+&lt;/blockquote>
+&lt;blockquote>
+&lt;p>由於怕離線處理，因此輸入的數值會進行加密：&lt;br>
+每個數字會增加數值d，其d為當前打印字符&lt;code>c&lt;/code>的個數。&lt;/p>
+&lt;/blockquote></description></item><item><title>Template. Persistent Segment Tree</title><link>/posts/template-persistent-segment-tree/</link><pubDate>Mon, 20 Aug 2018 23:10:48 +0000</pubDate><guid>/posts/template-persistent-segment-tree/</guid><description>&lt;p>可持久化線段樹適用於查詢不同版本的線段樹，其運作方式非常簡單，就是將要更改的點先複製一遍，未更改的點則不動。而且每新增一個節點，就建立一個新的root，所以我們就可以透過不同的root來讀取不同版本的值。&lt;/p></description></item><item><title>UVa 1479. Graph and Queries</title><link>/posts/uva-1479-graph-and-queries/</link><pubDate>Sat, 18 Aug 2018 00:39:05 +0000</pubDate><guid>/posts/uva-1479-graph-and-queries/</guid><description>&lt;h1 id="description">Description&lt;/h1>
+&lt;blockquote>
+&lt;p>給定一張無向圖，有三種操作：&lt;/p>
+&lt;/blockquote>
+&lt;ol>
+&lt;li>D x ：刪除第x條邊&lt;/li>
+&lt;li>Q x y ：查詢x所在集合裡面第y大的數字，若查詢失敗，則此次查詢的結果為0&lt;/li>
+&lt;li>C x y ：將第x點的值改成y&lt;/li>
+&lt;/ol>
+&lt;blockquote>
+&lt;p>最後輸出所有查詢的平均值。&lt;/p>
+&lt;/blockquote></description></item><item><title>Template. Heavy-light Decomposition</title><link>/posts/template-heavy-light-decomposition/</link><pubDate>Wed, 15 Aug 2018 10:54:44 +0000</pubDate><guid>/posts/template-heavy-light-decomposition/</guid><description>&lt;p>第一次DFS，&lt;code>son()&lt;/code>：先紀錄所有點的子節點（含）數目、深度等資訊。&lt;br>
+第二次DFS，&lt;code>build()&lt;/code>：依據上次DFS的結果，優先選擇子節點最多的點構成重鏈。&lt;/p></description></item><item><title>Template. LCA Doubling Search</title><link>/posts/template-lca-doubling-search/</link><pubDate>Wed, 15 Aug 2018 06:38:44 +0000</pubDate><guid>/posts/template-lca-doubling-search/</guid><description>&lt;p>使用倍增法的做法來計算LCA。&lt;br>
+先製作dp表，$dp[i][j]$代表$i$的第$2^j$祖先是誰，若不存在則為-1。&lt;br>
+在查詢時，先將點$a$和$b$調整到相同高度，再一起慢慢往上移動尋找LCA。&lt;br>
+&lt;em>時間複雜度：$O(N log N)$&lt;/em>&lt;/p></description></item><item><title>Template. Treap</title><link>/posts/template-treap/</link><pubDate>Tue, 14 Aug 2018 00:13:12 +0000</pubDate><guid>/posts/template-treap/</guid><description>&lt;p>Treap = Heap + Tree。&lt;/p>
+&lt;h1 id="usage">Usage&lt;/h1>
+&lt;ul>
+&lt;li>宣告：&lt;br>
+&lt;code>treap&amp;lt;型別&amp;gt; a, b;&lt;/code>&lt;/li>
+&lt;li>插入：&lt;br>
+&lt;code>a.insert(100);&lt;/code>&lt;/li>
+&lt;li>刪除：&lt;br>
+&lt;code>a.erase(100);&lt;/code>&lt;/li>
+&lt;li>查詢第k大（回傳node指標，取&lt;code>-&amp;gt;key&lt;/code>即可得到該數字）：&lt;br>
+&lt;code>a.kth(1);&lt;/code>&lt;/li>
+&lt;li>查詢某數為第幾大（0為第一個）：&lt;br>
+&lt;code>a.rank(100);&lt;/code>&lt;/li>
+&lt;/ul></description></item></channel></rss>

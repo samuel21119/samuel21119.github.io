@@ -1,0 +1,188 @@
+<!doctype html><html lang=zh-hant><meta charset=utf-8>
+<meta name=viewport content="width=device-width">
+<title>DFS | EnMinGW32</title>
+<meta name=generator content="Hugo Eureka 0.8.4">
+<link rel=stylesheet href=/css/eureka.min.css>
+<script defer src=/js/eureka.min.js></script>
+<link rel=preconnect href=https://fonts.gstatic.com crossorigin>
+<link rel=preload href="https://fonts.googleapis.com/css2?family=Lora:wght@400;600;700&family=Noto+Serif+SC:wght@400;600;700&display=swap" as=style onload="this.onload=null,this.rel='stylesheet'">
+<link rel=stylesheet href=https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.0/build/styles/solarized-light.min.css media=print onload="this.media='all',this.onload=null" crossorigin>
+<script defer src=https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.0/build/highlight.min.js crossorigin></script>
+<script defer src=https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.0/build/languages/dart.min.js crossorigin></script>
+<script defer src=https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.14.0/js/all.min.js integrity="sha256-uNYoXefWRqv+PsIF/OflNmwtKM4lStn9yrz2gVl6ymo=" crossorigin></script>
+<link rel=stylesheet href=https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css integrity=sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X media=print onload="this.media='all',this.onload=null" crossorigin>
+<script defer src=https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js integrity=sha384-g7c+Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI+sEnkvrMWph2EDg4 crossorigin></script>
+<script defer src=https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/contrib/auto-render.min.js integrity=sha384-mll67QQFJfxn0IYznZYonOWZ644AWYC+Pt2cHqMaRhXVrursRwvLnLaebdGIlYNa crossorigin></script>
+<script>document.addEventListener("DOMContentLoaded",function(){renderMathInElement(document.body,{delimiters:[{left:"$$",right:"$$",display:!0},{left:"$",right:"$",display:!1},{left:"\\(",right:"\\)",display:!1},{left:"\\[",right:"\\]",display:!0}]})})</script>
+<script defer src=https://cdn.jsdelivr.net/npm/mermaid@8.9.2/dist/mermaid.min.js integrity="sha256-Zmpaaj+GXFsPF5WdPArSrnW3b30dovldeKsW00xBVwE=" crossorigin></script>
+<link rel=icon type=image/png sizes=32x32 href=/images/icon_hu64421c6c7700f606f0ad45d807017b09_5843_32x32_fill_box_center_3.png>
+<link rel=apple-touch-icon sizes=180x180 href=/images/icon_hu64421c6c7700f606f0ad45d807017b09_5843_180x180_fill_box_center_3.png>
+<meta name=description content="Eureka is a elegant and powerful theme for Hugo.">
+<script type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Tags","item":"/tags/"},{"@type":"ListItem","position":2,"name":"DFS","item":"/tags/dfs/"}]}</script>
+<script type=application/ld+json>{"@context":"https://schema.org","@type":"ItemList","itemListElement":[{"@type":"ListItem","position":1,"name":"UVa 165. Stamps","description":"\u003ch1 id=\"description\"\u003eDescription\u003c/h1\u003e\n\u003cblockquote\u003e\n\u003cp\u003e每張信封上面最多可以貼上h張郵票，請設計k種面額，並求出能組成的連續面額最大值。\n例如當$h=3, k=2$，1和3元的面額最多可以連續從1組到7。\u003c/p\u003e\n\u003c/blockquote\u003e","url":"/posts/uva-165-stamps/"},{"@type":"ListItem","position":2,"name":"UVa 10917. Walk Through the Forest","description":"\u003ch1 id=\"description\"\u003eDescription\u003c/h1\u003e\n\u003cp\u003eJimmy的辦公室在森林的一邊，而他的家在森林的另一邊。\u003cbr\u003e\nJimmy想要每天都走不同的路徑回家。但是他也不想要回家太晚，所以他總是選擇一條可以朝他家「前進」的路徑來走。所謂「前進」指的是他會選擇從A點走到B點如果B點存在一條到他家的路徑長度比A點到他家任一路徑的長度都來的短的話。請你算出Jimmy共有多少種不同的路徑可以走。\u003c/p\u003e","url":"/posts/uva-10917-walk-through-the-forest/"},{"@type":"ListItem","position":3,"name":"UVa 307. Sticks","description":"\u003ch1 id=\"description\"\u003eDescription\u003c/h1\u003e\n\u003cblockquote\u003e\n\u003cp\u003eGeorge 拿了一些\u003cstrong\u003e相同\u003c/strong\u003e長度的棍子，然後隨意的把這些棍子切成一段一段的棍子（每段長度都不會超過 50 個單位長）。現在他想要把這些一段一段的棍子拼回原來的樣子，但是他忘了他原來帶多少根棍子來，並且也忘了原來每根棍子的長度。請幫助他設計一個程式算出這些棍子原來可能的最小長度。所有的棍子長度都是整數，並且大於 0。\u003c/p\u003e\n\u003c/blockquote\u003e","url":"/posts/uva-307-sticks/"}]}</script><meta property="og:title" content="DFS | EnMinGW32">
+<meta property="og:type" content="website">
+<meta property="og:image" content="/images/icon.png">
+<meta property="og:url" content="/tags/dfs/">
+<meta property="og:description" content="Eureka is a elegant and powerful theme for Hugo.">
+<meta property="og:locale" content="zh-Hant">
+<meta property="og:site_name" content="EnMinGW32">
+<meta property="og:updated_time" content="2019-02-19T11:44:23+00:00">
+<meta property="article:section" content="tags">
+<link rel=alternate type=application/rss+xml href=/tags/dfs/index.xml title=EnMinGW32>
+<body class="flex flex-col min-h-screen">
+<header class="fixed flex items-center w-full min-h-16 pl-scrollbar z-50 bg-secondary-bg shadow-sm">
+<div class="w-full max-w-screen-xl mx-auto"><script>let storageColorScheme=localStorage.getItem("lightDarkMode");((storageColorScheme=='Auto'||storageColorScheme==null)&&window.matchMedia("(prefers-color-scheme: dark)").matches||storageColorScheme=="Dark")&&document.getElementsByTagName('html')[0].classList.add('dark')</script>
+<nav class="flex items-center justify-between flex-wrap px-4 py-4 md:py-0">
+<a href=/ class="mr-6 text-primary-text text-xl font-bold">EnMinGW32</a>
+<button id=navbar-btn class="md:hidden flex items-center px-3 py-2" aria-label="Open Navbar">
+<i class="fas fa-bars"></i>
+</button>
+<div id=target class="hidden block md:flex md:flex-grow md:justify-between md:items-center w-full md:w-auto text-primary-text z-20">
+<div class="md:flex md:h-16 text-sm md:flex-grow pb-4 md:pb-0 border-b md:border-b-0">
+<a href=/#about class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2 border-transparent mr-4">About</a>
+<a href=/posts/ class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2 border-transparent mr-4">Posts</a>
+</div>
+<div class=flex>
+<div class="relative pt-4 md:pt-0">
+<div class="cursor-pointer hover:text-eureka" id=lightDarkMode>
+<i class="fas fa-adjust"></i>
+</div>
+<div class="fixed hidden inset-0 opacity-0 h-full w-full cursor-default z-30" id=is-open>
+</div>
+<div class="absolute flex flex-col left-0 md:left-auto right-auto md:right-0 hidden bg-secondary-bg w-48 rounded py-2 border border-tertiary-bg cursor-pointer z-40" id=lightDarkOptions>
+<span class="px-4 py-1 hover:text-eureka" name=Light>淺色</span>
+<span class="px-4 py-1 hover:text-eureka" name=Dark>深色</span>
+<span class="px-4 py-1 hover:text-eureka" name=Auto>自動</span>
+</div>
+</div>
+</div>
+</div>
+<div class="fixed hidden inset-0 opacity-0 h-full w-full cursor-default z-0" id=is-open-mobile>
+</div>
+</nav>
+<script>let element=document.getElementById('lightDarkMode');storageColorScheme==null||storageColorScheme=='Auto'?document.addEventListener('DOMContentLoaded',()=>{window.matchMedia("(prefers-color-scheme: dark)").addEventListener('change',switchDarkMode)}):storageColorScheme=="Light"?(element.firstElementChild.classList.remove('fa-adjust'),element.firstElementChild.setAttribute("data-icon",'sun'),element.firstElementChild.classList.add('fa-sun')):storageColorScheme=="Dark"&&(element.firstElementChild.classList.remove('fa-adjust'),element.firstElementChild.setAttribute("data-icon",'moon'),element.firstElementChild.classList.add('fa-moon')),document.addEventListener('DOMContentLoaded',()=>{getcolorscheme(),switchBurger()})</script>
+</div>
+</header>
+<main class="flex-grow pt-16">
+<div class=pl-scrollbar>
+<div class="w-full max-w-screen-xl lg:px-4 xl:px-8 mx-auto">
+<article class="mx-6 my-8">
+<h1 class="font-bold text-3xl text-primary-text">DFS</h1>
+</article>
+<div class="bg-secondary-bg rounded px-6">
+<div class="overflow-hidden divide-y">
+<div class=py-6>
+<div class="flex flex-col-reverse lg:flex-row justify-between">
+<div class=w-full>
+<div class=mb-4>
+<a href=/posts/uva-165-stamps/ class="font-bold text-xl hover:text-eureka">UVa 165. Stamps</a>
+</div>
+<div class=content>
+Description 每張信封上面最多可以貼上h張郵票，請設計k種面額，並求出能組成的連續面額最大值。 例如當$h=3, k=2$，1和3元的面額最多可以連續從1組到7。
+</div>
+<div class="flex flex-wrap flex-row items-center mt-2 text-tertiary-text">
+<div class="mr-6 my-2">
+<i class="fas fa-calendar mr-1"></i>
+<span>2018-09-15</span>
+</div>
+<div class="mr-6 my-2">
+<i class="fas fa-clock mr-1"></i>
+<span>2分鐘閱讀</span>
+</div>
+<div class="mr-6 my-2">
+<i class="fas fa-folder mr-1"></i>
+<a href=/categories/%E9%A1%8C%E8%A7%A3/ class=hover:text-eureka>題解</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class=py-6>
+<div class="flex flex-col-reverse lg:flex-row justify-between">
+<div class=w-full>
+<div class=mb-4>
+<a href=/posts/uva-10917-walk-through-the-forest/ class="font-bold text-xl hover:text-eureka">UVa 10917. Walk Through the Forest</a>
+</div>
+<div class=content>
+Description Jimmy的辦公室在森林的一邊，而他的家在森林的另一邊。
+Jimmy想要每天都走不同的路徑回家。但是他也不想要回家太晚，所以他總是選擇一條可以朝他家「前進」的路徑來走。所謂「前進」指的是他會選擇從A點走到B點如果B點存在一條到他家的路徑長度比A點到他家任一路徑的長度都來的短的話。請你算出Jimmy共有多少種不同的路徑可以走。
+</div>
+<div class="flex flex-wrap flex-row items-center mt-2 text-tertiary-text">
+<div class="mr-6 my-2">
+<i class="fas fa-calendar mr-1"></i>
+<span>2018-09-09</span>
+</div>
+<div class="mr-6 my-2">
+<i class="fas fa-clock mr-1"></i>
+<span>2分鐘閱讀</span>
+</div>
+<div class="mr-6 my-2">
+<i class="fas fa-folder mr-1"></i>
+<a href=/categories/%E9%A1%8C%E8%A7%A3/ class=hover:text-eureka>題解</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class=py-6>
+<div class="flex flex-col-reverse lg:flex-row justify-between">
+<div class=w-full>
+<div class=mb-4>
+<a href=/posts/uva-307-sticks/ class="font-bold text-xl hover:text-eureka">UVa 307. Sticks</a>
+</div>
+<div class=content>
+Description George 拿了一些相同長度的棍子，然後隨意的把這些棍子切成一段一段的棍子（每段長度都不會超過 50 個單位長）。現在他想要把這些一段一段的棍子拼回原來的樣子，但是他忘了他原來帶多少根棍子來，並且也忘了原來每根棍子的長度。請幫助他設計一個程式算出這些棍子原來可能的最小長度。所有的棍子長度都是整數，並且大於 0。
+</div>
+<div class="flex flex-wrap flex-row items-center mt-2 text-tertiary-text">
+<div class="mr-6 my-2">
+<i class="fas fa-calendar mr-1"></i>
+<span>2018-08-06</span>
+</div>
+<div class="mr-6 my-2">
+<i class="fas fa-clock mr-1"></i>
+<span>2分鐘閱讀</span>
+</div>
+<div class="mr-6 my-2">
+<i class="fas fa-folder mr-1"></i>
+<a href=/categories/%E9%A1%8C%E8%A7%A3/ class=hover:text-eureka>題解</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<ul class="pagination pagination-default">
+<li class=page-item>
+<a href=/tags/dfs/ aria-label=First class=page-link role=button><span aria-hidden=true>&#171;&#171;</span></a>
+</li>
+<li class=page-item>
+<a href=/tags/dfs/ aria-label=Previous class=page-link role=button><span aria-hidden=true>&#171;</span></a>
+</li>
+<li class=page-item>
+<a href=/tags/dfs/ aria-label="Page 1" class=page-link role=button>1</a>
+</li>
+<li class="page-item active">
+<a href=# aria-current=page aria-label="Page 2" class=page-link role=button>2</a>
+</li>
+<li class=page-item>
+<a href=/tags/dfs/page/3/ aria-label="Page 3" class=page-link role=button>3</a>
+</li>
+<li class=page-item>
+<a href=/tags/dfs/page/3/ aria-label=Next class=page-link role=button><span aria-hidden=true>&#187;</span></a>
+</li>
+<li class=page-item>
+<a href=/tags/dfs/page/3/ aria-label=Last class=page-link role=button><span aria-hidden=true>&#187;&#187;</span></a>
+</li>
+</ul>
+</div>
+</div>
+</main>
+<footer class=pl-scrollbar>
+<div class="w-full max-w-screen-xl mx-auto"><div class="text-center p-6 pin-b">
+<p class="text-sm text-tertiary-text">&copy; 2021 <a href=https://www.wangchucheng.com/>C. Wang</a> and <a href=https://www.ruiqima.com/>R. Ma</a>
+&#183; Powered by the <a href=https://github.com/wangchucheng/hugo-eureka class=hover:text-eureka>Eureka</a> theme for <a href=https://gohugo.io class=hover:text-eureka>Hugo</a></p>
+</div></div>
+</footer>
+</body>
+</html>

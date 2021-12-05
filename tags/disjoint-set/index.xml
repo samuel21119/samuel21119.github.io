@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Disjoint set on EnMinGW32</title><link>/tags/disjoint-set/</link><description>Recent content in Disjoint set on EnMinGW32</description><generator>Hugo -- gohugo.io</generator><language>zh-Hant</language><copyright>&amp;copy; 2021 &lt;a href="https://www.wangchucheng.com/">C. Wang&lt;/a> and &lt;a href="https://www.ruiqima.com/">R. Ma&lt;/a></copyright><lastBuildDate>Tue, 19 Feb 2019 11:44:23 +0000</lastBuildDate><atom:link href="/tags/disjoint-set/index.xml" rel="self" type="application/rss+xml"/><item><title>APCS. 2019/02/16</title><link>/posts/apcs-2019-02-16/</link><pubDate>Tue, 19 Feb 2019 11:44:23 +0000</pubDate><guid>/posts/apcs-2019-02-16/</guid><description>&lt;p>2019/02/19 APCS實作題詳解及範例程式&lt;/p></description></item><item><title>UVa 1479. Graph and Queries</title><link>/posts/uva-1479-graph-and-queries/</link><pubDate>Sat, 18 Aug 2018 00:39:05 +0000</pubDate><guid>/posts/uva-1479-graph-and-queries/</guid><description>&lt;h1 id="description">Description&lt;/h1>
+&lt;blockquote>
+&lt;p>給定一張無向圖，有三種操作：&lt;/p>
+&lt;/blockquote>
+&lt;ol>
+&lt;li>D x ：刪除第x條邊&lt;/li>
+&lt;li>Q x y ：查詢x所在集合裡面第y大的數字，若查詢失敗，則此次查詢的結果為0&lt;/li>
+&lt;li>C x y ：將第x點的值改成y&lt;/li>
+&lt;/ol>
+&lt;blockquote>
+&lt;p>最後輸出所有查詢的平均值。&lt;/p>
+&lt;/blockquote></description></item><item><title>Template. Disjoint set</title><link>/posts/template-disjoint-set/</link><pubDate>Tue, 07 Aug 2018 23:34:33 +0000</pubDate><guid>/posts/template-disjoint-set/</guid><description>&lt;p>Disjoint set並查集。&lt;/p></description></item><item><title>UVa 13153. Number of Connected Components</title><link>/posts/uva-13153-number-of-connected-components/</link><pubDate>Tue, 07 Aug 2018 10:26:31 +0000</pubDate><guid>/posts/uva-13153-number-of-connected-components/</guid><description>&lt;h1 id="description">Description&lt;/h1>
+&lt;blockquote>
+&lt;p>給你 N 個節點，每個點上附有一個介於$1～10^6$之間的正整數。假如某2個節點上的數其最大公因數（GCD）大於1，則這2個節點之間會有一條邊存在。&lt;br>
+要請你算出這N個節點構成的的圖形中，共有幾個連通的單元。&lt;/p>
+&lt;/blockquote></description></item></channel></rss>
