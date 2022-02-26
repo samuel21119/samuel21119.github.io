@@ -18,7 +18,7 @@
 <link rel=icon type=image/png sizes=32x32 href=/images/icon_hu64421c6c7700f606f0ad45d807017b09_5843_32x32_fill_box_center_3.png>
 <link rel=apple-touch-icon sizes=180x180 href=/images/icon_hu64421c6c7700f606f0ad45d807017b09_5843_180x180_fill_box_center_3.png>
 <meta name=description content="Eureka is a elegant and powerful theme for Hugo.">
-<script type=application/ld+json>{"@context":"https://schema.org","@type":"ItemList","itemListElement":[{"@type":"ListItem","position":1,"name":"UVa 315. Network","description":"\u003ch1 id=\"description\"\u003eDescription\u003c/h1\u003e\n\u003cblockquote\u003e\n\u003cp\u003e一家電話公司在許多地方建有機房，這些機房以1到N來編號，沒有2個地方有相同的號碼。電纜線是雙向的，並且只有在機房中的交換機才可互相連接（每個機房只有一部交換機）。電話訊號可以從一個機房傳到另一個機房，但是這些機房並不一定要直接相連，它們之間的通訊可能是透過好幾個交換機。\u003cbr\u003e\n偶爾當有停電的情況發生時，當地的機房也會因停電而無法運作。這個時候不僅這個機房的通訊中斷，可能也有其他的機房因此無法彼此通訊。在這種情況之下，我們稱這個機房為critical的。\u003cbr\u003e\n現在你的任務就是寫一個程式幫助該公司的工程師找出在他們的系統中有多少個critical的機房。\u003c/p\u003e\n\u003c/blockquote\u003e","url":"/posts/uva-315-network/"},{"@type":"ListItem","position":2,"name":"CodeForces. Round 502","description":"\u003cp\u003e比賽連結：\u003ca href=\"http://codeforces.com/contest/1017\"\u003eCodeForces Round #502\u003c/a\u003e\u003cbr\u003e\n以下為我個人的解法，在優化上不一定做得很好。\u003c/p\u003e","url":"/posts/codeforces-round-502/"},{"@type":"ListItem","position":3,"name":"Template. Binary Index Tree","description":"\u003cp\u003eFendwick Tree，區間查詢和，支援修改。\u003c/p\u003e","url":"/posts/template-binary-index-tree/"}]}</script><meta property="og:title" content="Posts | EnMinGW32">
+<script type=application/ld+json>{"@context":"https://schema.org","@type":"ItemList","itemListElement":[{"@type":"ListItem","position":1,"name":"Template. Longest Common Subsequence","description":"\u003ch1 id=\"dynamic-programming\"\u003eDynamic Programming\u003c/h1\u003e\n\u003cp\u003e\u003cem\u003e時間複雜度：$O(N^2)$\u003c/em\u003e\u003c/p\u003e","url":"/posts/template-longest-common-subsequence/"},{"@type":"ListItem","position":2,"name":"UVa 315. Network","description":"\u003ch1 id=\"description\"\u003eDescription\u003c/h1\u003e\n\u003cblockquote\u003e\n\u003cp\u003e一家電話公司在許多地方建有機房，這些機房以1到N來編號，沒有2個地方有相同的號碼。電纜線是雙向的，並且只有在機房中的交換機才可互相連接（每個機房只有一部交換機）。電話訊號可以從一個機房傳到另一個機房，但是這些機房並不一定要直接相連，它們之間的通訊可能是透過好幾個交換機。\u003cbr\u003e\n偶爾當有停電的情況發生時，當地的機房也會因停電而無法運作。這個時候不僅這個機房的通訊中斷，可能也有其他的機房因此無法彼此通訊。在這種情況之下，我們稱這個機房為critical的。\u003cbr\u003e\n現在你的任務就是寫一個程式幫助該公司的工程師找出在他們的系統中有多少個critical的機房。\u003c/p\u003e\n\u003c/blockquote\u003e","url":"/posts/uva-315-network/"},{"@type":"ListItem","position":3,"name":"CodeForces. Round 502","description":"\u003cp\u003e比賽連結：\u003ca href=\"http://codeforces.com/contest/1017\"\u003eCodeForces Round #502\u003c/a\u003e\u003cbr\u003e\n以下為我個人的解法，在優化上不一定做得很好。\u003c/p\u003e","url":"/posts/codeforces-round-502/"}]}</script><meta property="og:title" content="Posts | EnMinGW32">
 <meta property="og:type" content="website">
 <meta property="og:image" content="/images/icon.png">
 <meta property="og:url" content="/posts/">
@@ -26,7 +26,7 @@
 <meta property="og:locale" content="zh-Hant">
 <meta property="og:locale:alternate" content="en">
 <meta property="og:site_name" content="EnMinGW32">
-<meta property="og:updated_time" content="2021-09-04T16:05:24+08:00">
+<meta property="og:updated_time" content="2022-02-23T11:20:36+08:00">
 <meta property="article:section" content="posts">
 <link rel=alternate type=application/rss+xml href=/posts/index.xml title=EnMinGW32>
 <body class="flex flex-col min-h-screen">
@@ -87,6 +87,32 @@
 <div class="flex flex-col-reverse lg:flex-row justify-between">
 <div class=w-full>
 <div class=mb-4>
+<a href=/posts/template-longest-common-subsequence/ class="font-bold text-xl hover:text-eureka">Template. Longest Common Subsequence</a>
+</div>
+<div class=content>
+Dynamic Programming 時間複雜度：$O(N^2)$
+</div>
+<div class="flex flex-wrap flex-row items-center mt-2 text-tertiary-text">
+<div class="mr-6 my-2">
+<i class="fas fa-calendar mr-1"></i>
+<span>2018-08-09</span>
+</div>
+<div class="mr-6 my-2">
+<i class="fas fa-clock mr-1"></i>
+<span>1分鐘閱讀</span>
+</div>
+<div class="mr-6 my-2">
+<i class="fas fa-folder mr-1"></i>
+<a href=/categories/%E6%A8%A1%E6%9D%BF/ class=hover:text-eureka>模板</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class=py-6>
+<div class="flex flex-col-reverse lg:flex-row justify-between">
+<div class=w-full>
+<div class=mb-4>
 <a href=/posts/uva-315-network/ class="font-bold text-xl hover:text-eureka">UVa 315. Network</a>
 </div>
 <div class=content>
@@ -138,32 +164,6 @@ Description 一家電話公司在許多地方建有機房，這些機房以1到N
 </div>
 </div>
 </div>
-<div class=py-6>
-<div class="flex flex-col-reverse lg:flex-row justify-between">
-<div class=w-full>
-<div class=mb-4>
-<a href=/posts/template-binary-index-tree/ class="font-bold text-xl hover:text-eureka">Template. Binary Index Tree</a>
-</div>
-<div class=content>
-Fendwick Tree，區間查詢和，支援修改。
-</div>
-<div class="flex flex-wrap flex-row items-center mt-2 text-tertiary-text">
-<div class="mr-6 my-2">
-<i class="fas fa-calendar mr-1"></i>
-<span>2018-08-08</span>
-</div>
-<div class="mr-6 my-2">
-<i class="fas fa-clock mr-1"></i>
-<span>1分鐘閱讀</span>
-</div>
-<div class="mr-6 my-2">
-<i class="fas fa-folder mr-1"></i>
-<a href=/categories/%E6%A8%A1%E6%9D%BF/ class=hover:text-eureka>模板</a>
-</div>
-</div>
-</div>
-</div>
-</div>
 </div>
 </div>
 <ul class="pagination pagination-default">
@@ -192,7 +192,7 @@ Fendwick Tree，區間查詢和，支援修改。
 <a href=/posts/page/10/ aria-label=Next class=page-link role=button><span aria-hidden=true>&#187;</span></a>
 </li>
 <li class=page-item>
-<a href=/posts/page/12/ aria-label=Last class=page-link role=button><span aria-hidden=true>&#187;&#187;</span></a>
+<a href=/posts/page/13/ aria-label=Last class=page-link role=button><span aria-hidden=true>&#187;&#187;</span></a>
 </li>
 </ul>
 </div>

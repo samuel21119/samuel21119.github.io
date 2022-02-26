@@ -18,7 +18,7 @@
 <link rel=icon type=image/png sizes=32x32 href=/images/icon_hu64421c6c7700f606f0ad45d807017b09_5843_32x32_fill_box_center_3.png>
 <link rel=apple-touch-icon sizes=180x180 href=/images/icon_hu64421c6c7700f606f0ad45d807017b09_5843_180x180_fill_box_center_3.png>
 <meta name=description content="Eureka is a elegant and powerful theme for Hugo.">
-<script type=application/ld+json>{"@context":"https://schema.org","@type":"ItemList","itemListElement":[{"@type":"ListItem","position":1,"name":"APCS. 2019/02/16","description":"\u003cp\u003e2019/02/19 APCS實作題詳解及範例程式\u003c/p\u003e","url":"/posts/apcs-2019-02-16/"},{"@type":"ListItem","position":2,"name":"UVa 1427. Parade","description":"\u003ch1 id=\"description\"\u003eDescription\u003c/h1\u003e\n\u003cblockquote\u003e\n\u003cp\u003e一個城市有n+1個橫向路和m+1個縱向路，一個國王從最北邊的進入，然後沿某種路線從最南邊出去，每小段橫向路都有一個高興值，但國王不會在某條橫向路待超過k分鐘，問國王可以得到的最大的高興值是多少？\u003c/p\u003e\n\u003c/blockquote\u003e","url":"/posts/uva-1427-parade/"},{"@type":"ListItem","position":3,"name":"107學年度 校內初選題目","description":"\u003cp\u003e前幾天是雄中資訊學科能力競賽初試，而下面是這次競賽的題目，其中有幾題是出自於UVa的。\u003c/p\u003e","url":"/posts/107%E5%AD%B8%E5%B9%B4%E5%BA%A6-%E6%A0%A1%E5%85%A7%E5%88%9D%E9%81%B8%E9%A1%8C%E7%9B%AE/"}]}</script><meta property="og:title" content="Posts | EnMinGW32">
+<script type=application/ld+json>{"@context":"https://schema.org","@type":"ItemList","itemListElement":[{"@type":"ListItem","position":1,"name":"Convert Physical OS to Virtual Machine","description":"\u003cp\u003e以下將以Arch Linux做示範。\u003c/p\u003e\n\u003cp\u003e如果以「migrate physical machine to virtualbox」之類的詞當作關鍵字去Google，會發現網路上的做法都是請你使用Virtual Box的指令來達成目的：\u003c/p\u003e\n\u003cpre\u003e\u003ccode class=\"language-shell\"\u003e# VBoxManage internalcommands createrawvmdk -filename \u0026lt;path-to-file\u0026gt;.vmdk -rawdisk \u0026lt;disk-location\u0026gt; -partitions \u0026lt;partitions-to-migrate\u0026gt;\n\u003c/code\u003e\u003c/pre\u003e","url":"/posts/convert-physical-os-to-virtual-machine/"},{"@type":"ListItem","position":2,"name":"APCS. 2019/02/16","description":"\u003cp\u003e2019/02/19 APCS實作題詳解及範例程式\u003c/p\u003e","url":"/posts/apcs-2019-02-16/"},{"@type":"ListItem","position":3,"name":"UVa 1427. Parade","description":"\u003ch1 id=\"description\"\u003eDescription\u003c/h1\u003e\n\u003cblockquote\u003e\n\u003cp\u003e一個城市有n+1個橫向路和m+1個縱向路，一個國王從最北邊的進入，然後沿某種路線從最南邊出去，每小段橫向路都有一個高興值，但國王不會在某條橫向路待超過k分鐘，問國王可以得到的最大的高興值是多少？\u003c/p\u003e\n\u003c/blockquote\u003e","url":"/posts/uva-1427-parade/"}]}</script><meta property="og:title" content="Posts | EnMinGW32">
 <meta property="og:type" content="website">
 <meta property="og:image" content="/images/icon.png">
 <meta property="og:url" content="/posts/">
@@ -26,7 +26,7 @@
 <meta property="og:locale" content="zh-Hant">
 <meta property="og:locale:alternate" content="en">
 <meta property="og:site_name" content="EnMinGW32">
-<meta property="og:updated_time" content="2021-09-04T16:05:24+08:00">
+<meta property="og:updated_time" content="2022-02-23T11:20:36+08:00">
 <meta property="article:section" content="posts">
 <link rel=alternate type=application/rss+xml href=/posts/index.xml title=EnMinGW32>
 <body class="flex flex-col min-h-screen">
@@ -87,6 +87,34 @@
 <div class="flex flex-col-reverse lg:flex-row justify-between">
 <div class=w-full>
 <div class=mb-4>
+<a href=/posts/convert-physical-os-to-virtual-machine/ class="font-bold text-xl hover:text-eureka">Convert Physical OS to Virtual Machine</a>
+</div>
+<div class=content>
+以下將以Arch Linux做示範。
+如果以「migrate physical machine to virtualbox」之類的詞當作關鍵字去Google，會發現網路上的做法都是請你使用Virtual Box的指令來達成目的：
+# VBoxManage internalcommands createrawvmdk -filename &lt;path-to-file>.vmdk -rawdisk &lt;disk-location> -partitions &lt;partitions-to-migrate>
+</div>
+<div class="flex flex-wrap flex-row items-center mt-2 text-tertiary-text">
+<div class="mr-6 my-2">
+<i class="fas fa-calendar mr-1"></i>
+<span>2019-02-24</span>
+</div>
+<div class="mr-6 my-2">
+<i class="fas fa-clock mr-1"></i>
+<span>3分鐘閱讀</span>
+</div>
+<div class="mr-6 my-2">
+<i class="fas fa-folder mr-1"></i>
+<a href=/categories/%E6%95%99%E5%AD%B8/ class=hover:text-eureka>教學</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class=py-6>
+<div class="flex flex-col-reverse lg:flex-row justify-between">
+<div class=w-full>
+<div class=mb-4>
 <a href=/posts/apcs-2019-02-16/ class="font-bold text-xl hover:text-eureka">APCS. 2019/02/16</a>
 </div>
 <div class=content>
@@ -135,32 +163,6 @@ Description 一個城市有n+1個橫向路和m+1個縱向路，一個國王從�
 </div>
 </div>
 </div>
-<div class=py-6>
-<div class="flex flex-col-reverse lg:flex-row justify-between">
-<div class=w-full>
-<div class=mb-4>
-<a href=/posts/107%E5%AD%B8%E5%B9%B4%E5%BA%A6-%E6%A0%A1%E5%85%A7%E5%88%9D%E9%81%B8%E9%A1%8C%E7%9B%AE/ class="font-bold text-xl hover:text-eureka">107學年度 校內初選題目</a>
-</div>
-<div class=content>
-前幾天是雄中資訊學科能力競賽初試，而下面是這次競賽的題目，其中有幾題是出自於UVa的。
-</div>
-<div class="flex flex-wrap flex-row items-center mt-2 text-tertiary-text">
-<div class="mr-6 my-2">
-<i class="fas fa-calendar mr-1"></i>
-<span>2018-10-25</span>
-</div>
-<div class="mr-6 my-2">
-<i class="fas fa-clock mr-1"></i>
-<span>4分鐘閱讀</span>
-</div>
-<div class="mr-6 my-2">
-<i class="fas fa-folder mr-1"></i>
-<a href=/categories/%E9%A1%8C%E7%9B%AE/ class=hover:text-eureka>題目</a>
-</div>
-</div>
-</div>
-</div>
-</div>
 </div>
 </div>
 <ul class="pagination pagination-default">
@@ -189,7 +191,7 @@ Description 一個城市有n+1個橫向路和m+1個縱向路，一個國王從�
 <a href=/posts/page/4/ aria-label=Next class=page-link role=button><span aria-hidden=true>&#187;</span></a>
 </li>
 <li class=page-item>
-<a href=/posts/page/12/ aria-label=Last class=page-link role=button><span aria-hidden=true>&#187;&#187;</span></a>
+<a href=/posts/page/13/ aria-label=Last class=page-link role=button><span aria-hidden=true>&#187;&#187;</span></a>
 </li>
 </ul>
 </div>
