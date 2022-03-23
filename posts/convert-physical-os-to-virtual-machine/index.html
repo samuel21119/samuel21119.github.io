@@ -1,201 +1,49 @@
-<!doctype html><html lang=zh-hant><meta charset=utf-8>
-<meta name=viewport content="width=device-width">
-<title>Convert Physical OS to Virtual Machine | EnMinGW32</title>
-<meta name=generator content="Hugo Eureka 0.8.4">
-<link rel=stylesheet href=/css/eureka.min.css>
-<script defer src=/js/eureka.min.js></script>
-<link rel=preconnect href=https://fonts.gstatic.com crossorigin>
-<link rel=preload href="https://fonts.googleapis.com/css2?family=Lora:wght@400;600;700&family=Noto+Serif+SC:wght@400;600;700&display=swap" as=style onload="this.onload=null,this.rel='stylesheet'">
-<link rel=stylesheet href=https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.0/build/styles/solarized-light.min.css media=print onload="this.media='all',this.onload=null" crossorigin>
-<script defer src=https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.0/build/highlight.min.js crossorigin></script>
+<!doctype html><html lang=zh-hant><meta charset=utf-8><meta name=viewport content="width=device-width"><title>Convert Physical OS to Virtual Machine | EnMinGW32</title><meta name=generator content="Hugo Eureka 0.8.4"><link rel=stylesheet href=/css/eureka.min.css><script defer src=/js/eureka.min.js></script>
+<link rel=preconnect href=https://fonts.gstatic.com crossorigin><link rel=preload href="https://fonts.googleapis.com/css2?family=Lora:wght@400;600;700&family=Noto+Serif+SC:wght@400;600;700&display=swap" as=style onload='this.onload=null,this.rel="stylesheet"'><link rel=stylesheet href=https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.0/build/styles/solarized-light.min.css media=print onload='this.media="all",this.onload=null' crossorigin><script defer src=https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.0/build/highlight.min.js crossorigin></script>
 <script defer src=https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.0/build/languages/dart.min.js crossorigin></script>
 <script defer src=https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.14.0/js/all.min.js integrity="sha256-uNYoXefWRqv+PsIF/OflNmwtKM4lStn9yrz2gVl6ymo=" crossorigin></script>
-<link rel=stylesheet href=https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css integrity=sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X media=print onload="this.media='all',this.onload=null" crossorigin>
-<script defer src=https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js integrity=sha384-g7c+Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI+sEnkvrMWph2EDg4 crossorigin></script>
+<link rel=stylesheet href=https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css integrity=sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X media=print onload='this.media="all",this.onload=null' crossorigin><script defer src=https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js integrity=sha384-g7c+Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI+sEnkvrMWph2EDg4 crossorigin></script>
 <script defer src=https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/contrib/auto-render.min.js integrity=sha384-mll67QQFJfxn0IYznZYonOWZ644AWYC+Pt2cHqMaRhXVrursRwvLnLaebdGIlYNa crossorigin></script>
-<script>document.addEventListener("DOMContentLoaded",function(){renderMathInElement(document.body,{delimiters:[{left:"$$",right:"$$",display:!0},{left:"$",right:"$",display:!1},{left:"\\(",right:"\\)",display:!1},{left:"\\[",right:"\\]",display:!0}]})})</script>
-<script defer src=https://cdn.jsdelivr.net/npm/mermaid@8.9.2/dist/mermaid.min.js integrity="sha256-Zmpaaj+GXFsPF5WdPArSrnW3b30dovldeKsW00xBVwE=" crossorigin></script>
-<link rel=icon type=image/png sizes=32x32 href=/images/icon_hu64421c6c7700f606f0ad45d807017b09_5843_32x32_fill_box_center_3.png>
-<link rel=apple-touch-icon sizes=180x180 href=/images/icon_hu64421c6c7700f606f0ad45d807017b09_5843_180x180_fill_box_center_3.png>
-<meta name=description content="以下將以Arch Linux做示範。
+<script>document.addEventListener("DOMContentLoaded",function(){renderMathInElement(document.body,{delimiters:[{left:"$$",right:"$$",display:!0},{left:"$",right:"$",display:!1},{left:"\\(",right:"\\)",display:!1},{left:"\\[",right:"\\]",display:!0}]})})</script><script defer src=https://cdn.jsdelivr.net/npm/mermaid@8.9.2/dist/mermaid.min.js integrity="sha256-Zmpaaj+GXFsPF5WdPArSrnW3b30dovldeKsW00xBVwE=" crossorigin></script>
+<link rel=icon type=image/png sizes=32x32 href=/images/icon_hu64421c6c7700f606f0ad45d807017b09_5843_32x32_fill_box_center_3.png><link rel=apple-touch-icon sizes=180x180 href=/images/icon_hu64421c6c7700f606f0ad45d807017b09_5843_180x180_fill_box_center_3.png><meta name=description content="以下將以Arch Linux做示範。
 如果以「migrate physical machine to virtualbox」之類的詞當作關鍵字去Google，會發現網路上的做法都是請你使用Virtual Box的指令來達成目的：
 # VBoxManage internalcommands createrawvmdk -filename <path-to-file>.vmdk -rawdisk <disk-location> -partitions <partitions-to-migrate>
-">
-<script type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Posts","item":"/posts/"},{"@type":"ListItem","position":2,"name":"Convert Physical OS to Virtual Machine","item":"/posts/convert-physical-os-to-virtual-machine/"}]}</script>
-<script type=application/ld+json>{"@context":"https://schema.org","@type":"Article","mainEntityOfPage":{"@type":"WebPage","@id":"/posts/convert-physical-os-to-virtual-machine/"},"headline":"Convert Physical OS to Virtual Machine | EnMinGW32","datePublished":"2019-02-24T22:05:49+00:00","dateModified":"2019-02-24T22:05:49+00:00","wordCount":1241,"publisher":{"@type":"Person","name":"C. Wang","logo":{"@type":"ImageObject","url":"/images/icon.png"}},"description":"\u003cp\u003e以下將以Arch Linux做示範。\u003c\/p\u003e\n\u003cp\u003e如果以「migrate physical machine to virtualbox」之類的詞當作關鍵字去Google，會發現網路上的做法都是請你使用Virtual Box的指令來達成目的：\u003c\/p\u003e\n\u003cpre\u003e\u003ccode class=\u0022language-shell\u0022\u003e# VBoxManage internalcommands createrawvmdk -filename \u0026lt;path-to-file\u0026gt;.vmdk -rawdisk \u0026lt;disk-location\u0026gt; -partitions \u0026lt;partitions-to-migrate\u0026gt;\n\u003c\/code\u003e\u003c\/pre\u003e"}</script><meta property="og:title" content="Convert Physical OS to Virtual Machine | EnMinGW32">
-<meta property="og:type" content="article">
-<meta property="og:image" content="/images/icon.png">
-<meta property="og:url" content="/posts/convert-physical-os-to-virtual-machine/">
-<meta property="og:description" content="以下將以Arch Linux做示範。
+"><script type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Posts","item":"/posts/"},{"@type":"ListItem","position":2,"name":"Convert Physical OS to Virtual Machine","item":"/posts/convert-physical-os-to-virtual-machine/"}]}</script><script type=application/ld+json>{"@context":"https://schema.org","@type":"Article","mainEntityOfPage":{"@type":"WebPage","@id":"/posts/convert-physical-os-to-virtual-machine/"},"headline":"Convert Physical OS to Virtual Machine | EnMinGW32","datePublished":"2019-02-24T22:05:49+00:00","dateModified":"2019-02-24T22:05:49+00:00","wordCount":1241,"publisher":{"@type":"Person","name":"C. Wang","logo":{"@type":"ImageObject","url":"/images/icon.png"}},"description":"\u003cp\u003e以下將以Arch Linux做示範。\u003c\/p\u003e\n\u003cp\u003e如果以「migrate physical machine to virtualbox」之類的詞當作關鍵字去Google，會發現網路上的做法都是請你使用Virtual Box的指令來達成目的：\u003c\/p\u003e\n\u003cpre\u003e\u003ccode class=\u0022language-shell\u0022\u003e# VBoxManage internalcommands createrawvmdk -filename \u0026lt;path-to-file\u0026gt;.vmdk -rawdisk \u0026lt;disk-location\u0026gt; -partitions \u0026lt;partitions-to-migrate\u0026gt;\n\u003c\/code\u003e\u003c\/pre\u003e"}</script><meta property="og:title" content="Convert Physical OS to Virtual Machine | EnMinGW32"><meta property="og:type" content="article"><meta property="og:image" content="/images/icon.png"><meta property="og:url" content="/posts/convert-physical-os-to-virtual-machine/"><meta property="og:description" content="以下將以Arch Linux做示範。
 如果以「migrate physical machine to virtualbox」之類的詞當作關鍵字去Google，會發現網路上的做法都是請你使用Virtual Box的指令來達成目的：
 # VBoxManage internalcommands createrawvmdk -filename <path-to-file>.vmdk -rawdisk <disk-location> -partitions <partitions-to-migrate>
-">
-<meta property="og:locale" content="zh-Hant">
-<meta property="og:site_name" content="EnMinGW32">
-<meta property="article:published_time" content="2019-02-24T22:05:49+00:00">
-<meta property="article:modified_time" content="2019-02-24T22:05:49+00:00">
-<meta property="article:section" content="posts">
-<meta property="article:tag" content="Linux">
-<meta property="og:see_also" content="/posts/arch-linux-installation-guide/">
-<body class="flex flex-col min-h-screen">
-<header class="fixed flex items-center w-full min-h-16 pl-scrollbar z-50 bg-secondary-bg shadow-sm">
-<div class="w-full max-w-screen-xl mx-auto"><script>let storageColorScheme=localStorage.getItem("lightDarkMode");((storageColorScheme=='Auto'||storageColorScheme==null)&&window.matchMedia("(prefers-color-scheme: dark)").matches||storageColorScheme=="Dark")&&document.getElementsByTagName('html')[0].classList.add('dark')</script>
-<nav class="flex items-center justify-between flex-wrap px-4 py-4 md:py-0">
-<a href=/ class="mr-6 text-primary-text text-xl font-bold">EnMinGW32</a>
+"><meta property="og:locale" content="zh-Hant"><meta property="og:site_name" content="EnMinGW32"><meta property="article:published_time" content="2019-02-24T22:05:49+00:00"><meta property="article:modified_time" content="2019-02-24T22:05:49+00:00"><meta property="article:section" content="posts"><meta property="article:tag" content="Linux"><meta property="og:see_also" content="/posts/arch-linux-installation-guide/"><body class="flex flex-col min-h-screen"><header class="fixed flex items-center w-full min-h-16 pl-scrollbar z-50 bg-secondary-bg shadow-sm"><div class="w-full max-w-screen-xl mx-auto"><script>let storageColorScheme=localStorage.getItem("lightDarkMode");((storageColorScheme=="Auto"||storageColorScheme==null)&&window.matchMedia("(prefers-color-scheme: dark)").matches||storageColorScheme=="Dark")&&document.getElementsByTagName("html")[0].classList.add("dark")</script><nav class="flex items-center justify-between flex-wrap px-4 py-4 md:py-0"><a href=/ class="mr-6 text-primary-text text-xl font-bold">EnMinGW32</a>
 <button id=navbar-btn class="md:hidden flex items-center px-3 py-2" aria-label="Open Navbar">
-<i class="fas fa-bars"></i>
-</button>
-<div id=target class="hidden block md:flex md:flex-grow md:justify-between md:items-center w-full md:w-auto text-primary-text z-20">
-<div class="md:flex md:h-16 text-sm md:flex-grow pb-4 md:pb-0 border-b md:border-b-0">
-<a href=/#about class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2 border-transparent mr-4">About</a>
-<a href=/posts/ class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2 selected-menu-item mr-4">Posts</a>
-</div>
-<div class=flex>
-<div class="relative pt-4 md:pt-0">
-<div class="cursor-pointer hover:text-eureka" id=lightDarkMode>
-<i class="fas fa-adjust"></i>
-</div>
-<div class="fixed hidden inset-0 opacity-0 h-full w-full cursor-default z-30" id=is-open>
-</div>
-<div class="absolute flex flex-col left-0 md:left-auto right-auto md:right-0 hidden bg-secondary-bg w-48 rounded py-2 border border-tertiary-bg cursor-pointer z-40" id=lightDarkOptions>
-<span class="px-4 py-1 hover:text-eureka" name=Light>淺色</span>
+<i class="fas fa-bars"></i></button><div id=target class="hidden block md:flex md:flex-grow md:justify-between md:items-center w-full md:w-auto text-primary-text z-20"><div class="md:flex md:h-16 text-sm md:flex-grow pb-4 md:pb-0 border-b md:border-b-0"><a href=/#about class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2 border-transparent mr-4">About</a>
+<a href=/posts/ class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2 selected-menu-item mr-4">Posts</a></div><div class=flex><div class="relative pt-4 md:pt-0"><div class="cursor-pointer hover:text-eureka" id=lightDarkMode><i class="fas fa-adjust"></i></div><div class="fixed hidden inset-0 opacity-0 h-full w-full cursor-default z-30" id=is-open></div><div class="absolute flex flex-col left-0 md:left-auto right-auto md:right-0 hidden bg-secondary-bg w-48 rounded py-2 border border-tertiary-bg cursor-pointer z-40" id=lightDarkOptions><span class="px-4 py-1 hover:text-eureka" name=Light>淺色</span>
 <span class="px-4 py-1 hover:text-eureka" name=Dark>深色</span>
-<span class="px-4 py-1 hover:text-eureka" name=Auto>自動</span>
-</div>
-</div>
-</div>
-</div>
-<div class="fixed hidden inset-0 opacity-0 h-full w-full cursor-default z-0" id=is-open-mobile>
-</div>
-</nav>
-<script>let element=document.getElementById('lightDarkMode');storageColorScheme==null||storageColorScheme=='Auto'?document.addEventListener('DOMContentLoaded',()=>{window.matchMedia("(prefers-color-scheme: dark)").addEventListener('change',switchDarkMode)}):storageColorScheme=="Light"?(element.firstElementChild.classList.remove('fa-adjust'),element.firstElementChild.setAttribute("data-icon",'sun'),element.firstElementChild.classList.add('fa-sun')):storageColorScheme=="Dark"&&(element.firstElementChild.classList.remove('fa-adjust'),element.firstElementChild.setAttribute("data-icon",'moon'),element.firstElementChild.classList.add('fa-moon')),document.addEventListener('DOMContentLoaded',()=>{getcolorscheme(),switchBurger()})</script>
-</div>
-</header>
-<main class="flex-grow pt-16">
-<div class=pl-scrollbar>
-<div class="w-full max-w-screen-xl lg:px-4 xl:px-8 mx-auto">
-<div class="grid grid-cols-2 lg:grid-cols-8 gap-4 lg:pt-12">
-<div class="col-span-2 lg:col-start-2 lg:col-span-6 bg-secondary-bg rounded px-6 py-8">
-<h1 class="font-bold text-3xl text-primary-text">Convert Physical OS to Virtual Machine</h1>
-<div class="flex flex-wrap flex-row items-center mt-2 text-tertiary-text">
-<div class="mr-6 my-2">
-<i class="fas fa-calendar mr-1"></i>
-<span>2019-02-24</span>
-</div>
-<div class="mr-6 my-2">
-<i class="fas fa-clock mr-1"></i>
-<span>3分鐘閱讀</span>
-</div>
-<div class="mr-6 my-2">
-<i class="fas fa-folder mr-1"></i>
-<a href=/categories/%E6%95%99%E5%AD%B8/ class=hover:text-eureka>教學</a>
-</div>
-</div>
-<div class=content>
-<p>以下將以Arch Linux做示範。</p>
-<p>如果以「migrate physical machine to virtualbox」之類的詞當作關鍵字去Google，會發現網路上的做法都是請你使用Virtual Box的指令來達成目的：</p>
-<pre><code class=language-shell># VBoxManage internalcommands createrawvmdk -filename &lt;path-to-file&gt;.vmdk -rawdisk &lt;disk-location&gt; -partitions &lt;partitions-to-migrate&gt;
-</code></pre>
-<p>可是在我的電腦上，當我執行此指令時會發生悲劇：</p>
-<blockquote>
-<p>VBoxManage: error: Cannot open the raw disk &lsquo;/dev/disk0&rsquo;: VERR_ACCESS_DENIED<br>
-VBoxManage: error: The raw disk vmdk file was not created</p>
-</blockquote>
-<p>詳細原因我不太清楚，網路上有人說是因為System Integrity Protection(macOS的系統保護機制)是啟動的關係，但是我就算關掉了還是沒有用。<br>
-後來我就到網路上查查看有沒有辦法把磁碟映像檔轉成VirtualBox的虛擬碟格式，發現可以用<code>VBoxManage convertfromraw</code>這個指令達成，所以我就想到了一個比較神奇的方法：</p>
-<p>首先，先把我要的磁碟分割區dd出來(root和efi分割區)：</p>
-<pre><code class=language-shell># dd if=&lt;root-partition&gt; of=~/root.iso bs=2M
+<span class="px-4 py-1 hover:text-eureka" name=Auto>自動</span></div></div></div></div><div class="fixed hidden inset-0 opacity-0 h-full w-full cursor-default z-0" id=is-open-mobile></div></nav><script>let element=document.getElementById("lightDarkMode");storageColorScheme==null||storageColorScheme=="Auto"?document.addEventListener("DOMContentLoaded",()=>{window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change",switchDarkMode)}):storageColorScheme=="Light"?(element.firstElementChild.classList.remove("fa-adjust"),element.firstElementChild.setAttribute("data-icon","sun"),element.firstElementChild.classList.add("fa-sun")):storageColorScheme=="Dark"&&(element.firstElementChild.classList.remove("fa-adjust"),element.firstElementChild.setAttribute("data-icon","moon"),element.firstElementChild.classList.add("fa-moon")),document.addEventListener("DOMContentLoaded",()=>{getcolorscheme(),switchBurger()})</script></div></header><main class="flex-grow pt-16"><div class=pl-scrollbar><div class="w-full max-w-screen-xl lg:px-4 xl:px-8 mx-auto"><div class="grid grid-cols-2 lg:grid-cols-8 gap-4 lg:pt-12"><div class="col-span-2 lg:col-start-2 lg:col-span-6 bg-secondary-bg rounded px-6 py-8"><h1 class="font-bold text-3xl text-primary-text">Convert Physical OS to Virtual Machine</h1><div class="flex flex-wrap flex-row items-center mt-2 text-tertiary-text"><div class="mr-6 my-2"><i class="fas fa-calendar mr-1"></i>
+<span>2019-02-24</span></div><div class="mr-6 my-2"><i class="fas fa-clock mr-1"></i>
+<span>3分鐘閱讀</span></div><div class="mr-6 my-2"><i class="fas fa-folder mr-1"></i>
+<a href=/categories/%E6%95%99%E5%AD%B8/ class=hover:text-eureka>教學</a></div></div><div class=content><p>以下將以Arch Linux做示範。</p><p>如果以「migrate physical machine to virtualbox」之類的詞當作關鍵字去Google，會發現網路上的做法都是請你使用Virtual Box的指令來達成目的：</p><pre><code class=language-shell># VBoxManage internalcommands createrawvmdk -filename &lt;path-to-file&gt;.vmdk -rawdisk &lt;disk-location&gt; -partitions &lt;partitions-to-migrate&gt;
+</code></pre><p>可是在我的電腦上，當我執行此指令時會發生悲劇：</p><blockquote><p>VBoxManage: error: Cannot open the raw disk &lsquo;/dev/disk0&rsquo;: VERR_ACCESS_DENIED<br>VBoxManage: error: The raw disk vmdk file was not created</p></blockquote><p>詳細原因我不太清楚，網路上有人說是因為System Integrity Protection(macOS的系統保護機制)是啟動的關係，但是我就算關掉了還是沒有用。<br>後來我就到網路上查查看有沒有辦法把磁碟映像檔轉成VirtualBox的虛擬碟格式，發現可以用<code>VBoxManage convertfromraw</code>這個指令達成，所以我就想到了一個比較神奇的方法：</p><p>首先，先把我要的磁碟分割區dd出來(root和efi分割區)：</p><pre><code class=language-shell># dd if=&lt;root-partition&gt; of=~/root.iso bs=2M
 # dd if=&lt;efi-partition&gt; of=~/efi.iso bs=2M
-</code></pre>
-<p>這裡要注意的是dd出來的映像檔大小=分割區大小，所以如果本機磁碟空間不夠可以把這兩個映像檔塞到其他地方。</p>
-<p>接著我們要把磁碟映像檔轉成虛擬碟格式：</p>
-<pre><code class=language-shell>$ VBoxManage convertfromraw root.iso root.vdi
+</code></pre><p>這裡要注意的是dd出來的映像檔大小=分割區大小，所以如果本機磁碟空間不夠可以把這兩個映像檔塞到其他地方。</p><p>接著我們要把磁碟映像檔轉成虛擬碟格式：</p><pre><code class=language-shell>$ VBoxManage convertfromraw root.iso root.vdi
 $ VBoxManage convertfromraw efi.iso efi.vdi
-</code></pre>
-<p>前置作業到此為止</p>
-<hr>
-<h1 id=import-root-partition>Import root partition</h1>
-<p>接下來進入了重頭戲。</p>
-<p>開啟Virtual Box後建立一個虛擬機，作業系統選擇Linux，然後磁碟大小設定要比原本的那兩個分割區還大。<br>
-建立完虛擬機之後到設定裡面新增開機映像檔和剛剛建立的虛擬碟：</p>
-<p><img src=1.png alt>
-<img src=2.png alt></p>
-<p>然後開啟虛擬機，(這裡會使用BIOS Legacy方法開機，因為Virtual Box用UEFI開Arch Linux會黑屏)
+</code></pre><p>前置作業到此為止</p><hr><h1 id=import-root-partition>Import root partition</h1><p>接下來進入了重頭戲。</p><p>開啟Virtual Box後建立一個虛擬機，作業系統選擇Linux，然後磁碟大小設定要比原本的那兩個分割區還大。<br>建立完虛擬機之後到設定裡面新增開機映像檔和剛剛建立的虛擬碟：</p><p><img src=1.png alt>
+<img src=2.png alt></p><p>然後開啟虛擬機，(這裡會使用BIOS Legacy方法開機，因為Virtual Box用UEFI開Arch Linux會黑屏)
 輸入<code>fdisk -l</code>查看裝載的磁碟編號，可以根據磁碟大小來判斷。
-以我的狀況來看，/dev/sda是剛建立的虛擬碟 /dev/sdb是原先的root.vdi /dev/sdc是efi.vdi。<br>
-利用<code>fdisk /dev/sda</code>來分割磁碟，產生一個空間為200MiB和剩下所有空間的分割區(類型為預設的Linux就好，不需要像UEFI那樣設定ef00)。</p>
-<p>格式化開機分割區：</p>
-<pre><code class=language-shell># mkfs.ext2 /dev/sda1          #boot分割區
-</code></pre>
-<p>把原先的root.vdi檔案複製到/dev/sda2。</p>
-<pre><code class=language-shell># dd if=/dev/sdb of=/dev/sda2 bs=2M
-</code></pre>
-<p>裝載磁碟：</p>
-<pre><code class=language-shell># mount /dev/sda2 /mnt
+以我的狀況來看，/dev/sda是剛建立的虛擬碟 /dev/sdb是原先的root.vdi /dev/sdc是efi.vdi。<br>利用<code>fdisk /dev/sda</code>來分割磁碟，產生一個空間為200MiB和剩下所有空間的分割區(類型為預設的Linux就好，不需要像UEFI那樣設定ef00)。</p><p>格式化開機分割區：</p><pre><code class=language-shell># mkfs.ext2 /dev/sda1          #boot分割區
+</code></pre><p>把原先的root.vdi檔案複製到/dev/sda2。</p><pre><code class=language-shell># dd if=/dev/sdb of=/dev/sda2 bs=2M
+</code></pre><p>裝載磁碟：</p><pre><code class=language-shell># mount /dev/sda2 /mnt
 # mount /dev/sda1 /mnt/boot   #若無boot資料夾請建立一個
-</code></pre>
-<p>重新產生fstab：</p>
-<pre><code class=language-shell># genfstab /mnt -U &gt; /mnt/etc/fstab
-</code></pre>
-<p>root分割區移植到這裡結束。</p>
-<hr>
-<h1 id=import-boot-partition>Import boot partition</h1>
-<p>先建立/mnt2資料夾，以便於裝載之前產生的efi.vdi</p>
-<pre><code class=language-shell># mkdir /mnt2
+</code></pre><p>重新產生fstab：</p><pre><code class=language-shell># genfstab /mnt -U &gt; /mnt/etc/fstab
+</code></pre><p>root分割區移植到這裡結束。</p><hr><h1 id=import-boot-partition>Import boot partition</h1><p>先建立/mnt2資料夾，以便於裝載之前產生的efi.vdi</p><pre><code class=language-shell># mkdir /mnt2
 # mount /dev/sdc /mn2
-</code></pre>
-<p>把efi裡面系統kernel檔案複製出來</p>
-<pre><code class=language-shell># cd /mnt2
+</code></pre><p>把efi裡面系統kernel檔案複製出來</p><pre><code class=language-shell># cd /mnt2
 # cp *linux* /mnt/boot
 # arch-chroot /mnt
 # mkinitcpio -p linux
-</code></pre>
-<p>重新安裝BIOS Legacy版本grub</p>
-<pre><code class=language-shell># arch-chroot /mnt
+</code></pre><p>重新安裝BIOS Legacy版本grub</p><pre><code class=language-shell># arch-chroot /mnt
 # grub install /dev/sda
 # grub-mkconfig -o /boot/grub/grub.cfg
-</code></pre>
-<p>到這裡若系統都沒噴錯誤，就算移植整個系統完成了。</p>
-<hr>
-<h1 id=export-vm-to-vmware-optional>Export VM to VMware (Optional)</h1>
-<p>因為我習慣用VMware Fusion作為虛擬機軟體，而且Virtual Box效能上較不佳，所以我要把Virtual Box上的虛擬機匯出。<br>
-點擊Tab bar上面的File，選取Export Appliance以匯出。這裡要特別注意的是Open Virtualization Format一定要選1.0，2.0我測試過在後面的匯入會出錯。
-<img src=3.png alt></p>
-<p>匯出結束之後，開啟VMware Fusion，選Import an existing virtual machine，然後找到剛剛匯出的.ova檔案，接著按照指示完成匯入就大功告成了！</p>
-<p>有圖有真相：
-<img src=4.png alt></p>
-</div>
-<div class=my-4>
-<a href=/tags/linux/ class="inline-block bg-tertiary-bg text-sm rounded px-3 py-1 my-1 mr-2 hover:text-eureka">#Linux</a>
-</div>
-<div class="flex flex-col md:flex-row md:justify-between -mx-2 mt-4 px-2 pt-4 border-t">
-<div>
-<span class="block font-bold">上一頁</span>
-<a href=/posts/uva-11516-wifi/ class=block>UVa 11516. WiFi</a>
-</div>
-<div class="md:text-right mt-4 md:mt-0">
-<span class="block font-bold">下一頁</span>
-<a href=/posts/apcs-2019-02-16/ class=block>APCS. 2019/02/16</a>
-</div>
-</div>
-</div>
-<div class="col-span-2 lg:col-start-2 lg:col-span-6 bg-secondary-bg rounded p-6">
-<h2 class="text-lg font-semibold mb-4">相關</h2>
-<div class=content>
-<a href=/posts/arch-linux-installation-guide/>Arch Linux Installation Guide</a>
-<br>
-</div>
-</div>
-</div>
-<script>document.addEventListener('DOMContentLoaded',()=>{hljs.initHighlightingOnLoad()})</script>
-</div>
-</div>
-</main>
-<footer class=pl-scrollbar>
-<div class="w-full max-w-screen-xl mx-auto"><div class="text-center p-6 pin-b">
-<p class="text-sm text-tertiary-text">&copy; 2021 <a href=https://www.wangchucheng.com/>C. Wang</a> and <a href=https://www.ruiqima.com/>R. Ma</a>
-&#183; Powered by the <a href=https://github.com/wangchucheng/hugo-eureka class=hover:text-eureka>Eureka</a> theme for <a href=https://gohugo.io class=hover:text-eureka>Hugo</a></p>
-</div></div>
-</footer>
-</body>
-</html>
+</code></pre><p>到這裡若系統都沒噴錯誤，就算移植整個系統完成了。</p><hr><h1 id=export-vm-to-vmware-optional>Export VM to VMware (Optional)</h1><p>因為我習慣用VMware Fusion作為虛擬機軟體，而且Virtual Box效能上較不佳，所以我要把Virtual Box上的虛擬機匯出。<br>點擊Tab bar上面的File，選取Export Appliance以匯出。這裡要特別注意的是Open Virtualization Format一定要選1.0，2.0我測試過在後面的匯入會出錯。
+<img src=3.png alt></p><p>匯出結束之後，開啟VMware Fusion，選Import an existing virtual machine，然後找到剛剛匯出的.ova檔案，接著按照指示完成匯入就大功告成了！</p><p>有圖有真相：
+<img src=4.png alt></p></div><div class=my-4><a href=/tags/linux/ class="inline-block bg-tertiary-bg text-sm rounded px-3 py-1 my-1 mr-2 hover:text-eureka">#Linux</a></div><div class="flex flex-col md:flex-row md:justify-between -mx-2 mt-4 px-2 pt-4 border-t"><div><span class="block font-bold">上一頁</span>
+<a href=/posts/uva-11516-wifi/ class=block>UVa 11516. WiFi</a></div><div class="md:text-right mt-4 md:mt-0"><span class="block font-bold">下一頁</span>
+<a href=/posts/apcs-2019-02-16/ class=block>APCS. 2019/02/16</a></div></div></div><div class="col-span-2 lg:col-start-2 lg:col-span-6 bg-secondary-bg rounded p-6"><h2 class="text-lg font-semibold mb-4">相關</h2><div class=content><a href=/posts/arch-linux-installation-guide/>Arch Linux Installation Guide</a><br></div></div></div><script>document.addEventListener("DOMContentLoaded",()=>{hljs.initHighlightingOnLoad()})</script></div></div></main><footer class=pl-scrollbar><div class="w-full max-w-screen-xl mx-auto"><div class="text-center p-6 pin-b"><p class="text-sm text-tertiary-text">&copy; 2021 <a href=https://www.wangchucheng.com/>C. Wang</a> and <a href=https://www.ruiqima.com/>R. Ma</a>
+&#183; Powered by the <a href=https://github.com/wangchucheng/hugo-eureka class=hover:text-eureka>Eureka</a> theme for <a href=https://gohugo.io class=hover:text-eureka>Hugo</a></p></div></div></footer></body></html>

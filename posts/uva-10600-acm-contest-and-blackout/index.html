@@ -1,117 +1,27 @@
-<!doctype html><html lang=zh-hant><meta charset=utf-8>
-<meta name=viewport content="width=device-width">
-<title>UVa 10600. ACM contest and Blackout | EnMinGW32</title>
-<meta name=generator content="Hugo Eureka 0.8.4">
-<link rel=stylesheet href=/css/eureka.min.css>
-<script defer src=/js/eureka.min.js></script>
-<link rel=preconnect href=https://fonts.gstatic.com crossorigin>
-<link rel=preload href="https://fonts.googleapis.com/css2?family=Lora:wght@400;600;700&family=Noto+Serif+SC:wght@400;600;700&display=swap" as=style onload="this.onload=null,this.rel='stylesheet'">
-<link rel=stylesheet href=https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.0/build/styles/solarized-light.min.css media=print onload="this.media='all',this.onload=null" crossorigin>
-<script defer src=https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.0/build/highlight.min.js crossorigin></script>
+<!doctype html><html lang=zh-hant><meta charset=utf-8><meta name=viewport content="width=device-width"><title>UVa 10600. ACM contest and Blackout | EnMinGW32</title><meta name=generator content="Hugo Eureka 0.8.4"><link rel=stylesheet href=/css/eureka.min.css><script defer src=/js/eureka.min.js></script>
+<link rel=preconnect href=https://fonts.gstatic.com crossorigin><link rel=preload href="https://fonts.googleapis.com/css2?family=Lora:wght@400;600;700&family=Noto+Serif+SC:wght@400;600;700&display=swap" as=style onload='this.onload=null,this.rel="stylesheet"'><link rel=stylesheet href=https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.0/build/styles/solarized-light.min.css media=print onload='this.media="all",this.onload=null' crossorigin><script defer src=https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.0/build/highlight.min.js crossorigin></script>
 <script defer src=https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.0/build/languages/dart.min.js crossorigin></script>
 <script defer src=https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.14.0/js/all.min.js integrity="sha256-uNYoXefWRqv+PsIF/OflNmwtKM4lStn9yrz2gVl6ymo=" crossorigin></script>
-<link rel=stylesheet href=https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css integrity=sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X media=print onload="this.media='all',this.onload=null" crossorigin>
-<script defer src=https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js integrity=sha384-g7c+Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI+sEnkvrMWph2EDg4 crossorigin></script>
+<link rel=stylesheet href=https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css integrity=sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X media=print onload='this.media="all",this.onload=null' crossorigin><script defer src=https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js integrity=sha384-g7c+Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI+sEnkvrMWph2EDg4 crossorigin></script>
 <script defer src=https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/contrib/auto-render.min.js integrity=sha384-mll67QQFJfxn0IYznZYonOWZ644AWYC+Pt2cHqMaRhXVrursRwvLnLaebdGIlYNa crossorigin></script>
-<script>document.addEventListener("DOMContentLoaded",function(){renderMathInElement(document.body,{delimiters:[{left:"$$",right:"$$",display:!0},{left:"$",right:"$",display:!1},{left:"\\(",right:"\\)",display:!1},{left:"\\[",right:"\\]",display:!0}]})})</script>
-<script defer src=https://cdn.jsdelivr.net/npm/mermaid@8.9.2/dist/mermaid.min.js integrity="sha256-Zmpaaj+GXFsPF5WdPArSrnW3b30dovldeKsW00xBVwE=" crossorigin></script>
-<link rel=icon type=image/png sizes=32x32 href=/images/icon_hu64421c6c7700f606f0ad45d807017b09_5843_32x32_fill_box_center_3.png>
-<link rel=apple-touch-icon sizes=180x180 href=/images/icon_hu64421c6c7700f606f0ad45d807017b09_5843_180x180_fill_box_center_3.png>
-<meta name=description content="Description
+<script>document.addEventListener("DOMContentLoaded",function(){renderMathInElement(document.body,{delimiters:[{left:"$$",right:"$$",display:!0},{left:"$",right:"$",display:!1},{left:"\\(",right:"\\)",display:!1},{left:"\\[",right:"\\]",display:!0}]})})</script><script defer src=https://cdn.jsdelivr.net/npm/mermaid@8.9.2/dist/mermaid.min.js integrity="sha256-Zmpaaj+GXFsPF5WdPArSrnW3b30dovldeKsW00xBVwE=" crossorigin></script>
+<link rel=icon type=image/png sizes=32x32 href=/images/icon_hu64421c6c7700f606f0ad45d807017b09_5843_32x32_fill_box_center_3.png><link rel=apple-touch-icon sizes=180x180 href=/images/icon_hu64421c6c7700f606f0ad45d807017b09_5843_180x180_fill_box_center_3.png><meta name=description content="Description
 
 給定一張無向圖，請輸出最小生成樹和次小生成樹的大小。
-">
-<script type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Posts","item":"/posts/"},{"@type":"ListItem","position":2,"name":"UVa 10600. ACM contest and Blackout","item":"/posts/uva-10600-acm-contest-and-blackout/"}]}</script>
-<script type=application/ld+json>{"@context":"https://schema.org","@type":"Article","mainEntityOfPage":{"@type":"WebPage","@id":"/posts/uva-10600-acm-contest-and-blackout/"},"headline":"UVa 10600. ACM contest and Blackout | EnMinGW32","datePublished":"2018-09-22T12:24:55+00:00","dateModified":"2018-09-22T12:24:55+00:00","wordCount":1032,"publisher":{"@type":"Person","name":"C. Wang","logo":{"@type":"ImageObject","url":"/images/icon.png"}},"description":"\u003ch1 id=\u0022description\u0022\u003eDescription\u003c\/h1\u003e\n\u003cblockquote\u003e\n\u003cp\u003e給定一張無向圖，請輸出最小生成樹和次小生成樹的大小。\u003c\/p\u003e\n\u003c\/blockquote\u003e"}</script><meta property="og:title" content="UVa 10600. ACM contest and Blackout | EnMinGW32">
-<meta property="og:type" content="article">
-<meta property="og:image" content="/images/icon.png">
-<meta property="og:url" content="/posts/uva-10600-acm-contest-and-blackout/">
-<meta property="og:description" content="Description
+"><script type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Posts","item":"/posts/"},{"@type":"ListItem","position":2,"name":"UVa 10600. ACM contest and Blackout","item":"/posts/uva-10600-acm-contest-and-blackout/"}]}</script><script type=application/ld+json>{"@context":"https://schema.org","@type":"Article","mainEntityOfPage":{"@type":"WebPage","@id":"/posts/uva-10600-acm-contest-and-blackout/"},"headline":"UVa 10600. ACM contest and Blackout | EnMinGW32","datePublished":"2018-09-22T12:24:55+00:00","dateModified":"2018-09-22T12:24:55+00:00","wordCount":1032,"publisher":{"@type":"Person","name":"C. Wang","logo":{"@type":"ImageObject","url":"/images/icon.png"}},"description":"\u003ch1 id=\u0022description\u0022\u003eDescription\u003c\/h1\u003e\n\u003cblockquote\u003e\n\u003cp\u003e給定一張無向圖，請輸出最小生成樹和次小生成樹的大小。\u003c\/p\u003e\n\u003c\/blockquote\u003e"}</script><meta property="og:title" content="UVa 10600. ACM contest and Blackout | EnMinGW32"><meta property="og:type" content="article"><meta property="og:image" content="/images/icon.png"><meta property="og:url" content="/posts/uva-10600-acm-contest-and-blackout/"><meta property="og:description" content="Description
 
 給定一張無向圖，請輸出最小生成樹和次小生成樹的大小。
-">
-<meta property="og:locale" content="zh-Hant">
-<meta property="og:site_name" content="EnMinGW32">
-<meta property="article:published_time" content="2018-09-22T12:24:55+00:00">
-<meta property="article:modified_time" content="2018-09-22T12:24:55+00:00">
-<meta property="article:section" content="posts">
-<meta property="article:tag" content="UVa">
-<meta property="article:tag" content="Tree">
-<meta property="article:tag" content="LCA">
-<meta property="article:tag" content="MST">
-<meta property="og:see_also" content="/posts/uva-1479-graph-and-queries/">
-<meta property="og:see_also" content="/posts/template-heavy-light-decomposition/">
-<meta property="og:see_also" content="/posts/template-lca-doubling-search/">
-<meta property="og:see_also" content="/posts/uva-165-stamps/">
-<meta property="og:see_also" content="/posts/uva-10917-walk-through-the-forest/">
-<meta property="og:see_also" content="/posts/uva-12538-version-controlled-ide/">
-<body class="flex flex-col min-h-screen">
-<header class="fixed flex items-center w-full min-h-16 pl-scrollbar z-50 bg-secondary-bg shadow-sm">
-<div class="w-full max-w-screen-xl mx-auto"><script>let storageColorScheme=localStorage.getItem("lightDarkMode");((storageColorScheme=='Auto'||storageColorScheme==null)&&window.matchMedia("(prefers-color-scheme: dark)").matches||storageColorScheme=="Dark")&&document.getElementsByTagName('html')[0].classList.add('dark')</script>
-<nav class="flex items-center justify-between flex-wrap px-4 py-4 md:py-0">
-<a href=/ class="mr-6 text-primary-text text-xl font-bold">EnMinGW32</a>
+"><meta property="og:locale" content="zh-Hant"><meta property="og:site_name" content="EnMinGW32"><meta property="article:published_time" content="2018-09-22T12:24:55+00:00"><meta property="article:modified_time" content="2018-09-22T12:24:55+00:00"><meta property="article:section" content="posts"><meta property="article:tag" content="UVa"><meta property="article:tag" content="Tree"><meta property="article:tag" content="LCA"><meta property="article:tag" content="MST"><meta property="og:see_also" content="/posts/uva-1479-graph-and-queries/"><meta property="og:see_also" content="/posts/template-heavy-light-decomposition/"><meta property="og:see_also" content="/posts/template-lca-doubling-search/"><meta property="og:see_also" content="/posts/uva-165-stamps/"><meta property="og:see_also" content="/posts/uva-10917-walk-through-the-forest/"><meta property="og:see_also" content="/posts/uva-12538-version-controlled-ide/"><body class="flex flex-col min-h-screen"><header class="fixed flex items-center w-full min-h-16 pl-scrollbar z-50 bg-secondary-bg shadow-sm"><div class="w-full max-w-screen-xl mx-auto"><script>let storageColorScheme=localStorage.getItem("lightDarkMode");((storageColorScheme=="Auto"||storageColorScheme==null)&&window.matchMedia("(prefers-color-scheme: dark)").matches||storageColorScheme=="Dark")&&document.getElementsByTagName("html")[0].classList.add("dark")</script><nav class="flex items-center justify-between flex-wrap px-4 py-4 md:py-0"><a href=/ class="mr-6 text-primary-text text-xl font-bold">EnMinGW32</a>
 <button id=navbar-btn class="md:hidden flex items-center px-3 py-2" aria-label="Open Navbar">
-<i class="fas fa-bars"></i>
-</button>
-<div id=target class="hidden block md:flex md:flex-grow md:justify-between md:items-center w-full md:w-auto text-primary-text z-20">
-<div class="md:flex md:h-16 text-sm md:flex-grow pb-4 md:pb-0 border-b md:border-b-0">
-<a href=/#about class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2 border-transparent mr-4">About</a>
-<a href=/posts/ class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2 selected-menu-item mr-4">Posts</a>
-</div>
-<div class=flex>
-<div class="relative pt-4 md:pt-0">
-<div class="cursor-pointer hover:text-eureka" id=lightDarkMode>
-<i class="fas fa-adjust"></i>
-</div>
-<div class="fixed hidden inset-0 opacity-0 h-full w-full cursor-default z-30" id=is-open>
-</div>
-<div class="absolute flex flex-col left-0 md:left-auto right-auto md:right-0 hidden bg-secondary-bg w-48 rounded py-2 border border-tertiary-bg cursor-pointer z-40" id=lightDarkOptions>
-<span class="px-4 py-1 hover:text-eureka" name=Light>淺色</span>
+<i class="fas fa-bars"></i></button><div id=target class="hidden block md:flex md:flex-grow md:justify-between md:items-center w-full md:w-auto text-primary-text z-20"><div class="md:flex md:h-16 text-sm md:flex-grow pb-4 md:pb-0 border-b md:border-b-0"><a href=/#about class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2 border-transparent mr-4">About</a>
+<a href=/posts/ class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2 selected-menu-item mr-4">Posts</a></div><div class=flex><div class="relative pt-4 md:pt-0"><div class="cursor-pointer hover:text-eureka" id=lightDarkMode><i class="fas fa-adjust"></i></div><div class="fixed hidden inset-0 opacity-0 h-full w-full cursor-default z-30" id=is-open></div><div class="absolute flex flex-col left-0 md:left-auto right-auto md:right-0 hidden bg-secondary-bg w-48 rounded py-2 border border-tertiary-bg cursor-pointer z-40" id=lightDarkOptions><span class="px-4 py-1 hover:text-eureka" name=Light>淺色</span>
 <span class="px-4 py-1 hover:text-eureka" name=Dark>深色</span>
-<span class="px-4 py-1 hover:text-eureka" name=Auto>自動</span>
-</div>
-</div>
-</div>
-</div>
-<div class="fixed hidden inset-0 opacity-0 h-full w-full cursor-default z-0" id=is-open-mobile>
-</div>
-</nav>
-<script>let element=document.getElementById('lightDarkMode');storageColorScheme==null||storageColorScheme=='Auto'?document.addEventListener('DOMContentLoaded',()=>{window.matchMedia("(prefers-color-scheme: dark)").addEventListener('change',switchDarkMode)}):storageColorScheme=="Light"?(element.firstElementChild.classList.remove('fa-adjust'),element.firstElementChild.setAttribute("data-icon",'sun'),element.firstElementChild.classList.add('fa-sun')):storageColorScheme=="Dark"&&(element.firstElementChild.classList.remove('fa-adjust'),element.firstElementChild.setAttribute("data-icon",'moon'),element.firstElementChild.classList.add('fa-moon')),document.addEventListener('DOMContentLoaded',()=>{getcolorscheme(),switchBurger()})</script>
-</div>
-</header>
-<main class="flex-grow pt-16">
-<div class=pl-scrollbar>
-<div class="w-full max-w-screen-xl lg:px-4 xl:px-8 mx-auto">
-<div class="grid grid-cols-2 lg:grid-cols-8 gap-4 lg:pt-12">
-<div class="col-span-2 lg:col-start-2 lg:col-span-6 bg-secondary-bg rounded px-6 py-8">
-<h1 class="font-bold text-3xl text-primary-text">UVa 10600. ACM contest and Blackout</h1>
-<div class="flex flex-wrap flex-row items-center mt-2 text-tertiary-text">
-<div class="mr-6 my-2">
-<i class="fas fa-calendar mr-1"></i>
-<span>2018-09-22</span>
-</div>
-<div class="mr-6 my-2">
-<i class="fas fa-clock mr-1"></i>
-<span>3分鐘閱讀</span>
-</div>
-<div class="mr-6 my-2">
-<i class="fas fa-folder mr-1"></i>
-<a href=/categories/%E9%A1%8C%E8%A7%A3/ class=hover:text-eureka>題解</a>
-</div>
-</div>
-<div class=content>
-<h1 id=description>Description</h1>
-<blockquote>
-<p>給定一張無向圖，請輸出最小生成樹和次小生成樹的大小。</p>
-</blockquote>
-<h1 id=input-format>Input Format</h1>
-<p>第一行會有t，代表有t個測資$(1 &lt; t &lt; 15)$。
+<span class="px-4 py-1 hover:text-eureka" name=Auto>自動</span></div></div></div></div><div class="fixed hidden inset-0 opacity-0 h-full w-full cursor-default z-0" id=is-open-mobile></div></nav><script>let element=document.getElementById("lightDarkMode");storageColorScheme==null||storageColorScheme=="Auto"?document.addEventListener("DOMContentLoaded",()=>{window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change",switchDarkMode)}):storageColorScheme=="Light"?(element.firstElementChild.classList.remove("fa-adjust"),element.firstElementChild.setAttribute("data-icon","sun"),element.firstElementChild.classList.add("fa-sun")):storageColorScheme=="Dark"&&(element.firstElementChild.classList.remove("fa-adjust"),element.firstElementChild.setAttribute("data-icon","moon"),element.firstElementChild.classList.add("fa-moon")),document.addEventListener("DOMContentLoaded",()=>{getcolorscheme(),switchBurger()})</script></div></header><main class="flex-grow pt-16"><div class=pl-scrollbar><div class="w-full max-w-screen-xl lg:px-4 xl:px-8 mx-auto"><div class="grid grid-cols-2 lg:grid-cols-8 gap-4 lg:pt-12"><div class="col-span-2 lg:col-start-2 lg:col-span-6 bg-secondary-bg rounded px-6 py-8"><h1 class="font-bold text-3xl text-primary-text">UVa 10600. ACM contest and Blackout</h1><div class="flex flex-wrap flex-row items-center mt-2 text-tertiary-text"><div class="mr-6 my-2"><i class="fas fa-calendar mr-1"></i>
+<span>2018-09-22</span></div><div class="mr-6 my-2"><i class="fas fa-clock mr-1"></i>
+<span>3分鐘閱讀</span></div><div class="mr-6 my-2"><i class="fas fa-folder mr-1"></i>
+<a href=/categories/%E9%A1%8C%E8%A7%A3/ class=hover:text-eureka>題解</a></div></div><div class=content><h1 id=description>Description</h1><blockquote><p>給定一張無向圖，請輸出最小生成樹和次小生成樹的大小。</p></blockquote><h1 id=input-format>Input Format</h1><p>第一行會有t，代表有t個測資$(1 &lt; t &lt; 15)$。
 接下來每個測資會有N M，代表n個點以及m條邊(3 &lt; N &lt; 100)。
-然後會有M行，$a_i b_i v_i$代表第$i$條邊的兩端點以及權重v。</p>
-<h1 id=output-format>Output Format</h1>
-<p>每組測試資料輸出最小生成樹和次小生成樹大小，中間用一個空格格開。</p>
-<h1 id=sample-input>Sample Input</h1>
-<pre><code>2
+然後會有M行，$a_i b_i v_i$代表第$i$條邊的兩端點以及權重v。</p><h1 id=output-format>Output Format</h1><p>每組測試資料輸出最小生成樹和次小生成樹大小，中間用一個空格格開。</p><h1 id=sample-input>Sample Input</h1><pre><code>2
 5 8
 1 3 75
 3 4 51
@@ -136,27 +46,9 @@
 4 6 14
 4 5 9
 5 6 10
-</code></pre>
-<h1 id=sample-output>Sample Output</h1>
-<pre><code>110 121
+</code></pre><h1 id=sample-output>Sample Output</h1><pre><code>110 121
 37 37
-</code></pre>
-<p>UVa - <a href=https://uva.onlinejudge.org/external/106/10600.pdf>10600</a></p>
-<h1 id=solution>Solution</h1>
-<p>這題搞了兩天才寫出來，後來是發現原來UVa的毒瘤輸入N會=100，害我一直WA。<br>
-<strong>注意：題目的n範圍應修正為$3 &lt; N \le 100$</strong><br>
-回歸正題，求次小生成樹的方法是：<br>
-對於已經求好的MST，枚舉每一條未使用的邊，並且判斷加入此邊之後的最小升成樹大小(枚舉的邊必須使用到)。<br>
-也代表假設加入的邊為a, b、長度v，則$原先MST大小-(a到b之間的最大邊長度)+v=此查詢的MST$，然後對每一次查詢的MST求min即可。</p>
-<p>所以重點是要怎麼對每一次查詢求兩點之間的最大邊長，有以下幾種方法可求：</p>
-<ol>
-<li>暴力：*$O(N^2)$<em>預處理，</em>$O(1)$*查詢</li>
-<li>LCA倍增法：*$O(NlogN)$<em>預處理，</em>$O(logN)$*查詢</li>
-<li>樹鏈剖分：*$O(N)$<em>預處理，</em>$O(log^2N)$*查詢</li>
-</ol>
-<p>這裡我選擇用第二種方法，因為第一種在$n=10^5$的題目上就行不通，而樹鏈剖分常數大且查詢比較慢，實作上也比較難理解。</p>
-<h1 id=code>Code</h1>
-<pre><code class=language-cpp>/*************************************************************************
+</code></pre><p>UVa - <a href=https://uva.onlinejudge.org/external/106/10600.pdf>10600</a></p><h1 id=solution>Solution</h1><p>這題搞了兩天才寫出來，後來是發現原來UVa的毒瘤輸入N會=100，害我一直WA。<br><strong>注意：題目的n範圍應修正為$3 &lt; N \le 100$</strong><br>回歸正題，求次小生成樹的方法是：<br>對於已經求好的MST，枚舉每一條未使用的邊，並且判斷加入此邊之後的最小升成樹大小(枚舉的邊必須使用到)。<br>也代表假設加入的邊為a, b、長度v，則$原先MST大小-(a到b之間的最大邊長度)+v=此查詢的MST$，然後對每一次查詢的MST求min即可。</p><p>所以重點是要怎麼對每一次查詢求兩點之間的最大邊長，有以下幾種方法可求：</p><ol><li>暴力：*$O(N^2)$<em>預處理，</em>$O(1)$*查詢</li><li>LCA倍增法：*$O(NlogN)$<em>預處理，</em>$O(logN)$*查詢</li><li>樹鏈剖分：*$O(N)$<em>預處理，</em>$O(log^2N)$*查詢</li></ol><p>這裡我選擇用第二種方法，因為第一種在$n=10^5$的題目上就行不通，而樹鏈剖分常數大且查詢比較慢，實作上也比較難理解。</p><h1 id=code>Code</h1><pre><code class=language-cpp>/*************************************************************************
   &gt; File Name: 10600 - ACM contest and Blackout.cpp
   &gt; Author: Samuel
   &gt; Mail: enminghuang21119@gmail.com
@@ -275,52 +167,10 @@ int main() {
     }
     return 0;
 }
-</code></pre>
-</div>
-<div class=my-4>
-<a href=/tags/uva/ class="inline-block bg-tertiary-bg text-sm rounded px-3 py-1 my-1 mr-2 hover:text-eureka">#UVa</a>
+</code></pre></div><div class=my-4><a href=/tags/uva/ class="inline-block bg-tertiary-bg text-sm rounded px-3 py-1 my-1 mr-2 hover:text-eureka">#UVa</a>
 <a href=/tags/tree/ class="inline-block bg-tertiary-bg text-sm rounded px-3 py-1 my-1 mr-2 hover:text-eureka">#Tree</a>
 <a href=/tags/lca/ class="inline-block bg-tertiary-bg text-sm rounded px-3 py-1 my-1 mr-2 hover:text-eureka">#LCA</a>
-<a href=/tags/mst/ class="inline-block bg-tertiary-bg text-sm rounded px-3 py-1 my-1 mr-2 hover:text-eureka">#MST</a>
-</div>
-<div class="flex flex-col md:flex-row md:justify-between -mx-2 mt-4 px-2 pt-4 border-t">
-<div>
-<span class="block font-bold">上一頁</span>
-<a href=/posts/uva-838-worm-world/ class=block>UVa 838. Worm World</a>
-</div>
-<div class="md:text-right mt-4 md:mt-0">
-<span class="block font-bold">下一頁</span>
-<a href=/posts/uva-165-stamps/ class=block>UVa 165. Stamps</a>
-</div>
-</div>
-</div>
-<div class="col-span-2 lg:col-start-2 lg:col-span-6 bg-secondary-bg rounded p-6">
-<h2 class="text-lg font-semibold mb-4">相關</h2>
-<div class=content>
-<a href=/posts/uva-1479-graph-and-queries/>UVa 1479. Graph and Queries</a>
-<br>
-<a href=/posts/template-heavy-light-decomposition/>Template. Heavy-light Decomposition</a>
-<br>
-<a href=/posts/template-lca-doubling-search/>Template. LCA Doubling Search</a>
-<br>
-<a href=/posts/uva-165-stamps/>UVa 165. Stamps</a>
-<br>
-<a href=/posts/uva-10917-walk-through-the-forest/>UVa 10917. Walk Through the Forest</a>
-<br>
-<a href=/posts/uva-12538-version-controlled-ide/>UVa 12538. Version Controlled IDE</a>
-<br>
-</div>
-</div>
-</div>
-<script>document.addEventListener('DOMContentLoaded',()=>{hljs.initHighlightingOnLoad()})</script>
-</div>
-</div>
-</main>
-<footer class=pl-scrollbar>
-<div class="w-full max-w-screen-xl mx-auto"><div class="text-center p-6 pin-b">
-<p class="text-sm text-tertiary-text">&copy; 2021 <a href=https://www.wangchucheng.com/>C. Wang</a> and <a href=https://www.ruiqima.com/>R. Ma</a>
-&#183; Powered by the <a href=https://github.com/wangchucheng/hugo-eureka class=hover:text-eureka>Eureka</a> theme for <a href=https://gohugo.io class=hover:text-eureka>Hugo</a></p>
-</div></div>
-</footer>
-</body>
-</html>
+<a href=/tags/mst/ class="inline-block bg-tertiary-bg text-sm rounded px-3 py-1 my-1 mr-2 hover:text-eureka">#MST</a></div><div class="flex flex-col md:flex-row md:justify-between -mx-2 mt-4 px-2 pt-4 border-t"><div><span class="block font-bold">上一頁</span>
+<a href=/posts/uva-838-worm-world/ class=block>UVa 838. Worm World</a></div><div class="md:text-right mt-4 md:mt-0"><span class="block font-bold">下一頁</span>
+<a href=/posts/uva-165-stamps/ class=block>UVa 165. Stamps</a></div></div></div><div class="col-span-2 lg:col-start-2 lg:col-span-6 bg-secondary-bg rounded p-6"><h2 class="text-lg font-semibold mb-4">相關</h2><div class=content><a href=/posts/uva-1479-graph-and-queries/>UVa 1479. Graph and Queries</a><br><a href=/posts/template-heavy-light-decomposition/>Template. Heavy-light Decomposition</a><br><a href=/posts/template-lca-doubling-search/>Template. LCA Doubling Search</a><br><a href=/posts/uva-165-stamps/>UVa 165. Stamps</a><br><a href=/posts/uva-10917-walk-through-the-forest/>UVa 10917. Walk Through the Forest</a><br><a href=/posts/uva-12538-version-controlled-ide/>UVa 12538. Version Controlled IDE</a><br></div></div></div><script>document.addEventListener("DOMContentLoaded",()=>{hljs.initHighlightingOnLoad()})</script></div></div></main><footer class=pl-scrollbar><div class="w-full max-w-screen-xl mx-auto"><div class="text-center p-6 pin-b"><p class="text-sm text-tertiary-text">&copy; 2021 <a href=https://www.wangchucheng.com/>C. Wang</a> and <a href=https://www.ruiqima.com/>R. Ma</a>
+&#183; Powered by the <a href=https://github.com/wangchucheng/hugo-eureka class=hover:text-eureka>Eureka</a> theme for <a href=https://gohugo.io class=hover:text-eureka>Hugo</a></p></div></div></footer></body></html>

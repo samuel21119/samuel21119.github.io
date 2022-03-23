@@ -1,138 +1,28 @@
-<!doctype html><html lang=zh-hant><meta charset=utf-8>
-<meta name=viewport content="width=device-width">
-<title>UVa 571. Jugs | EnMinGW32</title>
-<meta name=generator content="Hugo Eureka 0.8.4">
-<link rel=stylesheet href=/css/eureka.min.css>
-<script defer src=/js/eureka.min.js></script>
-<link rel=preconnect href=https://fonts.gstatic.com crossorigin>
-<link rel=preload href="https://fonts.googleapis.com/css2?family=Lora:wght@400;600;700&family=Noto+Serif+SC:wght@400;600;700&display=swap" as=style onload="this.onload=null,this.rel='stylesheet'">
-<link rel=stylesheet href=https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.0/build/styles/solarized-light.min.css media=print onload="this.media='all',this.onload=null" crossorigin>
-<script defer src=https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.0/build/highlight.min.js crossorigin></script>
+<!doctype html><html lang=zh-hant><meta charset=utf-8><meta name=viewport content="width=device-width"><title>UVa 571. Jugs | EnMinGW32</title><meta name=generator content="Hugo Eureka 0.8.4"><link rel=stylesheet href=/css/eureka.min.css><script defer src=/js/eureka.min.js></script>
+<link rel=preconnect href=https://fonts.gstatic.com crossorigin><link rel=preload href="https://fonts.googleapis.com/css2?family=Lora:wght@400;600;700&family=Noto+Serif+SC:wght@400;600;700&display=swap" as=style onload='this.onload=null,this.rel="stylesheet"'><link rel=stylesheet href=https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.0/build/styles/solarized-light.min.css media=print onload='this.media="all",this.onload=null' crossorigin><script defer src=https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.0/build/highlight.min.js crossorigin></script>
 <script defer src=https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.0/build/languages/dart.min.js crossorigin></script>
 <script defer src=https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.14.0/js/all.min.js integrity="sha256-uNYoXefWRqv+PsIF/OflNmwtKM4lStn9yrz2gVl6ymo=" crossorigin></script>
-<link rel=stylesheet href=https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css integrity=sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X media=print onload="this.media='all',this.onload=null" crossorigin>
-<script defer src=https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js integrity=sha384-g7c+Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI+sEnkvrMWph2EDg4 crossorigin></script>
+<link rel=stylesheet href=https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css integrity=sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X media=print onload='this.media="all",this.onload=null' crossorigin><script defer src=https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js integrity=sha384-g7c+Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI+sEnkvrMWph2EDg4 crossorigin></script>
 <script defer src=https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/contrib/auto-render.min.js integrity=sha384-mll67QQFJfxn0IYznZYonOWZ644AWYC+Pt2cHqMaRhXVrursRwvLnLaebdGIlYNa crossorigin></script>
-<script>document.addEventListener("DOMContentLoaded",function(){renderMathInElement(document.body,{delimiters:[{left:"$$",right:"$$",display:!0},{left:"$",right:"$",display:!1},{left:"\\(",right:"\\)",display:!1},{left:"\\[",right:"\\]",display:!0}]})})</script>
-<script defer src=https://cdn.jsdelivr.net/npm/mermaid@8.9.2/dist/mermaid.min.js integrity="sha256-Zmpaaj+GXFsPF5WdPArSrnW3b30dovldeKsW00xBVwE=" crossorigin></script>
-<link rel=icon type=image/png sizes=32x32 href=/images/icon_hu64421c6c7700f606f0ad45d807017b09_5843_32x32_fill_box_center_3.png>
-<link rel=apple-touch-icon sizes=180x180 href=/images/icon_hu64421c6c7700f606f0ad45d807017b09_5843_180x180_fill_box_center_3.png>
-<meta name=description content="Description
+<script>document.addEventListener("DOMContentLoaded",function(){renderMathInElement(document.body,{delimiters:[{left:"$$",right:"$$",display:!0},{left:"$",right:"$",display:!1},{left:"\\(",right:"\\)",display:!1},{left:"\\[",right:"\\]",display:!0}]})})</script><script defer src=https://cdn.jsdelivr.net/npm/mermaid@8.9.2/dist/mermaid.min.js integrity="sha256-Zmpaaj+GXFsPF5WdPArSrnW3b30dovldeKsW00xBVwE=" crossorigin></script>
+<link rel=icon type=image/png sizes=32x32 href=/images/icon_hu64421c6c7700f606f0ad45d807017b09_5843_32x32_fill_box_center_3.png><link rel=apple-touch-icon sizes=180x180 href=/images/icon_hu64421c6c7700f606f0ad45d807017b09_5843_180x180_fill_box_center_3.png><meta name=description content="Description
 
 在電影「終極警探 3（Die Hard 3）」中布魯斯威利（Bruce Willis）和山謬傑克森（Samuel L. Jackson）遇到壞蛋設下的謎題：給一個3加侖和5加侖的桶子，要求他們必須在5加侖的桶子中裝4加侖的水。現在你的任務就是解決這個問題。
-">
-<script type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Posts","item":"/posts/"},{"@type":"ListItem","position":2,"name":"UVa 571. Jugs","item":"/posts/uva-571-jugs/"}]}</script>
-<script type=application/ld+json>{"@context":"https://schema.org","@type":"Article","mainEntityOfPage":{"@type":"WebPage","@id":"/posts/uva-571-jugs/"},"headline":"UVa 571. Jugs | EnMinGW32","datePublished":"2018-08-06T18:43:23+00:00","dateModified":"2018-08-06T18:43:23+00:00","wordCount":1126,"publisher":{"@type":"Person","name":"C. Wang","logo":{"@type":"ImageObject","url":"/images/icon.png"}},"description":"\u003ch1 id=\u0022description\u0022\u003eDescription\u003c\/h1\u003e\n\u003cblockquote\u003e\n\u003cp\u003e在電影「終極警探 3（Die Hard 3）」中布魯斯威利（Bruce Willis）和山謬傑克森（Samuel L. Jackson）遇到壞蛋設下的謎題：給一個3加侖和5加侖的桶子，要求他們必須在5加侖的桶子中裝4加侖的水。現在你的任務就是解決這個問題。\u003c\/p\u003e\n\u003c\/blockquote\u003e"}</script><meta property="og:title" content="UVa 571. Jugs | EnMinGW32">
-<meta property="og:type" content="article">
-<meta property="og:image" content="/images/icon.png">
-<meta property="og:url" content="/posts/uva-571-jugs/">
-<meta property="og:description" content="Description
+"><script type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Posts","item":"/posts/"},{"@type":"ListItem","position":2,"name":"UVa 571. Jugs","item":"/posts/uva-571-jugs/"}]}</script><script type=application/ld+json>{"@context":"https://schema.org","@type":"Article","mainEntityOfPage":{"@type":"WebPage","@id":"/posts/uva-571-jugs/"},"headline":"UVa 571. Jugs | EnMinGW32","datePublished":"2018-08-06T18:43:23+00:00","dateModified":"2018-08-06T18:43:23+00:00","wordCount":1126,"publisher":{"@type":"Person","name":"C. Wang","logo":{"@type":"ImageObject","url":"/images/icon.png"}},"description":"\u003ch1 id=\u0022description\u0022\u003eDescription\u003c\/h1\u003e\n\u003cblockquote\u003e\n\u003cp\u003e在電影「終極警探 3（Die Hard 3）」中布魯斯威利（Bruce Willis）和山謬傑克森（Samuel L. Jackson）遇到壞蛋設下的謎題：給一個3加侖和5加侖的桶子，要求他們必須在5加侖的桶子中裝4加侖的水。現在你的任務就是解決這個問題。\u003c\/p\u003e\n\u003c\/blockquote\u003e"}</script><meta property="og:title" content="UVa 571. Jugs | EnMinGW32"><meta property="og:type" content="article"><meta property="og:image" content="/images/icon.png"><meta property="og:url" content="/posts/uva-571-jugs/"><meta property="og:description" content="Description
 
 在電影「終極警探 3（Die Hard 3）」中布魯斯威利（Bruce Willis）和山謬傑克森（Samuel L. Jackson）遇到壞蛋設下的謎題：給一個3加侖和5加侖的桶子，要求他們必須在5加侖的桶子中裝4加侖的水。現在你的任務就是解決這個問題。
-">
-<meta property="og:locale" content="zh-Hant">
-<meta property="og:site_name" content="EnMinGW32">
-<meta property="article:published_time" content="2018-08-06T18:43:23+00:00">
-<meta property="article:modified_time" content="2018-08-06T18:43:23+00:00">
-<meta property="article:section" content="posts">
-<meta property="article:tag" content="UVa">
-<meta property="article:tag" content="BFS">
-<meta property="og:see_also" content="/posts/uva-307-sticks/">
-<meta property="og:see_also" content="/posts/uva-10952.-pattern-transformations/">
-<meta property="og:see_also" content="/posts/uva-103.-stacking-boxes/">
-<body class="flex flex-col min-h-screen">
-<header class="fixed flex items-center w-full min-h-16 pl-scrollbar z-50 bg-secondary-bg shadow-sm">
-<div class="w-full max-w-screen-xl mx-auto"><script>let storageColorScheme=localStorage.getItem("lightDarkMode");((storageColorScheme=='Auto'||storageColorScheme==null)&&window.matchMedia("(prefers-color-scheme: dark)").matches||storageColorScheme=="Dark")&&document.getElementsByTagName('html')[0].classList.add('dark')</script>
-<nav class="flex items-center justify-between flex-wrap px-4 py-4 md:py-0">
-<a href=/ class="mr-6 text-primary-text text-xl font-bold">EnMinGW32</a>
+"><meta property="og:locale" content="zh-Hant"><meta property="og:site_name" content="EnMinGW32"><meta property="article:published_time" content="2018-08-06T18:43:23+00:00"><meta property="article:modified_time" content="2018-08-06T18:43:23+00:00"><meta property="article:section" content="posts"><meta property="article:tag" content="UVa"><meta property="article:tag" content="BFS"><meta property="og:see_also" content="/posts/uva-307-sticks/"><meta property="og:see_also" content="/posts/uva-10952.-pattern-transformations/"><meta property="og:see_also" content="/posts/uva-103.-stacking-boxes/"><body class="flex flex-col min-h-screen"><header class="fixed flex items-center w-full min-h-16 pl-scrollbar z-50 bg-secondary-bg shadow-sm"><div class="w-full max-w-screen-xl mx-auto"><script>let storageColorScheme=localStorage.getItem("lightDarkMode");((storageColorScheme=="Auto"||storageColorScheme==null)&&window.matchMedia("(prefers-color-scheme: dark)").matches||storageColorScheme=="Dark")&&document.getElementsByTagName("html")[0].classList.add("dark")</script><nav class="flex items-center justify-between flex-wrap px-4 py-4 md:py-0"><a href=/ class="mr-6 text-primary-text text-xl font-bold">EnMinGW32</a>
 <button id=navbar-btn class="md:hidden flex items-center px-3 py-2" aria-label="Open Navbar">
-<i class="fas fa-bars"></i>
-</button>
-<div id=target class="hidden block md:flex md:flex-grow md:justify-between md:items-center w-full md:w-auto text-primary-text z-20">
-<div class="md:flex md:h-16 text-sm md:flex-grow pb-4 md:pb-0 border-b md:border-b-0">
-<a href=/#about class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2 border-transparent mr-4">About</a>
-<a href=/posts/ class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2 selected-menu-item mr-4">Posts</a>
-</div>
-<div class=flex>
-<div class="relative pt-4 md:pt-0">
-<div class="cursor-pointer hover:text-eureka" id=lightDarkMode>
-<i class="fas fa-adjust"></i>
-</div>
-<div class="fixed hidden inset-0 opacity-0 h-full w-full cursor-default z-30" id=is-open>
-</div>
-<div class="absolute flex flex-col left-0 md:left-auto right-auto md:right-0 hidden bg-secondary-bg w-48 rounded py-2 border border-tertiary-bg cursor-pointer z-40" id=lightDarkOptions>
-<span class="px-4 py-1 hover:text-eureka" name=Light>淺色</span>
+<i class="fas fa-bars"></i></button><div id=target class="hidden block md:flex md:flex-grow md:justify-between md:items-center w-full md:w-auto text-primary-text z-20"><div class="md:flex md:h-16 text-sm md:flex-grow pb-4 md:pb-0 border-b md:border-b-0"><a href=/#about class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2 border-transparent mr-4">About</a>
+<a href=/posts/ class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2 selected-menu-item mr-4">Posts</a></div><div class=flex><div class="relative pt-4 md:pt-0"><div class="cursor-pointer hover:text-eureka" id=lightDarkMode><i class="fas fa-adjust"></i></div><div class="fixed hidden inset-0 opacity-0 h-full w-full cursor-default z-30" id=is-open></div><div class="absolute flex flex-col left-0 md:left-auto right-auto md:right-0 hidden bg-secondary-bg w-48 rounded py-2 border border-tertiary-bg cursor-pointer z-40" id=lightDarkOptions><span class="px-4 py-1 hover:text-eureka" name=Light>淺色</span>
 <span class="px-4 py-1 hover:text-eureka" name=Dark>深色</span>
-<span class="px-4 py-1 hover:text-eureka" name=Auto>自動</span>
-</div>
-</div>
-</div>
-</div>
-<div class="fixed hidden inset-0 opacity-0 h-full w-full cursor-default z-0" id=is-open-mobile>
-</div>
-</nav>
-<script>let element=document.getElementById('lightDarkMode');storageColorScheme==null||storageColorScheme=='Auto'?document.addEventListener('DOMContentLoaded',()=>{window.matchMedia("(prefers-color-scheme: dark)").addEventListener('change',switchDarkMode)}):storageColorScheme=="Light"?(element.firstElementChild.classList.remove('fa-adjust'),element.firstElementChild.setAttribute("data-icon",'sun'),element.firstElementChild.classList.add('fa-sun')):storageColorScheme=="Dark"&&(element.firstElementChild.classList.remove('fa-adjust'),element.firstElementChild.setAttribute("data-icon",'moon'),element.firstElementChild.classList.add('fa-moon')),document.addEventListener('DOMContentLoaded',()=>{getcolorscheme(),switchBurger()})</script>
-</div>
-</header>
-<main class="flex-grow pt-16">
-<div class=pl-scrollbar>
-<div class="w-full max-w-screen-xl lg:px-4 xl:px-8 mx-auto">
-<div class="grid grid-cols-2 lg:grid-cols-8 gap-4 lg:pt-12">
-<div class="col-span-2 lg:col-start-2 lg:col-span-6 bg-secondary-bg rounded px-6 py-8">
-<h1 class="font-bold text-3xl text-primary-text">UVa 571. Jugs</h1>
-<div class="flex flex-wrap flex-row items-center mt-2 text-tertiary-text">
-<div class="mr-6 my-2">
-<i class="fas fa-calendar mr-1"></i>
-<span>2018-08-06</span>
-</div>
-<div class="mr-6 my-2">
-<i class="fas fa-clock mr-1"></i>
-<span>3分鐘閱讀</span>
-</div>
-<div class="mr-6 my-2">
-<i class="fas fa-folder mr-1"></i>
-<a href=/categories/%E9%A1%8C%E8%A7%A3/ class=hover:text-eureka>題解</a>
-</div>
-</div>
-<div class=content>
-<h1 id=description>Description</h1>
-<blockquote>
-<p>在電影「終極警探 3（Die Hard 3）」中布魯斯威利（Bruce Willis）和山謬傑克森（Samuel L. Jackson）遇到壞蛋設下的謎題：給一個3加侖和5加侖的桶子，要求他們必須在5加侖的桶子中裝4加侖的水。現在你的任務就是解決這個問題。</p>
-</blockquote>
-<blockquote>
-<p>給你2個桶子A、B和無限供應的水，你可以做3個動作：</p>
-<ol>
-<li>把一個桶子裝滿水。</li>
-<li>把一個桶子的水倒光。</li>
-<li>把一個桶子的水倒到另一個桶子中。</li>
-</ol>
-</blockquote>
-<blockquote>
-<p>把水從一個桶子倒到另一個桶子的動作停止有2個可能的原因：第一個桶子的水倒光了或第二個桶子的水滿了。例如：A有5加侖的水，B有6加侖的水且B的容量為8加侖，則當把A的水倒到B後，B就滿了（8加侖）而A中還剩3加侖。在本問題中，給你Ca,Cb,N。Ca,Cb分別代表A桶子和B桶子的容量而N是我們要求的目標。我們希望你的程式輸出一連串的動作之後，可以得到N加侖的水（不論在A或B中都可以）。這一連串的動作包含：</p>
-<ul>
-<li>fill A</li>
-<li>fill B</li>
-<li>empty A</li>
-<li>empty B</li>
-<li>pour A B</li>
-<li>pour B A</li>
-<li>success</li>
-</ul>
-</blockquote>
-<blockquote>
-<p>在這裡，&ldquo;pour A B"代表把A的水倒到B中，而"success"代表任務已經完成了。你可以假設給你的輸入一定有解答。</p>
-</blockquote>
-<h1 id=input-format>Input Format</h1>
-<p>每組測試資料一列，含有3個正整數Ca,Cb,N。（ $0 &lt; \textrm{Ca} \le \textrm{Cb}，\textrm{N} \le \textrm{Cb} \le 1000$ ）</p>
-<h1 id=output-format>Output Format</h1>
-<p>每組測試資料輸出一連串的動作（總是以success作為結束），使得可以得到N加侖的水（不論在A或B中都可以）。請參考Sample Output。</p>
-<h1 id=sample-input>Sample Input</h1>
-<pre><code>3 5 4
+<span class="px-4 py-1 hover:text-eureka" name=Auto>自動</span></div></div></div></div><div class="fixed hidden inset-0 opacity-0 h-full w-full cursor-default z-0" id=is-open-mobile></div></nav><script>let element=document.getElementById("lightDarkMode");storageColorScheme==null||storageColorScheme=="Auto"?document.addEventListener("DOMContentLoaded",()=>{window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change",switchDarkMode)}):storageColorScheme=="Light"?(element.firstElementChild.classList.remove("fa-adjust"),element.firstElementChild.setAttribute("data-icon","sun"),element.firstElementChild.classList.add("fa-sun")):storageColorScheme=="Dark"&&(element.firstElementChild.classList.remove("fa-adjust"),element.firstElementChild.setAttribute("data-icon","moon"),element.firstElementChild.classList.add("fa-moon")),document.addEventListener("DOMContentLoaded",()=>{getcolorscheme(),switchBurger()})</script></div></header><main class="flex-grow pt-16"><div class=pl-scrollbar><div class="w-full max-w-screen-xl lg:px-4 xl:px-8 mx-auto"><div class="grid grid-cols-2 lg:grid-cols-8 gap-4 lg:pt-12"><div class="col-span-2 lg:col-start-2 lg:col-span-6 bg-secondary-bg rounded px-6 py-8"><h1 class="font-bold text-3xl text-primary-text">UVa 571. Jugs</h1><div class="flex flex-wrap flex-row items-center mt-2 text-tertiary-text"><div class="mr-6 my-2"><i class="fas fa-calendar mr-1"></i>
+<span>2018-08-06</span></div><div class="mr-6 my-2"><i class="fas fa-clock mr-1"></i>
+<span>3分鐘閱讀</span></div><div class="mr-6 my-2"><i class="fas fa-folder mr-1"></i>
+<a href=/categories/%E9%A1%8C%E8%A7%A3/ class=hover:text-eureka>題解</a></div></div><div class=content><h1 id=description>Description</h1><blockquote><p>在電影「終極警探 3（Die Hard 3）」中布魯斯威利（Bruce Willis）和山謬傑克森（Samuel L. Jackson）遇到壞蛋設下的謎題：給一個3加侖和5加侖的桶子，要求他們必須在5加侖的桶子中裝4加侖的水。現在你的任務就是解決這個問題。</p></blockquote><blockquote><p>給你2個桶子A、B和無限供應的水，你可以做3個動作：</p><ol><li>把一個桶子裝滿水。</li><li>把一個桶子的水倒光。</li><li>把一個桶子的水倒到另一個桶子中。</li></ol></blockquote><blockquote><p>把水從一個桶子倒到另一個桶子的動作停止有2個可能的原因：第一個桶子的水倒光了或第二個桶子的水滿了。例如：A有5加侖的水，B有6加侖的水且B的容量為8加侖，則當把A的水倒到B後，B就滿了（8加侖）而A中還剩3加侖。在本問題中，給你Ca,Cb,N。Ca,Cb分別代表A桶子和B桶子的容量而N是我們要求的目標。我們希望你的程式輸出一連串的動作之後，可以得到N加侖的水（不論在A或B中都可以）。這一連串的動作包含：</p><ul><li>fill A</li><li>fill B</li><li>empty A</li><li>empty B</li><li>pour A B</li><li>pour B A</li><li>success</li></ul></blockquote><blockquote><p>在這裡，&ldquo;pour A B"代表把A的水倒到B中，而"success"代表任務已經完成了。你可以假設給你的輸入一定有解答。</p></blockquote><h1 id=input-format>Input Format</h1><p>每組測試資料一列，含有3個正整數Ca,Cb,N。（ $0 &lt; \textrm{Ca} \le \textrm{Cb}，\textrm{N} \le \textrm{Cb} \le 1000$ ）</p><h1 id=output-format>Output Format</h1><p>每組測試資料輸出一連串的動作（總是以success作為結束），使得可以得到N加侖的水（不論在A或B中都可以）。請參考Sample Output。</p><h1 id=sample-input>Sample Input</h1><pre><code>3 5 4
 5 7 3
 1 1 1
-</code></pre>
-<h1 id=sample-output>Sample Output</h1>
-<pre><code>fill B
+</code></pre><h1 id=sample-output>Sample Output</h1><pre><code>fill B
 pour B A
 empty A
 pour B A
@@ -146,14 +36,7 @@ pour A B
 success
 fill A
 success
-</code></pre>
-<p>UVa - <a href=https://uva.onlinejudge.org/external/5/571.pdf>571</a><br>
-翻譯來源：<a href=http://luckycat.kshs.kh.edu.tw/homework/q571.htm>Luckycat</a></p>
-<h1 id=solution>Solution</h1>
-<p>這題可以利用BFS來做，每次都模擬6種操作，直到達成目標為止。<br>
-本題利用STL容器的Queue來模擬BFS。</p>
-<h1 id=code>Code</h1>
-<pre><code class=language-cpp>/*************************************************************************
+</code></pre><p>UVa - <a href=https://uva.onlinejudge.org/external/5/571.pdf>571</a><br>翻譯來源：<a href=http://luckycat.kshs.kh.edu.tw/homework/q571.htm>Luckycat</a></p><h1 id=solution>Solution</h1><p>這題可以利用BFS來做，每次都模擬6種操作，直到達成目標為止。<br>本題利用STL容器的Queue來模擬BFS。</p><h1 id=code>Code</h1><pre><code class=language-cpp>/*************************************************************************
   &gt; File Name: 571 - Jugs.cpp
   &gt; Author: Samuel
   &gt; Mail: enminghuang21119@gmail.com
@@ -283,44 +166,8 @@ int main() {
     }
     return 0;
 }
-</code></pre>
-</div>
-<div class=my-4>
-<a href=/tags/uva/ class="inline-block bg-tertiary-bg text-sm rounded px-3 py-1 my-1 mr-2 hover:text-eureka">#UVa</a>
-<a href=/tags/bfs/ class="inline-block bg-tertiary-bg text-sm rounded px-3 py-1 my-1 mr-2 hover:text-eureka">#BFS</a>
-</div>
-<div class="flex flex-col md:flex-row md:justify-between -mx-2 mt-4 px-2 pt-4 border-t">
-<div>
-<span class="block font-bold">上一頁</span>
-<a href=/posts/uva-13153-number-of-connected-components/ class=block>UVa 13153. Number of Connected Components</a>
-</div>
-<div class="md:text-right mt-4 md:mt-0">
-<span class="block font-bold">下一頁</span>
-<a href=/posts/uva-307-sticks/ class=block>UVa 307. Sticks</a>
-</div>
-</div>
-</div>
-<div class="col-span-2 lg:col-start-2 lg:col-span-6 bg-secondary-bg rounded p-6">
-<h2 class="text-lg font-semibold mb-4">相關</h2>
-<div class=content>
-<a href=/posts/uva-307-sticks/>UVa 307. Sticks</a>
-<br>
-<a href=/posts/uva-10952.-pattern-transformations/>UVa 10952. Pattern Transformations</a>
-<br>
-<a href=/posts/uva-103.-stacking-boxes/>UVa 103. Stacking Boxes</a>
-<br>
-</div>
-</div>
-</div>
-<script>document.addEventListener('DOMContentLoaded',()=>{hljs.initHighlightingOnLoad()})</script>
-</div>
-</div>
-</main>
-<footer class=pl-scrollbar>
-<div class="w-full max-w-screen-xl mx-auto"><div class="text-center p-6 pin-b">
-<p class="text-sm text-tertiary-text">&copy; 2021 <a href=https://www.wangchucheng.com/>C. Wang</a> and <a href=https://www.ruiqima.com/>R. Ma</a>
-&#183; Powered by the <a href=https://github.com/wangchucheng/hugo-eureka class=hover:text-eureka>Eureka</a> theme for <a href=https://gohugo.io class=hover:text-eureka>Hugo</a></p>
-</div></div>
-</footer>
-</body>
-</html>
+</code></pre></div><div class=my-4><a href=/tags/uva/ class="inline-block bg-tertiary-bg text-sm rounded px-3 py-1 my-1 mr-2 hover:text-eureka">#UVa</a>
+<a href=/tags/bfs/ class="inline-block bg-tertiary-bg text-sm rounded px-3 py-1 my-1 mr-2 hover:text-eureka">#BFS</a></div><div class="flex flex-col md:flex-row md:justify-between -mx-2 mt-4 px-2 pt-4 border-t"><div><span class="block font-bold">上一頁</span>
+<a href=/posts/uva-13153-number-of-connected-components/ class=block>UVa 13153. Number of Connected Components</a></div><div class="md:text-right mt-4 md:mt-0"><span class="block font-bold">下一頁</span>
+<a href=/posts/uva-307-sticks/ class=block>UVa 307. Sticks</a></div></div></div><div class="col-span-2 lg:col-start-2 lg:col-span-6 bg-secondary-bg rounded p-6"><h2 class="text-lg font-semibold mb-4">相關</h2><div class=content><a href=/posts/uva-307-sticks/>UVa 307. Sticks</a><br><a href=/posts/uva-10952.-pattern-transformations/>UVa 10952. Pattern Transformations</a><br><a href=/posts/uva-103.-stacking-boxes/>UVa 103. Stacking Boxes</a><br></div></div></div><script>document.addEventListener("DOMContentLoaded",()=>{hljs.initHighlightingOnLoad()})</script></div></div></main><footer class=pl-scrollbar><div class="w-full max-w-screen-xl mx-auto"><div class="text-center p-6 pin-b"><p class="text-sm text-tertiary-text">&copy; 2021 <a href=https://www.wangchucheng.com/>C. Wang</a> and <a href=https://www.ruiqima.com/>R. Ma</a>
+&#183; Powered by the <a href=https://github.com/wangchucheng/hugo-eureka class=hover:text-eureka>Eureka</a> theme for <a href=https://gohugo.io class=hover:text-eureka>Hugo</a></p></div></div></footer></body></html>

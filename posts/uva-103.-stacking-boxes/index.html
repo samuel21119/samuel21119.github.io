@@ -1,117 +1,25 @@
-<!doctype html><html lang=zh-hant><meta charset=utf-8>
-<meta name=viewport content="width=device-width">
-<title>UVa 103. Stacking Boxes | EnMinGW32</title>
-<meta name=generator content="Hugo Eureka 0.8.4">
-<link rel=stylesheet href=/css/eureka.min.css>
-<script defer src=/js/eureka.min.js></script>
-<link rel=preconnect href=https://fonts.gstatic.com crossorigin>
-<link rel=preload href="https://fonts.googleapis.com/css2?family=Lora:wght@400;600;700&family=Noto+Serif+SC:wght@400;600;700&display=swap" as=style onload="this.onload=null,this.rel='stylesheet'">
-<link rel=stylesheet href=https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.0/build/styles/solarized-light.min.css media=print onload="this.media='all',this.onload=null" crossorigin>
-<script defer src=https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.0/build/highlight.min.js crossorigin></script>
+<!doctype html><html lang=zh-hant><meta charset=utf-8><meta name=viewport content="width=device-width"><title>UVa 103. Stacking Boxes | EnMinGW32</title><meta name=generator content="Hugo Eureka 0.8.4"><link rel=stylesheet href=/css/eureka.min.css><script defer src=/js/eureka.min.js></script>
+<link rel=preconnect href=https://fonts.gstatic.com crossorigin><link rel=preload href="https://fonts.googleapis.com/css2?family=Lora:wght@400;600;700&family=Noto+Serif+SC:wght@400;600;700&display=swap" as=style onload='this.onload=null,this.rel="stylesheet"'><link rel=stylesheet href=https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.0/build/styles/solarized-light.min.css media=print onload='this.media="all",this.onload=null' crossorigin><script defer src=https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.0/build/highlight.min.js crossorigin></script>
 <script defer src=https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.0/build/languages/dart.min.js crossorigin></script>
 <script defer src=https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.14.0/js/all.min.js integrity="sha256-uNYoXefWRqv+PsIF/OflNmwtKM4lStn9yrz2gVl6ymo=" crossorigin></script>
-<link rel=stylesheet href=https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css integrity=sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X media=print onload="this.media='all',this.onload=null" crossorigin>
-<script defer src=https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js integrity=sha384-g7c+Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI+sEnkvrMWph2EDg4 crossorigin></script>
+<link rel=stylesheet href=https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css integrity=sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X media=print onload='this.media="all",this.onload=null' crossorigin><script defer src=https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js integrity=sha384-g7c+Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI+sEnkvrMWph2EDg4 crossorigin></script>
 <script defer src=https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/contrib/auto-render.min.js integrity=sha384-mll67QQFJfxn0IYznZYonOWZ644AWYC+Pt2cHqMaRhXVrursRwvLnLaebdGIlYNa crossorigin></script>
-<script>document.addEventListener("DOMContentLoaded",function(){renderMathInElement(document.body,{delimiters:[{left:"$$",right:"$$",display:!0},{left:"$",right:"$",display:!1},{left:"\\(",right:"\\)",display:!1},{left:"\\[",right:"\\]",display:!0}]})})</script>
-<script defer src=https://cdn.jsdelivr.net/npm/mermaid@8.9.2/dist/mermaid.min.js integrity="sha256-Zmpaaj+GXFsPF5WdPArSrnW3b30dovldeKsW00xBVwE=" crossorigin></script>
-<link rel=icon type=image/png sizes=32x32 href=/images/icon_hu64421c6c7700f606f0ad45d807017b09_5843_32x32_fill_box_center_3.png>
-<link rel=apple-touch-icon sizes=180x180 href=/images/icon_hu64421c6c7700f606f0ad45d807017b09_5843_180x180_fill_box_center_3.png>
-<meta name=description content="Description
+<script>document.addEventListener("DOMContentLoaded",function(){renderMathInElement(document.body,{delimiters:[{left:"$$",right:"$$",display:!0},{left:"$",right:"$",display:!1},{left:"\\(",right:"\\)",display:!1},{left:"\\[",right:"\\]",display:!0}]})})</script><script defer src=https://cdn.jsdelivr.net/npm/mermaid@8.9.2/dist/mermaid.min.js integrity="sha256-Zmpaaj+GXFsPF5WdPArSrnW3b30dovldeKsW00xBVwE=" crossorigin></script>
+<link rel=icon type=image/png sizes=32x32 href=/images/icon_hu64421c6c7700f606f0ad45d807017b09_5843_32x32_fill_box_center_3.png><link rel=apple-touch-icon sizes=180x180 href=/images/icon_hu64421c6c7700f606f0ad45d807017b09_5843_180x180_fill_box_center_3.png><meta name=description content="Description
 
 在數學或電腦科學裡，有些概念在一維或二維時還蠻簡單的，但到 N 維就會顯得非常複雜。試想一個 n 維的「盒子」：在二維空間裡，盒子 ( 2 , 3 ) 可代表一個長為 2 個單位，寬為 3 個單位的盒子；在三維空間裡，盒子 ( 4 , 8 , 9 ) 則是一個 4*8*9（長、寬、高）的盒子。至於在六維空間裡，也許我們不清楚 ( 4 , 5 , 6 , 7 , 8 , 9 ) 長得怎樣，不過我們還是可以分析這些盒子的特性。
-">
-<script type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Posts","item":"/posts/"},{"@type":"ListItem","position":2,"name":"UVa 103. Stacking Boxes","item":"/posts/uva-103.-stacking-boxes/"}]}</script>
-<script type=application/ld+json>{"@context":"https://schema.org","@type":"Article","mainEntityOfPage":{"@type":"WebPage","@id":"/posts/uva-103.-stacking-boxes/"},"headline":"UVa 103. Stacking Boxes | EnMinGW32","datePublished":"2018-08-06T15:18:27+08:00","dateModified":"2018-08-06T15:18:27+08:00","wordCount":1507,"publisher":{"@type":"Person","name":"C. Wang","logo":{"@type":"ImageObject","url":"/images/icon.png"}},"description":"\u003ch1 id=\u0022description\u0022\u003eDescription\u003c\/h1\u003e\n\u003cblockquote\u003e\n\u003cp\u003e在數學或電腦科學裡，有些概念在一維或二維時還蠻簡單的，但到 N 維就會顯得非常複雜。試想一個 n 維的「盒子」：在二維空間裡，盒子 ( 2 , 3 ) 可代表一個長為 2 個單位，寬為 3 個單位的盒子；在三維空間裡，盒子 ( 4 , 8 , 9 ) 則是一個 4*8*9（長、寬、高）的盒子。至於在六維空間裡，也許我們不清楚 ( 4 , 5 , 6 , 7 , 8 , 9 ) 長得怎樣，不過我們還是可以分析這些盒子的特性。\u003c\/p\u003e\n\u003c\/blockquote\u003e"}</script><meta property="og:title" content="UVa 103. Stacking Boxes | EnMinGW32">
-<meta property="og:type" content="article">
-<meta property="og:image" content="/images/icon.png">
-<meta property="og:url" content="/posts/uva-103.-stacking-boxes/">
-<meta property="og:description" content="Description
+"><script type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Posts","item":"/posts/"},{"@type":"ListItem","position":2,"name":"UVa 103. Stacking Boxes","item":"/posts/uva-103.-stacking-boxes/"}]}</script><script type=application/ld+json>{"@context":"https://schema.org","@type":"Article","mainEntityOfPage":{"@type":"WebPage","@id":"/posts/uva-103.-stacking-boxes/"},"headline":"UVa 103. Stacking Boxes | EnMinGW32","datePublished":"2018-08-06T15:18:27+08:00","dateModified":"2018-08-06T15:18:27+08:00","wordCount":1507,"publisher":{"@type":"Person","name":"C. Wang","logo":{"@type":"ImageObject","url":"/images/icon.png"}},"description":"\u003ch1 id=\u0022description\u0022\u003eDescription\u003c\/h1\u003e\n\u003cblockquote\u003e\n\u003cp\u003e在數學或電腦科學裡，有些概念在一維或二維時還蠻簡單的，但到 N 維就會顯得非常複雜。試想一個 n 維的「盒子」：在二維空間裡，盒子 ( 2 , 3 ) 可代表一個長為 2 個單位，寬為 3 個單位的盒子；在三維空間裡，盒子 ( 4 , 8 , 9 ) 則是一個 4*8*9（長、寬、高）的盒子。至於在六維空間裡，也許我們不清楚 ( 4 , 5 , 6 , 7 , 8 , 9 ) 長得怎樣，不過我們還是可以分析這些盒子的特性。\u003c\/p\u003e\n\u003c\/blockquote\u003e"}</script><meta property="og:title" content="UVa 103. Stacking Boxes | EnMinGW32"><meta property="og:type" content="article"><meta property="og:image" content="/images/icon.png"><meta property="og:url" content="/posts/uva-103.-stacking-boxes/"><meta property="og:description" content="Description
 
 在數學或電腦科學裡，有些概念在一維或二維時還蠻簡單的，但到 N 維就會顯得非常複雜。試想一個 n 維的「盒子」：在二維空間裡，盒子 ( 2 , 3 ) 可代表一個長為 2 個單位，寬為 3 個單位的盒子；在三維空間裡，盒子 ( 4 , 8 , 9 ) 則是一個 4*8*9（長、寬、高）的盒子。至於在六維空間裡，也許我們不清楚 ( 4 , 5 , 6 , 7 , 8 , 9 ) 長得怎樣，不過我們還是可以分析這些盒子的特性。
-">
-<meta property="og:locale" content="zh-Hant">
-<meta property="og:site_name" content="EnMinGW32">
-<meta property="article:published_time" content="2018-08-06T15:18:27+08:00">
-<meta property="article:modified_time" content="2018-08-06T15:18:27+08:00">
-<meta property="article:section" content="posts">
-<meta property="article:tag" content="UVa">
-<meta property="article:tag" content="Dynamic Programming">
-<meta property="article:tag" content="LIS">
-<body class="flex flex-col min-h-screen">
-<header class="fixed flex items-center w-full min-h-16 pl-scrollbar z-50 bg-secondary-bg shadow-sm">
-<div class="w-full max-w-screen-xl mx-auto"><script>let storageColorScheme=localStorage.getItem("lightDarkMode");((storageColorScheme=='Auto'||storageColorScheme==null)&&window.matchMedia("(prefers-color-scheme: dark)").matches||storageColorScheme=="Dark")&&document.getElementsByTagName('html')[0].classList.add('dark')</script>
-<nav class="flex items-center justify-between flex-wrap px-4 py-4 md:py-0">
-<a href=/ class="mr-6 text-primary-text text-xl font-bold">EnMinGW32</a>
+"><meta property="og:locale" content="zh-Hant"><meta property="og:site_name" content="EnMinGW32"><meta property="article:published_time" content="2018-08-06T15:18:27+08:00"><meta property="article:modified_time" content="2018-08-06T15:18:27+08:00"><meta property="article:section" content="posts"><meta property="article:tag" content="UVa"><meta property="article:tag" content="Dynamic Programming"><meta property="article:tag" content="LIS"><body class="flex flex-col min-h-screen"><header class="fixed flex items-center w-full min-h-16 pl-scrollbar z-50 bg-secondary-bg shadow-sm"><div class="w-full max-w-screen-xl mx-auto"><script>let storageColorScheme=localStorage.getItem("lightDarkMode");((storageColorScheme=="Auto"||storageColorScheme==null)&&window.matchMedia("(prefers-color-scheme: dark)").matches||storageColorScheme=="Dark")&&document.getElementsByTagName("html")[0].classList.add("dark")</script><nav class="flex items-center justify-between flex-wrap px-4 py-4 md:py-0"><a href=/ class="mr-6 text-primary-text text-xl font-bold">EnMinGW32</a>
 <button id=navbar-btn class="md:hidden flex items-center px-3 py-2" aria-label="Open Navbar">
-<i class="fas fa-bars"></i>
-</button>
-<div id=target class="hidden block md:flex md:flex-grow md:justify-between md:items-center w-full md:w-auto text-primary-text z-20">
-<div class="md:flex md:h-16 text-sm md:flex-grow pb-4 md:pb-0 border-b md:border-b-0">
-<a href=/#about class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2 border-transparent mr-4">About</a>
-<a href=/posts/ class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2 selected-menu-item mr-4">Posts</a>
-</div>
-<div class=flex>
-<div class="relative pt-4 md:pt-0">
-<div class="cursor-pointer hover:text-eureka" id=lightDarkMode>
-<i class="fas fa-adjust"></i>
-</div>
-<div class="fixed hidden inset-0 opacity-0 h-full w-full cursor-default z-30" id=is-open>
-</div>
-<div class="absolute flex flex-col left-0 md:left-auto right-auto md:right-0 hidden bg-secondary-bg w-48 rounded py-2 border border-tertiary-bg cursor-pointer z-40" id=lightDarkOptions>
-<span class="px-4 py-1 hover:text-eureka" name=Light>淺色</span>
+<i class="fas fa-bars"></i></button><div id=target class="hidden block md:flex md:flex-grow md:justify-between md:items-center w-full md:w-auto text-primary-text z-20"><div class="md:flex md:h-16 text-sm md:flex-grow pb-4 md:pb-0 border-b md:border-b-0"><a href=/#about class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2 border-transparent mr-4">About</a>
+<a href=/posts/ class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2 selected-menu-item mr-4">Posts</a></div><div class=flex><div class="relative pt-4 md:pt-0"><div class="cursor-pointer hover:text-eureka" id=lightDarkMode><i class="fas fa-adjust"></i></div><div class="fixed hidden inset-0 opacity-0 h-full w-full cursor-default z-30" id=is-open></div><div class="absolute flex flex-col left-0 md:left-auto right-auto md:right-0 hidden bg-secondary-bg w-48 rounded py-2 border border-tertiary-bg cursor-pointer z-40" id=lightDarkOptions><span class="px-4 py-1 hover:text-eureka" name=Light>淺色</span>
 <span class="px-4 py-1 hover:text-eureka" name=Dark>深色</span>
-<span class="px-4 py-1 hover:text-eureka" name=Auto>自動</span>
-</div>
-</div>
-</div>
-</div>
-<div class="fixed hidden inset-0 opacity-0 h-full w-full cursor-default z-0" id=is-open-mobile>
-</div>
-</nav>
-<script>let element=document.getElementById('lightDarkMode');storageColorScheme==null||storageColorScheme=='Auto'?document.addEventListener('DOMContentLoaded',()=>{window.matchMedia("(prefers-color-scheme: dark)").addEventListener('change',switchDarkMode)}):storageColorScheme=="Light"?(element.firstElementChild.classList.remove('fa-adjust'),element.firstElementChild.setAttribute("data-icon",'sun'),element.firstElementChild.classList.add('fa-sun')):storageColorScheme=="Dark"&&(element.firstElementChild.classList.remove('fa-adjust'),element.firstElementChild.setAttribute("data-icon",'moon'),element.firstElementChild.classList.add('fa-moon')),document.addEventListener('DOMContentLoaded',()=>{getcolorscheme(),switchBurger()})</script>
-</div>
-</header>
-<main class="flex-grow pt-16">
-<div class=pl-scrollbar>
-<div class="w-full max-w-screen-xl lg:px-4 xl:px-8 mx-auto">
-<div class="grid grid-cols-2 lg:grid-cols-8 gap-4 lg:pt-12">
-<div class="col-span-2 lg:col-start-2 lg:col-span-6 bg-secondary-bg rounded px-6 py-8">
-<h1 class="font-bold text-3xl text-primary-text">UVa 103. Stacking Boxes</h1>
-<div class="flex flex-wrap flex-row items-center mt-2 text-tertiary-text">
-<div class="mr-6 my-2">
-<i class="fas fa-calendar mr-1"></i>
-<span>2018-08-06</span>
-</div>
-<div class="mr-6 my-2">
-<i class="fas fa-clock mr-1"></i>
-<span>4分鐘閱讀</span>
-</div>
-<div class="mr-6 my-2">
-<i class="fas fa-folder mr-1"></i>
-<a href=/categories/%E9%A1%8C%E8%A7%A3/ class=hover:text-eureka>題解</a>
-</div>
-</div>
-<div class=content>
-<h1 id=description>Description</h1>
-<blockquote>
-<p>在數學或電腦科學裡，有些概念在一維或二維時還蠻簡單的，但到 N 維就會顯得非常複雜。試想一個 n 維的「盒子」：在二維空間裡，盒子 ( 2 , 3 ) 可代表一個長為 2 個單位，寬為 3 個單位的盒子；在三維空間裡，盒子 ( 4 , 8 , 9 ) 則是一個 4*8*9（長、寬、高）的盒子。至於在六維空間裡，也許我們不清楚 ( 4 , 5 , 6 , 7 , 8 , 9 ) 長得怎樣，不過我們還是可以分析這些盒子的特性。</p>
-</blockquote>
-<blockquote>
-<p>在此問題裡，我們要算出一組 n 維盒子裡，它們的「最長套入串列」： $b_1, b_2, &mldr;&mldr;, b_k$，其中每個盒子 $b_i$ 都可以「放入」盒子 $b_{i+1}$ 中（$1 \le i &lt; k$）<br>
-考慮兩個盒子 D =（ $d_1, d_2, &mldr;&mldr;, d_n$ ）， E =（ $e_1, e_2, &mldr;&mldr;, e_n$ ）。如果盒子 D 的 n 個維，能夠存在一種重排，使得重排後， D 每一維的量度都比 E 中相對應的維的量度還要小，則我們說盒子 D 能「放入」盒子 E 。（用比較不嚴謹的講法，這就好像我們將盒子 D 翻來翻去，看看能不能擺到 E 裡面去。不過因為我們考慮的是任一重排，所以實際上盒子不只可轉來轉去，甚至還可以扭曲。）（還是看看下面的例子說明好了）。<br>
-譬如說，盒子 D = ( 2 , 6 ) 能夠被放入盒子 E = ( 7 , 3 ) 裡，因為 D 可以重排變為 ( 6 , 2 ) ，這樣子 D 的每個維的量度都比 E 裡對應的維還要小。而盒子 D = ( 9 , 5 , 7 , 3 ) 就沒辦法放進盒子 E = ( 2 , 10 , 6 , 8 ) ，因為就算再怎摸重排 D 裡的維，還是沒辦法符合「放入」的條件。不過 F = ( 9 , 5 , 7 , 1 ) 就可以放入 E 了，因為 F 可以重排成 ( 1 , 9 , 5 , 7 ) ，這樣就符合了放入的條件。<br>
-我們今定義「放入」如下：對於任兩個盒子 D =（ $d_1, d_2, &mldr;&mldr;,d_n$）和 E =（ $e_1, e_2, &mldr;&mldr;,e_n$ ），如果存在一種 1..n 的重排π，使得對於任何的 $1 \le i \le n$，皆有 $d_{π(i)} &lt; e_i$，則我們說盒子 D 能「放入」盒子 E 。</p>
-</blockquote>
-<h1 id=input-format>Input Format</h1>
-<p>輸入包含多組測試資料。每組測試資料的第一列有兩個數字：第一個是盒子的數量 k ，然後是盒子的維數 n 。<br>
-接下來有 k 列，每列有n個整數表示一個盒子的 n 個維的量度，量度之間由一個以上的空白做區隔。第一列表示第一個盒子，第二列表示第二個盒子，依此類推。<br>
-此問題裡，盒子的維數最小是 1 ，最大是 10 ， 並且每組測試資料中盒子的個數最多為 30 個。</p>
-<h1 id=output-format>Output Format</h1>
-<p>對於每一組測試資料，你必須輸出兩列數字：第一列是「最長套入串列」的長度，第二列是按照內外順序，印出「最長套入串列」裡盒子的編號（其中編號是按照在輸入檔案的每組數列裡所出現的順序，例如第一個盒子就是 1 號 . . . 等等。）最裡面的盒子（或是最小的）擺在第一個，再來是次小的，依此類推。<br>
-如果對於每一組的盒子，存在兩個以上的「最長套入串列」，輸出任何一個均可。</p>
-<h1 id=sample-input>Sample Input</h1>
-<pre><code>5 2
+<span class="px-4 py-1 hover:text-eureka" name=Auto>自動</span></div></div></div></div><div class="fixed hidden inset-0 opacity-0 h-full w-full cursor-default z-0" id=is-open-mobile></div></nav><script>let element=document.getElementById("lightDarkMode");storageColorScheme==null||storageColorScheme=="Auto"?document.addEventListener("DOMContentLoaded",()=>{window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change",switchDarkMode)}):storageColorScheme=="Light"?(element.firstElementChild.classList.remove("fa-adjust"),element.firstElementChild.setAttribute("data-icon","sun"),element.firstElementChild.classList.add("fa-sun")):storageColorScheme=="Dark"&&(element.firstElementChild.classList.remove("fa-adjust"),element.firstElementChild.setAttribute("data-icon","moon"),element.firstElementChild.classList.add("fa-moon")),document.addEventListener("DOMContentLoaded",()=>{getcolorscheme(),switchBurger()})</script></div></header><main class="flex-grow pt-16"><div class=pl-scrollbar><div class="w-full max-w-screen-xl lg:px-4 xl:px-8 mx-auto"><div class="grid grid-cols-2 lg:grid-cols-8 gap-4 lg:pt-12"><div class="col-span-2 lg:col-start-2 lg:col-span-6 bg-secondary-bg rounded px-6 py-8"><h1 class="font-bold text-3xl text-primary-text">UVa 103. Stacking Boxes</h1><div class="flex flex-wrap flex-row items-center mt-2 text-tertiary-text"><div class="mr-6 my-2"><i class="fas fa-calendar mr-1"></i>
+<span>2018-08-06</span></div><div class="mr-6 my-2"><i class="fas fa-clock mr-1"></i>
+<span>4分鐘閱讀</span></div><div class="mr-6 my-2"><i class="fas fa-folder mr-1"></i>
+<a href=/categories/%E9%A1%8C%E8%A7%A3/ class=hover:text-eureka>題解</a></div></div><div class=content><h1 id=description>Description</h1><blockquote><p>在數學或電腦科學裡，有些概念在一維或二維時還蠻簡單的，但到 N 維就會顯得非常複雜。試想一個 n 維的「盒子」：在二維空間裡，盒子 ( 2 , 3 ) 可代表一個長為 2 個單位，寬為 3 個單位的盒子；在三維空間裡，盒子 ( 4 , 8 , 9 ) 則是一個 4*8*9（長、寬、高）的盒子。至於在六維空間裡，也許我們不清楚 ( 4 , 5 , 6 , 7 , 8 , 9 ) 長得怎樣，不過我們還是可以分析這些盒子的特性。</p></blockquote><blockquote><p>在此問題裡，我們要算出一組 n 維盒子裡，它們的「最長套入串列」： $b_1, b_2, &mldr;&mldr;, b_k$，其中每個盒子 $b_i$ 都可以「放入」盒子 $b_{i+1}$ 中（$1 \le i &lt; k$）<br>考慮兩個盒子 D =（ $d_1, d_2, &mldr;&mldr;, d_n$ ）， E =（ $e_1, e_2, &mldr;&mldr;, e_n$ ）。如果盒子 D 的 n 個維，能夠存在一種重排，使得重排後， D 每一維的量度都比 E 中相對應的維的量度還要小，則我們說盒子 D 能「放入」盒子 E 。（用比較不嚴謹的講法，這就好像我們將盒子 D 翻來翻去，看看能不能擺到 E 裡面去。不過因為我們考慮的是任一重排，所以實際上盒子不只可轉來轉去，甚至還可以扭曲。）（還是看看下面的例子說明好了）。<br>譬如說，盒子 D = ( 2 , 6 ) 能夠被放入盒子 E = ( 7 , 3 ) 裡，因為 D 可以重排變為 ( 6 , 2 ) ，這樣子 D 的每個維的量度都比 E 裡對應的維還要小。而盒子 D = ( 9 , 5 , 7 , 3 ) 就沒辦法放進盒子 E = ( 2 , 10 , 6 , 8 ) ，因為就算再怎摸重排 D 裡的維，還是沒辦法符合「放入」的條件。不過 F = ( 9 , 5 , 7 , 1 ) 就可以放入 E 了，因為 F 可以重排成 ( 1 , 9 , 5 , 7 ) ，這樣就符合了放入的條件。<br>我們今定義「放入」如下：對於任兩個盒子 D =（ $d_1, d_2, &mldr;&mldr;,d_n$）和 E =（ $e_1, e_2, &mldr;&mldr;,e_n$ ），如果存在一種 1..n 的重排π，使得對於任何的 $1 \le i \le n$，皆有 $d_{π(i)} &lt; e_i$，則我們說盒子 D 能「放入」盒子 E 。</p></blockquote><h1 id=input-format>Input Format</h1><p>輸入包含多組測試資料。每組測試資料的第一列有兩個數字：第一個是盒子的數量 k ，然後是盒子的維數 n 。<br>接下來有 k 列，每列有n個整數表示一個盒子的 n 個維的量度，量度之間由一個以上的空白做區隔。第一列表示第一個盒子，第二列表示第二個盒子，依此類推。<br>此問題裡，盒子的維數最小是 1 ，最大是 10 ， 並且每組測試資料中盒子的個數最多為 30 個。</p><h1 id=output-format>Output Format</h1><p>對於每一組測試資料，你必須輸出兩列數字：第一列是「最長套入串列」的長度，第二列是按照內外順序，印出「最長套入串列」裡盒子的編號（其中編號是按照在輸入檔案的每組數列裡所出現的順序，例如第一個盒子就是 1 號 . . . 等等。）最裡面的盒子（或是最小的）擺在第一個，再來是次小的，依此類推。<br>如果對於每一組的盒子，存在兩個以上的「最長套入串列」，輸出任何一個均可。</p><h1 id=sample-input>Sample Input</h1><pre><code>5 2
 3 7
 8 10
 5 2
@@ -126,20 +34,11 @@
 44 32 13 19 41 19
 1 2 3 4 5 6
 80 37 47 18 21 9
-</code></pre>
-<h1 id=sample-output>Sample Output</h1>
-<pre><code>5
+</code></pre><h1 id=sample-output>Sample Output</h1><pre><code>5
 3 1 2 4 5
 4
 7 2 5 6
-</code></pre>
-<p>UVa - <a href=https://uva.onlinejudge.org/external/1/103.pdf>103</a><br>
-翻譯來源：<a href=http://luckycat.kshs.kh.edu.tw/homework/q103.htm>Luckycat</a></p>
-<h1 id=solution>Solution</h1>
-<p>這題其實就是經典的LIS變形題目，首先我們要對每一個箱子的維度進行排序，可以用簡單邏輯得知由小到大排是最佳方式。<br>
-接著我們再對各箱子進行排序，排序是利用字典大小的方法排，這樣就解決了！</p>
-<h1 id=code>Code</h1>
-<pre><code class=language-cpp>/*************************************************************************
+</code></pre><p>UVa - <a href=https://uva.onlinejudge.org/external/1/103.pdf>103</a><br>翻譯來源：<a href=http://luckycat.kshs.kh.edu.tw/homework/q103.htm>Luckycat</a></p><h1 id=solution>Solution</h1><p>這題其實就是經典的LIS變形題目，首先我們要對每一個箱子的維度進行排序，可以用簡單邏輯得知由小到大排是最佳方式。<br>接著我們再對各箱子進行排序，排序是利用字典大小的方法排，這樣就解決了！</p><h1 id=code>Code</h1><pre><code class=language-cpp>/*************************************************************************
   &gt; File Name: 00103 - Stacking Boxes.cpp
   &gt; Author: Samuel
   &gt; Mail: enminghuang21119@gmail.com
@@ -208,34 +107,9 @@ int main() {
     }
     return 0;
 }
-</code></pre>
-</div>
-<div class=my-4>
-<a href=/tags/uva/ class="inline-block bg-tertiary-bg text-sm rounded px-3 py-1 my-1 mr-2 hover:text-eureka">#UVa</a>
+</code></pre></div><div class=my-4><a href=/tags/uva/ class="inline-block bg-tertiary-bg text-sm rounded px-3 py-1 my-1 mr-2 hover:text-eureka">#UVa</a>
 <a href=/tags/dynamic-programming/ class="inline-block bg-tertiary-bg text-sm rounded px-3 py-1 my-1 mr-2 hover:text-eureka">#Dynamic Programming</a>
-<a href=/tags/lis/ class="inline-block bg-tertiary-bg text-sm rounded px-3 py-1 my-1 mr-2 hover:text-eureka">#LIS</a>
-</div>
-<div class="flex flex-col md:flex-row md:justify-between -mx-2 mt-4 px-2 pt-4 border-t">
-<div>
-<span class="block font-bold">上一頁</span>
-<a href=/posts/uva-10952.-pattern-transformations/ class=block>UVa 10952. Pattern Transformations</a>
-</div>
-<div class="md:text-right mt-4 md:mt-0">
-<span class="block font-bold">下一頁</span>
-<a href=/posts/arch-linux-installation-guide/ class=block>Arch Linux Installation Guide</a>
-</div>
-</div>
-</div>
-</div>
-<script>document.addEventListener('DOMContentLoaded',()=>{hljs.initHighlightingOnLoad()})</script>
-</div>
-</div>
-</main>
-<footer class=pl-scrollbar>
-<div class="w-full max-w-screen-xl mx-auto"><div class="text-center p-6 pin-b">
-<p class="text-sm text-tertiary-text">&copy; 2021 <a href=https://www.wangchucheng.com/>C. Wang</a> and <a href=https://www.ruiqima.com/>R. Ma</a>
-&#183; Powered by the <a href=https://github.com/wangchucheng/hugo-eureka class=hover:text-eureka>Eureka</a> theme for <a href=https://gohugo.io class=hover:text-eureka>Hugo</a></p>
-</div></div>
-</footer>
-</body>
-</html>
+<a href=/tags/lis/ class="inline-block bg-tertiary-bg text-sm rounded px-3 py-1 my-1 mr-2 hover:text-eureka">#LIS</a></div><div class="flex flex-col md:flex-row md:justify-between -mx-2 mt-4 px-2 pt-4 border-t"><div><span class="block font-bold">上一頁</span>
+<a href=/posts/uva-10952.-pattern-transformations/ class=block>UVa 10952. Pattern Transformations</a></div><div class="md:text-right mt-4 md:mt-0"><span class="block font-bold">下一頁</span>
+<a href=/posts/arch-linux-installation-guide/ class=block>Arch Linux Installation Guide</a></div></div></div></div><script>document.addEventListener("DOMContentLoaded",()=>{hljs.initHighlightingOnLoad()})</script></div></div></main><footer class=pl-scrollbar><div class="w-full max-w-screen-xl mx-auto"><div class="text-center p-6 pin-b"><p class="text-sm text-tertiary-text">&copy; 2021 <a href=https://www.wangchucheng.com/>C. Wang</a> and <a href=https://www.ruiqima.com/>R. Ma</a>
+&#183; Powered by the <a href=https://github.com/wangchucheng/hugo-eureka class=hover:text-eureka>Eureka</a> theme for <a href=https://gohugo.io class=hover:text-eureka>Hugo</a></p></div></div></footer></body></html>

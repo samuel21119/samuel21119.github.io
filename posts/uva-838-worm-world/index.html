@@ -1,147 +1,37 @@
-<!doctype html><html lang=zh-hant><meta charset=utf-8>
-<meta name=viewport content="width=device-width">
-<title>UVa 838. Worm World | EnMinGW32</title>
-<meta name=generator content="Hugo Eureka 0.8.4">
-<link rel=stylesheet href=/css/eureka.min.css>
-<script defer src=/js/eureka.min.js></script>
-<link rel=preconnect href=https://fonts.gstatic.com crossorigin>
-<link rel=preload href="https://fonts.googleapis.com/css2?family=Lora:wght@400;600;700&family=Noto+Serif+SC:wght@400;600;700&display=swap" as=style onload="this.onload=null,this.rel='stylesheet'">
-<link rel=stylesheet href=https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.0/build/styles/solarized-light.min.css media=print onload="this.media='all',this.onload=null" crossorigin>
-<script defer src=https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.0/build/highlight.min.js crossorigin></script>
+<!doctype html><html lang=zh-hant><meta charset=utf-8><meta name=viewport content="width=device-width"><title>UVa 838. Worm World | EnMinGW32</title><meta name=generator content="Hugo Eureka 0.8.4"><link rel=stylesheet href=/css/eureka.min.css><script defer src=/js/eureka.min.js></script>
+<link rel=preconnect href=https://fonts.gstatic.com crossorigin><link rel=preload href="https://fonts.googleapis.com/css2?family=Lora:wght@400;600;700&family=Noto+Serif+SC:wght@400;600;700&display=swap" as=style onload='this.onload=null,this.rel="stylesheet"'><link rel=stylesheet href=https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.0/build/styles/solarized-light.min.css media=print onload='this.media="all",this.onload=null' crossorigin><script defer src=https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.0/build/highlight.min.js crossorigin></script>
 <script defer src=https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.0/build/languages/dart.min.js crossorigin></script>
 <script defer src=https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.14.0/js/all.min.js integrity="sha256-uNYoXefWRqv+PsIF/OflNmwtKM4lStn9yrz2gVl6ymo=" crossorigin></script>
-<link rel=stylesheet href=https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css integrity=sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X media=print onload="this.media='all',this.onload=null" crossorigin>
-<script defer src=https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js integrity=sha384-g7c+Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI+sEnkvrMWph2EDg4 crossorigin></script>
+<link rel=stylesheet href=https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css integrity=sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X media=print onload='this.media="all",this.onload=null' crossorigin><script defer src=https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js integrity=sha384-g7c+Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI+sEnkvrMWph2EDg4 crossorigin></script>
 <script defer src=https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/contrib/auto-render.min.js integrity=sha384-mll67QQFJfxn0IYznZYonOWZ644AWYC+Pt2cHqMaRhXVrursRwvLnLaebdGIlYNa crossorigin></script>
-<script>document.addEventListener("DOMContentLoaded",function(){renderMathInElement(document.body,{delimiters:[{left:"$$",right:"$$",display:!0},{left:"$",right:"$",display:!1},{left:"\\(",right:"\\)",display:!1},{left:"\\[",right:"\\]",display:!0}]})})</script>
-<script defer src=https://cdn.jsdelivr.net/npm/mermaid@8.9.2/dist/mermaid.min.js integrity="sha256-Zmpaaj+GXFsPF5WdPArSrnW3b30dovldeKsW00xBVwE=" crossorigin></script>
-<link rel=icon type=image/png sizes=32x32 href=/images/icon_hu64421c6c7700f606f0ad45d807017b09_5843_32x32_fill_box_center_3.png>
-<link rel=apple-touch-icon sizes=180x180 href=/images/icon_hu64421c6c7700f606f0ad45d807017b09_5843_180x180_fill_box_center_3.png>
-<meta name=description content="Description
+<script>document.addEventListener("DOMContentLoaded",function(){renderMathInElement(document.body,{delimiters:[{left:"$$",right:"$$",display:!0},{left:"$",right:"$",display:!1},{left:"\\(",right:"\\)",display:!1},{left:"\\[",right:"\\]",display:!0}]})})</script><script defer src=https://cdn.jsdelivr.net/npm/mermaid@8.9.2/dist/mermaid.min.js integrity="sha256-Zmpaaj+GXFsPF5WdPArSrnW3b30dovldeKsW00xBVwE=" crossorigin></script>
+<link rel=icon type=image/png sizes=32x32 href=/images/icon_hu64421c6c7700f606f0ad45d807017b09_5843_32x32_fill_box_center_3.png><link rel=apple-touch-icon sizes=180x180 href=/images/icon_hu64421c6c7700f606f0ad45d807017b09_5843_180x180_fill_box_center_3.png><meta name=description content="Description
 
 給定一張n*n的圖，每個格子上面都有一個數字。
 求在不碰到重複數字的情況下，最遠可以走多遠（只能上下左右移動）？
-">
-<script type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Posts","item":"/posts/"},{"@type":"ListItem","position":2,"name":"UVa 838. Worm World","item":"/posts/uva-838-worm-world/"}]}</script>
-<script type=application/ld+json>{"@context":"https://schema.org","@type":"Article","mainEntityOfPage":{"@type":"WebPage","@id":"/posts/uva-838-worm-world/"},"headline":"UVa 838. Worm World | EnMinGW32","datePublished":"2018-10-09T22:38:59+00:00","dateModified":"2018-10-09T22:38:59+00:00","wordCount":816,"publisher":{"@type":"Person","name":"C. Wang","logo":{"@type":"ImageObject","url":"/images/icon.png"}},"description":"\u003ch1 id=\u0022description\u0022\u003eDescription\u003c\/h1\u003e\n\u003cblockquote\u003e\n\u003cp\u003e給定一張n*n的圖，每個格子上面都有一個數字。\u003cbr\u003e\n求在不碰到重複數字的情況下，最遠可以走多遠（只能上下左右移動）？\u003c\/p\u003e\n\u003c\/blockquote\u003e"}</script><meta property="og:title" content="UVa 838. Worm World | EnMinGW32">
-<meta property="og:type" content="article">
-<meta property="og:image" content="/images/icon.png">
-<meta property="og:url" content="/posts/uva-838-worm-world/">
-<meta property="og:description" content="Description
+"><script type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Posts","item":"/posts/"},{"@type":"ListItem","position":2,"name":"UVa 838. Worm World","item":"/posts/uva-838-worm-world/"}]}</script><script type=application/ld+json>{"@context":"https://schema.org","@type":"Article","mainEntityOfPage":{"@type":"WebPage","@id":"/posts/uva-838-worm-world/"},"headline":"UVa 838. Worm World | EnMinGW32","datePublished":"2018-10-09T22:38:59+00:00","dateModified":"2018-10-09T22:38:59+00:00","wordCount":816,"publisher":{"@type":"Person","name":"C. Wang","logo":{"@type":"ImageObject","url":"/images/icon.png"}},"description":"\u003ch1 id=\u0022description\u0022\u003eDescription\u003c\/h1\u003e\n\u003cblockquote\u003e\n\u003cp\u003e給定一張n*n的圖，每個格子上面都有一個數字。\u003cbr\u003e\n求在不碰到重複數字的情況下，最遠可以走多遠（只能上下左右移動）？\u003c\/p\u003e\n\u003c\/blockquote\u003e"}</script><meta property="og:title" content="UVa 838. Worm World | EnMinGW32"><meta property="og:type" content="article"><meta property="og:image" content="/images/icon.png"><meta property="og:url" content="/posts/uva-838-worm-world/"><meta property="og:description" content="Description
 
 給定一張n*n的圖，每個格子上面都有一個數字。
 求在不碰到重複數字的情況下，最遠可以走多遠（只能上下左右移動）？
-">
-<meta property="og:locale" content="zh-Hant">
-<meta property="og:site_name" content="EnMinGW32">
-<meta property="article:published_time" content="2018-10-09T22:38:59+00:00">
-<meta property="article:modified_time" content="2018-10-09T22:38:59+00:00">
-<meta property="article:section" content="posts">
-<meta property="article:tag" content="UVa">
-<meta property="article:tag" content="DFS">
-<meta property="og:see_also" content="/posts/uva-165-stamps/">
-<meta property="og:see_also" content="/posts/uva-10917-walk-through-the-forest/">
-<meta property="og:see_also" content="/posts/uva-307-sticks/">
-<meta property="og:see_also" content="/posts/uva-10952.-pattern-transformations/">
-<meta property="og:see_also" content="/posts/uva-10600-acm-contest-and-blackout/">
-<meta property="og:see_also" content="/posts/uva-11456-trainsorting/">
-<body class="flex flex-col min-h-screen">
-<header class="fixed flex items-center w-full min-h-16 pl-scrollbar z-50 bg-secondary-bg shadow-sm">
-<div class="w-full max-w-screen-xl mx-auto"><script>let storageColorScheme=localStorage.getItem("lightDarkMode");((storageColorScheme=='Auto'||storageColorScheme==null)&&window.matchMedia("(prefers-color-scheme: dark)").matches||storageColorScheme=="Dark")&&document.getElementsByTagName('html')[0].classList.add('dark')</script>
-<nav class="flex items-center justify-between flex-wrap px-4 py-4 md:py-0">
-<a href=/ class="mr-6 text-primary-text text-xl font-bold">EnMinGW32</a>
+"><meta property="og:locale" content="zh-Hant"><meta property="og:site_name" content="EnMinGW32"><meta property="article:published_time" content="2018-10-09T22:38:59+00:00"><meta property="article:modified_time" content="2018-10-09T22:38:59+00:00"><meta property="article:section" content="posts"><meta property="article:tag" content="UVa"><meta property="article:tag" content="DFS"><meta property="og:see_also" content="/posts/uva-165-stamps/"><meta property="og:see_also" content="/posts/uva-10917-walk-through-the-forest/"><meta property="og:see_also" content="/posts/uva-307-sticks/"><meta property="og:see_also" content="/posts/uva-10952.-pattern-transformations/"><meta property="og:see_also" content="/posts/uva-10600-acm-contest-and-blackout/"><meta property="og:see_also" content="/posts/uva-11456-trainsorting/"><body class="flex flex-col min-h-screen"><header class="fixed flex items-center w-full min-h-16 pl-scrollbar z-50 bg-secondary-bg shadow-sm"><div class="w-full max-w-screen-xl mx-auto"><script>let storageColorScheme=localStorage.getItem("lightDarkMode");((storageColorScheme=="Auto"||storageColorScheme==null)&&window.matchMedia("(prefers-color-scheme: dark)").matches||storageColorScheme=="Dark")&&document.getElementsByTagName("html")[0].classList.add("dark")</script><nav class="flex items-center justify-between flex-wrap px-4 py-4 md:py-0"><a href=/ class="mr-6 text-primary-text text-xl font-bold">EnMinGW32</a>
 <button id=navbar-btn class="md:hidden flex items-center px-3 py-2" aria-label="Open Navbar">
-<i class="fas fa-bars"></i>
-</button>
-<div id=target class="hidden block md:flex md:flex-grow md:justify-between md:items-center w-full md:w-auto text-primary-text z-20">
-<div class="md:flex md:h-16 text-sm md:flex-grow pb-4 md:pb-0 border-b md:border-b-0">
-<a href=/#about class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2 border-transparent mr-4">About</a>
-<a href=/posts/ class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2 selected-menu-item mr-4">Posts</a>
-</div>
-<div class=flex>
-<div class="relative pt-4 md:pt-0">
-<div class="cursor-pointer hover:text-eureka" id=lightDarkMode>
-<i class="fas fa-adjust"></i>
-</div>
-<div class="fixed hidden inset-0 opacity-0 h-full w-full cursor-default z-30" id=is-open>
-</div>
-<div class="absolute flex flex-col left-0 md:left-auto right-auto md:right-0 hidden bg-secondary-bg w-48 rounded py-2 border border-tertiary-bg cursor-pointer z-40" id=lightDarkOptions>
-<span class="px-4 py-1 hover:text-eureka" name=Light>淺色</span>
+<i class="fas fa-bars"></i></button><div id=target class="hidden block md:flex md:flex-grow md:justify-between md:items-center w-full md:w-auto text-primary-text z-20"><div class="md:flex md:h-16 text-sm md:flex-grow pb-4 md:pb-0 border-b md:border-b-0"><a href=/#about class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2 border-transparent mr-4">About</a>
+<a href=/posts/ class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2 selected-menu-item mr-4">Posts</a></div><div class=flex><div class="relative pt-4 md:pt-0"><div class="cursor-pointer hover:text-eureka" id=lightDarkMode><i class="fas fa-adjust"></i></div><div class="fixed hidden inset-0 opacity-0 h-full w-full cursor-default z-30" id=is-open></div><div class="absolute flex flex-col left-0 md:left-auto right-auto md:right-0 hidden bg-secondary-bg w-48 rounded py-2 border border-tertiary-bg cursor-pointer z-40" id=lightDarkOptions><span class="px-4 py-1 hover:text-eureka" name=Light>淺色</span>
 <span class="px-4 py-1 hover:text-eureka" name=Dark>深色</span>
-<span class="px-4 py-1 hover:text-eureka" name=Auto>自動</span>
-</div>
-</div>
-</div>
-</div>
-<div class="fixed hidden inset-0 opacity-0 h-full w-full cursor-default z-0" id=is-open-mobile>
-</div>
-</nav>
-<script>let element=document.getElementById('lightDarkMode');storageColorScheme==null||storageColorScheme=='Auto'?document.addEventListener('DOMContentLoaded',()=>{window.matchMedia("(prefers-color-scheme: dark)").addEventListener('change',switchDarkMode)}):storageColorScheme=="Light"?(element.firstElementChild.classList.remove('fa-adjust'),element.firstElementChild.setAttribute("data-icon",'sun'),element.firstElementChild.classList.add('fa-sun')):storageColorScheme=="Dark"&&(element.firstElementChild.classList.remove('fa-adjust'),element.firstElementChild.setAttribute("data-icon",'moon'),element.firstElementChild.classList.add('fa-moon')),document.addEventListener('DOMContentLoaded',()=>{getcolorscheme(),switchBurger()})</script>
-</div>
-</header>
-<main class="flex-grow pt-16">
-<div class=pl-scrollbar>
-<div class="w-full max-w-screen-xl lg:px-4 xl:px-8 mx-auto">
-<div class="grid grid-cols-2 lg:grid-cols-8 gap-4 lg:pt-12">
-<div class="col-span-2 lg:col-start-2 lg:col-span-6 bg-secondary-bg rounded px-6 py-8">
-<h1 class="font-bold text-3xl text-primary-text">UVa 838. Worm World</h1>
-<div class="flex flex-wrap flex-row items-center mt-2 text-tertiary-text">
-<div class="mr-6 my-2">
-<i class="fas fa-calendar mr-1"></i>
-<span>2018-10-09</span>
-</div>
-<div class="mr-6 my-2">
-<i class="fas fa-clock mr-1"></i>
-<span>2分鐘閱讀</span>
-</div>
-<div class="mr-6 my-2">
-<i class="fas fa-folder mr-1"></i>
-<a href=/categories/%E9%A1%8C%E8%A7%A3/ class=hover:text-eureka>題解</a>
-</div>
-</div>
-<div class=content>
-<h1 id=description>Description</h1>
-<blockquote>
-<p>給定一張n*n的圖，每個格子上面都有一個數字。<br>
-求在不碰到重複數字的情況下，最遠可以走多遠（只能上下左右移動）？</p>
-</blockquote>
-<h1 id=input-format>Input Format</h1>
-<p>輸入的第一列有一個整數代表以下有多少組測試資料。<br>
-每組測試資料的第一列，有一個整數$N(0 &lt; N \le 12)$，代表這方陣的邊長大小。
-接下來有$N$列，每列有$N$個整數（均介於 0 到 1000 之間）代表方陣中的數字。<br>
-第一列與第一組測試資料以及各組測試資料間均有一空白列</p>
-<h1 id=output-format>Output Format</h1>
-<p>對於每一筆測資請輸出一列，輸出最遠距離為多少。</p>
-<h1 id=sample-input>Sample Input</h1>
-<pre><code>1
+<span class="px-4 py-1 hover:text-eureka" name=Auto>自動</span></div></div></div></div><div class="fixed hidden inset-0 opacity-0 h-full w-full cursor-default z-0" id=is-open-mobile></div></nav><script>let element=document.getElementById("lightDarkMode");storageColorScheme==null||storageColorScheme=="Auto"?document.addEventListener("DOMContentLoaded",()=>{window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change",switchDarkMode)}):storageColorScheme=="Light"?(element.firstElementChild.classList.remove("fa-adjust"),element.firstElementChild.setAttribute("data-icon","sun"),element.firstElementChild.classList.add("fa-sun")):storageColorScheme=="Dark"&&(element.firstElementChild.classList.remove("fa-adjust"),element.firstElementChild.setAttribute("data-icon","moon"),element.firstElementChild.classList.add("fa-moon")),document.addEventListener("DOMContentLoaded",()=>{getcolorscheme(),switchBurger()})</script></div></header><main class="flex-grow pt-16"><div class=pl-scrollbar><div class="w-full max-w-screen-xl lg:px-4 xl:px-8 mx-auto"><div class="grid grid-cols-2 lg:grid-cols-8 gap-4 lg:pt-12"><div class="col-span-2 lg:col-start-2 lg:col-span-6 bg-secondary-bg rounded px-6 py-8"><h1 class="font-bold text-3xl text-primary-text">UVa 838. Worm World</h1><div class="flex flex-wrap flex-row items-center mt-2 text-tertiary-text"><div class="mr-6 my-2"><i class="fas fa-calendar mr-1"></i>
+<span>2018-10-09</span></div><div class="mr-6 my-2"><i class="fas fa-clock mr-1"></i>
+<span>2分鐘閱讀</span></div><div class="mr-6 my-2"><i class="fas fa-folder mr-1"></i>
+<a href=/categories/%E9%A1%8C%E8%A7%A3/ class=hover:text-eureka>題解</a></div></div><div class=content><h1 id=description>Description</h1><blockquote><p>給定一張n*n的圖，每個格子上面都有一個數字。<br>求在不碰到重複數字的情況下，最遠可以走多遠（只能上下左右移動）？</p></blockquote><h1 id=input-format>Input Format</h1><p>輸入的第一列有一個整數代表以下有多少組測試資料。<br>每組測試資料的第一列，有一個整數$N(0 &lt; N \le 12)$，代表這方陣的邊長大小。
+接下來有$N$列，每列有$N$個整數（均介於 0 到 1000 之間）代表方陣中的數字。<br>第一列與第一組測試資料以及各組測試資料間均有一空白列</p><h1 id=output-format>Output Format</h1><p>對於每一筆測資請輸出一列，輸出最遠距離為多少。</p><h1 id=sample-input>Sample Input</h1><pre><code>1
 
 3
 1 2 1
 2 3 4
 3 2 1
-</code></pre>
-<h1 id=sample-output>Sample Output</h1>
-<pre><code>4
-</code></pre>
-<p>UVa - <a href=https://uva.onlinejudge.org/external/8/838.pdf>838</a></p>
-<h1 id=solution>Solution</h1>
-<p>從uHunt上面看到這題的解題統計，可以發現TLE占非常多數。<br>
-<img src=1.png alt>
-所以這題的難度就是在於，如何降低程式執行時間？<br>
-首先先分析一下這題的做法，很明顯的可以看出可以用DFS來解。</p>
-<blockquote>
-<p>對於每一層遞迴，朝上下左右四個方向去做遞迴，若遇到重複出現的數字就跳出。</p>
-</blockquote>
-<p>然後我們可以再做一下優化：</p>
-<blockquote>
-<p>假設此圖出現$k$個不同的數字，則最長路徑距離應為$k$，所以如果$遞迴深度 \ge k$，則可以$return$。</p>
-</blockquote>
-<p>但是就算做了上述的優化，還是會TLE。結果後來我發現，dfs的順序很重要，「上左下右」跟「上下左右」等其他順序執行出來的時間差很多，到目前為止我還是不能證明出來為何會這樣，但是只要照著「上左下右」的順序去寫就可以輕鬆拿到AC了！</p>
-<p>程式執行結果如下圖：
-<img src=2.png alt></p>
-<p>網路上有人這題使用A*+Heap的作法，但是程式非常冗長且複雜，而且執行時間比我寫的還久一點，所以這裡就不說明了。</p>
-<h1 id=code>Code</h1>
-<pre><code class=language-cpp>/*************************************************************************
+</code></pre><h1 id=sample-output>Sample Output</h1><pre><code>4
+</code></pre><p>UVa - <a href=https://uva.onlinejudge.org/external/8/838.pdf>838</a></p><h1 id=solution>Solution</h1><p>從uHunt上面看到這題的解題統計，可以發現TLE占非常多數。<br><img src=1.png alt>
+所以這題的難度就是在於，如何降低程式執行時間？<br>首先先分析一下這題的做法，很明顯的可以看出可以用DFS來解。</p><blockquote><p>對於每一層遞迴，朝上下左右四個方向去做遞迴，若遇到重複出現的數字就跳出。</p></blockquote><p>然後我們可以再做一下優化：</p><blockquote><p>假設此圖出現$k$個不同的數字，則最長路徑距離應為$k$，所以如果$遞迴深度 \ge k$，則可以$return$。</p></blockquote><p>但是就算做了上述的優化，還是會TLE。結果後來我發現，dfs的順序很重要，「上左下右」跟「上下左右」等其他順序執行出來的時間差很多，到目前為止我還是不能證明出來為何會這樣，但是只要照著「上左下右」的順序去寫就可以輕鬆拿到AC了！</p><p>程式執行結果如下圖：
+<img src=2.png alt></p><p>網路上有人這題使用A*+Heap的作法，但是程式非常冗長且複雜，而且執行時間比我寫的還久一點，所以這裡就不說明了。</p><h1 id=code>Code</h1><pre><code class=language-cpp>/*************************************************************************
   &gt; File Name: 00838 - Worm World.cpp
   &gt; Author: Samuel
   &gt; Mail: enminghuang21119@gmail.com
@@ -197,50 +87,8 @@ int main() {
     }
     return 0;
 }
-</code></pre>
-</div>
-<div class=my-4>
-<a href=/tags/uva/ class="inline-block bg-tertiary-bg text-sm rounded px-3 py-1 my-1 mr-2 hover:text-eureka">#UVa</a>
-<a href=/tags/dfs/ class="inline-block bg-tertiary-bg text-sm rounded px-3 py-1 my-1 mr-2 hover:text-eureka">#DFS</a>
-</div>
-<div class="flex flex-col md:flex-row md:justify-between -mx-2 mt-4 px-2 pt-4 border-t">
-<div>
-<span class="block font-bold">上一頁</span>
-<a href=/posts/107%E5%AD%B8%E5%B9%B4%E5%BA%A6-%E6%A0%A1%E5%85%A7%E5%88%9D%E9%81%B8%E9%A1%8C%E7%9B%AE/ class=block>107學年度 校內初選題目</a>
-</div>
-<div class="md:text-right mt-4 md:mt-0">
-<span class="block font-bold">下一頁</span>
-<a href=/posts/uva-10600-acm-contest-and-blackout/ class=block>UVa 10600. ACM contest and Blackout</a>
-</div>
-</div>
-</div>
-<div class="col-span-2 lg:col-start-2 lg:col-span-6 bg-secondary-bg rounded p-6">
-<h2 class="text-lg font-semibold mb-4">相關</h2>
-<div class=content>
-<a href=/posts/uva-165-stamps/>UVa 165. Stamps</a>
-<br>
-<a href=/posts/uva-10917-walk-through-the-forest/>UVa 10917. Walk Through the Forest</a>
-<br>
-<a href=/posts/uva-307-sticks/>UVa 307. Sticks</a>
-<br>
-<a href=/posts/uva-10952.-pattern-transformations/>UVa 10952. Pattern Transformations</a>
-<br>
-<a href=/posts/uva-10600-acm-contest-and-blackout/>UVa 10600. ACM contest and Blackout</a>
-<br>
-<a href=/posts/uva-11456-trainsorting/>UVa 11456. Trainsorting</a>
-<br>
-</div>
-</div>
-</div>
-<script>document.addEventListener('DOMContentLoaded',()=>{hljs.initHighlightingOnLoad()})</script>
-</div>
-</div>
-</main>
-<footer class=pl-scrollbar>
-<div class="w-full max-w-screen-xl mx-auto"><div class="text-center p-6 pin-b">
-<p class="text-sm text-tertiary-text">&copy; 2021 <a href=https://www.wangchucheng.com/>C. Wang</a> and <a href=https://www.ruiqima.com/>R. Ma</a>
-&#183; Powered by the <a href=https://github.com/wangchucheng/hugo-eureka class=hover:text-eureka>Eureka</a> theme for <a href=https://gohugo.io class=hover:text-eureka>Hugo</a></p>
-</div></div>
-</footer>
-</body>
-</html>
+</code></pre></div><div class=my-4><a href=/tags/uva/ class="inline-block bg-tertiary-bg text-sm rounded px-3 py-1 my-1 mr-2 hover:text-eureka">#UVa</a>
+<a href=/tags/dfs/ class="inline-block bg-tertiary-bg text-sm rounded px-3 py-1 my-1 mr-2 hover:text-eureka">#DFS</a></div><div class="flex flex-col md:flex-row md:justify-between -mx-2 mt-4 px-2 pt-4 border-t"><div><span class="block font-bold">上一頁</span>
+<a href=/posts/107%E5%AD%B8%E5%B9%B4%E5%BA%A6-%E6%A0%A1%E5%85%A7%E5%88%9D%E9%81%B8%E9%A1%8C%E7%9B%AE/ class=block>107學年度 校內初選題目</a></div><div class="md:text-right mt-4 md:mt-0"><span class="block font-bold">下一頁</span>
+<a href=/posts/uva-10600-acm-contest-and-blackout/ class=block>UVa 10600. ACM contest and Blackout</a></div></div></div><div class="col-span-2 lg:col-start-2 lg:col-span-6 bg-secondary-bg rounded p-6"><h2 class="text-lg font-semibold mb-4">相關</h2><div class=content><a href=/posts/uva-165-stamps/>UVa 165. Stamps</a><br><a href=/posts/uva-10917-walk-through-the-forest/>UVa 10917. Walk Through the Forest</a><br><a href=/posts/uva-307-sticks/>UVa 307. Sticks</a><br><a href=/posts/uva-10952.-pattern-transformations/>UVa 10952. Pattern Transformations</a><br><a href=/posts/uva-10600-acm-contest-and-blackout/>UVa 10600. ACM contest and Blackout</a><br><a href=/posts/uva-11456-trainsorting/>UVa 11456. Trainsorting</a><br></div></div></div><script>document.addEventListener("DOMContentLoaded",()=>{hljs.initHighlightingOnLoad()})</script></div></div></main><footer class=pl-scrollbar><div class="w-full max-w-screen-xl mx-auto"><div class="text-center p-6 pin-b"><p class="text-sm text-tertiary-text">&copy; 2021 <a href=https://www.wangchucheng.com/>C. Wang</a> and <a href=https://www.ruiqima.com/>R. Ma</a>
+&#183; Powered by the <a href=https://github.com/wangchucheng/hugo-eureka class=hover:text-eureka>Eureka</a> theme for <a href=https://gohugo.io class=hover:text-eureka>Hugo</a></p></div></div></footer></body></html>
